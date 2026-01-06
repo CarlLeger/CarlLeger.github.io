@@ -1,43 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Carl Leger – Freelance WordPress Developer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Freelance WordPress & WooCommerce performance specialist focused on speed, Core Web Vitals, and optimization.">
+  <meta charset="UTF-8" />
+  <title>Carl Leger – WordPress & WooCommerce Performance Expert</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Freelance WordPress & WooCommerce performance specialist focused on Core Web Vitals, speed, and scalable production setups." />
+
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, sans-serif; background:#0f172a; color:#e5e7eb; margin:0; padding:40px; }
-    .container { max-width:720px; margin:auto; }
-    h1 { font-size:2.2rem; margin:0 0 10px; }
-    h2 { margin-top:32px; font-size:1.25rem; }
-    p { line-height:1.6; color:#cbd5f5; }
-    ul { padding-left:18px; }
-    li { margin-bottom:8px; }
-    .tag { display:inline-block; background:#1e293b; padding:6px 10px; margin:4px 6px 0 0; border-radius:8px; font-size:.85rem; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Carl Leger</h1>
-    <p>Freelance WordPress & WooCommerce performance specialist focused on speed, optimization, Core Web Vitals, and scalable production setups.</p>
+    :root {
+      --bg: #0b1220;
+      --panel: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+    }
 
-    <h2>What I Do</h2>
-    <ul>
-      <li>WooCommerce performance optimization (CWV, TTFB, caching)</li>
-      <li>Cloudflare configuration and caching rules</li>
-      <li>WordPress troubleshooting (slow admin, heavy plugins, DB issues)</li>
-      <li>Security hardening and cleanup</li>
-    </ul>
+    * { box-sizing: border-box; }
 
-    <h2>Tech Stack</h2>
-    <div>
-      <span class="tag">WordPress</span>
-      <span class="tag">WooCommerce</span>
-      <span class="tag">PHP</span>
-      <span class="tag">JavaScript</span>
-      <span class="tag">Cloudflare</span>
-      <span class="tag">GitHub</span>
-    </div>
-  </div>
-</body>
-</html>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      background: linear-gradient(180deg, #0b1220, #020617);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 880px;
+      margin: auto;
+      padding: 80px 24px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin-top: 64px;
+      margin-bottom: 16px;
+      font-size: 1.5rem;
+    }
+
+    p {
+      line-height: 1.7;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 1.15rem;
+    }
+
+    .cta {
+      margin-top: 32px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #020617;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid #334155;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: .9;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+
+    .panel {
+      background: var(--panel);
+      padding: 24px;
+      border-radius: 16px;
+      margin-top: 24px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      background: #1e293b;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: .85rem;
+      color: #cbd5f5;
+
