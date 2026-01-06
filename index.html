@@ -4,221 +4,312 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Carl Leger — WordPress & WooCommerce Performance Expert</title>
-  <meta name="description" content="Freelance WordPress & WooCommerce performance specialist focused on speed, Core Web Vitals, caching, troubleshooting, and security hardening." />
+  <title>Carl Leger — WordPress & WooCommerce Performance Specialist</title>
+  <meta name="description" content="I fix slow WordPress & WooCommerce sites: Core Web Vitals, TTFB, caching, checkout issues, Cloudflare, database bottlenecks, and security hardening." />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://carlleger.github.io/" />
 
-  <!-- Open Graph (nice previews when you share the link) -->
+  <!-- Open Graph (nice preview when sharing) -->
   <meta property="og:title" content="Carl Leger — WordPress & WooCommerce Performance" />
-  <meta property="og:description" content="Speed, Core Web Vitals, caching, troubleshooting, security hardening." />
+  <meta property="og:description" content="Core Web Vitals + speed + WooCommerce-safe caching + checkout troubleshooting." />
   <meta property="og:url" content="https://carlleger.github.io/" />
   <meta property="og:type" content="website" />
+
+  <!-- Simple favicon (emoji). Optional but nice. -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
   <style>
     :root{
       --bg:#0b1220;
-      --panel:#111827;
-      --panel2:#0f172a;
+      --bg2:#020617;
+      --panel:rgba(17,24,39,.78);
+      --border:rgba(255,255,255,.10);
       --text:#e5e7eb;
       --muted:#9ca3af;
+      --muted2:#cbd5e1;
       --accent:#38bdf8;
-      --border:rgba(255,255,255,.10);
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --accent2:#60a5fa;
+      --shadow:0 14px 40px rgba(0,0,0,.38);
+      --radius:18px;
     }
-
     *{ box-sizing:border-box; }
-
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: linear-gradient(180deg, var(--bg), #020617);
+      background: radial-gradient(900px 420px at 15% 0%, rgba(56,189,248,.18), transparent 60%),
+                  radial-gradient(720px 360px at 80% 10%, rgba(96,165,250,.12), transparent 55%),
+                  linear-gradient(180deg, var(--bg), var(--bg2));
       color:var(--text);
-      line-height:1.55;
+      line-height:1.6;
     }
-
     a{ color:inherit; }
-
-    .container{
-      max-width: 980px;
+    .wrap{
+      max-width: 1020px;
       margin: 0 auto;
-      padding: 64px 20px 80px;
+      padding: 58px 20px 84px;
     }
 
     /* HERO */
     .hero{
-      background: radial-gradient(900px 420px at 20% 0%, rgba(56,189,248,.16), transparent 55%),
-                  radial-gradient(700px 360px at 80% 20%, rgba(56,189,248,.10), transparent 60%);
       border:1px solid var(--border);
-      border-radius: 18px;
-      padding: 28px 28px 22px;
+      background: rgba(2,6,23,.35);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(6px);
+      padding: 30px 28px 24px;
+      backdrop-filter: blur(10px);
     }
-
     .kicker{
       display:inline-flex;
-      gap:10px;
       align-items:center;
+      gap:10px;
       font-size: 13px;
       color: var(--muted);
       margin-bottom: 10px;
     }
-
     .dot{
       width:10px;height:10px;border-radius:50%;
       background: rgba(56,189,248,.9);
-      box-shadow: 0 0 0 6px rgba(56,189,248,.14);
+      box-shadow: 0 0 0 6px rgba(56,189,248,.16);
+      flex: 0 0 auto;
     }
-
     h1{
       margin:0;
-      font-size: clamp(32px, 5vw, 44px);
-      letter-spacing: .2px;
+      font-size: clamp(32px, 4.8vw, 46px);
+      letter-spacing:-0.02em;
     }
-
-    .subtitle{
+    .sub{
       margin: 10px 0 0;
+      color: var(--muted2);
+      font-size: 16.5px;
+      max-width: 78ch;
+    }
+    .promise{
+      margin: 14px 0 0;
       color: var(--muted);
-      max-width: 70ch;
-      font-size: 15.5px;
+      max-width: 80ch;
+      font-size: 14.7px;
     }
 
-    /* CTA BUTTONS */
-    .cta-row{
+    /* CTA */
+    .cta{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin: 18px 0 0;
+      margin-top: 18px;
+      align-items:center;
     }
-
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:10px 14px;
-      border-radius:12px;
+      padding: 11px 14px;
+      border-radius: 12px;
       border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
+      background: rgba(255,255,255,.06);
       text-decoration:none;
-      font-weight:650;
-      font-size:14px;
+      font-weight: 700;
+      font-size: 14px;
       letter-spacing:.2px;
-      transition:transform .08s ease, background .15s ease, border-color .15s ease;
+      transition: transform .10s ease, background .15s ease, border-color .15s ease, opacity .15s ease;
       white-space:nowrap;
     }
-
     .btn:hover{
-      background:rgba(255,255,255,.10);
-      border-color:rgba(255,255,255,.20);
-      transform:translateY(-1px);
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.20);
+      opacity:.96;
     }
-
     .btn.primary{
-      background:rgba(56,189,248,.18);
-      border-color:rgba(56,189,248,.35);
+      background: rgba(56,189,248,.18);
+      border-color: rgba(56,189,248,.40);
+      color: #eaf7ff;
     }
-
     .btn.primary:hover{
-      background:rgba(56,189,248,.24);
+      background: rgba(56,189,248,.24);
+      border-color: rgba(56,189,248,.52);
     }
-
     .btn.ghost{
-      background:transparent;
+      background: transparent;
     }
 
-    /* GRID SECTIONS */
+    /* LAYOUT */
     .grid{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1.25fr .75fr;
       gap: 18px;
       margin-top: 18px;
     }
-
-    @media (max-width: 920px){
+    @media (max-width: 980px){
       .grid{ grid-template-columns: 1fr; }
     }
-
     .card{
-      background: linear-gradient(180deg, rgba(17,24,39,.85), rgba(15,23,42,.85));
       border:1px solid var(--border);
-      border-radius: 18px;
-      padding: 22px;
+      background: var(--panel);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
+      padding: 22px;
+      backdrop-filter: blur(10px);
     }
-
     h2{
-      margin:0 0 12px;
+      margin: 0 0 12px;
       font-size: 18px;
-      letter-spacing:.2px;
+      letter-spacing:-0.01em;
     }
+    p{ margin: 0; color: var(--muted); }
 
-    .bullets{
+    ul{
       margin:0;
       padding-left: 18px;
-      color: var(--text);
+      color: var(--muted2);
     }
+    li{ margin: 10px 0; }
 
-    .bullets li{
-      margin: 10px 0;
-    }
-
-    .small{
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 10px;
-    }
-
-    /* TAGS */
-    .tag-row{
+    .chips{
       display:flex;
       flex-wrap:wrap;
-      gap:8px;
-      margin-top: 10px;
+      gap: 8px;
+      margin-top: 12px;
     }
-
-    .tag{
-      display:inline-flex;
-      padding:7px 10px;
-      border-radius: 999px;
+    .chip{
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.05);
+      color: var(--muted2);
+      border-radius: 999px;
+      padding: 7px 10px;
       font-size: 12.5px;
-      color: var(--text);
+      white-space:nowrap;
     }
 
-    /* METRICS/PROOF */
+    /* SERVICE CARDS */
+    .svc{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (max-width: 780px){
+      .svc{ grid-template-columns: 1fr; }
+    }
+    .svc .panel{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(2,6,23,.30);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .svc .title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:0 0 6px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing:.1px;
+    }
+    .svc .desc{
+      margin:0 0 10px;
+      color: var(--muted);
+      font-size: 13.7px;
+    }
+    .svc ul{
+      color: var(--muted2);
+      font-size: 14px;
+    }
+    .svc li{ margin: 8px 0; }
+
+    /* PROCESS */
+    .steps{
+      margin-top: 12px;
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 900px){
+      .steps{ grid-template-columns: 1fr; }
+    }
+    .step{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(2,6,23,.30);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .step .n{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      background: rgba(56,189,248,.16);
+      border:1px solid rgba(56,189,248,.35);
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .step .t{
+      margin: 0 0 6px;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .step p{
+      margin:0;
+      font-size: 13.7px;
+      color: var(--muted2);
+    }
+
+    /* PROOF */
     .proof{
+      margin-top: 12px;
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      margin-top: 12px;
     }
     @media (max-width: 520px){
       .proof{ grid-template-columns: 1fr; }
     }
-
-    .pill{
+    .metric{
       border:1px solid rgba(255,255,255,.10);
-      background: rgba(2,6,23,.35);
-      border-radius: 14px;
-      padding: 12px 12px;
+      background: rgba(2,6,23,.30);
+      border-radius: 16px;
+      padding: 14px;
     }
-
-    .pill .label{
-      font-size: 12px;
+    .metric .label{
       color: var(--muted);
+      font-size: 12px;
       margin-bottom: 6px;
     }
-
-    .pill .value{
-      font-weight: 700;
+    .metric .value{
+      font-weight: 900;
+      color: var(--text);
       letter-spacing: .2px;
+    }
+    .metric .hint{
+      margin-top: 6px;
+      font-size: 12.5px;
+      color: var(--muted2);
+    }
+
+    /* FAQ */
+    details{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(2,6,23,.26);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-top: 10px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 800;
+      color: var(--text);
+    }
+    details p{
+      margin-top: 8px;
+      color: var(--muted2);
+      font-size: 13.8px;
     }
 
     /* FOOTER */
     footer{
       margin-top: 18px;
+      padding-top: 14px;
       color: var(--muted);
       font-size: 13px;
       display:flex;
@@ -226,15 +317,13 @@
       gap:10px;
       align-items:center;
       justify-content:space-between;
-      padding: 14px 6px 0;
     }
-
-    .footer-links a{
+    .links a{
       color: var(--muted);
       text-decoration: none;
       border-bottom: 1px dotted rgba(156,163,175,.35);
     }
-    .footer-links a:hover{
+    .links a:hover{
       color: var(--text);
       border-bottom-color: rgba(229,231,235,.55);
     }
@@ -242,7 +331,9 @@
 </head>
 
 <body>
-  <main class="container">
+  <main class="wrap">
+
+    <!-- HERO -->
     <section class="hero">
       <div class="kicker">
         <span class="dot"></span>
@@ -250,103 +341,193 @@
       </div>
 
       <h1>Carl Leger</h1>
-      <p class="subtitle">
-        I help WordPress & WooCommerce sites run faster and convert better by fixing Core Web Vitals,
-        caching/TTFB issues, plugin bloat, database bottlenecks, and security problems, without risky hacks.
+
+      <p class="sub">
+        I fix slow WordPress & WooCommerce sites: Core Web Vitals, TTFB, caching, checkout issues, Cloudflare, database bottlenecks, and security hardening.
       </p>
 
-      <div class="cta-row">
+      <p class="promise">
+        Goal: faster load times, smoother checkout, and fewer plugin conflicts, with changes tested and documented.
+      </p>
+
+      <div class="cta">
         <a class="btn primary" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener">
           Hire me on Upwork
         </a>
-
         <a class="btn" href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener">
           Portfolio (Notion)
         </a>
-
-        <a class="btn" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener">
-          LinkedIn
-        </a>
-
-        <a class="btn" href="https://github.com/CarlLeger" target="_blank" rel="noopener">
-          GitHub
-        </a>
-
-        <a class="btn ghost" href="mailto:carlleger.dev@gmail.com">
+        <a class="btn" href="mailto:carlleger.dev@gmail.com">
           Email me
         </a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener">
+          LinkedIn
+        </a>
+        <a class="btn ghost" href="https://github.com/CarlLeger" target="_blank" rel="noopener">
+          GitHub
+        </a>
+      </div>
+
+      <div class="chips">
+        <span class="chip">Core Web Vitals</span>
+        <span class="chip">TTFB</span>
+        <span class="chip">WooCommerce Checkout</span>
+        <span class="chip">Cloudflare</span>
+        <span class="chip">Caching Strategy</span>
+        <span class="chip">Database Fixes</span>
+        <span class="chip">Security Hardening</span>
       </div>
     </section>
 
     <section class="grid">
-      <article class="card">
-        <h2>What I Do</h2>
-        <ul class="bullets">
-          <li><strong>Performance optimization</strong> (Core Web Vitals, LCP/INP/CLS, TTFB, caching strategy)</li>
-          <li><strong>WooCommerce troubleshooting</strong> (slow checkout, broken payments, heavy plugins, conflicts)</li>
-          <li><strong>Cloudflare setup</strong> and WooCommerce-safe caching rules</li>
-          <li><strong>Database & backend fixes</strong> (autoload bloat, queries, cron, wp-admin slowness)</li>
-          <li><strong>Security hardening</strong> (malware cleanup, patching, best practices)</li>
-        </ul>
 
-        <p class="small">
-          I focus on measurable improvements and clean implementations that are easy to maintain.
-        </p>
-      </article>
+      <!-- LEFT: SERVICES + PROCESS + FAQ -->
+      <section class="card">
+        <h2>Services</h2>
+        <p>Pick what matches your situation. I’ll confirm scope after a quick review of your URL + access level.</p>
 
+        <div class="svc">
+          <div class="panel">
+            <div class="title">⚡ Speed & Core Web Vitals Fix</div>
+            <p class="desc">Improve LCP/INP/CLS and overall responsiveness without breaking layouts.</p>
+            <ul>
+              <li>Script bloat cleanup (themes/plugins)</li>
+              <li>Image & font optimization</li>
+              <li>Cache strategy (safe for WooCommerce)</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <div class="title">🧾 WooCommerce Checkout Troubleshooting</div>
+            <p class="desc">Fix slow checkout, payment issues, conflicts, and weird cart behavior.</p>
+            <ul>
+              <li>Plugin conflict isolation</li>
+              <li>Gateway & webhook checks</li>
+              <li>Performance bottlenecks (DB/queries)</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <div class="title">☁️ Cloudflare + Caching Setup</div>
+            <p class="desc">Better TTFB and cache hit rate while keeping cart/checkout correct.</p>
+            <ul>
+              <li>Page rules / Cache Rules</li>
+              <li>WooCommerce exclusions</li>
+              <li>Headers + CDN tuning</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <div class="title">🛡️ Security & Stability</div>
+            <p class="desc">Reduce risk and stabilize production (especially stores).</p>
+            <ul>
+              <li>Hardening & cleanup guidance</li>
+              <li>Update strategy & backups</li>
+              <li>Monitoring recommendations</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 style="margin-top:20px;">Process</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="n">1</div>
+            <div class="t">Audit</div>
+            <p>PageSpeed + CWV, TTFB, scripts, plugins, DB, cache, hosting constraints.</p>
+          </div>
+          <div class="step">
+            <div class="n">2</div>
+            <div class="t">Fix + Test</div>
+            <p>Implement improvements, validate checkout, and confirm no regressions.</p>
+          </div>
+          <div class="step">
+            <div class="n">3</div>
+            <div class="t">Report</div>
+            <p>What changed, why it matters, and what to do next to keep it fast.</p>
+          </div>
+        </div>
+
+        <h2 style="margin-top:20px;">FAQ</h2>
+
+        <details>
+          <summary>Will this break my WooCommerce checkout?</summary>
+          <p>No. I treat checkout/cart/account pages as “do not break” zones. Caching and optimizations are configured WooCommerce-safe, with testing before completion.</p>
+        </details>
+
+        <details>
+          <summary>What access do you need?</summary>
+          <p>Typically WordPress admin + (optional) hosting panel/FTP. For deeper performance issues, read-only server access or logs can help, but we can start without it.</p>
+        </details>
+
+        <details>
+          <summary>How fast can you start?</summary>
+          <p>Often within 24–48 hours depending on current workload. If you have a production issue, mention it on Upwork and I’ll tell you the fastest safe path.</p>
+        </details>
+
+      </section>
+
+      <!-- RIGHT: PROOF / CONTACT -->
       <aside class="card">
         <h2>Quick Proof</h2>
+        <p>Until we add your real before/after numbers, here’s what I measure and optimize.</p>
+
         <div class="proof">
-          <div class="pill">
-            <div class="label">Typical focus</div>
-            <div class="value">CWV + TTFB + Checkout</div>
+          <div class="metric">
+            <div class="label">Core Web Vitals</div>
+            <div class="value">LCP • INP • CLS</div>
+            <div class="hint">Prioritize what impacts real user experience.</div>
           </div>
-          <div class="pill">
-            <div class="label">Approach</div>
-            <div class="value">Tested + documented</div>
+
+          <div class="metric">
+            <div class="label">Server Response</div>
+            <div class="value">TTFB</div>
+            <div class="hint">Hosting + cache + DB bottlenecks.</div>
           </div>
-          <div class="pill">
-            <div class="label">Stack</div>
-            <div class="value">WP • WC • PHP • JS</div>
+
+          <div class="metric">
+            <div class="label">WooCommerce</div>
+            <div class="value">Checkout Stability</div>
+            <div class="hint">No risky “speed hacks” that break orders.</div>
           </div>
-          <div class="pill">
-            <div class="label">Tools</div>
-            <div class="value">PSI • GTmetrix • WP-CLI</div>
+
+          <div class="metric">
+            <div class="label">Deliverable</div>
+            <div class="value">Changes + Notes</div>
+            <div class="hint">Documented, repeatable, maintainable.</div>
           </div>
         </div>
 
-        <h2 style="margin-top:18px;">Tech Stack</h2>
-        <div class="tag-row">
-          <span class="tag">WordPress</span>
-          <span class="tag">WooCommerce</span>
-          <span class="tag">PHP</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Cloudflare</span>
-          <span class="tag">GitHub</span>
-        </div>
+        <h2 style="margin-top:18px;">Contact</h2>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:carlleger.dev@gmail.com">carlleger.dev@gmail.com</a></li>
+          <li><strong>Upwork:</strong> <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener">Profile link</a></li>
+          <li><strong>Portfolio:</strong> <a href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener">Notion</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener">carlleger</a></li>
+        </ul>
 
-        <p class="small">
-          Want a quick estimate? Send your URL + hosting + PageSpeed report link.
-        </p>
+        <div class="cta" style="margin-top:14px;">
+          <a class="btn primary" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener">Hire on Upwork</a>
+          <a class="btn" href="mailto:carlleger.dev@gmail.com">Email</a>
+        </div>
       </aside>
+
     </section>
 
     <footer>
       <div>© <span id="y"></span> Carl Leger</div>
-      <div class="footer-links">
+      <div class="links">
         <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener">Upwork</a>
         &nbsp;·&nbsp;
         <a href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener">Portfolio</a>
         &nbsp;·&nbsp;
-        <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener">LinkedIn</a>
-        &nbsp;·&nbsp;
         <a href="mailto:carlleger.dev@gmail.com">Email</a>
       </div>
     </footer>
+
   </main>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
