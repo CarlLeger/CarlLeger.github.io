@@ -1,60 +1,441 @@
-<!-- Update: add proper commit message -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WooCommerce Cache Mistakes (and how to fix them)</title>
+  <meta name="description" content="Avoid the most common WooCommerce caching mistakes that break cart/checkout, user sessions, pricing, and dynamic content. Includes a Woo-safe cache checklist." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://carlleger.github.io/resources/woocommerce-cache-mistakes/" />
 
-<div class="section" style="margin-top:18px;">
-  <h2 style="margin:0 0 12px; font-size:18px;">Comparison: Best WooCommerce Cache Plugins</h2>
-  <div style="overflow:auto; border:1px solid rgba(255,255,255,.10); border-radius:16px;">
-    <table style="width:100%; border-collapse:collapse; min-width:900px; background:rgba(255,255,255,.03);">
-      <thead>
-        <tr>
-          <th style="text-align:left; padding:12px; border-bottom:1px solid rgba(255,255,255,.10);">Plugin</th>
-          <th style="text-align:left; padding:12px; border-bottom:1px solid rgba(255,255,255,.10);">Best for</th>
-          <th style="text-align:left; padding:12px; border-bottom:1px solid rgba(255,255,255,.10);">Woo-safe?</th>
-          <th style="text-align:left; padding:12px; border-bottom:1px solid rgba(255,255,255,.10);">Key features</th>
-          <th style="text-align:left; padding:12px; border-bottom:1px solid rgba(255,255,255,.10);">Impact</th>
-          <th style="text-align:left; padding:12px; border-bottom:1px solid rgba(255,255,255,.10);">Price</th>
-          <th style="text-align:left; padding:12px; border-bottom:1px solid rgba(255,255,255,.10);">My pick</th>
-          <th style="text-align:left; padding:12px; border-bottom:1px solid rgba(255,255,255,.10);">Link</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);"><b>WP Rocket</b></td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);">Fast wins + simple setup</td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);">✅ Yes</td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);">Page cache, preload, delay JS, CDN, DB cleanup</td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);">High</td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);">$</td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);">⭐ Best overall</td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);"><a href="#" rel="nofollow sponsored">View</a></td>
-        </tr>
+  <!-- Open Graph -->
+  <meta property="og:title" content="WooCommerce Cache Mistakes (and how to fix them)" />
+  <meta property="og:description" content="The Woo-safe caching guide: what NOT to cache, the exclusions you must set, and a practical checklist to keep cart/checkout stable." />
+  <meta property="og:url" content="https://carlleger.github.io/resources/woocommerce-cache-mistakes/" />
+  <meta property="og:type" content="article" />
 
-        <tr>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);"><b>LiteSpeed Cache</b></td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);">Sites on LiteSpeed server</td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);">✅ Yes</td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);">Server-level cache, QUIC.cloud, image optimization</td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);">Very high</td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);">$0–$</td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);">⭐ Best on LS</td>
-          <td style="padding:12px; border-bottom:1px solid rgba(255,255,255,.06);"><a href="#" rel="nofollow sponsored">View</a></td>
-        </tr>
+  <style>
+    :root{
+      --bg1:#0b1220;
+      --bg2:#070d17;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.03);
+      --stroke:rgba(255,255,255,.10);
+      --stroke2:rgba(255,255,255,.06);
+      --text:#e7ecff;
+      --muted:rgba(168,179,214,.95);
+      --accent:#6aa6ff;
+      --good:#2ee59d;
+      --warn:#ffd166;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
 
-        <tr>
-          <td style="padding:12px;"><b>FlyingPress</b></td>
-          <td style="padding:12px;">CWV-focused optimization</td>
-          <td style="padding:12px;">✅ Yes</td>
-          <td style="padding:12px;">Critical CSS, lazyload, bloat control, caching</td>
-          <td style="padding:12px;">High</td>
-          <td style="padding:12px;">$</td>
-          <td style="padding:12px;">⭐ Best CWV</td>
-          <td style="padding:12px;"><a href="#" rel="nofollow sponsored">View</a></td>
-        </tr>
-      </tbody>
-    </table>
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 18% 18%, rgba(106,166,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(46,229,157,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      line-height:1.55;
+    }
+
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .container{
+      max-width: 980px;
+      padding: 28px 18px 70px;
+      margin: 0 auto;
+    }
+
+    header{
+      padding: 22px 0 10px;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 7px 12px;
+      border:1px solid var(--stroke);
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(180deg, var(--accent), rgba(106,166,255,.35));
+      box-shadow: 0 0 0 4px rgba(106,166,255,.10);
+    }
+
+    h1{
+      margin: 14px 0 8px;
+      font-size: clamp(26px, 3.2vw, 38px);
+      line-height:1.12;
+      letter-spacing: -0.3px;
+    }
+
+    .subtitle{
+      margin:0;
+      color: var(--muted);
+      max-width: 72ch;
+      font-size: 15px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 900px){
+      .grid{ grid-template-columns:1fr; }
+    }
+
+    .card{
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, var(--panel), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+
+    .card h2{
+      margin:0 0 8px;
+      font-size: 16px;
+      letter-spacing:.2px;
+    }
+
+    .list{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 10px;
+    }
+
+    .pill{
+      padding: 7px 10px;
+      border-radius: 999px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 13px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .pill .mini{
+      width:8px;height:8px;border-radius:99px;
+      background: rgba(255,255,255,.22);
+    }
+    .pill.good .mini{ background: var(--good); box-shadow: 0 0 0 4px rgba(46,229,157,.10); }
+    .pill.warn .mini{ background: var(--warn); box-shadow: 0 0 0 4px rgba(255,209,102,.10); }
+
+    /* Section wrapper */
+    .section{
+      margin-top:18px;
+      padding:18px;
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, var(--panel), rgba(255,255,255,.03));
+      border-radius:18px;
+      box-shadow: var(--shadow);
+    }
+
+    .section h2{
+      margin:0 0 12px;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+
+    /* Table container (responsive scroll) */
+    .table-wrap{
+      overflow:auto;
+      border:1px solid var(--stroke);
+      border-radius:16px;
+      background: var(--panel2);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .table-wrap::-webkit-scrollbar{ height:10px; }
+    .table-wrap::-webkit-scrollbar-thumb{
+      background: rgba(255,255,255,.14);
+      border-radius:999px;
+    }
+    .table-wrap::-webkit-scrollbar-track{
+      background: rgba(255,255,255,.05);
+      border-radius:999px;
+    }
+
+    table.compare{
+      width:100%;
+      border-collapse:collapse;
+      min-width: 980px;
+    }
+
+    table.compare th{
+      text-align:left;
+      padding:12px;
+      font-size: 13px;
+      letter-spacing:.2px;
+      color: rgba(231,236,255,.92);
+      border-bottom:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      backdrop-filter: blur(10px);
+    }
+
+    table.compare td{
+      padding:12px;
+      border-bottom:1px solid var(--stroke2);
+      color: var(--muted);
+      font-size: 14px;
+      vertical-align: top;
+    }
+
+    table.compare tbody tr:hover td{
+      background: rgba(255,255,255,.03);
+      color: rgba(231,236,255,.92);
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
+      font-size: 12px;
+      color: rgba(231,236,255,.90);
+      white-space: nowrap;
+    }
+
+    .badge .b{
+      width:8px;height:8px;border-radius:999px;
+      background: rgba(255,255,255,.22);
+    }
+    .badge.good .b{ background: var(--good); box-shadow: 0 0 0 4px rgba(46,229,157,.10); }
+    .badge.warn .b{ background: var(--warn); box-shadow: 0 0 0 4px rgba(255,209,102,.10); }
+
+    .plugin{
+      font-weight: 700;
+      color: rgba(231,236,255,.96);
+    }
+
+    .muted-note{
+      margin:10px 0 0;
+      color: var(--muted);
+      font-size:13px;
+    }
+
+    .hr{
+      height:1px;
+      background: rgba(255,255,255,.08);
+      border:0;
+      margin: 16px 0;
+    }
+
+    .callout{
+      border:1px solid rgba(106,166,255,.25);
+      background: rgba(106,166,255,.07);
+      border-radius: 16px;
+      padding: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .callout strong{ color: rgba(231,236,255,.96); }
+
+    .checklist{
+      margin: 10px 0 0;
+      padding-left: 0;
+      list-style: none;
+      display:grid;
+      gap:10px;
+    }
+
+    .checklist li{
+      padding: 12px 12px;
+      border:1px solid var(--stroke);
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .checklist li b{ color: rgba(231,236,255,.94); }
+
+    footer{
+      margin-top: 18px;
+      color: rgba(168,179,214,.85);
+      font-size: 12.5px;
+      text-align:center;
+    }
+
+    .small{
+      font-size: 12.5px;
+      color: rgba(168,179,214,.88);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <span class="kicker"><span class="dot"></span> Resource • WooCommerce Performance</span>
+      <h1>WooCommerce Cache Mistakes (and how to fix them)</h1>
+      <p class="subtitle">
+        If your cart/checkout breaks after “speed optimizations”, it’s usually not WooCommerce.
+        It’s caching rules that ignore sessions, cookies, or dynamic pages. This guide shows the common mistakes,
+        the correct exclusions, and a practical checklist.
+      </p>
+    </header>
+
+    <div class="grid">
+      <div class="card">
+        <h2>What usually breaks</h2>
+        <ul class="list">
+          <li>Cart not updating, mini-cart stuck, totals incorrect</li>
+          <li>Checkout fields resetting, payment errors, nonce failures</li>
+          <li>Logged-in users seeing cached pages meant for guests</li>
+          <li>Dynamic pricing / currency / shipping rules not applying</li>
+          <li>My Account pages showing wrong data</li>
+        </ul>
+
+        <div class="pill-row">
+          <span class="pill warn"><span class="mini"></span> Most issues = missing exclusions</span>
+          <span class="pill good"><span class="mini"></span> Fixable without “disabling cache”</span>
+          <span class="pill"><span class="mini"></span> Aim: speed + stability</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Quick principle</h2>
+        <p class="small" style="margin:0;">
+          Cache the pages that are the same for everyone. Do NOT cache anything that depends on
+          session, cart, user state, pricing rules, or checkout security tokens.
+        </p>
+
+        <hr class="hr" />
+
+        <div class="callout">
+          <strong>Rule of thumb:</strong> if a page changes after you add to cart, log in, apply coupons,
+          pick shipping, or switch currency, that page needs proper exclusions.
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison table section (styled via CSS classes) -->
+    <div class="section">
+      <h2>Comparison: Best WooCommerce Cache Plugins</h2>
+
+      <div class="table-wrap" role="region" aria-label="WooCommerce cache plugin comparison table">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th>Plugin</th>
+              <th>Best for</th>
+              <th>Woo-safe?</th>
+              <th>Key features</th>
+              <th>Impact</th>
+              <th>Price</th>
+              <th>My pick</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><span class="plugin">WP Rocket</span></td>
+              <td>Fast wins + simple setup</td>
+              <td><span class="badge good"><span class="b"></span>Yes</span></td>
+              <td>Page cache, preload, delay JS, CDN, DB cleanup</td>
+              <td>High</td>
+              <td>$</td>
+              <td><span class="badge good"><span class="b"></span>Best overall</span></td>
+              <td><a href="#" rel="nofollow sponsored">View</a></td>
+            </tr>
+
+            <tr>
+              <td><span class="plugin">LiteSpeed Cache</span></td>
+              <td>Sites on LiteSpeed server</td>
+              <td><span class="badge good"><span class="b"></span>Yes</span></td>
+              <td>Server-level cache, QUIC.cloud, image optimization</td>
+              <td>Very high</td>
+              <td>$0–$</td>
+              <td><span class="badge good"><span class="b"></span>Best on LS</span></td>
+              <td><a href="#" rel="nofollow sponsored">View</a></td>
+            </tr>
+
+            <tr>
+              <td><span class="plugin">FlyingPress</span></td>
+              <td>Core Web Vitals focused</td>
+              <td><span class="badge good"><span class="b"></span>Yes</span></td>
+              <td>Critical CSS, lazyload, bloat control, caching</td>
+              <td>High</td>
+              <td>$</td>
+              <td><span class="badge good"><span class="b"></span>Best CWV</span></td>
+              <td><a href="#" rel="nofollow sponsored">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="muted-note">
+        Tip: If cart/checkout breaks, it’s rarely “the plugin”. It’s usually incorrect exclusions.
+        Jump to the checklist below.
+      </p>
+    </div>
+
+    <!-- Main content -->
+    <div class="section">
+      <h2>The Woo-safe cache checklist</h2>
+
+      <ul class="checklist">
+        <li><b>Never cache these pages:</b> <code>/cart/</code>, <code>/checkout/</code>, <code>/my-account/</code> (and any custom account pages).</li>
+        <li><b>Exclude query strings</b> that change content: coupons, UTM-based variants (if your stack modifies output), currency parameters, etc.</li>
+        <li><b>Respect WooCommerce cookies:</b> don’t serve cached HTML when cart/session cookies are present.</li>
+        <li><b>Disable caching for logged-in users</b> unless you have a proven, user-aware cache setup.</li>
+        <li><b>Minify/Delay JS carefully:</b> if payment gateways break, exclude their scripts from delay/defer.</li>
+        <li><b>Don’t combine “all-in-one” optimizations blindly:</b> test one change at a time and keep a rollback path.</li>
+        <li><b>Verify with real flows:</b> add to cart → update qty → apply coupon → choose shipping → pay (test Stripe/PayPal) → order received.</li>
+      </ul>
+
+      <hr class="hr" />
+
+      <div class="callout">
+        <strong>Pro workflow:</strong> After any cache change, test in an incognito window + a logged-in customer account.
+        If you use Cloudflare or a host cache, purge all layers and retest.
+      </div>
+    </div>
+
+    <footer>
+      <p style="margin:0;">
+        © <span id="y"></span> Carl Leger • WooCommerce performance resources
+      </p>
+    </footer>
   </div>
 
-  <p style="margin:10px 0 0; color: rgba(168,179,214,.95); font-size:13px;">
-    Tip: If cart/checkout breaks, it’s rarely “the plugin”. It’s usually incorrect exclusions. See:
-    <a href="/resources/woocommerce-cache-mistakes/">WooCommerce Cache Mistakes</a>.
-  </p>
-</div>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
