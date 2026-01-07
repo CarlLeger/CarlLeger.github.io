@@ -45,7 +45,7 @@
       --max: 980px;
 
       /* ✅ CONTROL ICON SIZE HERE */
-      --icon: 30px; /* try 28px / 32px / 36px */
+      --icon: 32px; /* 28 / 30 / 32 / 36 */
     }
 
     *{ box-sizing:border-box; }
@@ -97,7 +97,10 @@
       background:var(--panel2);
     }
 
-    table{ width:100%; min-width:980px; border-collapse:collapse; }
+    /* ✅ less forced horizontal scroll */
+    table{ width:100%; min-width:860px; border-collapse:collapse; }
+    @media(max-width:600px){ table{ min-width:740px; } }
+
     th,td{ padding:12px; border-bottom:1px solid var(--stroke2); vertical-align:top; }
     th{ background:rgba(255,255,255,.03); text-align:left; }
 
@@ -139,7 +142,6 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-
       border:0;
       background:transparent;
       box-shadow:none;
@@ -147,6 +149,7 @@
       flex: 0 0 auto;
     }
 
+    /* ✅ default: monochrome icons */
     .picon svg{
       width: var(--icon);
       height: var(--icon);
@@ -155,11 +158,10 @@
       color: rgba(231,236,255,.96);
     }
 
-    /* WP Rocket logo sizing (real SVG) */
-    .wprocket-logo{
-      width: var(--icon);
-      height: var(--icon);
-      display:block;
+    /* ✅ WP Rocket: keep its own colors (don’t force currentColor) */
+    .picon svg.wprocket-logo{
+      fill: initial;
+      color: initial;
     }
 
     .pname:hover .picon svg{ opacity:.95; }
@@ -260,17 +262,13 @@
       </thead>
       <tbody>
 
-        <!-- WP Rocket -->
+        <!-- WP Rocket (FIXED: clean SVG, transparent bg, no gradients, no broken markup) -->
         <tr>
           <td>
             <span class="pname">
               <span class="picon" aria-hidden="true" title="WP Rocket">
-                <svg class="wprocket-logo" viewBox="0 0 162 45" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="WP Rocket">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M18.22 23.4a2.2 2.2 0 01-1.95-1.22l-.64-1.44h-6.4l-.64 1.44a2.2 2.2 0 01-1.95 1.22H6.3l2.73 20.8c.14.39.4.39.55 0l2.7-6.65 2.36 6.63c.14.39.4.39.55 0l3.15-20.76-.12-.02z" fill="url(#paint0_linear)"/>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M15.37 20.16H9.51l-.9 2.02a2.2 2.2 0 01-1.54 1.17l2.06 12.83c.14.23.4.23.55 0l2.64-4.02 2.42 4c.16.24.4.24.55 0l2.34-12.85a2.2 2.2 0 01-1.36-1.13l-.9-2.02z" fill="url(#paint1_linear)"/>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M16.27 22.18l-3.85-8.6-3.83 8.6a2.46 2.46 0 01-.5.66l1.59 8.53c.08.11.3.15.46 0l2.13-2.83 2.14 2.8c.13.18.37.14.46 0l1.76-8.62a3 3 0 01-.36-.54z" fill="url(#paint2_linear)"/>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M.15 1.9c-.12-.41.12-.7.53-.7h3.37c.24 0 .46.2.53.4l2.47 9.75h.12l4.46-10.12a.55.55 0 01.49-.32h.52c.26 0 .43.14.5.32l4.45 10.12h.12l2.48-9.74a.59.59 0 01.52-.41h3.37c.41 0 .63.29.53.7L19.17 21.2a.54.54 0 01-.53.41h-.45a.56.56 0 01-.5-.32L12.42 9.54h-.08L7.1 21.3a.6.6 0 01-.5.32h-.45a.56.56 0 01-.52-.4L.15 1.89zm27.46-.16c0-.29.24-.54.54-.54h6.93a6.43 6.43 0 016.44 6.35c0 3.56-2.9 6.48-6.4 6.48H32.1v6.76a.56.56 0 01-.54.54h-3.4a.54.54 0 01-.53-.54V1.74h-.02zm7.22 8.08a2.26 2.26 0 002.27-2.27c0-1.2-1.03-2.13-2.27-2.13H32.1v4.4h2.73z" fill="#F56F46"/>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M50.9 1.74c0-.29.24-.55.54-.55h8.6c3.45 0 6.27 2.8 6.27 6.22 0 2.65-1.75 4.78-4.26 5.78l3.93 7.31c.2.37 0 .83-.49.83h-3.83c-.24 0-.4-.13-.46-.25l-3.83-7.63H55.4v7.34a.56.56 0 01-.54.54h-3.43a.54.54 0 01-.54-.54l.02-19.05zm8.78 8.05c1.18 0 2.18-1.09 2.18-2.3 0-1.21-1-2.2-2.18-2.2h-4.26v4.5h4.26zM79.03.9C84.78.9 89.4 5.53 89.4 11.3c0 5.76-4.6 10.32-10.36 10.32A10.27 10.27 0 0168.71 11.3C68.71 5.55 73.3.9 79.03.9zm0 16.1a5.76 5.76 0 000-11.5 5.77 5.77 0 000 11.5zM101.78.91c2.88 0 5 .9 6.97 2.68.25.23.25.57.03.8l-2.24 2.32a.5.5 0 01-.7 0 5.89 5.89 0 00-3.89-1.48c-3.25 0-5.64 2.71-5.64 5.93a5.71 5.71 0 005.66 5.85 6.1 6.1 0 003.84-1.37c.2-.17.58-.17.75.03l2.24 2.4c.2.2.17.57-.04.77a9.86 9.86 0 01-6.98 2.8A10.32 10.32 0 0191.4 11.32 10.4 10.4 0 01101.8.9zm10.44.98c0-.37.29-.7.7-.7h3.37a.71.71 0 01.7.7v7.56l6.38-7.97c.12-.13.38-.28.54-.28h3.63c.54 0 .83.62.53 1.06l-6.73 8.43 7.34 9.54c.32.42 0 1.07-.55 1.07h-3.96a.84.84 0 01-.53-.2l-6.67-9.04v8.58a.71.71 0 01-.7.7h-3.37a.69.69 0 01-.7-.7l.02-18.75zm19.36-.15c0-.29.23-.54.54-.54h11.91c.33 0 .55.25.55.54v3.13a.55.55 0 01-.55.55h-7.96v3.56h6.56c.28 0 .54.25.54.54v3.13a.54.54 0 01-.54.55h-6.56v3.87h7.96c.33 0 .55.25.55.54v3.13a.55.55 0 01-.55.55h-11.91a.54.54 0 01-.54-.55V1.74z" fill="#F56F46"/>
+                <svg class="wprocket-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340" aria-hidden="true" focusable="false">
+                  <path fill="#f4773e" d="M141 107C138.39 97.7335 136.208 88.3391 133.873 79L129.626 62C128.934 59.2733 128.436 55.6386 126.297 53.6034C122.865 50.3373 112.448 51.6555 108.019 52.0586C105.898 52.2518 103.898 52.7542 103.492 55.1481C103.013 57.9673 104.527 61.3391 105.291 64L109.86 80L126.86 140C128.559 145.996 130.153 152.044 132.005 157.995C132.815 160.599 133.726 163.704 137.015 163.704C142.866 163.704 145.308 153.215 147.231 149C154.956 132.066 162.029 114.822 170 98C177.669 114.184 184.853 130.64 192.139 147C194.08 151.359 196.693 162.6 202.086 163.623C205.367 164.246 206.982 161.648 207.956 158.981C210.199 152.835 211.487 146.284 213.291 140C219.214 119.365 224.843 98.6487 230.71 78L235.29 62C235.92 59.767 237.217 56.6289 236.306 54.3179C235.456 52.1613 232.963 52.1061 230.995 52.0193C226.456 51.8191 216.164 50.1867 213.139 54.3179C210.028 58.5669 209.383 65.9726 208.127 71C205.225 82.6051 200.522 95.0236 200 107C196.378 103.414 194.86 98.5838 192.769 94C188.54 84.7299 184.479 75.348 180.424 66C178.572 61.7296 176.557 52.4835 171.791 50.6227C165.587 48.2007 163.089 58.043 161.306 62C154.607 76.858 149.196 92.9051 141 107M170 121C163.15 133.036 158.777 146.536 152.742 159C149.242 166.226 145.488 172.652 137 174C140.202 199.335 143.561 224.65 146.715 250C148.286 262.623 148.367 276.824 152 289L154 289C160.023 277.702 165.621 264.353 169 252C175.127 263.627 177.428 277.084 183 289L185 289C189.039 275.707 189.43 260.723 191.59 247C194.002 231.676 196.013 216.335 198.272 201C199.588 192.062 201.612 183.036 202 174C193.188 171.382 190.835 164.656 187.219 157C183.921 150.017 180.513 143.081 177.424 136C175.244 131.002 173.433 125.249 170 121z"/>
                 </svg>
               </span>
               WP Rocket
@@ -279,7 +277,7 @@
           <td>Easy setup</td>
           <td><span class="badge good"><span class="dot"></span>Yes</span></td>
           <td><span class="price">$59 / Year</span></td>
-          <td><a href="https://wp-rocket.me/" target="_blank" rel="nofollow">Official site</a></td>
+          <td><a href="https://wp-rocket.me/" target="_blank" rel="nofollow noopener noreferrer">Official site</a></td>
         </tr>
 
         <!-- LiteSpeed -->
@@ -287,7 +285,7 @@
           <td>
             <span class="pname">
               <span class="picon" aria-hidden="true" title="LiteSpeed Cache">
-                <svg viewBox="0 0 24 24" role="img" aria-label="Lightning">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path d="M13 2L3 14h7l-1 8 12-14h-7l-1-6z"/>
                 </svg>
               </span>
@@ -297,7 +295,7 @@
           <td>LiteSpeed servers</td>
           <td><span class="badge good"><span class="dot"></span>Yes</span></td>
           <td><span class="price">Free (plugin)</span></td>
-          <td><a href="https://wordpress.org/plugins/litespeed-cache/" target="_blank" rel="nofollow">Plugin page</a></td>
+          <td><a href="https://wordpress.org/plugins/litespeed-cache/" target="_blank" rel="nofollow noopener noreferrer">Plugin page</a></td>
         </tr>
 
         <!-- FlyingPress -->
@@ -305,7 +303,7 @@
           <td>
             <span class="pname">
               <span class="picon" aria-hidden="true" title="FlyingPress">
-                <svg viewBox="0 0 24 24" role="img" aria-label="Speed">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path d="M12 4a9 9 0 109 9c0-5-4-9-9-9zm0 2a7 7 0 017 7 7 7 0 11-7-7z"/>
                   <path d="M14.7 9.3l-4.1 4.1a1 1 0 001.4 1.4l4.1-4.1a1 1 0 00-1.4-1.4z"/>
                   <path d="M6 13h2a1 1 0 000-2H6a1 1 0 000 2zm10 0h2a1 1 0 000-2h-2a1 1 0 000 2z"/>
@@ -317,7 +315,7 @@
           <td>Core Web Vitals</td>
           <td><span class="badge good"><span class="dot"></span>Yes</span></td>
           <td><span class="price">~$49–$59 / Year</span></td>
-          <td><a href="https://flyingpress.com/" target="_blank" rel="nofollow">Official site</a></td>
+          <td><a href="https://flyingpress.com/" target="_blank" rel="nofollow noopener noreferrer">Official site</a></td>
         </tr>
 
       </tbody>
