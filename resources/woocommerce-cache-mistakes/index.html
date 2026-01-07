@@ -128,23 +128,33 @@
       white-space:nowrap;
     }
 
+    /* ✅ UPDATED: bigger + higher contrast + subtle glow */
     .picon{
-      width:22px;
-      height:22px;
-      border-radius:10px;
+      width:30px;
+      height:30px;
+      border-radius:12px;
       display:grid;
       place-items:center;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.07);
+      box-shadow:
+        0 10px 22px rgba(0,0,0,.35),
+        0 0 0 1px rgba(106,166,255,.12) inset;
       flex:0 0 auto;
     }
 
     .picon svg{
-      width:14px;
-      height:14px;
+      width:18px;
+      height:18px;
       display:block;
       fill: currentColor;
-      color: rgba(231,236,255,.90);
+      color: rgba(255,255,255,.98);
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.55));
+    }
+
+    .pname:hover .picon{
+      border-color: rgba(106,166,255,.45);
+      background: rgba(106,166,255,.10);
     }
 
     /* WP Rocket logo sizing (real SVG) */
@@ -365,3 +375,4 @@
 </script>
 </body>
 </html>
+
