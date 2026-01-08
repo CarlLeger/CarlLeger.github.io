@@ -107,19 +107,17 @@
       padding:10px 10px;
       border-bottom:1px solid var(--stroke2);
       vertical-align:top;
-      overflow:hidden; /* important */
+      overflow:hidden;
     }
     th{ background:rgba(255,255,255,.03); text-align:left; }
 
-    /* ✅ Column widths */
-    table th:nth-child(1), table td:nth-child(1){ width:30%; } /* Plugin */
-    table th:nth-child(2), table td:nth-child(2){ width:16%; } /* Best for */
-    table th:nth-child(3), table td:nth-child(3){ width:10%; } /* Woo-safe */
-    table th:nth-child(4), table td:nth-child(4){ width:12%; } /* Rating */
-    table th:nth-child(5), table td:nth-child(5){ width:14%; } /* Price */
-    table th:nth-child(6), table td:nth-child(6){ width:18%; } /* Link */
+    table th:nth-child(1), table td:nth-child(1){ width:30%; }
+    table th:nth-child(2), table td:nth-child(2){ width:16%; }
+    table th:nth-child(3), table td:nth-child(3){ width:10%; }
+    table th:nth-child(4), table td:nth-child(4){ width:12%; }
+    table th:nth-child(5), table td:nth-child(5){ width:14%; }
+    table th:nth-child(6), table td:nth-child(6){ width:18%; }
 
-    /* ✅ Link column always shows full button */
     table td:nth-child(6){
       overflow:visible;
       text-align:right;
@@ -188,7 +186,7 @@
     }
 
     .pmeta{
-      min-width:0;           /* ✅ allows flex child to shrink */
+      min-width:0;
       max-width:100%;
       display:flex;
       flex-direction:column;
@@ -241,7 +239,6 @@
       white-space:nowrap;
     }
 
-    /* ✅ MICRO: clip EXACTLY at column edge (no "…") */
     .micro-wrap{
       font-size:12px;
       color:var(--muted);
@@ -250,7 +247,6 @@
       max-width:100%;
     }
 
-    /* collapsed line: text clipped + See more stays visible */
     .micro-line{
       display:flex;
       gap:8px;
@@ -261,9 +257,9 @@
     .micro-short{
       flex:1 1 auto;
       min-width:0;
-      white-space:nowrap;     /* ✅ one line */
-      overflow:hidden;        /* ✅ hard cut at the red line */
-      text-overflow:clip;     /* ✅ no dots */
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:clip;
     }
 
     .micro-more{
@@ -285,6 +281,12 @@
       white-space:nowrap;
     }
     .see-more:hover{ text-decoration:underline; }
+
+    .micro-actions{
+      margin-top:6px;
+      display:flex;
+      justify-content:flex-start;
+    }
 
     .row-top{
       background: linear-gradient(180deg, rgba(46,229,157,.10), rgba(255,255,255,.02));
@@ -441,6 +443,9 @@
                   </div>
                   <div class="micro-more">
                     Best “set it and forget it” option for most Woo stores. Great defaults, fast setup, and solid compatibility for typical cart and checkout flows.
+                    <div class="micro-actions">
+                      <a class="see-more" href="#" data-toggle>See less</a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -479,8 +484,12 @@
                   </div>
                   <div class="micro-more">
                     Best for Core Web Vitals and aggressive front-end optimizations. Strong when you want to push LCP/INP improvements with fewer extra plugins.
+                    <div class="micro-actions">
+                      <a class="see-more" href="#" data-toggle>See less</a>
+                    </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </td>
@@ -523,8 +532,12 @@
                   </div>
                   <div class="micro-more">
                     Best if you’re on LiteSpeed servers and want a free plugin. Great when paired with server-level cache, but not ideal if you’re not on LiteSpeed hosting.
+                    <div class="micro-actions">
+                      <a class="see-more" href="#" data-toggle>See less</a>
+                    </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </td>
@@ -585,13 +598,17 @@
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
 
-  // ✅ Toggle "See more" per row
+  // ✅ Toggle "See more / See less" per row (works in both collapsed + expanded)
   document.querySelectorAll("[data-toggle]").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       const wrap = btn.closest("[data-micro]");
       const isOpen = wrap.classList.toggle("expanded");
-      btn.textContent = isOpen ? "See less" : "See more";
+
+      // Update ALL toggle links inside this row
+      wrap.querySelectorAll("[data-toggle]").forEach((t) => {
+        t.textContent = isOpen ? "See less" : "See more";
+      });
     });
   });
 </script>
