@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Performance & Core Web Vitals Tools (Speed, CWV, CDN)</title>
+  <meta name="description" content="Recommended tools to improve WordPress speed and Core Web Vitals: caching, image optimization, CDN, diagnostics, and monitoring. Woo-safe notes included." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://carlleger.github.io/resources/tools/performance-cwv/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Performance & Core Web Vitals Tools (Speed, CWV, CDN)" />
+  <meta property="og:description" content="A curated toolkit for speed and CWV: caching, images, CDN, diagnostics, and monitoring with practical recommendations." />
+  <meta property="og:url" content="https://carlleger.github.io/resources/tools/performance-cwv/" />
+  <meta property="og:type" content="article" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Performance & Core Web Vitals Tools (Speed, CWV, CDN)",
+    "description":"Recommended tools to improve WordPress speed and Core Web Vitals: caching, image optimization, CDN, diagnostics, and monitoring.",
+    "author":{"@type":"Person","name":"Carl Leger"},
+    "publisher":{"@type":"Person","name":"Carl Leger"},
+    "mainEntityOfPage":"https://carlleger.github.io/resources/tools/performance-cwv/"
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg1:#0b1220;
+      --bg2:#070d17;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.03);
+      --stroke:rgba(255,255,255,.10);
+      --stroke2:rgba(255,255,255,.06);
+      --text:#e7ecff;
+      --muted:rgba(168,179,214,.95);
+      --accent:#6aa6ff;
+      --good:#2ee59d;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 980px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 18% 18%, rgba(106,166,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(46,229,157,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      line-height:1.55;
+    }
+
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .container{ max-width:var(--max); margin:0 auto; padding:28px 18px 80px; }
+
+    h1{ font-size:clamp(28px,3vw,40px); margin:14px 0 8px; }
+    h2{ font-size:18px; margin:0 0 12px; }
+    p{ margin:0; }
+    .subtitle{ color:var(--muted); max-width:78ch; margin-top:8px; }
+
+    .section{
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg,var(--panel),rgba(255,255,255,.03));
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      margin-top:18px;
+    }
+
+    .kicker{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+      font-size:12px;
+      color:rgba(231,236,255,.92);
+      white-space:nowrap;
+    }
+    .chip .dot{ width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.25); }
+    .chip.good{ border-color: rgba(46,229,157,.35); background: rgba(46,229,157,.10); }
+    .chip.good .dot{ background: var(--good); }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media(max-width:900px){ .grid{ grid-template-columns:1fr; } }
+
+    .card{
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+      border-radius:16px;
+      padding:14px;
+    }
+    .card h3{ margin:0 0 6px; font-size:16px; }
+    .card p{ color:var(--muted); }
+
+    .tool{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      padding:12px;
+      border:1px solid var(--stroke2);
+      background:rgba(255,255,255,.02);
+      border-radius:14px;
+      margin-top:10px;
+    }
+    .tool strong{ font-size:15px; }
+    .tool .desc{ color:var(--muted); font-size:13px; margin-top:4px; max-width:70ch; }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(106,166,255,.35);
+      background: rgba(106,166,255,.12);
+      color: rgba(231,236,255,.96);
+      text-decoration:none;
+      white-space:nowrap;
+      font-weight:700;
+      min-width:160px;
+    }
+    .btn:hover{ border-color: rgba(106,166,255,.70); text-decoration:none; }
+    .btn.primary{
+      border-color: rgba(46,229,157,.55);
+      background: rgba(46,229,157,.16);
+    }
+    .btn.primary:hover{ border-color: rgba(46,229,157,.85); }
+
+    .note{
+      color:var(--muted);
+      font-size:12px;
+      margin-top:12px;
+    }
+
+    footer{ text-align:center; color:var(--muted); font-size:13px; margin-top:18px; }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <header class="section">
+    <h1>Performance & Core Web Vitals</h1>
+    <p class="subtitle">
+      A curated toolkit to improve speed and CWV. These are the tools I use most often for audits, fixes, and monitoring.
+      (Use only what you need, stacking too many tools can backfire.)
+    </p>
+
+    <div class="kicker" aria-label="tags">
+      <span class="chip good"><span class="dot"></span>Speed</span>
+      <span class="chip"><span class="dot"></span>CWV</span>
+      <span class="chip"><span class="dot"></span>CDN</span>
+      <span class="chip"><span class="dot"></span>Diagnostics</span>
+    </div>
+  </header>
+
+  <div class="section">
+    <h2>Quick picks</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Best “one plugin” speed option</h3>
+        <p>Great default config, fast wins, low risk for most sites.</p>
+      </div>
+      <div class="card">
+        <h3>Best for CWV tuning</h3>
+        <p>When you need to push LCP/INP improvements beyond basics.</p>
+      </div>
+    </div>
+
+    <!-- Tools list -->
+    <div class="tool">
+      <div>
+        <strong>WP Rocket (Caching)</strong>
+        <div class="desc">Best set-it-and-forget-it cache plugin for many WordPress sites. Pair with good exclusions on WooCommerce.</div>
+      </div>
+      <a class="btn primary" href="#" target="_blank" rel="nofollow noopener noreferrer">Get WP Rocket</a>
+    </div>
+
+    <div class="tool">
+      <div>
+        <strong>FlyingPress (Performance)</strong>
+        <div class="desc">Strong CWV-focused optimizations. Useful if you want a performance “suite” instead of stacking plugins.</div>
+      </div>
+      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">Get FlyingPress</a>
+    </div>
+
+    <div class="tool">
+      <div>
+        <strong>Cloudflare (CDN + WAF)</strong>
+        <div class="desc">Solid baseline CDN and security layer. Great for caching static assets and protecting origin.</div>
+      </div>
+      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">Get Cloudflare</a>
+    </div>
+
+    <div class="tool">
+      <div>
+        <strong>PageSpeed Insights (Diagnostics)</strong>
+        <div class="desc">Quick CWV lab + field signals. Use alongside real-user monitoring if possible.</div>
+      </div>
+      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">Run PSI</a>
+    </div>
+
+    <div class="tool">
+      <div>
+        <strong>GTmetrix (Diagnostics)</strong>
+        <div class="desc">Great for waterfall analysis and repeat tests. Helps isolate third-party scripts and render-blocking assets.</div>
+      </div>
+      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">Open GTmetrix</a>
+    </div>
+
+    <div class="note">
+      Note: Links may be affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.
+    </div>
+  </div>
+
+  <footer>
+    © <span id="y"></span> Carl Leger
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
