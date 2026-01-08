@@ -3,62 +3,303 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Recommended Tools | Carl Leger Consulting</title>
-  <meta name="description" content="Recommended WordPress & WooCommerce tools for performance, SEO, and conversion optimization." />
+  <title>Resources & Recommended Tools | Carl Leger Consulting</title>
+  <meta name="description" content="Resources and recommended WordPress & WooCommerce tools for performance, technical SEO, and conversion optimization." />
   <link rel="canonical" href="https://carlleger.github.io/resources/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Resources & Recommended Tools | Carl Leger Consulting" />
+  <meta property="og:description" content="Resources and recommended WordPress & WooCommerce tools for performance, technical SEO, and conversion optimization." />
+  <meta property="og:url" content="https://carlleger.github.io/resources/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Resources & Recommended Tools",
+    "description":"Resources and recommended WordPress & WooCommerce tools for performance, technical SEO, and conversion optimization.",
+    "url":"https://carlleger.github.io/resources/",
+    "publisher":{
+      "@type":"Person",
+      "name":"Carl Leger"
+    }
+  }
+  </script>
+
   <style>
-    :root{--bg:#0b1220;--panel:rgba(255,255,255,.06);--stroke:rgba(255,255,255,.12);--text:#e7ecff;--muted:#a8b0d6;--accent:#6ea8ff}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#070d17,var(--bg));color:var(--text)}
-    .wrap{max-width:980px;margin:0 auto;padding:40px 18px}
-    h1{font-size:34px;margin:0 0 10px}
-    p{color:var(--muted);line-height:1.6}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:22px}
-    .card{border:1px solid var(--stroke);background:var(--panel);border-radius:16px;padding:16px}
+    :root{
+      --bg1:#0b1220;
+      --bg2:#070d17;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.04);
+      --stroke:rgba(255,255,255,.12);
+      --text:#e7ecff;
+      --muted:#a8b0d6;
+      --accent:#6ea8ff;
+      --good:#2ee59d;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 18% 18%, rgba(110,168,255,.16), transparent 60%),
+        radial-gradient(900px 600px at 82% 22%, rgba(46,229,157,.10), transparent 55%),
+        linear-gradient(180deg,var(--bg2),var(--bg1));
+    }
+
+    .wrap{max-width:980px;margin:0 auto;padding:40px 18px 70px}
+    h1{font-size:clamp(28px,3vw,38px);margin:0 0 10px;letter-spacing:.2px}
+    p{color:var(--muted);line-height:1.65;margin:0}
+
+    .topbar{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+      color:rgba(231,236,255,.92);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .pill .dot{width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.25)}
+    .pill.good{border-color:rgba(46,229,157,.35);background:rgba(46,229,157,.10)}
+    .pill.good .dot{background:var(--good)}
+
+    .section{
+      margin-top:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg,var(--panel),rgba(255,255,255,.03));
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .section h2{
+      margin:0 0 10px;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+    .section .hint{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:14px;
+    }
+
+    /* cards as links */
+    .card{
+      display:block;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.05);
+      border-radius:16px;
+      padding:16px;
+      text-decoration:none;
+      color:var(--text);
+      transition:transform .12s ease, border-color .12s ease, background .12s ease;
+      min-height:140px;
+    }
+    .card:hover{
+      transform:translateY(-1px);
+      border-color:rgba(110,168,255,.35);
+      background:rgba(110,168,255,.07);
+      text-decoration:none;
+    }
+
     .card h3{margin:0 0 6px;font-size:18px}
-    .tag{display:inline-block;border:1px solid var(--stroke);border-radius:999px;padding:5px 10px;color:var(--muted);font-size:12px;margin:8px 6px 0 0}
-    .btn{display:inline-block;margin-top:12px;background:rgba(110,168,255,.16);border:1px solid rgba(110,168,255,.35);color:var(--text);text-decoration:none;padding:10px 12px;border-radius:12px}
-    .btn:hover{background:rgba(110,168,255,.22)}
-    footer{margin-top:34px;border-top:1px solid var(--stroke);padding-top:14px;font-size:13px;color:var(--muted)}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    .tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;
+      padding:5px 10px;
+      color:rgba(231,236,255,.82);
+      font-size:12px;
+      background:rgba(255,255,255,.03);
+    }
+    .tag .mini-dot{width:7px;height:7px;border-radius:999px;background:rgba(255,255,255,.25)}
+
+    .tag.featured{
+      border-color:rgba(46,229,157,.35);
+      background:rgba(46,229,157,.10);
+    }
+    .tag.featured .mini-dot{background:var(--good)}
+
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(110,168,255,.35);
+      background:rgba(110,168,255,.16);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .btn:hover{background:rgba(110,168,255,.22);text-decoration:none}
+    .btn.secondary{
+      border-color:rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:rgba(231,236,255,.92);
+    }
+    .btn.secondary:hover{background:rgba(255,255,255,.09)}
+
+    footer{
+      margin-top:22px;
+      border-top:1px solid rgba(255,255,255,.10);
+      padding-top:14px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
     code{color:#cfe1ff}
+
+    /* Featured guide card */
+    .featured{
+      border-color:rgba(46,229,157,.28);
+      background:linear-gradient(180deg, rgba(46,229,157,.12), rgba(255,255,255,.03));
+    }
+    .featured:hover{
+      border-color:rgba(46,229,157,.45);
+      background:linear-gradient(180deg, rgba(46,229,157,.16), rgba(255,255,255,.04));
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
-    <h1>Recommended Tools</h1>
-    <p>These are tools I recommend for WordPress & WooCommerce performance, technical SEO, and conversion optimization.</p>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Performance & Core Web Vitals</h3>
-        <p>Caching, image optimization, CDN, and speed diagnostics.</p>
-        <span class="tag">Speed</span><span class="tag">CWV</span><span class="tag">CDN</span>
-        <a class="btn" href="/go/performance/" rel="nofollow sponsored">View tools</a>
+    <div class="topbar">
+      <div>
+        <h1>Resources & Recommended Tools</h1>
+        <p>Guides + tools I recommend for WordPress & WooCommerce performance, technical SEO, and conversion optimization.</p>
+      </div>
+      <div class="pill good" title="Newest guide">
+        <span class="dot"></span>
+        Updated: WooCommerce cache guide
+      </div>
+    </div>
+
+    <!-- ✅ Guides -->
+    <div class="section">
+      <h2>Latest Guides</h2>
+      <p class="hint">Practical, Woo-safe checklists and fixes.</p>
+
+      <div class="grid">
+        <a class="card featured" href="/resources/woocommerce-cache-mistakes/">
+          <h3>WooCommerce Cache Mistakes (and how to fix them)</h3>
+          <p>What NOT to cache, the exclusions you must set, and a Woo-safe checklist to keep cart/checkout stable.</p>
+          <div class="tags">
+            <span class="tag featured"><span class="mini-dot"></span>Featured</span>
+            <span class="tag"><span class="mini-dot"></span>WooCommerce</span>
+            <span class="tag"><span class="mini-dot"></span>Cache</span>
+            <span class="tag"><span class="mini-dot"></span>Checkout</span>
+          </div>
+        </a>
+
+        <!-- You can add more guides later -->
+        <a class="card" href="/" aria-label="Back to homepage">
+          <h3>Homepage</h3>
+          <p>Back to my main services and contact.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Services</span>
+            <span class="tag"><span class="mini-dot"></span>Contact</span>
+          </div>
+        </a>
       </div>
 
-      <div class="card">
-        <h3>SEO & Analytics</h3>
-        <p>Technical SEO tools, audits, and tracking.</p>
-        <span class="tag">SEO</span><span class="tag">Audits</span><span class="tag">Tracking</span>
-        <a class="btn" href="/go/seo/" rel="nofollow sponsored">View tools</a>
+      <div class="row">
+        <a class="btn secondary" href="/">Back to main site</a>
       </div>
+    </div>
 
-      <div class="card">
-        <h3>Email & Lead Capture</h3>
-        <p>Email marketing, newsletters, and forms.</p>
-        <span class="tag">Email</span><span class="tag">Leads</span><span class="tag">Automation</span>
-        <a class="btn" href="/go/email/" rel="nofollow sponsored">View tools</a>
-      </div>
+    <!-- ✅ Tool buckets -->
+    <div class="section">
+      <h2>Recommended Tools</h2>
+      <p class="hint">Tool collections (affiliate links may be used inside these pages).</p>
 
-      <div class="card">
-        <h3>WooCommerce Conversion</h3>
-        <p>Checkout, upsells, reviews, and CRO.</p>
-        <span class="tag">CRO</span><span class="tag">Revenue</span><span class="tag">Checkout</span>
-        <a class="btn" href="/go/cro/" rel="nofollow sponsored">View tools</a>
+      <div class="grid">
+        <a class="card" href="/go/performance/" rel="nofollow sponsored">
+          <h3>Performance & Core Web Vitals</h3>
+          <p>Caching, image optimization, CDN, and speed diagnostics.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Speed</span>
+            <span class="tag"><span class="mini-dot"></span>CWV</span>
+            <span class="tag"><span class="mini-dot"></span>CDN</span>
+          </div>
+        </a>
+
+        <a class="card" href="/go/seo/" rel="nofollow sponsored">
+          <h3>SEO & Analytics</h3>
+          <p>Technical SEO tools, audits, and tracking.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>SEO</span>
+            <span class="tag"><span class="mini-dot"></span>Audits</span>
+            <span class="tag"><span class="mini-dot"></span>Tracking</span>
+          </div>
+        </a>
+
+        <a class="card" href="/go/email/" rel="nofollow sponsored">
+          <h3>Email & Lead Capture</h3>
+          <p>Email marketing, newsletters, and forms.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Email</span>
+            <span class="tag"><span class="mini-dot"></span>Leads</span>
+            <span class="tag"><span class="mini-dot"></span>Automation</span>
+          </div>
+        </a>
+
+        <a class="card" href="/go/cro/" rel="nofollow sponsored">
+          <h3>WooCommerce Conversion</h3>
+          <p>Checkout, upsells, reviews, and CRO.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>CRO</span>
+            <span class="tag"><span class="mini-dot"></span>Revenue</span>
+            <span class="tag"><span class="mini-dot"></span>Checkout</span>
+          </div>
+        </a>
       </div>
     </div>
 
     <footer>
-      <strong>Affiliate disclosure:</strong> Some links on this page may be affiliate links. I may earn a commission at no extra cost to you. I only recommend tools I genuinely trust.
+      <strong>Affiliate disclosure:</strong> Some links on this site may be affiliate links. I may earn a commission at no extra cost to you. I only recommend tools I genuinely trust.
     </footer>
   </div>
 </body>
