@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Performance & Core Web Vitals Tools (Speed, CWV, CDN)</title>
-  <meta name="description" content="Recommended tools to improve WordPress speed and Core Web Vitals: caching, image optimization, CDN, diagnostics, and monitoring. Woo-safe notes included." />
+  <title>WooCommerce Cache Mistakes (and how to fix them)</title>
+  <meta name="description" content="Avoid the most common WooCommerce caching mistakes that break cart/checkout, user sessions, pricing, and dynamic content. Includes a Woo-safe cache checklist." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://carlleger.github.io/resources/tools/performance-cwv/" />
+  <link rel="canonical" href="https://carlleger.github.io/resources/woocommerce-cache-mistakes/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Performance & Core Web Vitals Tools (Speed, CWV, CDN)" />
-  <meta property="og:description" content="A curated toolkit for speed and CWV: caching, images, CDN, diagnostics, and monitoring with practical recommendations." />
-  <meta property="og:url" content="https://carlleger.github.io/resources/tools/performance-cwv/" />
+  <meta property="og:title" content="WooCommerce Cache Mistakes (and how to fix them)" />
+  <meta property="og:description" content="The Woo-safe caching guide: what NOT to cache, the exclusions you must set, and a practical checklist to keep cart/checkout stable." />
+  <meta property="og:url" content="https://carlleger.github.io/resources/woocommerce-cache-mistakes/" />
   <meta property="og:type" content="article" />
 
   <!-- Structured data -->
@@ -20,11 +20,11 @@
   {
     "@context":"https://schema.org",
     "@type":"Article",
-    "headline":"Performance & Core Web Vitals Tools (Speed, CWV, CDN)",
-    "description":"Recommended tools to improve WordPress speed and Core Web Vitals: caching, image optimization, CDN, diagnostics, and monitoring.",
+    "headline":"WooCommerce Cache Mistakes (and how to fix them)",
+    "description":"Avoid the most common WooCommerce caching mistakes that break cart/checkout, user sessions, pricing, and dynamic content.",
     "author":{"@type":"Person","name":"Carl Leger"},
     "publisher":{"@type":"Person","name":"Carl Leger"},
-    "mainEntityOfPage":"https://carlleger.github.io/resources/tools/performance-cwv/"
+    "mainEntityOfPage":"https://carlleger.github.io/resources/woocommerce-cache-mistakes/"
   }
   </script>
 
@@ -43,6 +43,7 @@
       --shadow: 0 18px 60px rgba(0,0,0,.45);
       --radius: 18px;
       --max: 980px;
+      --icon: 32px;
     }
 
     *{ box-sizing:border-box; }
@@ -65,10 +66,10 @@
 
     h1{ font-size:clamp(28px,3vw,40px); margin:14px 0 8px; }
     h2{ font-size:18px; margin:0 0 12px; }
-    p{ margin:0; }
-    .subtitle{ color:var(--muted); max-width:78ch; margin-top:8px; }
 
-    .section{
+    .subtitle{ color:var(--muted); max-width:72ch; }
+
+    .card,.section{
       border:1px solid var(--stroke);
       background:linear-gradient(180deg,var(--panel),rgba(255,255,255,.03));
       border-radius:var(--radius);
@@ -77,14 +78,129 @@
       margin-top:18px;
     }
 
-    .kicker{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:12px;
+    .grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
+      margin-top:16px;
+    }
+    @media(max-width:900px){ .grid{grid-template-columns:1fr;} }
+
+    ul{ color:var(--muted); }
+
+    /* ✅ Scroll horizontal si nécessaire */
+    .table-wrap{
+      overflow-x:auto;
+      overflow-y:visible;
+      border:1px solid var(--stroke);
+      border-radius:16px;
+      background:var(--panel2);
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,.18) transparent;
+    }
+    .table-wrap::-webkit-scrollbar{ height:10px; }
+    .table-wrap::-webkit-scrollbar-thumb{
+      background: rgba(255,255,255,.16);
+      border-radius: 999px;
+    }
+    .table-wrap::-webkit-scrollbar-track{ background: transparent; }
+
+    table{
+      width:100%;
+      min-width:980px; /* force la possibilité de scroll */
+      border-collapse:collapse;
+      table-layout:fixed;
     }
 
-    .chip{
+    th,td{
+      padding:10px 10px;
+      border-bottom:1px solid var(--stroke2);
+      vertical-align:top;
+      overflow:hidden;
+    }
+    th{ background:rgba(255,255,255,.03); text-align:left; }
+
+    table th:nth-child(1), table td:nth-child(1){ width:30%; }
+    table th:nth-child(2), table td:nth-child(2){ width:16%; }
+    table th:nth-child(3), table td:nth-child(3){ width:10%; }
+    table th:nth-child(4), table td:nth-child(4){ width:12%; }
+    table th:nth-child(5), table td:nth-child(5){ width:14%; }
+    table th:nth-child(6), table td:nth-child(6){ width:18%; }
+
+    table td:nth-child(6){
+      overflow:visible;
+      text-align:right;
+      vertical-align:middle;
+    }
+    table th:nth-child(6){ text-align:right; }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      font-size:12px;
+      color:rgba(231,236,255,.92);
+      background:rgba(255,255,255,.03);
+      white-space:nowrap;
+    }
+    .badge.good{ border-color: rgba(46,229,157,.35); }
+    .badge.good .dot{ background: var(--good); }
+    .badge .dot{
+      width:8px;height:8px;border-radius:999px;
+      background: rgba(255,255,255,.25);
+    }
+
+    .pname{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      font-weight:800;
+      color:rgba(231,236,255,.96);
+      line-height:1.1;
+      min-width:0;
+    }
+
+    .picon{
+      width: var(--icon);
+      height: var(--icon);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:transparent;
+      flex: 0 0 auto;
+      margin-top:2px;
+    }
+
+    .picon svg{
+      width: var(--icon);
+      height: var(--icon);
+      display:block;
+    }
+
+    /* Ajuste un peu LiteSpeed (souvent plus “large”) */
+    .picon svg.litespeed-logo{
+      width: calc(var(--icon) * 1.35);
+      height: calc(var(--icon) * 1.35);
+    }
+
+    .pmeta{
+      min-width:0;
+      max-width:100%;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .pmeta .title{
+      font-size:18px;
+      font-weight:900;
+      line-height:1.05;
+    }
+
+    .tag{
       display:inline-flex;
       align-items:center;
       gap:8px;
@@ -95,41 +211,89 @@
       font-size:12px;
       color:rgba(231,236,255,.92);
       white-space:nowrap;
+      width:max-content;
     }
-    .chip .dot{ width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.25); }
-    .chip.good{ border-color: rgba(46,229,157,.35); background: rgba(46,229,157,.10); }
-    .chip.good .dot{ background: var(--good); }
+    .tag .mini-dot{ width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.25); }
+    .tag.top{ border-color: rgba(46,229,157,.45); background: rgba(46,229,157,.12); }
+    .tag.top .mini-dot{ background: var(--good); }
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-      margin-top:14px;
+    .rating{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
     }
-    @media(max-width:900px){ .grid{ grid-template-columns:1fr; } }
-
-    .card{
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.03);
-      border-radius:16px;
-      padding:14px;
+    .stars{
+      font-size:13px;
+      letter-spacing:1px;
+      line-height:1;
+      color:#F5CD21;
+      text-shadow: 0 0 12px rgba(245,205,33,.12);
     }
-    .card h3{ margin:0 0 6px; font-size:16px; }
-    .card p{ color:var(--muted); }
+    .rating-num{
+      font-size:12px;
+      color:var(--muted);
+    }
 
-    .tool{
+    .price{
+      font-weight:700;
+      color: rgba(231,236,255,.92);
+      white-space:nowrap;
+    }
+
+    .micro-wrap{
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.35;
+      min-width:0;
+      max-width:100%;
+    }
+
+    .micro-line{
       display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:12px;
-      padding:12px;
-      border:1px solid var(--stroke2);
-      background:rgba(255,255,255,.02);
-      border-radius:14px;
-      margin-top:10px;
+      gap:8px;
+      align-items:baseline;
+      min-width:0;
+      max-width:100%;
     }
-    .tool strong{ font-size:15px; }
-    .tool .desc{ color:var(--muted); font-size:13px; margin-top:4px; max-width:70ch; }
+    .micro-short{
+      flex:1 1 auto;
+      min-width:0;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:clip;
+    }
+
+    .micro-more{
+      display:none;
+      margin-top:6px;
+    }
+
+    .micro-wrap.expanded .micro-line{ display:none; }
+    .micro-wrap.expanded .micro-more{ display:block; }
+
+    .see-more{
+      flex:0 0 auto;
+      font-size:12px;
+      font-weight:700;
+      color:rgba(106,166,255,.92);
+      text-decoration:none;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .see-more:hover{ text-decoration:underline; }
+
+    .micro-actions{
+      margin-top:6px;
+      display:flex;
+      justify-content:flex-start;
+    }
+
+    .row-top{
+      background: linear-gradient(180deg, rgba(46,229,157,.10), rgba(255,255,255,.02));
+    }
+    .row-top td{ border-bottom-color: rgba(46,229,157,.18); }
 
     .btn{
       display:inline-flex;
@@ -143,7 +307,10 @@
       text-decoration:none;
       white-space:nowrap;
       font-weight:700;
-      min-width:160px;
+
+      width:100%;
+      max-width:210px;
+      min-width:170px;
     }
     .btn:hover{ border-color: rgba(106,166,255,.70); text-decoration:none; }
     .btn.primary{
@@ -151,12 +318,58 @@
       background: rgba(46,229,157,.16);
     }
     .btn.primary:hover{ border-color: rgba(46,229,157,.85); }
+    .btn.muted{
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(231,236,255,.86);
+    }
+
+    @media (max-width: 820px){
+      table td:nth-child(6), table th:nth-child(6){ text-align:left; }
+      .btn{ max-width:100%; min-width:0; }
+    }
 
     .note{
       color:var(--muted);
       font-size:12px;
-      margin-top:12px;
+      margin-top:10px;
     }
+
+    .checklist{ list-style:none; padding:0; display:grid; gap:10px; }
+    .checklist li{
+      border:1px solid var(--stroke);
+      border-radius:14px;
+      padding:12px;
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+    }
+
+    .cta{
+      border:1px solid rgba(46,229,157,.35);
+      background:rgba(46,229,157,.10);
+      border-radius:18px;
+      padding:18px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .cta h3{ margin:0 0 6px; font-size:16px; }
+    .cta p{ margin:0; }
+    .cta a{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(46,229,157,.55);
+      background:rgba(46,229,157,.15);
+      color:#eafff6;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .cta a:hover{ border-color: rgba(46,229,157,.85); }
 
     footer{ text-align:center; color:var(--muted); font-size:13px; margin-top:18px; }
   </style>
@@ -165,89 +378,249 @@
 <body>
 <div class="container">
 
-  <header class="section">
-    <h1>Performance & Core Web Vitals</h1>
-    <p class="subtitle">
-      A curated toolkit to improve speed and CWV. These are the tools I use most often for audits, fixes, and monitoring.
-      (Use only what you need, stacking too many tools can backfire.)
-    </p>
+<header>
+  <h1>WooCommerce Cache Mistakes (and how to fix them)</h1>
+  <p class="subtitle">
+    If your cart or checkout breaks after “speed optimizations”, it’s usually caching rules ignoring
+    sessions, cookies, or dynamic pages.
+  </p>
+</header>
 
-    <div class="kicker" aria-label="tags">
-      <span class="chip good"><span class="dot"></span>Speed</span>
-      <span class="chip"><span class="dot"></span>CWV</span>
-      <span class="chip"><span class="dot"></span>CDN</span>
-      <span class="chip"><span class="dot"></span>Diagnostics</span>
-    </div>
-  </header>
-
-  <div class="section">
-    <h2>Quick picks</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Best “one plugin” speed option</h3>
-        <p>Great default config, fast wins, low risk for most sites.</p>
-      </div>
-      <div class="card">
-        <h3>Best for CWV tuning</h3>
-        <p>When you need to push LCP/INP improvements beyond basics.</p>
-      </div>
-    </div>
-
-    <!-- Tools list -->
-    <div class="tool">
-      <div>
-        <strong>WP Rocket (Caching)</strong>
-        <div class="desc">Best set-it-and-forget-it cache plugin for many WordPress sites. Pair with good exclusions on WooCommerce.</div>
-      </div>
-      <a class="btn primary" href="#" target="_blank" rel="nofollow noopener noreferrer">Get WP Rocket</a>
-    </div>
-
-    <div class="tool">
-      <div>
-        <strong>FlyingPress (Performance)</strong>
-        <div class="desc">Strong CWV-focused optimizations. Useful if you want a performance “suite” instead of stacking plugins.</div>
-      </div>
-      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">Get FlyingPress</a>
-    </div>
-
-    <div class="tool">
-      <div>
-        <strong>Cloudflare (CDN + WAF)</strong>
-        <div class="desc">Solid baseline CDN and security layer. Great for caching static assets and protecting origin.</div>
-      </div>
-      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">Get Cloudflare</a>
-    </div>
-
-    <div class="tool">
-      <div>
-        <strong>PageSpeed Insights (Diagnostics)</strong>
-        <div class="desc">Quick CWV lab + field signals. Use alongside real-user monitoring if possible.</div>
-      </div>
-      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">Run PSI</a>
-    </div>
-
-    <div class="tool">
-      <div>
-        <strong>GTmetrix (Diagnostics)</strong>
-        <div class="desc">Great for waterfall analysis and repeat tests. Helps isolate third-party scripts and render-blocking assets.</div>
-      </div>
-      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">Open GTmetrix</a>
-    </div>
-
-    <div class="note">
-      Note: Links may be affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.
-    </div>
+<div class="grid">
+  <div class="card">
+    <h2>What usually breaks</h2>
+    <ul>
+      <li>Cart not updating or stuck</li>
+      <li>Checkout resets or payment failures</li>
+      <li>Cached pages for logged-in users</li>
+      <li>Dynamic pricing not applied</li>
+      <li>My Account showing wrong data</li>
+    </ul>
   </div>
 
-  <footer>
-    © <span id="y"></span> Carl Leger
-  </footer>
+  <div class="card">
+    <h2>Rule of thumb</h2>
+    <p class="subtitle">
+      If a page changes after login, add to cart, coupon, shipping, or currency change,
+      it must NOT be cached.
+    </p>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Best WooCommerce Cache Plugins</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Plugin</th>
+          <th>Best for</th>
+          <th>Woo-safe</th>
+          <th>Rating</th>
+          <th>Price</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- ✅ WP Rocket -->
+        <tr class="row-top">
+          <td>
+            <div class="pname">
+              <span class="picon" aria-hidden="true" title="WP Rocket">
+                <svg class="wprocket-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340" aria-hidden="true" focusable="false">
+                  <path fill="#f4773e" d="M141 107C138.39 97.7335 136.208 88.3391 133.873 79L129.626 62C128.934 59.2733 128.436 55.6386 126.297 53.6034C122.865 50.3373 112.448 51.6555 108.019 52.0586C105.898 52.2518 103.898 52.7542 103.492 55.1481C103.013 57.9673 104.527 61.3391 105.291 64L109.86 80L126.86 140C128.559 145.996 130.153 152.044 132.005 157.995C132.815 160.599 133.726 163.704 137.015 163.704C142.866 163.704 145.308 153.215 147.231 149C154.956 132.066 162.029 114.822 170 98C177.669 114.184 184.853 130.64 192.139 147C194.08 151.359 196.693 162.6 202.086 163.623C205.367 164.246 206.982 161.648 207.956 158.981C210.199 152.835 211.487 146.284 213.291 140C219.214 119.365 224.843 98.6487 230.71 78L235.29 62C235.92 59.767 237.217 56.6289 236.306 54.3179C235.456 52.1613 232.963 52.1061 230.995 52.0193C226.456 51.8191 216.164 50.1867 213.139 54.3179C210.028 58.5669 209.383 65.9726 208.127 71C205.225 82.6051 200.522 95.0236 200 107C196.378 103.414 194.86 98.5838 192.769 94C188.54 84.7299 184.479 75.348 180.424 66C178.572 61.7296 176.557 52.4835 171.791 50.6227C165.587 48.2007 163.089 58.043 161.306 62C154.607 76.858 149.196 92.9051 141 107M170 121C163.15 133.036 158.777 146.536 152.742 159C149.242 166.226 145.488 172.652 137 174C140.202 199.335 143.561 224.65 146.715 250C148.286 262.623 148.367 276.824 152 289L154 289C160.023 277.702 165.621 264.353 169 252C175.127 263.627 177.428 277.084 183 289L185 289C189.039 275.707 189.43 260.723 191.59 247C194.002 231.676 196.013 216.335 198.272 201C199.588 192.062 201.612 183.036 202 174C193.188 171.382 190.835 164.656 187.219 157C183.921 150.017 180.513 143.081 177.424 136C175.244 131.002 173.433 125.249 170 121z"/>
+                </svg>
+              </span>
+
+              <div class="pmeta">
+                <div class="title">WP Rocket</div>
+                <div class="tag top"><span class="mini-dot"></span>Top pick</div>
+
+                <div class="micro-wrap" data-micro>
+                  <div class="micro-line">
+                    <span class="micro-short">Best “set it and forget it” option for most Woo stores. Great defaults, fast setup, and solid compatibility for typical cart and checkout flows.</span>
+                    <a class="see-more" href="#" data-toggle>See more</a>
+                  </div>
+                  <div class="micro-more">
+                    Best “set it and forget it” option for most Woo stores. Great defaults, fast setup, and solid compatibility for typical cart and checkout flows.
+                    <div class="micro-actions">
+                      <a class="see-more" href="#" data-toggle>See less</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>Easy setup</td>
+          <td><span class="badge good"><span class="dot"></span>Yes</span></td>
+          <td>
+            <span class="rating" aria-label="4.9 out of 5">
+              <span class="stars">★★★★★</span>
+              <span class="rating-num">4.9/5</span>
+            </span>
+          </td>
+          <td><span class="price">$59 / Year</span></td>
+          <td><a class="btn primary" href="https://wp-rocket.me/" target="_blank" rel="nofollow noopener noreferrer">Get WP Rocket</a></td>
+        </tr>
+
+        <!-- ✅ FlyingPress (SVG) -->
+        <tr>
+          <td>
+            <div class="pname">
+              <span class="picon" aria-hidden="true" title="FlyingPress">
+                <svg class="flyingpress-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" aria-hidden="true" focusable="false">
+                  <path style="fill:#5145e3; stroke:none;" d="M127 512C148.66 512 172.514 515.478 192 504.123C207.865 494.879 216.511 476.761 226.333 462C240.206 441.152 253.719 420.033 267.309 399C280.366 378.791 292.745 358.609 314 345.923C341.664 329.412 371.001 331 402 331L522 331C548.637 331 574.736 333.023 599 319.964C618.56 309.437 629.195 291.91 641.003 274C651.425 258.192 662.79 242.543 672 226L439 226L381 226C361.147 226 342.619 225.712 324 233.615C292.683 246.907 278.165 278.253 260.333 305C231.014 348.979 203.1 393.877 173.997 438C163.73 453.566 153.849 469.387 143.656 485C138.038 493.605 130.551 502.316 127 512M199 573C225.786 573 253.675 575.912 274.829 556.246C281.591 549.961 286.153 541.722 291.053 534C298.09 522.912 305.392 511.933 312.667 501C319.645 490.512 326.196 480.717 338 475.12C353.305 467.864 371.554 470 388 470L467 470C489.822 470 511.623 470.67 532 458.547C553.343 445.85 565.141 425.313 578.218 405C583.597 396.643 588.987 388.276 594.494 380C597.585 375.354 601.574 370.432 603 365L438 365L395 365C380.458 365 365.834 365.126 352 370.228C335.393 376.354 321.265 386.401 310.358 400.424C303.871 408.766 298.897 418.268 292.972 427C274.218 454.638 256.796 483.168 238.333 511C229.982 523.588 221.912 536.353 213.656 549C208.621 556.712 202.184 564.303 199 573z"/>
+                </svg>
+              </span>
+
+              <div class="pmeta">
+                <div class="title">FlyingPress</div>
+                <div class="tag"><span class="mini-dot"></span>Best for CWV</div>
+
+                <div class="micro-wrap" data-micro>
+                  <div class="micro-line">
+                    <span class="micro-short">Best for Core Web Vitals and aggressive front-end optimizations. Strong when you want to push LCP/INP improvements with fewer extra plugins.</span>
+                    <a class="see-more" href="#" data-toggle>See more</a>
+                  </div>
+                  <div class="micro-more">
+                    Best for Core Web Vitals and aggressive front-end optimizations. Strong when you want to push LCP/INP improvements with fewer extra plugins.
+                    <div class="micro-actions">
+                      <a class="see-more" href="#" data-toggle>See less</a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </td>
+          <td>Core Web Vitals</td>
+          <td><span class="badge good"><span class="dot"></span>Yes</span></td>
+          <td>
+            <span class="rating" aria-label="4.8 out of 5">
+              <span class="stars">★★★★☆</span>
+              <span class="rating-num">4.8/5</span>
+            </span>
+          </td>
+          <td><span class="price">~$49–$59 / Year</span></td>
+          <td><a class="btn" href="https://flyingpress.com/" target="_blank" rel="nofollow noopener noreferrer">Get FlyingPress</a></td>
+        </tr>
+
+        <!-- ✅ LiteSpeed (SVG) -->
+        <tr>
+          <td>
+            <div class="pname">
+              <span class="picon" aria-hidden="true" title="LiteSpeed Cache">
+                <svg class="litespeed-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" aria-hidden="true" focusable="false">
+                  <g>
+                    <path fill="#093071" d="M59.08,613.434v107.303c0,1.008,0.785,1.855,1.781,1.953c5.65,0.465,11.932,0.465,18.531,0
+                      c5.387-0.422,11.961-1.193,20.068-2.367c-0.291,1.641-0.438,3.41-0.438,5.322c0,1.631,0.166,3.611,0.482,5.754H35.645V613.461
+                      c1.219,0.1,2.787,0.297,4.727,0.559c2.838,0.488,5.744,0.502,7.477,0.039l5.746-0.029C55.777,613.732,57.586,613.525,59.08,613.434
+                      z M135.631,619.303c-3.406,0.475-5.678,0.482-7.316,0.025h-5.742c-2.029-0.275-3.578-0.457-4.746-0.568v112.639h22.229V618.734
+                      C138.779,618.832,137.32,619.02,135.631,619.303z M157.646,618.656c0.215,1.598,0.324,3.197,0.324,4.756
+                      c0,2.057-0.102,3.869-0.289,5.424h3.713c10.52-1.332,19.352-2.012,26.123-2.012c1.084,0,1.959,0.873,1.959,1.945v102.629h21.561
+                      V628.77c0-1.072,0.877-1.945,1.959-1.945c4.926,0,11.979,0.457,20.975,1.344c2.271,0.33,4.689,0.533,7.209,0.629
+                      c-0.258-1.557-0.258-3.338,0.01-5.334c-0.283-1.596-0.268-3.209,0.047-4.807H157.646z M258.934,618.656v112.742h60.906
+                      c-0.299-2.027-0.453-3.891-0.453-5.424c0-1.75,0.135-3.395,0.377-4.9c-4.139,0.633-8.764,1.137-13.715,1.479
+                      c-5.76,0.461-13.695,0.688-23.604,0.688c-1.072,0-1.949-0.881-1.949-1.957v-43.582c0-1.07,0.877-1.949,1.949-1.949h16.297
+                      c5.432,0.316,9.799,0.635,14.168,0.951l3.227,0.227c-0.094-0.436-0.201-0.924-0.316-1.432l-0.064-7.852
+                      c0-0.217,0.035-0.432,0.107-0.623c0.043-0.152,0.088-0.309,0.139-0.453c-5.74,0.709-10.994,1.012-17.26,1.012h-16.297
+                      c-1.072,0-1.949-0.877-1.949-1.951V628.77c0-1.072,0.877-1.945,1.949-1.945c12.025,0,24.65,0.781,37.551,2.33
+                      c-0.406-1.777-0.609-3.482-0.609-5.072c0-1.889,0.203-3.713,0.615-5.426H258.934z"/>
+                  </g>
+                </svg>
+              </span>
+
+              <div class="pmeta">
+                <div class="title">LiteSpeed Cache</div>
+                <div class="tag"><span class="mini-dot"></span>Only on LiteSpeed</div>
+
+                <div class="micro-wrap" data-micro>
+                  <div class="micro-line">
+                    <span class="micro-short">Best if you’re on LiteSpeed servers and want a free plugin. Great when paired with server-level cache, but not ideal if you’re not on LiteSpeed hosting.</span>
+                    <a class="see-more" href="#" data-toggle>See more</a>
+                  </div>
+                  <div class="micro-more">
+                    Best if you’re on LiteSpeed servers and want a free plugin. Great when paired with server-level cache, but not ideal if you’re not on LiteSpeed hosting.
+                    <div class="micro-actions">
+                      <a class="see-more" href="#" data-toggle>See less</a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </td>
+          <td>LiteSpeed servers</td>
+          <td><span class="badge good"><span class="dot"></span>Yes</span></td>
+          <td>
+            <span class="rating" aria-label="4.3 out of 5">
+              <span class="stars">★★★★☆</span>
+              <span class="rating-num">4.3/5</span>
+            </span>
+          </td>
+          <td><span class="price">Free (plugin)</span></td>
+          <td><a class="btn muted" href="https://wordpress.org/plugins/litespeed-cache/" target="_blank" rel="nofollow noopener noreferrer">Install (Free)</a></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    Note: Links may be affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.
+  </div>
+</div>
+
+<div class="section">
+  <h2>Woo-safe cache checklist</h2>
+  <ul class="checklist">
+    <li><b>Never cache:</b> /cart/, /checkout/, /my-account/</li>
+    <li><b>Respect Woo cookies</b> (don’t serve cache when cart/session cookies exist)</li>
+    <li><b>Disable cache for logged-in users</b> unless your setup is proven user-aware</li>
+    <li><b>Exclude payment scripts</b> from JS delay/defer if gateways break</li>
+    <li><b>Test real purchase flows</b> after every change (incognito + logged-in)</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="cta">
+    <div>
+      <h3>Need help fixing WooCommerce cache issues?</h3>
+      <p class="subtitle">
+        I fix cart, checkout, login, and dynamic pricing bugs caused by cache or CDN misconfiguration.
+      </p>
+    </div>
+    <div>
+      <a href="mailto:carlleger.dev@gmail.com?subject=WooCommerce%20cache%20help">
+        Contact by email
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © <span id="y"></span> Carl Leger
+</footer>
 
 </div>
 
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
+
+  // ✅ Toggle "See more / See less" per row
+  document.querySelectorAll("[data-toggle]").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const wrap = btn.closest("[data-micro]");
+      const isOpen = wrap.classList.toggle("expanded");
+
+      wrap.querySelectorAll("[data-toggle]").forEach((t) => {
+        t.textContent = isOpen ? "See less" : "See more";
+      });
+    });
+  });
 </script>
 </body>
 </html>
