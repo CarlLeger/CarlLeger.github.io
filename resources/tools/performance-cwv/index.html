@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Performance & Core Web Vitals Tools (Speed, CWV, CDN)</title>
-  <meta name="description" content="Recommended tools to improve WordPress speed and Core Web Vitals: caching, image optimization, CDN, diagnostics, and monitoring. Woo-safe notes included." />
+  <title>Best WordPress Performance & Core Web Vitals Tools (Speed, CWV, CDN)</title>
+  <meta name="description" content="A practical selection of the best WordPress performance and Core Web Vitals tools. Caching, CDN, diagnostics, and monitoring with WooCommerce-safe recommendations." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://carlleger.github.io/resources/tools/performance-cwv/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Performance & Core Web Vitals Tools (Speed, CWV, CDN)" />
-  <meta property="og:description" content="A curated toolkit for speed and CWV: caching, images, CDN, diagnostics, and monitoring with practical recommendations." />
+  <meta property="og:title" content="Best WordPress Performance & Core Web Vitals Tools" />
+  <meta property="og:description" content="Expert-picked tools to improve WordPress speed and Core Web Vitals. Focused on real-world results and WooCommerce safety." />
   <meta property="og:url" content="https://carlleger.github.io/resources/tools/performance-cwv/" />
   <meta property="og:type" content="article" />
 
@@ -20,11 +20,16 @@
   {
     "@context":"https://schema.org",
     "@type":"Article",
-    "headline":"Performance & Core Web Vitals Tools (Speed, CWV, CDN)",
-    "description":"Recommended tools to improve WordPress speed and Core Web Vitals: caching, image optimization, CDN, diagnostics, and monitoring.",
+    "@id":"https://carlleger.github.io/resources/tools/performance-cwv/#article",
+    "headline":"Best WordPress Performance & Core Web Vitals Tools",
+    "description":"A practical selection of the best WordPress performance and Core Web Vitals tools with WooCommerce-safe recommendations.",
+    "url":"https://carlleger.github.io/resources/tools/performance-cwv/",
+    "inLanguage":"en",
+    "datePublished":"2026-01-07",
+    "dateModified":"2026-01-07",
     "author":{"@type":"Person","name":"Carl Leger"},
     "publisher":{"@type":"Person","name":"Carl Leger"},
-    "mainEntityOfPage":"https://carlleger.github.io/resources/tools/performance-cwv/"
+    "mainEntityOfPage":{"@type":"WebPage","@id":"https://carlleger.github.io/resources/tools/performance-cwv/"}
   }
   </script>
 
@@ -46,7 +51,6 @@
     }
 
     *{ box-sizing:border-box; }
-    html,body{ height:100%; }
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
@@ -64,181 +68,175 @@
     .container{ max-width:var(--max); margin:0 auto; padding:28px 18px 80px; }
 
     h1{ font-size:clamp(28px,3vw,40px); margin:14px 0 8px; }
-    h2{ font-size:18px; margin:0 0 12px; }
+    h2{ font-size:20px; margin:0 0 10px; }
+    h3{ margin:0 0 6px; font-size:16px; }
     p{ margin:0; }
-    .subtitle{ color:var(--muted); max-width:78ch; margin-top:8px; }
+    .subtitle{ color:var(--muted); max-width:80ch; margin-top:10px; }
 
     .section{
       border:1px solid var(--stroke);
       background:linear-gradient(180deg,var(--panel),rgba(255,255,255,.03));
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:18px;
+      padding:20px;
       margin-top:18px;
     }
-
-    .kicker{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:12px;
-    }
-
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.03);
-      font-size:12px;
-      color:rgba(231,236,255,.92);
-      white-space:nowrap;
-    }
-    .chip .dot{ width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.25); }
-    .chip.good{ border-color: rgba(46,229,157,.35); background: rgba(46,229,157,.10); }
-    .chip.good .dot{ background: var(--good); }
-
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-      margin-top:14px;
-    }
-    @media(max-width:900px){ .grid{ grid-template-columns:1fr; } }
-
-    .card{
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.03);
-      border-radius:16px;
-      padding:14px;
-    }
-    .card h3{ margin:0 0 6px; font-size:16px; }
-    .card p{ color:var(--muted); }
 
     .tool{
       display:flex;
       justify-content:space-between;
       align-items:flex-start;
-      gap:12px;
-      padding:12px;
+      gap:14px;
+      padding:14px;
       border:1px solid var(--stroke2);
       background:rgba(255,255,255,.02);
       border-radius:14px;
-      margin-top:10px;
+      margin-top:12px;
     }
-    .tool strong{ font-size:15px; }
-    .tool .desc{ color:var(--muted); font-size:13px; margin-top:4px; max-width:70ch; }
+
+    .tool .desc{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:4px;
+      max-width:72ch;
+    }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:10px 12px;
+      padding:10px 14px;
       border-radius:12px;
       border:1px solid rgba(106,166,255,.35);
       background: rgba(106,166,255,.12);
-      color: rgba(231,236,255,.96);
-      text-decoration:none;
-      white-space:nowrap;
       font-weight:700;
+      white-space:nowrap;
       min-width:160px;
     }
-    .btn:hover{ border-color: rgba(106,166,255,.70); text-decoration:none; }
+
     .btn.primary{
       border-color: rgba(46,229,157,.55);
       background: rgba(46,229,157,.16);
     }
-    .btn.primary:hover{ border-color: rgba(46,229,157,.85); }
 
     .note{
       color:var(--muted);
       font-size:12px;
-      margin-top:12px;
+      margin-top:14px;
     }
 
-    footer{ text-align:center; color:var(--muted); font-size:13px; margin-top:18px; }
+    footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      margin-top:20px;
+    }
   </style>
 </head>
 
 <body>
 <div class="container">
 
+  <!-- HERO -->
   <header class="section">
-    <h1>Performance & Core Web Vitals</h1>
+    <h1>Best WordPress Performance & Core Web Vitals Tools</h1>
     <p class="subtitle">
-      A curated toolkit to improve speed and CWV. These are the tools I use most often for audits, fixes, and monitoring.
-      (Use only what you need, stacking too many tools can backfire.)
+      This page lists the performance tools I actually rely on to improve
+      <strong>WordPress speed</strong> and <strong>Core Web Vitals</strong>.
+      The focus is on real-world results, minimal plugin stacking,
+      and configurations that stay safe for <strong>WooCommerce</strong>.
     </p>
-
-    <div class="kicker" aria-label="tags">
-      <span class="chip good"><span class="dot"></span>Speed</span>
-      <span class="chip"><span class="dot"></span>CWV</span>
-      <span class="chip"><span class="dot"></span>CDN</span>
-      <span class="chip"><span class="dot"></span>Diagnostics</span>
-    </div>
   </header>
 
-  <div class="section">
-    <h2>Quick picks</h2>
+  <!-- CONTEXT -->
+  <section class="section">
+    <h2>How to choose the right performance tools</h2>
+    <p class="subtitle">
+      Performance issues rarely come from a single metric.
+      LCP, INP, CLS, server response time, and third-party scripts
+      all interact together. Instead of stacking plugins,
+      I recommend choosing tools based on the specific bottleneck you are facing.
+    </p>
+  </section>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Best “one plugin” speed option</h3>
-        <p>Great default config, fast wins, low risk for most sites.</p>
-      </div>
-      <div class="card">
-        <h3>Best for CWV tuning</h3>
-        <p>When you need to push LCP/INP improvements beyond basics.</p>
-      </div>
-    </div>
-
-    <!-- Tools list -->
-    <div class="tool">
-      <div>
-        <strong>WP Rocket (Caching)</strong>
-        <div class="desc">Best set-it-and-forget-it cache plugin for many WordPress sites. Pair with good exclusions on WooCommerce.</div>
-      </div>
-      <a class="btn primary" href="#" target="_blank" rel="nofollow noopener noreferrer">Get WP Rocket</a>
-    </div>
+  <!-- TOOLS -->
+  <section class="section">
+    <h2>Recommended WordPress performance tools</h2>
 
     <div class="tool">
       <div>
-        <strong>FlyingPress (Performance)</strong>
-        <div class="desc">Strong CWV-focused optimizations. Useful if you want a performance “suite” instead of stacking plugins.</div>
+        <h3>WP Rocket — caching & baseline speed</h3>
+        <p class="desc">
+          A strong “set-it-and-forget-it” cache plugin that delivers
+          fast gains on most WordPress sites. Works well on WooCommerce
+          when cache exclusions are configured properly.
+        </p>
       </div>
-      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">Get FlyingPress</a>
-    </div>
-
-    <div class="tool">
-      <div>
-        <strong>Cloudflare (CDN + WAF)</strong>
-        <div class="desc">Solid baseline CDN and security layer. Great for caching static assets and protecting origin.</div>
-      </div>
-      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">Get Cloudflare</a>
+      <a class="btn primary" href="#" target="_blank" rel="sponsored noopener noreferrer">
+        Get WP Rocket
+      </a>
     </div>
 
     <div class="tool">
       <div>
-        <strong>PageSpeed Insights (Diagnostics)</strong>
-        <div class="desc">Quick CWV lab + field signals. Use alongside real-user monitoring if possible.</div>
+        <h3>FlyingPress — Core Web Vitals optimization</h3>
+        <p class="desc">
+          Focused on improving LCP and INP through script handling,
+          critical CSS, and smart loading strategies.
+          Ideal when CWV scores are the main issue.
+        </p>
       </div>
-      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">Run PSI</a>
+      <a class="btn" href="#" target="_blank" rel="sponsored noopener noreferrer">
+        Get FlyingPress
+      </a>
     </div>
 
     <div class="tool">
       <div>
-        <strong>GTmetrix (Diagnostics)</strong>
-        <div class="desc">Great for waterfall analysis and repeat tests. Helps isolate third-party scripts and render-blocking assets.</div>
+        <h3>Cloudflare — CDN & edge protection</h3>
+        <p class="desc">
+          Adds a fast global CDN, basic WAF protection,
+          and static asset caching. Often enough without
+          paying for premium host-side CDNs.
+        </p>
       </div>
-      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">Open GTmetrix</a>
+      <a class="btn" href="#" target="_blank" rel="sponsored noopener noreferrer">
+        Get Cloudflare
+      </a>
     </div>
 
-    <div class="note">
-      Note: Links may be affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.
+    <div class="tool">
+      <div>
+        <h3>PageSpeed Insights — CWV diagnostics</h3>
+        <p class="desc">
+          Combines lab tests with Chrome User Experience Report data.
+          Best used to validate improvements after changes are deployed.
+        </p>
+      </div>
+      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">
+        Run PageSpeed Insights
+      </a>
     </div>
-  </div>
+
+    <div class="tool">
+      <div>
+        <h3>GTmetrix — waterfall analysis</h3>
+        <p class="desc">
+          Excellent for identifying render-blocking resources,
+          third-party scripts, and slow network requests.
+        </p>
+      </div>
+      <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer">
+        Open GTmetrix
+      </a>
+    </div>
+
+    <p class="note">
+      Disclosure: Some links may be affiliate links.
+      Purchasing through them does not increase your cost
+      and helps support this site.
+    </p>
+  </section>
 
   <footer>
     © <span id="y"></span> Carl Leger
