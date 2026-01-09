@@ -215,9 +215,10 @@
       background:transparent;
       flex: 0 0 auto;
       margin-top:2px;
-      color: rgba(231,236,255,.96);
     }
-    .picon svg{ width:var(--icon); height:var(--icon); display:block; }
+    /* for wide wordmarks (ex: Kinsta) */
+    .picon.wide{ width:46px; }
+    .picon svg{ width:100%; height:100%; display:block; }
 
     .pmeta{
       min-width:0;
@@ -391,7 +392,7 @@
 
       <div class="pill good" title="Shortlist updated">
         <span class="dot"></span>
-        Shortlist: 5 solid options
+        Shortlist: 6 solid options
       </div>
     </div>
   </header>
@@ -478,20 +479,16 @@
           <tr>
             <td>
               <div class="pname">
-                <span class="picon" aria-hidden="true" title="Kinsta">
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                       viewBox="0 0 503.7 98.3" style="enable-background:new 0 0 503.7 98.3;" xml:space="preserve">
-                    <style type="text/css">
-                      .st0{fill:#FFFFFF;}
-                    </style>
+                <span class="picon wide" aria-hidden="true" title="Kinsta">
+                  <!-- Provided Kinsta SVG -->
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 503.7 98.3" xml:space="preserve">
+                    <style type="text/css">.st0{fill:#FFFFFF;}</style>
                     <g>
-                      <g>
-                        <path class="st0" d="M214.5,15.7c-3.8-3.8-8.2-6.9-13.2-9c-5.1-2.2-10.5-3.3-16-3.2c-5.2,0-10.3,1-15.1,2.8
-                          c-4.8,1.9-9.2,4.6-12.9,8l-6.6-7.7c-0.7-0.8-1.8-1.3-2.9-1.3h-0.2c-2.1,0-3.8,1.7-3.8,3.8v85.4c0,2.1,1.7,3.8,3.8,3.8
-                          h16.1c2.1,0,3.8-1.7,3.8-3.8V45.1c0-2.4,0.5-4.7,1.4-6.9c0.9-2.1,2.2-4.1,3.8-5.7c3.4-3.4,8-5.2,12.7-5.2
-                          c2.3,0,4.7,0.5,6.8,1.4c4.3,1.8,7.6,5.2,9.4,9.5c0.9,2.2,1.4,4.5,1.4,6.9v49.3c0,2.1,1.7,3.8,3.8,3.8h16.1
-                          c2.1,0,3.8-1.7,3.8-3.8V45.1c0-5.6-1.1-11.1-3.2-16.2C221.3,24,218.3,19.5,214.5,15.7z"/>
-                      </g>
+                      <path class="st0" d="M214.5,15.7c-3.8-3.8-8.2-6.9-13.2-9c-5.1-2.2-10.5-3.3-16-3.2c-5.2,0-10.3,1-15.1,2.8
+                        c-4.8,1.9-9.2,4.6-12.9,8l-6.6-7.7c-0.7-0.8-1.8-1.3-2.9-1.3h-0.2c-2.1,0-3.8,1.7-3.8,3.8v85.4c0,2.1,1.7,3.8,3.8,3.8
+                        h16.1c2.1,0,3.8-1.7,3.8-3.8V45.1c0-2.4,0.5-4.7,1.4-6.9c0.9-2.1,2.2-4.1,3.8-5.7c3.4-3.4,8-5.2,12.7-5.2
+                        c2.3,0,4.7,0.5,6.8,1.4c4.3,1.8,7.6,5.2,9.4,9.5c0.9,2.2,1.4,4.5,1.4,6.9v49.3c0,2.1,1.7,3.8,3.8,3.8h16.1
+                        c2.1,0,3.8-1.7,3.8-3.8V45.1c0-5.6-1.1-11.1-3.2-16.2C221.3,24,218.3,19.5,214.5,15.7z"/>
                     </g>
                   </svg>
                 </span>
@@ -532,7 +529,7 @@
             <td>
               <div class="pname">
                 <span class="picon" aria-hidden="true" title="SiteGround">
-                  <svg id="logosandtypes_com" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
                     <defs>
                       <style>
                         .cls-1 { fill: #333230; fill-rule: evenodd; }
@@ -618,12 +615,61 @@
             </td>
           </tr>
 
-          <!-- ✅ Hostinger (FIXED ICON) -->
+          <!-- ✅ Hosting (added) -->
+          <tr>
+            <td>
+              <div class="pname">
+                <span class="picon" aria-hidden="true" title="Hosting">
+                  <!-- hosting.svg had width/height but no viewBox, so we add viewBox for clean scaling -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 261 250">
+                    <!-- (pasted content from hosting.svg - keep its own fills) -->
+                    <path style="fill:#c3cacc; stroke:none;" d="M141 26L142 27L141 26z"/>
+                    <path style="fill:#889092; stroke:none;" d="M142 26L143 27L142 26z"/>
+                    <path style="fill:#4a5455; stroke:none;" d="M143 26C145.052 26.8743 146.747 26.9528 149 27C146.948 26.1257 145.253 26.0472 143 26z"/>
+                    <path style="fill:#aab3b4; stroke:none;" d="M149 26C150.248 26.6847 150.549 26.7488 152 27C150.752 26.3152 150.452 26.2512 149 26z"/>
+                    <path style="fill:#c3cacc; stroke:none;" d="M137 27L138 28L137 27z"/>
+                    <path style="fill:#6c7576; stroke:none;" d="M138 27L139 28L138 27z"/>
+                    <path style="fill:#364040; stroke:none;" d="M139 27L140 28L139 27z"/>
+                    <path style="fill:#0d1f1f; stroke:none;" d="M116 177C112.764 190.593 114.261 215.075 134 211.671C142.563 210.195 149.676 204.261 156 198.714C178.665 178.833 193.955 147.549 198.561 118C199.169 114.1 199.222 109.928 198.829 106C198.564 103.345 198.093 100.5 197.136 98C189.938 79.1904 169.242 91.878 159 100C164.247 83.5896 169.299 65.385 166.561 48C164.422 34.4196 157.176 26.0466 143 27.0903C139.096 27.3777 135.516 28.5901 132 30.2616C127.029 32.6248 122.381 35.3151 118 38.6543C111.2 43.8369 104.903 49.6524 99.1698 56C70.7317 87.4849 49.4679 128.823 43.4282 171C42.6476 176.451 42.6221 182.518 43.1705 188C43.5415 191.708 44.4119 195.508 45.7106 199C46.6239 201.456 47.7988 203.826 49.5324 205.815C63.1773 221.466 86.5664 204.849 98 195C100.687 192.685 103.451 190.445 105.985 187.961C109.521 184.495 112.577 180.576 116 177z"/>
+                  </svg>
+                </span>
+
+                <div class="pmeta">
+                  <div class="title">
+                    <a href="YOUR_HOSTING_AFF_LINK" target="_blank" rel="nofollow sponsored noopener">Hosting</a>
+                  </div>
+                  <div class="tag"><span class="mini-dot"></span>General hosting</div>
+                  <div class="tag"><span class="mini-dot"></span>Check specs</div>
+
+                  <div class="micro-wrap" data-micro>
+                    <div class="micro-line">
+                      <span class="micro-short">Decent option depending on plan, but always verify CPU/RAM limits, I/O, backups, and WooCommerce cache safety before committing.</span>
+                      <a class="see-more" href="#" data-toggle>See more</a>
+                    </div>
+                    <div class="micro-more">
+                      Decent option depending on plan, but always verify CPU/RAM limits, I/O, backups, and WooCommerce cache safety before committing.
+                      <div class="micro-actions">
+                        <a class="see-more" href="#" data-toggle>See less</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>Flexible needs</td>
+            <td><span class="badge"><span class="dot"></span>Flexible</span></td>
+            <td><span class="badge"><span class="dot"></span>Depends</span></td>
+            <td><span class="badge"><span class="dot"></span>Varies by plan</span></td>
+            <td>
+              <a class="btn" href="YOUR_HOSTING_AFF_LINK" target="_blank" rel="nofollow sponsored noopener">Get Hosting</a>
+            </td>
+          </tr>
+
+          <!-- ✅ Hostinger (fixed + real icon) -->
           <tr>
             <td>
               <div class="pname">
                 <span class="picon" aria-hidden="true" title="Hostinger">
-                  <!-- Hostinger icon (compact, square, aligned with others) -->
                   <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
                     <path d="M347.979 6v149.166l120.52 70.5V67.437L347.98 6zM43.499 6v234.104h391.98L316.207 174.54l-155.354-.062V68.999L43.5 6zm304.48 435.291V336.729l-156.542-.105c.146.688-121.25-66.604-121.25-66.604l398.312 1.896V506l-120.52-64.708zM43.499 288.312v152.979l117.355 61.437V357.145L43.5 288.312z" fill="#673de6" fill-rule="nonzero"/>
                   </svg>
