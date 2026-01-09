@@ -231,14 +231,15 @@
     }
     .picon svg{ width:var(--icon); height:var(--icon); display:block; }
 
+    /* ✅ Improved wordmark sizing (Kinsta) */
     .picon.logo{
-      width:84px;
-      height:22px;
-      margin-top:6px;
+      width: 124px;
+      height: 28px;
+      margin-top: 4px;
     }
     .picon.logo svg{
-      width:84px;
-      height:22px;
+      width: 124px;
+      height: 28px;
       display:block;
     }
 
@@ -402,7 +403,7 @@
       line-height:1;
       vertical-align:middle;
       white-space:nowrap;
-      color: var(--warn); /* yellow */
+      color: var(--warn);
     }
     .star{
       width:14px; height:14px;
@@ -538,17 +539,17 @@
             </td>
           </tr>
 
-          <!-- ✅ Kinsta -->
+          <!-- ✅ Kinsta (fixed logo rendering) -->
           <tr>
             <td>
               <div class="pname">
                 <span class="picon logo" aria-hidden="true" title="Kinsta">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 503.7 98.3" preserveAspectRatio="xMinYMid meet">
-                    <path fill="currentColor" d="M214.5,15.7c-3.8-3.8-8.2-6.9-13.2-9c-5.1-2.2-10.5-3.3-16-3.2c-5.2,0-10.3,1-15.1,2.8
-                      c-4.8,1.9-9.2,4.6-12.9,8l-6.6-7.7c-0.7-0.8-1.8-1.3-2.9-1.3h-0.2c-2.1,0-3.8,1.7-3.8,3.8v85.4c0,2.1,1.7,3.8,3.8,3.8
-                      h16.1c2.1,0,3.8-1.7,3.8-3.8V45.1c0-2.4,0.5-4.7,1.4-6.9c0.9-2.1,2.2-4.1,3.8-5.7c3.4-3.4,8-5.2,12.7-5.2
-                      c2.3,0,4.7,0.5,6.8,1.4c4.3,1.8,7.6,5.2,9.4,9.5c0.9,2.2,1.4,4.5,1.4,6.9v49.3c0,2.1,1.7,3.8,3.8,3.8h16.1
-                      c2.1,0,3.8-1.7,3.8-3.8V45.1c0-5.6-1.1-11.1-3.2-16.2C221.3,24,218.3,19.5,214.5,15.7z"/>
+                  <!-- Cleaner inline logo so it won't crop -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 32" preserveAspectRatio="xMinYMid meet" role="img" aria-label="Kinsta">
+                    <circle cx="16" cy="16" r="14" fill="rgba(123,97,255,.18)" stroke="rgba(123,97,255,.65)" stroke-width="2"/>
+                    <path d="M11 9v14h3v-6l6 6h4l-7-7 7-7h-4l-6 6V9z" fill="currentColor"/>
+                    <text x="40" y="21" font-size="16" font-weight="900" fill="currentColor"
+                          font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial">Kinsta</text>
                   </svg>
                 </span>
 
@@ -600,7 +601,6 @@
             <td>
               <div class="pname">
                 <span class="picon" aria-hidden="true" title="WP Engine">
-                  <!-- wpengine-svgrepo-com.svg (inline) -->
                   <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" aria-hidden="true" focusable="false">
                     <path d="M86.8392157,256 L169.160784,256 L169.160784,193.756863 L149.082353,173.678431 L106.415686,173.678431 L86.8392157,193.756863 L86.8392157,256 Z M193.254902,86.8392157 L173.678431,106.415686 L173.678431,149.584314 L193.254902,169.160784 L256,169.160784 L256,86.8392157 L193.254902,86.8392157 Z M169.160784,0 L86.8392157,0 L86.8392157,62.745098 L106.415686,82.3215686 L149.082353,82.3215686 L169.160784,62.745098 L169.160784,0 Z M256,256 L256,193.756863 L236.423529,173.678431 L173.678431,173.678431 L173.678431,256 L256,256 Z M19.5764706,0 L0,19.5764706 L0,82.3215686 L82.3215686,82.3215686 L82.3215686,0 L19.5764706,0 Z M173.678431,0 L173.678431,62.745098 L193.254902,82.3215686 L256,82.3215686 L256,0 L173.678431,0 Z M128,140.047059 C121.47451,140.047059 116.454902,134.52549 116.454902,128.501961 C116.454902,121.976471 121.976471,116.956863 128,116.956863 C134.52549,116.956863 139.545098,122.478431 139.545098,128.501961 C139.545098,134.52549 134.52549,140.047059 128,140.047059 Z M82.3215686,86.8392157 L0,86.8392157 L0,169.160784 L62.2431373,169.160784 L82.3215686,149.584314 L82.3215686,86.8392157 Z M82.3215686,193.756863 L62.2431373,173.678431 L0,173.678431 L0,256 L62.2431373,256 L82.3215686,236.423529 L82.3215686,193.756863 Z" fill="#40BAC8"></path>
                   </svg>
@@ -707,7 +707,7 @@
             </td>
           </tr>
 
-          <!-- ✅ Hosting.com -->
+          <!-- ✅ Hosting.com (replaced SVG) -->
           <tr>
             <td>
               <div class="pname">
@@ -721,6 +721,39 @@
                     <path style="fill:#6c7576; stroke:none;" d="M138 27L139 28L138 27z"/>
                     <path style="fill:#364040; stroke:none;" d="M139 27L140 28L139 27z"/>
                     <path style="fill:#0d1f1f; stroke:none;" d="M116 177C112.764 190.593 114.261 215.075 134 211.671C142.563 210.195 149.676 204.261 156 198.714C178.665 178.833 193.955 147.549 198.561 118C199.169 114.1 199.222 109.928 198.829 106C198.564 103.345 198.093 100.5 197.136 98C189.938 79.1904 169.242 91.878 159 100C164.247 83.5896 169.299 65.385 166.561 48C164.422 34.4196 157.176 26.0466 143 27.0903C139.096 27.3777 135.516 28.5901 132 30.2616C127.029 32.6248 122.381 35.3151 118 38.6543C111.2 43.8369 104.903 49.6524 99.1698 56C70.7317 87.4849 49.4679 128.823 43.4282 171C42.6476 176.451 42.6221 182.518 43.1705 188C43.5415 191.708 44.4119 195.508 45.7106 199C46.6239 201.456 47.7988 203.826 49.5324 205.815C63.1773 221.466 86.5664 204.849 98 195C100.687 192.685 103.451 190.445 105.985 187.961C109.521 184.495 112.577 180.576 116 177z"/>
+                    <path style="fill:#2c3536; stroke:none;" d="M140 27C131.462 28.4458 124.208 32.6508 117 37.7307C98.9165 50.4782 83.7731 67.328 71 85C57.1992 104.084 46.7809 125.662 41.5756 149C39.5448 158.108 37.5913 167.745 38.1705 177C38.6345 184.414 39.5812 192.203 43.0586 199C51.2728 215.054 70.7344 212.114 84 204.572C94.7908 198.44 104.737 189.826 112.884 180.714C114.849 178.516 117.303 176.527 118.761 173.91C121.424 169.131 120.977 162.263 121 157C121.047 146.219 120.89 135.429 121.004 124.65C121.12 113.796 120.215 102.808 121.058 92C122.937 67.9069 128.421 46.2703 140 27z"/>
+                    <path style="fill:#d4dbdc; stroke:none;" d="M133 29L134 30L133 29z"/>
+                    <path style="fill:#889092; stroke:none;" d="M134 29L135 30L134 29z"/>
+                    <path style="fill:#1a2323; stroke:none;" d="M135 29L136 30L135 29z"/>
+                    <path style="fill:#050e0e; stroke:none;" d="M136 29L137 30L136 29z"/>
+                    <path style="fill:#1a2323; stroke:none;" d="M137 29L138 30L137 29z"/>
+                    <path style="fill:#889092; stroke:none;" d="M138 29L139 30L138 29z"/>
+                    <path style="fill:#d4dbdc; stroke:none;" d="M139 29L140 30L139 29z"/>
+                    <path style="fill:#6c7576; stroke:none;" d="M132 30L133 31L132 30z"/>
+                    <path style="fill:#050e0e; stroke:none;" d="M133 30L134 31L133 30z"/>
+                    <path style="fill:#2c3536; stroke:none;" d="M134 30L135 31L134 30z"/>
+                    <path style="fill:#4a5455; stroke:none;" d="M135 30L136 31L135 30z"/>
+                    <path style="fill:#2c3536; stroke:none;" d="M136 30L137 31L136 30z"/>
+                    <path style="fill:#050e0e; stroke:none;" d="M137 30L138 31L137 30z"/>
+                    <path style="fill:#6c7576; stroke:none;" d="M138 30L139 31L138 30z"/>
+                    <path style="fill:#aab3b4; stroke:none;" d="M130 31L131 32L130 31z"/>
+                    <path style="fill:#364040; stroke:none;" d="M131 31L132 32L131 31z"/>
+                    <path style="fill:#000000; stroke:none;" d="M132 31L133 32L132 31z"/>
+                    <path style="fill:#2c3536; stroke:none;" d="M133 31L134 32L133 31z"/>
+                    <path style="fill:#4a5455; stroke:none;" d="M134 31L135 32L134 31z"/>
+                    <path style="fill:#2c3536; stroke:none;" d="M135 31L136 32L135 31z"/>
+                    <path style="fill:#000000; stroke:none;" d="M136 31L137 32L136 31z"/>
+                    <path style="fill:#364040; stroke:none;" d="M137 31L138 32L137 31z"/>
+                    <path style="fill:#aab3b4; stroke:none;" d="M138 31L139 32L138 31z"/>
+                    <path style="fill:#4a5455; stroke:none;" d="M129 32L130 33L129 32z"/>
+                    <path style="fill:#000000; stroke:none;" d="M130 32L131 33L130 32z"/>
+                    <path style="fill:#364040; stroke:none;" d="M131 32L132 33L131 32z"/>
+                    <path style="fill:#4a5455; stroke:none;" d="M132 32L133 33L132 32z"/>
+                    <path style="fill:#6c7576; stroke:none;" d="M133 32L134 33L133 32z"/>
+                    <path style="fill:#4a5455; stroke:none;" d="M134 32L135 33L134 32z"/>
+                    <path style="fill:#364040; stroke:none;" d="M135 32L136 33L135 32z"/>
+                    <path style="fill:#000000; stroke:none;" d="M136 32L137 33L136 32z"/>
+                    <path style="fill:#4a5455; stroke:none;" d="M137 32L138 33L137 32z"/>
                   </svg>
                 </span>
 
