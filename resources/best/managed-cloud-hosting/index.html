@@ -231,16 +231,20 @@
     }
     .picon svg{ width:var(--icon); height:var(--icon); display:block; }
 
-    /* ✅ Improved wordmark sizing (Kinsta) */
-    .picon.logo{
-      width: 124px;
-      height: 28px;
-      margin-top: 4px;
+    /* ✅ Kinsta: use external SVG file (square icon) */
+    .picon.kinsta{
+      width: var(--icon);
+      height: var(--icon);
+      margin-top: 2px;
+      border-radius: 10px;
+      overflow: hidden; /* keeps it clean if SVG has a hard square edge */
+      background: transparent;
     }
-    .picon.logo svg{
-      width: 124px;
-      height: 28px;
+    .picon.kinsta img{
+      width: 100%;
+      height: 100%;
       display:block;
+      object-fit: contain;
     }
 
     /* ✅ Hosting.com icon: force clean sizing + SiteGround green */
@@ -543,17 +547,13 @@
             </td>
           </tr>
 
-          <!-- ✅ Kinsta (fixed logo rendering) -->
+          <!-- ✅ Kinsta (NEW: uses Kinsta_Icon_Black.svg via <img>) -->
           <tr>
             <td>
               <div class="pname">
-                <span class="picon logo" aria-hidden="true" title="Kinsta">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 32" preserveAspectRatio="xMinYMid meet" role="img" aria-label="Kinsta">
-                    <circle cx="16" cy="16" r="14" fill="rgba(123,97,255,.18)" stroke="rgba(123,97,255,.65)" stroke-width="2"/>
-                    <path d="M11 9v14h3v-6l6 6h4l-7-7 7-7h-4l-6 6V9z" fill="currentColor"/>
-                    <text x="40" y="21" font-size="16" font-weight="900" fill="currentColor"
-                          font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial">Kinsta</text>
-                  </svg>
+                <span class="picon kinsta" aria-hidden="true" title="Kinsta">
+                  <!-- Put Kinsta_Icon_Black.svg next to this HTML file (or change src path) -->
+                  <img src="Kinsta_Icon_Black.svg" alt="Kinsta" loading="lazy" decoding="async">
                 </span>
 
                 <div class="pmeta">
@@ -715,7 +715,6 @@
             <td>
               <div class="pname">
                 <span class="picon hosting" aria-hidden="true" title="Hosting.com">
-                  <!-- Clean, centered, 32x32-friendly icon -->
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 261 250" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
                     <path style="fill:#96cb4c; stroke:none;" d="M141 26L142 27L141 26z"/>
                     <path style="fill:#96cb4c; stroke:none;" d="M142 26L143 27L142 26z"/>
