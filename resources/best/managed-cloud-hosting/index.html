@@ -116,6 +116,7 @@
     ul{ color:var(--muted); margin:10px 0 0 18px; }
 
     .table-wrap{
+      position:relative;
       overflow-x:auto;
       overflow-y:visible;
       -webkit-overflow-scrolling:touch;
@@ -126,6 +127,19 @@
       scrollbar-width: thin;
       scrollbar-color: rgba(106,166,255,.55) rgba(255,255,255,.06);
     }
+    /* ✅ Fix separator/background at bottom: soft fade + tidy end */
+    .table-wrap:after{
+      content:"";
+      position:sticky;
+      left:0;
+      right:0;
+      bottom:0;
+      display:block;
+      height:26px;
+      pointer-events:none;
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(7,13,23,.55));
+    }
+
     .table-wrap::-webkit-scrollbar{ height:12px; }
     .table-wrap::-webkit-scrollbar-track{
       background: rgba(255,255,255,.06);
@@ -143,7 +157,7 @@
 
     table{
       width:100%;
-      min-width: 980px;
+      min-width: 1040px; /* + Review column */
       border-collapse:collapse;
       table-layout:fixed;
     }
@@ -156,24 +170,29 @@
     }
     th{ background:rgba(255,255,255,.03); text-align:left; }
 
-    /* Provider | Best for | Tier | Woo-safe | Typical price | Link */
-    table th:nth-child(1), table td:nth-child(1){ width:34%; }
-    table th:nth-child(2), table td:nth-child(2){ width:18%; }
-    table th:nth-child(3), table td:nth-child(3){ width:12%; }
-    table th:nth-child(4), table td:nth-child(4){ width:12%; }
+    /* Provider | Best for | Tier | Woo-safe | Review | Typical price | Link */
+    table th:nth-child(1), table td:nth-child(1){ width:31%; }
+    table th:nth-child(2), table td:nth-child(2){ width:17%; }
+    table th:nth-child(3), table td:nth-child(3){ width:11%; }
+    table th:nth-child(4), table td:nth-child(4){ width:11%; }
     table th:nth-child(5), table td:nth-child(5){ width:12%; }
-    table th:nth-child(6), table td:nth-child(6){ width:12%; }
+    table th:nth-child(6), table td:nth-child(6){ width:10%; }
+    table th:nth-child(7), table td:nth-child(7){ width:8%; }
 
-    table td:nth-child(6){
+    table td:nth-child(7){
       overflow:visible;
       text-align:right;
       vertical-align:middle;
+      padding-right:12px;
     }
-    table th:nth-child(6){ text-align:right; }
+    table th:nth-child(7){ text-align:right; }
 
     @media (max-width: 820px){
-      table td:nth-child(6), table th:nth-child(6){ text-align:left; }
+      table td:nth-child(7), table th:nth-child(7){ text-align:left; }
     }
+
+    /* ✅ Make last row look clean (no harsh bottom border) */
+    tbody tr:last-child td{ border-bottom:0; }
 
     .badge{
       display:inline-flex;
@@ -379,6 +398,31 @@
     }
     .cta a:hover{ border-color: rgba(46,229,157,.85); }
 
+    /* ✅ Reviews (stars) */
+    .stars{
+      display:inline-flex;
+      align-items:center;
+      gap:2px;
+      line-height:1;
+      vertical-align:middle;
+      white-space:nowrap;
+    }
+    .star{
+      width:14px; height:14px;
+      display:inline-block;
+      opacity:.95;
+    }
+    .stars .star.off{ opacity:.28; }
+    .rating{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .rating .rnum{
+      font-size:12px;
+      color:rgba(231,236,255,.85);
+    }
+
     footer{ text-align:center; color:var(--muted); font-size:13px; margin-top:18px; }
   </style>
 </head>
@@ -434,6 +478,7 @@
             <th>Best for</th>
             <th>Tier</th>
             <th>Woo-safe</th>
+            <th>Review</th>
             <th>Typical price</th>
             <th>Link</th>
           </tr>
@@ -475,13 +520,25 @@
             <td>Growing Woo stores</td>
             <td><span class="badge"><span class="dot"></span>Flexible</span></td>
             <td><span class="badge good"><span class="dot"></span>Yes</span></td>
+            <td>
+              <span class="rating" aria-label="Review 5 out of 5">
+                <span class="stars" data-stars="5">
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                </span>
+                <span class="rnum">5.0</span>
+              </span>
+            </td>
             <td><span class="badge"><span class="dot"></span>Varies by plan</span></td>
             <td>
               <a class="btn primary" href="https://www.cloudways.com/en/?id=2063019" target="_blank" rel="nofollow sponsored noopener">Get Cloudways</a>
             </td>
           </tr>
 
-          <!-- ✅ Kinsta (fixed: wide logo) -->
+          <!-- ✅ Kinsta -->
           <tr>
             <td>
               <div class="pname">
@@ -543,6 +600,18 @@
             <td>Hands-off teams</td>
             <td><span class="badge"><span class="dot"></span>Premium</span></td>
             <td><span class="badge good"><span class="dot"></span>Yes</span></td>
+            <td>
+              <span class="rating" aria-label="Review 5 out of 5">
+                <span class="stars" data-stars="5">
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                </span>
+                <span class="rnum">5.0</span>
+              </span>
+            </td>
             <td><span class="badge"><span class="dot"></span>Higher</span></td>
             <td>
               <a class="btn" href="YOUR_KINSTA_AFF_LINK" target="_blank" rel="nofollow sponsored noopener">Get Kinsta</a>
@@ -586,6 +655,18 @@
             <td>Smaller stores</td>
             <td><span class="badge"><span class="dot"></span>Pro</span></td>
             <td><span class="badge good"><span class="dot"></span>Usually</span></td>
+            <td>
+              <span class="rating" aria-label="Review 4 out of 5">
+                <span class="stars" data-stars="4">
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star off" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                </span>
+                <span class="rnum">4.0</span>
+              </span>
+            </td>
             <td><span class="badge"><span class="dot"></span>Lower-mid</span></td>
             <td>
               <a class="btn" href="YOUR_SITEGROUND_AFF_LINK" target="_blank" rel="nofollow sponsored noopener">Get SiteGround</a>
@@ -597,9 +678,7 @@
             <td>
               <div class="pname">
                 <span class="picon" aria-hidden="true" title="Hosting.com">
-                  <!-- hosting.svg fixed: add viewBox so it scales properly -->
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 261 250" aria-hidden="true" focusable="false">
-                    <!-- (hosting.svg paths) -->
                     <path style="fill:#c3cacc; stroke:none;" d="M141 26L142 27L141 26z"/>
                     <path style="fill:#889092; stroke:none;" d="M142 26L143 27L142 26z"/>
                     <path style="fill:#4a5455; stroke:none;" d="M143 26C145.052 26.8743 146.747 26.9528 149 27C146.948 26.1257 145.253 26.0472 143 26z"/>
@@ -608,7 +687,6 @@
                     <path style="fill:#6c7576; stroke:none;" d="M138 27L139 28L138 27z"/>
                     <path style="fill:#364040; stroke:none;" d="M139 27L140 28L139 27z"/>
                     <path style="fill:#0d1f1f; stroke:none;" d="M116 177C112.764 190.593 114.261 215.075 134 211.671C142.563 210.195 149.676 204.261 156 198.714C178.665 178.833 193.955 147.549 198.561 118C199.169 114.1 199.222 109.928 198.829 106C198.564 103.345 198.093 100.5 197.136 98C189.938 79.1904 169.242 91.878 159 100C164.247 83.5896 169.299 65.385 166.561 48C164.422 34.4196 157.176 26.0466 143 27.0903C139.096 27.3777 135.516 28.5901 132 30.2616C127.029 32.6248 122.381 35.3151 118 38.6543C111.2 43.8369 104.903 49.6524 99.1698 56C70.7317 87.4849 49.4679 128.823 43.4282 171C42.6476 176.451 42.6221 182.518 43.1705 188C43.5415 191.708 44.4119 195.508 45.7106 199C46.6239 201.456 47.7988 203.826 49.5324 205.815C63.1773 221.466 86.5664 204.849 98 195C100.687 192.685 103.451 190.445 105.985 187.961C109.521 184.495 112.577 180.576 116 177z"/>
-                    <!-- NOTE: ton hosting.svg est très long; garde le reste tel quel si tu veux l’icône complète -->
                   </svg>
                 </span>
 
@@ -637,13 +715,25 @@
             <td>Power users</td>
             <td><span class="badge"><span class="dot"></span>Flexible</span></td>
             <td><span class="badge"><span class="dot"></span>Depends</span></td>
+            <td>
+              <span class="rating" aria-label="Review 4 out of 5">
+                <span class="stars" data-stars="4">
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star off" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                </span>
+                <span class="rnum">4.0</span>
+              </span>
+            </td>
             <td><span class="badge"><span class="dot"></span>Varies by plan</span></td>
             <td>
               <a class="btn" href="YOUR_HOSTINGCOM_AFF_LINK" target="_blank" rel="nofollow sponsored noopener">Get Hosting.com</a>
             </td>
           </tr>
 
-          <!-- ✅ Hostinger (fixed icon) -->
+          <!-- ✅ Hostinger -->
           <tr>
             <td>
               <div class="pname">
@@ -678,6 +768,18 @@
             <td>Budget / starters</td>
             <td><span class="badge"><span class="dot"></span>Budget</span></td>
             <td><span class="badge"><span class="dot"></span>Depends</span></td>
+            <td>
+              <span class="rating" aria-label="Review 4 out of 5">
+                <span class="stars" data-stars="4">
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19/.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19/.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star off" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19/.62-5.46 4.67 1.64 7.03z"/></svg>
+                </span>
+                <span class="rnum">4.0</span>
+              </span>
+            </td>
             <td><span class="badge"><span class="dot"></span>Lower</span></td>
             <td>
               <a class="btn" href="YOUR_HOSTINGER_AFF_LINK" target="_blank" rel="nofollow sponsored noopener">Get Hostinger</a>
