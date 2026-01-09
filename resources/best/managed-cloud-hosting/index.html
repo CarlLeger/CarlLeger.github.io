@@ -243,6 +243,10 @@
       display:block;
     }
 
+    /* ✅ Hosting.com icon: force clean sizing + SiteGround green */
+    .picon.hosting{ color:#96cb4c; }
+    .picon.hosting svg{ width:var(--icon); height:var(--icon); display:block; }
+
     .pmeta{
       min-width:0;
       max-width:100%;
@@ -544,7 +548,6 @@
             <td>
               <div class="pname">
                 <span class="picon logo" aria-hidden="true" title="Kinsta">
-                  <!-- Cleaner inline logo so it won't crop -->
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 32" preserveAspectRatio="xMinYMid meet" role="img" aria-label="Kinsta">
                     <circle cx="16" cy="16" r="14" fill="rgba(123,97,255,.18)" stroke="rgba(123,97,255,.65)" stroke-width="2"/>
                     <path d="M11 9v14h3v-6l6 6h4l-7-7 7-7h-4l-6 6V9z" fill="currentColor"/>
@@ -583,9 +586,9 @@
                 <span class="stars" data-stars="5">
                   <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
                   <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19 .62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19 .62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19 .62-5.46 4.67 1.64 7.03z"/></svg>
                 </span>
                 <span class="rnum">5.0</span>
               </span>
@@ -707,53 +710,16 @@
             </td>
           </tr>
 
-          <!-- ✅ Hosting.com (replaced SVG) -->
+          <!-- ✅ Hosting.com (FIXED icon rendering) -->
           <tr>
             <td>
               <div class="pname">
-                <span class="picon" aria-hidden="true" title="Hosting.com">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 261 250" aria-hidden="true" focusable="false">
-                    <path style="fill:#c3cacc; stroke:none;" d="M141 26L142 27L141 26z"/>
-                    <path style="fill:#889092; stroke:none;" d="M142 26L143 27L142 26z"/>
-                    <path style="fill:#4a5455; stroke:none;" d="M143 26C145.052 26.8743 146.747 26.9528 149 27C146.948 26.1257 145.253 26.0472 143 26z"/>
-                    <path style="fill:#aab3b4; stroke:none;" d="M149 26C150.248 26.6847 150.549 26.7488 152 27C150.752 26.3152 150.452 26.2512 149 26z"/>
-                    <path style="fill:#c3cacc; stroke:none;" d="M137 27L138 28L137 27z"/>
-                    <path style="fill:#6c7576; stroke:none;" d="M138 27L139 28L138 27z"/>
-                    <path style="fill:#364040; stroke:none;" d="M139 27L140 28L139 27z"/>
-                    <path style="fill:#0d1f1f; stroke:none;" d="M116 177C112.764 190.593 114.261 215.075 134 211.671C142.563 210.195 149.676 204.261 156 198.714C178.665 178.833 193.955 147.549 198.561 118C199.169 114.1 199.222 109.928 198.829 106C198.564 103.345 198.093 100.5 197.136 98C189.938 79.1904 169.242 91.878 159 100C164.247 83.5896 169.299 65.385 166.561 48C164.422 34.4196 157.176 26.0466 143 27.0903C139.096 27.3777 135.516 28.5901 132 30.2616C127.029 32.6248 122.381 35.3151 118 38.6543C111.2 43.8369 104.903 49.6524 99.1698 56C70.7317 87.4849 49.4679 128.823 43.4282 171C42.6476 176.451 42.6221 182.518 43.1705 188C43.5415 191.708 44.4119 195.508 45.7106 199C46.6239 201.456 47.7988 203.826 49.5324 205.815C63.1773 221.466 86.5664 204.849 98 195C100.687 192.685 103.451 190.445 105.985 187.961C109.521 184.495 112.577 180.576 116 177z"/>
-                    <path style="fill:#2c3536; stroke:none;" d="M140 27C131.462 28.4458 124.208 32.6508 117 37.7307C98.9165 50.4782 83.7731 67.328 71 85C57.1992 104.084 46.7809 125.662 41.5756 149C39.5448 158.108 37.5913 167.745 38.1705 177C38.6345 184.414 39.5812 192.203 43.0586 199C51.2728 215.054 70.7344 212.114 84 204.572C94.7908 198.44 104.737 189.826 112.884 180.714C114.849 178.516 117.303 176.527 118.761 173.91C121.424 169.131 120.977 162.263 121 157C121.047 146.219 120.89 135.429 121.004 124.65C121.12 113.796 120.215 102.808 121.058 92C122.937 67.9069 128.421 46.2703 140 27z"/>
-                    <path style="fill:#d4dbdc; stroke:none;" d="M133 29L134 30L133 29z"/>
-                    <path style="fill:#889092; stroke:none;" d="M134 29L135 30L134 29z"/>
-                    <path style="fill:#1a2323; stroke:none;" d="M135 29L136 30L135 29z"/>
-                    <path style="fill:#050e0e; stroke:none;" d="M136 29L137 30L136 29z"/>
-                    <path style="fill:#1a2323; stroke:none;" d="M137 29L138 30L137 29z"/>
-                    <path style="fill:#889092; stroke:none;" d="M138 29L139 30L138 29z"/>
-                    <path style="fill:#d4dbdc; stroke:none;" d="M139 29L140 30L139 29z"/>
-                    <path style="fill:#6c7576; stroke:none;" d="M132 30L133 31L132 30z"/>
-                    <path style="fill:#050e0e; stroke:none;" d="M133 30L134 31L133 30z"/>
-                    <path style="fill:#2c3536; stroke:none;" d="M134 30L135 31L134 30z"/>
-                    <path style="fill:#4a5455; stroke:none;" d="M135 30L136 31L135 30z"/>
-                    <path style="fill:#2c3536; stroke:none;" d="M136 30L137 31L136 30z"/>
-                    <path style="fill:#050e0e; stroke:none;" d="M137 30L138 31L137 30z"/>
-                    <path style="fill:#6c7576; stroke:none;" d="M138 30L139 31L138 30z"/>
-                    <path style="fill:#aab3b4; stroke:none;" d="M130 31L131 32L130 31z"/>
-                    <path style="fill:#364040; stroke:none;" d="M131 31L132 32L131 31z"/>
-                    <path style="fill:#000000; stroke:none;" d="M132 31L133 32L132 31z"/>
-                    <path style="fill:#2c3536; stroke:none;" d="M133 31L134 32L133 31z"/>
-                    <path style="fill:#4a5455; stroke:none;" d="M134 31L135 32L134 31z"/>
-                    <path style="fill:#2c3536; stroke:none;" d="M135 31L136 32L135 31z"/>
-                    <path style="fill:#000000; stroke:none;" d="M136 31L137 32L136 31z"/>
-                    <path style="fill:#364040; stroke:none;" d="M137 31L138 32L137 31z"/>
-                    <path style="fill:#aab3b4; stroke:none;" d="M138 31L139 32L138 31z"/>
-                    <path style="fill:#4a5455; stroke:none;" d="M129 32L130 33L129 32z"/>
-                    <path style="fill:#000000; stroke:none;" d="M130 32L131 33L130 32z"/>
-                    <path style="fill:#364040; stroke:none;" d="M131 32L132 33L131 32z"/>
-                    <path style="fill:#4a5455; stroke:none;" d="M132 32L133 33L132 32z"/>
-                    <path style="fill:#6c7576; stroke:none;" d="M133 32L134 33L133 32z"/>
-                    <path style="fill:#4a5455; stroke:none;" d="M134 32L135 33L134 32z"/>
-                    <path style="fill:#364040; stroke:none;" d="M135 32L136 33L135 32z"/>
-                    <path style="fill:#000000; stroke:none;" d="M136 32L137 33L136 32z"/>
-                    <path style="fill:#4a5455; stroke:none;" d="M137 32L138 33L137 32z"/>
+                <span class="picon hosting" aria-hidden="true" title="Hosting.com">
+                  <!-- Clean, centered, 32x32-friendly icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+                    <circle cx="16" cy="16" r="14" fill="rgba(150,203,76,.14)" stroke="currentColor" stroke-width="2"/>
+                    <path fill="currentColor" d="M20.9 9.2c-4.5 1-7.9 4.2-9.8 7.6-1.6 2.9-1.9 6.1-.2 7.6 1.7 1.5 4.8.9 7.6-.8 3.3-2 6.3-5.4 7.2-10.1.2-1.1-.8-2.1-2-1.9zm-8.3 13.4c-.5-1.1-.1-2.9.8-4.6 1.4-2.6 3.9-4.9 6.9-5.8-.9 3.2-3.1 5.8-5.5 7.3-1.6 1-2.8 1.2-3.2.9z"/>
+                    <path fill="currentColor" opacity=".85" d="M13.2 21.2c2.6-.6 5.1-2.3 7.3-5.3l1 .7c-2.4 3.3-5.2 5.2-8 5.9l-.3-1.3z"/>
                   </svg>
                 </span>
 
