@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Best Managed Cloud Hosting for WordPress & WooCommerce (2026)</title>
-  <meta name="description" content="Practical shortlist of managed cloud hosting for WordPress & WooCommerce in 2026. Compare top providers, what to look for, and Woo-safe hosting tips." />
+  <meta name="description" content="Best managed cloud hosting for WordPress & WooCommerce in 2026. Practical shortlist, what to look for, and how to choose the right host for performance and stability." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://carlleger.github.io/resources/best/managed-cloud-hosting/" />
 
@@ -13,558 +13,963 @@
   <meta property="og:title" content="Best Managed Cloud Hosting for WordPress & WooCommerce (2026)" />
   <meta property="og:description" content="Practical shortlist + what to look for in managed cloud hosting for WooCommerce performance and stability." />
   <meta property="og:url" content="https://carlleger.github.io/resources/best/managed-cloud-hosting/" />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Best Managed Cloud Hosting for WordPress & WooCommerce (2026)",
+    "description":"Best managed cloud hosting for WordPress & WooCommerce in 2026. Practical shortlist, what to look for, and how to choose the right host for performance and stability.",
+    "author":{"@type":"Person","name":"Carl Leger"},
+    "publisher":{"@type":"Person","name":"Carl Leger"},
+    "mainEntityOfPage":"https://carlleger.github.io/resources/best/managed-cloud-hosting/"
+  }
+  </script>
 
   <style>
     :root{
-      --bg0:#050914;
-      --bg1:#071224;
+      --bg1:#0b1220;
+      --bg2:#070d17;
       --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.045);
+      --panel2:rgba(255,255,255,.03);
       --stroke:rgba(255,255,255,.10);
+      --stroke2:rgba(255,255,255,.06);
       --text:#e7ecff;
-      --muted:#a8b0d6;
-      --green:#2dd4a7;
-      --blue:#6ea8ff;
-      --amber:#fbbf24;
-      --shadow: 0 10px 30px rgba(0,0,0,.45);
-      --r:18px;
+      --muted:rgba(168,179,214,.95);
+      --accent:#6aa6ff;
+      --good:#2ee59d;
+      --warn:#ffd36e;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 980px;
+      --icon: 32px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
       color:var(--text);
       background:
-        radial-gradient(1100px 700px at 20% 10%, rgba(110,168,255,.18), transparent 55%),
-        radial-gradient(1000px 600px at 80% 20%, rgba(45,212,167,.14), transparent 60%),
-        radial-gradient(900px 520px at 55% 90%, rgba(120,90,255,.10), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-    }
-    a{color:inherit}
-    .wrap{max-width:1120px;margin:0 auto;padding:44px 18px 70px}
-    .hero{
-      padding:34px 28px;
-      border:1px solid var(--stroke);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border-radius:calc(var(--r) + 6px);
-      box-shadow:var(--shadow);
-    }
-    h1{
-      margin:0 0 12px;
-      font-size:clamp(30px, 4.2vw, 48px);
-      letter-spacing:-.02em;
-      line-height:1.1;
-    }
-    .lead{
-      margin:0;
-      max-width:78ch;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.6;
-    }
-    .pill{
-      display:inline-flex; gap:10px; align-items:center;
-      margin-top:18px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(45,212,167,.35);
-      background:rgba(45,212,167,.10);
-      color:#dffdf4;
-      font-size:13px;
-      width:fit-content;
-    }
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 16px rgba(45,212,167,.65)}
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-      margin-top:18px;
-    }
-    @media (max-width: 920px){
-      .grid2{grid-template-columns:1fr}
-      .hero{padding:26px 18px}
-    }
-    .card{
-      border:1px solid var(--stroke);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.035));
-      border-radius:var(--r);
-      box-shadow:var(--shadow);
-      padding:18px 18px;
-      min-height:130px;
-    }
-    .card h2{
-      margin:0 0 8px;
-      font-size:18px;
-      letter-spacing:-.01em;
-    }
-    .card ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.55}
-    .card p{margin:0;color:var(--muted);line-height:1.55}
-
-    .sectionTitle{
-      margin:26px 0 10px;
-      font-size:16px;
-      color:#dbe6ff;
-      letter-spacing:-.01em;
-      opacity:.95;
-    }
-
-    .tableWrap{
-      border:1px solid var(--stroke);
-      border-radius:var(--r);
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-    table{
-      width:100%;
-      border-collapse:separate;
-      border-spacing:0;
-    }
-    thead th{
-      text-align:left;
-      font-size:12px;
-      color:rgba(231,236,255,.85);
-      padding:14px 14px;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      background:rgba(0,0,0,.18);
-      letter-spacing:.03em;
-      text-transform:uppercase;
-    }
-    tbody td{
-      padding:14px 14px;
-      border-bottom:1px solid rgba(255,255,255,.07);
-      vertical-align:middle;
-    }
-    tbody tr:hover td{
-      background:rgba(255,255,255,.03);
-    }
-
-    .providerCell{
-      display:flex; align-items:center; gap:12px;
-      min-width:220px;
-    }
-    .logo{
-      width:36px;height:36px;border-radius:10px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      display:grid;place-items:center;
-      flex:0 0 auto;
-      overflow:hidden;
-    }
-    .name{
-      font-weight:700;
-      letter-spacing:-.01em;
-      line-height:1.1;
-    }
-    .badges{margin-top:6px; display:flex; gap:8px; flex-wrap:wrap}
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.16);
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      color:rgba(231,236,255,.92);
-      width:fit-content;
-    }
-    .badge .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 14px rgba(45,212,167,.55)}
-    .tier{
-      display:inline-flex;align-items:center;
-      padding:6px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.14);
-      font-size:12px;color:rgba(231,236,255,.9);
-    }
-    .wooYes{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:6px 10px;border-radius:999px;
-      border:1px solid rgba(45,212,167,.35);
-      background:rgba(45,212,167,.10);
-      font-size:12px;color:#dffdf4;
-    }
-    .wooYes .g{width:8px;height:8px;border-radius:50%;background:var(--green)}
-    .stars{
-      display:inline-flex; align-items:center; gap:8px;
-      white-space:nowrap;
-    }
-    .stars .s{color:var(--amber); letter-spacing:2px}
-    .price{color:rgba(231,236,255,.92); font-weight:650}
-    .cta{
-      display:inline-flex;align-items:center;justify-content:center;
-      gap:10px;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid rgba(110,168,255,.28);
-      background:rgba(110,168,255,.12);
-      color:#eaf1ff;
-      text-decoration:none;
-      font-weight:700;
-      font-size:13px;
-      min-width:160px;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .cta:hover{transform: translateY(-1px); background:rgba(110,168,255,.18); border-color:rgba(110,168,255,.38)}
-    .miniLink{
-      margin-left:10px;
-      color:rgba(110,168,255,.95);
-      text-decoration:none;
-      font-size:13px;
-    }
-    .miniLink:hover{text-decoration:underline}
-
-    .details{
-      margin:14px 0 0;
-      padding:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.14);
-      border-radius:14px;
-      color:var(--muted);
-      line-height:1.6;
-    }
-    summary{
-      cursor:pointer;
-      color:#dbe6ff;
-      font-weight:650;
-      list-style:none;
-    }
-    summary::-webkit-details-marker{display:none}
-    .note{
-      margin-top:22px;
-      padding:14px 16px;
-      border-radius:var(--r);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.14);
-      color:var(--muted);
-      line-height:1.65;
-    }
-    .note strong{color:#eaf1ff}
-    .foot{
-      margin-top:16px;
-      font-size:12px;
-      color:rgba(168,176,214,.85);
+        radial-gradient(900px 600px at 18% 18%, rgba(106,166,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(46,229,157,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
       line-height:1.55;
     }
-    code.inline{
-      padding:2px 6px;
-      border-radius:8px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.10);
-      color:#eaf1ff;
-      font-size:12px;
+
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .container{ max-width:var(--max); margin:0 auto; padding:28px 18px 80px; }
+
+    h1{ font-size:clamp(28px,3vw,40px); margin:14px 0 8px; }
+    h2{ font-size:18px; margin:0 0 12px; }
+    h3{ margin:0 0 8px; font-size:16px; }
+
+    .subtitle{ color:var(--muted); max-width:78ch; }
+
+    .topbar{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:8px;
     }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+      color:rgba(231,236,255,.92);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .pill .dot{ width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.25); }
+    .pill.good{ border-color:rgba(46,229,157,.35); background:rgba(46,229,157,.10); }
+    .pill.good .dot{ background:var(--good); }
+
+    .card,.section{
+      border:1px solid var(--stroke);
+      background:linear-gradient(180deg,var(--panel),rgba(255,255,255,.03));
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      margin-top:18px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
+      margin-top:16px;
+    }
+    @media(max-width:900px){ .grid{grid-template-columns:1fr;} }
+
+    ul{ color:var(--muted); margin:10px 0 0 18px; }
+
+    .table-wrap{
+      position:relative;
+      overflow-x:auto;
+      overflow-y:visible;
+      -webkit-overflow-scrolling:touch;
+      border:1px solid var(--stroke);
+      border-radius:16px;
+      background:var(--panel2);
+      scrollbar-gutter: stable both-edges;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(106,166,255,.55) rgba(255,255,255,.06);
+    }
+    .table-wrap:after{
+      content:"";
+      position:sticky;
+      left:0;
+      right:0;
+      bottom:0;
+      display:block;
+      height:26px;
+      pointer-events:none;
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(7,13,23,.55));
+    }
+
+    .table-wrap::-webkit-scrollbar{ height:12px; }
+    .table-wrap::-webkit-scrollbar-track{
+      background: rgba(255,255,255,.06);
+      border-radius: 999px;
+      margin: 10px;
+    }
+    .table-wrap::-webkit-scrollbar-thumb{
+      background: rgba(106,166,255,.55);
+      border: 3px solid rgba(255,255,255,.06);
+      border-radius: 999px;
+    }
+    .table-wrap::-webkit-scrollbar-thumb:hover{
+      background: rgba(106,166,255,.75);
+    }
+
+    table{
+      width:100%;
+      min-width: 1040px;
+      border-collapse:collapse;
+      table-layout:fixed;
+    }
+
+    th,td{
+      padding:10px 10px;
+      border-bottom:1px solid var(--stroke2);
+      vertical-align:top;
+      overflow:hidden;
+    }
+    th{ background:rgba(255,255,255,.03); text-align:left; }
+
+    table th:nth-child(1), table td:nth-child(1){ width:31%; }
+    table th:nth-child(2), table td:nth-child(2){ width:17%; }
+    table th:nth-child(3), table td:nth-child(3){ width:11%; }
+    table th:nth-child(4), table td:nth-child(4){ width:11%; }
+    table th:nth-child(5), table td:nth-child(5){ width:12%; }
+    table th:nth-child(6), table td:nth-child(6){ width:10%; }
+    table th:nth-child(7), table td:nth-child(7){ width:8%; }
+
+    table td:nth-child(7){
+      overflow:visible;
+      text-align:right;
+      vertical-align:middle;
+      padding-right:12px;
+    }
+    table th:nth-child(7){ text-align:right; }
+
+    @media (max-width: 820px){
+      table td:nth-child(7), table th:nth-child(7){ text-align:left; }
+    }
+
+    tbody tr:last-child td{ border-bottom:0; }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      font-size:12px;
+      color:rgba(231,236,255,.92);
+      background:rgba(255,255,255,.03);
+      white-space:nowrap;
+    }
+    .badge.good{ border-color: rgba(46,229,157,.35); }
+    .badge.good .dot{ background: var(--good); }
+    .badge .dot{ width:8px;height:8px;border-radius:999px; background: rgba(255,255,255,.25); }
+
+    .pname{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      font-weight:800;
+      color:rgba(231,236,255,.96);
+      line-height:1.1;
+      min-width:0;
+    }
+
+    .picon{
+      width: var(--icon);
+      height: var(--icon);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:transparent;
+      flex: 0 0 auto;
+      margin-top:2px;
+      color: rgba(231,236,255,.96);
+      overflow:visible;
+    }
+    .picon svg{ width:var(--icon); height:var(--icon); display:block; }
+
+    /* ✅ Kinsta: use external SVG file (square icon) */
+    .picon.kinsta{
+      width: var(--icon);
+      height: var(--icon);
+      margin-top: 2px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: transparent;
+    }
+    .picon.kinsta img{
+      width: 100%;
+      height: 100%;
+      display:block;
+      object-fit: contain;
+      /* If Kinsta icon is black, this makes it readable on dark background */
+      filter: invert(1) brightness(1.05);
+    }
+
+    /* ✅ Hosting.com icon: force clean sizing + SiteGround green */
+    .picon.hosting{ color:#96cb4c; }
+    .picon.hosting svg{ width:var(--icon); height:var(--icon); display:block; }
+
+    .pmeta{
+      min-width:0;
+      max-width:100%;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .pmeta .title{
+      font-size:18px;
+      font-weight:900;
+      line-height:1.05;
+    }
+    .pmeta .title a{ color:inherit; text-decoration:none; }
+    .pmeta .title a:hover{ text-decoration:underline; }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+      font-size:12px;
+      color:rgba(231,236,255,.92);
+      white-space:nowrap;
+      width:max-content;
+    }
+    .tag .mini-dot{ width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.25); }
+    .tag.top{ border-color: rgba(46,229,157,.45); background: rgba(46,229,157,.12); }
+    .tag.top .mini-dot{ background: var(--good); }
+    .tag.warn{ border-color: rgba(255,211,110,.45); background: rgba(255,211,110,.12); }
+    .tag.warn .mini-dot{ background: var(--warn); }
+
+    .micro-wrap{
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.35;
+      min-width:0;
+      max-width:100%;
+    }
+    .micro-line{
+      display:flex;
+      gap:8px;
+      align-items:baseline;
+      min-width:0;
+      max-width:100%;
+    }
+    .micro-short{
+      flex:1 1 auto;
+      min-width:0;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:clip;
+    }
+    .micro-more{ display:none; margin-top:6px; }
+    .micro-wrap.expanded .micro-line{ display:none; }
+    .micro-wrap.expanded .micro-more{ display:block; }
+
+    .see-more{
+      flex:0 0 auto;
+      font-size:12px;
+      font-weight:700;
+      color:rgba(106,166,255,.92);
+      text-decoration:none;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .see-more:hover{ text-decoration:underline; }
+
+    .micro-actions{
+      margin-top:6px;
+      display:flex;
+      justify-content:flex-start;
+    }
+
+    .row-top{
+      background: linear-gradient(180deg, rgba(46,229,157,.10), rgba(255,255,255,.02));
+    }
+    .row-top td{ border-bottom-color: rgba(46,229,157,.18); }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(106,166,255,.35);
+      background: rgba(106,166,255,.12);
+      color: rgba(231,236,255,.96);
+      text-decoration:none;
+      white-space:nowrap;
+      font-weight:700;
+      width:100%;
+      max-width:210px;
+      min-width:170px;
+    }
+    .btn:hover{ border-color: rgba(106,166,255,.70); text-decoration:none; }
+    .btn.primary{
+      border-color: rgba(46,229,157,.55);
+      background: rgba(46,229,157,.16);
+    }
+    .btn.primary:hover{ border-color: rgba(46,229,157,.85); }
+    .btn.muted{
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(231,236,255,.86);
+    }
+
+    .note{
+      color:var(--muted);
+      font-size:12px;
+      margin-top:10px;
+    }
+
+    .checklist{ list-style:none; padding:0; display:grid; gap:10px; margin:0; }
+    .checklist li{
+      border:1px solid var(--stroke);
+      border-radius:14px;
+      padding:12px;
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+    }
+
+    .cta{
+      border:1px solid rgba(46,229,157,.35);
+      background:rgba(46,229,157,.10);
+      border-radius:18px;
+      padding:18px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .cta h3{ margin:0 0 6px; font-size:16px; }
+    .cta p{ margin:0; }
+    .cta a{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(46,229,157,.55);
+      background:rgba(46,229,157,.15);
+      color:#eafff6;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .cta a:hover{ border-color: rgba(46,229,157,.85); }
+
+    /* ⭐ Yellow stars (all rows) */
+    .stars{
+      display:inline-flex;
+      align-items:center;
+      gap:2px;
+      line-height:1;
+      vertical-align:middle;
+      white-space:nowrap;
+      color: var(--warn);
+    }
+    .star{
+      width:14px; height:14px;
+      display:inline-block;
+      opacity:.95;
+    }
+    .stars .star.off{ opacity:.28; }
+    .rating{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .rating .rnum{
+      font-size:12px;
+      color:rgba(231,236,255,.85);
+    }
+
+    footer{ text-align:center; color:var(--muted); font-size:13px; margin-top:18px; }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <h1>Best Managed Cloud Hosting for WordPress &amp; WooCommerce (2026)</h1>
-      <p class="lead">
-        If your store is outgrowing shared hosting, managed cloud hosting is often the upgrade path that fixes speed,
-        scaling, and those “random” checkout hiccups. Below is a practical shortlist plus what to look for.
-      </p>
+<div class="container">
 
-      <div class="pill"><span class="dot"></span> Shortlist: 5 solid options</div>
-
-      <div class="grid2">
-        <div class="card">
-          <h2>Who this is for</h2>
-          <ul>
-            <li>WooCommerce stores with inconsistent speed or promo spikes</li>
-            <li>Sites where cart/checkout breaks after “optimizations”</li>
-            <li>Agencies/freelancers managing multiple installs</li>
-            <li>Teams that want more control than “managed WP only” hosts</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Rule of thumb</h2>
-          <p>
-            If traffic growth breaks your server before it breaks your theme, it’s time.
-            Look for <strong>scaling</strong>, <strong>reliable backups</strong>, <strong>staging</strong>,
-            and support that actually understands WordPress + WooCommerce.
-          </p>
-        </div>
+  <header>
+    <div class="topbar">
+      <div>
+        <h1>Best Managed Cloud Hosting for WordPress & WooCommerce (2026)</h1>
+        <p class="subtitle">
+          If your store is outgrowing shared hosting, managed cloud hosting is often the upgrade path that fixes speed, scaling, and “random” checkout instability.
+          This page is a practical shortlist plus what to look for.
+        </p>
       </div>
-    </section>
 
-    <h3 class="sectionTitle">Best Managed Cloud Hosting (quick comparison)</h3>
+      <div class="pill good" title="Shortlist updated">
+        <span class="dot"></span>
+        Shortlist: 5 solid options
+      </div>
+    </div>
+  </header>
 
-    <!--
-      TRACKING MODEL (Everflow)
-      - source_id: where traffic comes from (your site)
-      - sub1: page slug
-      - sub2: placement (table_cta, hero_cta, etc.)
-      - sub3: provider (wpengine, kinsta, cloudways...)
-      Add rel="nofollow sponsored noopener" + target="_blank" to all affiliate links.
-    -->
+  <div class="grid">
+    <div class="card">
+      <h2>Who this is for</h2>
+      <ul>
+        <li>WooCommerce stores with inconsistent speed or spikes during promos</li>
+        <li>Sites where cart/checkout breaks after “optimizations” or traffic increases</li>
+        <li>Agencies/freelancers managing multiple WordPress installs</li>
+        <li>Teams that want more control than “managed WP only” hosts</li>
+      </ul>
+    </div>
 
-    <div class="tableWrap">
+    <div class="card">
+      <h2>Rule of thumb</h2>
+      <p class="subtitle">
+        If traffic growth breaks your server before it breaks your theme, it’s time.
+        Look for <b>scaling</b>, <b>reliable backups</b>, <b>staging</b>, and support that understands WordPress + WooCommerce.
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Best Managed Cloud Hosting (quick comparison)</h2>
+
+    <div class="table-wrap" aria-label="Comparison table (scroll horizontally on small screens)">
       <table>
         <thead>
           <tr>
-            <th style="width:34%;">Provider</th>
+            <th>Provider</th>
             <th>Best for</th>
             <th>Tier</th>
             <th>Woo-safe</th>
             <th>Review</th>
             <th>Typical price</th>
-            <th style="width:210px;">CTA</th>
+            <th>Link</th>
           </tr>
         </thead>
-
         <tbody>
-          <!-- Cloudways -->
-          <tr>
+
+          <!-- ✅ Cloudways (with SubID tracking: data1 + data2) -->
+          <tr class="row-top">
             <td>
-              <div class="providerCell">
-                <div class="logo" aria-label="Cloudways logo">
-                  <!-- simple icon placeholder -->
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M7.5 18c-2.5 0-4.5-1.9-4.5-4.2 0-2 1.5-3.7 3.5-4.1.6-2.6 3.1-4.5 6-4.5 2.9 0 5.3 1.8 6 4.3 2 .3 3.5 2 3.5 4 0 2.4-2 4.3-4.5 4.3H7.5z" stroke="rgba(231,236,255,.8)" stroke-width="1.6"/>
+              <div class="pname">
+                <span class="picon" aria-hidden="true" title="Cloudways">
+                  <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                    <path d="M171.296 275.979H18.344C11.654 275.979 6 270.407 6 263.87c0-6.56 5.653-12.107 12.344-12.107h162.364c7.034-12.345 16.943-22.892 28.838-30.775H84.38c-6.666 0-12.336-5.572-12.336-12.108 0-6.544 5.67-12.107 12.336-12.107h152.495c3.815-11.241 9.55-21.625 16.813-30.775H108.07c-6.69 0-12.344-5.539-12.344-12.107 0-6.536 5.653-12.108 12.344-12.108h172.951c16.193-9.959 35.342-15.71 55.856-15.71 51.167 0 93.828 35.767 103.42 83.208 37.98 11.004 65.7 45.488 65.7 86.328 0 49.737-41.06 90.021-91.72 90.021h-.32v.294H94.396c-6.682 0-12.328-5.522-12.328-12.099 0-6.544 5.646-12.115 12.328-12.115h104.163c-9.411-8.546-17-19.003-22.115-30.75l-19.68.007c-3.996 0-7.01-2.957-7.01-6.887v-10.138c0-3.922 3.006-6.87 7.01-6.87h13.079a88.563 88.563 0 01-.735-11.463c0-6.74.751-13.316 2.19-19.631zm-60.235 54.99H21.988c-3.995 0-6.985-2.958-6.985-6.888v-10.138c0-3.922 2.99-6.87 6.985-6.87h88.747c3.995 0 7.01 2.948 7.01 6.87v10.138c.318 3.62-3.015 6.887-6.684 6.887z" fill="#2f39bf"/>
                   </svg>
-                </div>
-                <div>
-                  <div class="name">Cloudways</div>
-                  <div class="badges">
-                    <span class="badge"><span class="g"></span>#1 pick (best balance)</span>
-                    <span class="badge">Scaling + staging</span>
+                </span>
+
+                <div class="pmeta">
+                  <div class="title">
+                    <a href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=table-title"
+                       target="_blank" rel="nofollow sponsored noopener">Cloudways</a>
                   </div>
-                  <a class="miniLink" href="#cloudways-details">See more</a>
+                  <div class="tag top"><span class="mini-dot"></span>#1 pick (best balance)</div>
+                  <div class="tag"><span class="mini-dot"></span>Scaling + staging</div>
+
+                  <div class="micro-wrap" data-micro>
+                    <div class="micro-line">
+                      <span class="micro-short">Managed cloud hosting with flexible providers, easy scaling, staging, and backups. Great for growing WooCommerce stores and agencies.</span>
+                      <a class="see-more" href="#" data-toggle>See more</a>
+                    </div>
+                    <div class="micro-more">
+                      Managed cloud hosting with flexible providers, easy scaling, staging, and backups. Great for growing WooCommerce stores and agencies.
+                      <div class="micro-actions">
+                        <a class="see-more" href="#" data-toggle>See less</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </td>
-            <td style="color:var(--muted);">Growing Woo stores</td>
-            <td><span class="tier">Flexible</span></td>
-            <td><span class="wooYes"><span class="g"></span>Yes</span></td>
+            <td>Growing Woo stores</td>
+            <td><span class="badge"><span class="dot"></span>Flexible</span></td>
+            <td><span class="badge good"><span class="dot"></span>Yes</span></td>
             <td>
-              <span class="stars"><span class="s">★★★★★</span><span style="color:rgba(231,236,255,.9);font-weight:650;">5.0</span></span>
+              <span class="rating" aria-label="Review 5 out of 5">
+                <span class="stars" data-stars="5">
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                </span>
+                <span class="rnum">5.0</span>
+              </span>
             </td>
-            <td><span class="price">$</span><span class="price"> (varies)</span></td>
+            <td><span class="badge"><span class="dot"></span>$11/mo+</span></td>
             <td>
-              <a
-                class="cta"
-                href="TRACK_CLOUDWAYS_TABLE"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                aria-label="Cloudways affiliate link"
-              >View deal</a>
+              <a class="btn primary"
+                 href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=table-cta"
+                 target="_blank" rel="nofollow sponsored noopener">Get Cloudways</a>
             </td>
           </tr>
 
-          <!-- Kinsta -->
+          <!-- ✅ Kinsta (uses Kinsta_Icon_Black.svg via <img>) -->
           <tr>
             <td>
-              <div class="providerCell">
-                <div class="logo" aria-label="Kinsta logo">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M6 6h12v12H6z" stroke="rgba(231,236,255,.8)" stroke-width="1.6"/>
-                    <path d="M9 16V8l6 8V8" stroke="rgba(231,236,255,.8)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <div>
-                  <div class="name">Kinsta</div>
-                  <div class="badges">
-                    <span class="badge"><span class="g"></span>Premium managed WP</span>
-                    <span class="badge">Low-maintenance</span>
+              <div class="pname">
+                <span class="picon kinsta" aria-hidden="true" title="Kinsta">
+                  <!-- Put Kinsta_Icon_Black.svg next to this HTML file (or change src path) -->
+                  <img src="Kinsta_Icon_Black.svg" alt="Kinsta" loading="lazy" decoding="async">
+                </span>
+
+                <div class="pmeta">
+                  <div class="title">
+                    <a href="https://kinsta.com/?kaid=GTMETMUUOMYF" target="_blank" rel="nofollow sponsored noopener">Kinsta</a>
                   </div>
-                  <a class="miniLink" href="#kinsta-details">See more</a>
+                  <div class="tag top"><span class="mini-dot"></span>Premium managed WP</div>
+                  <div class="tag"><span class="mini-dot"></span>Low-maintenance</div>
+
+                  <div class="micro-wrap" data-micro>
+                    <div class="micro-line">
+                      <span class="micro-short">Best when you want top-tier managed WordPress performance and support with minimal server decisions (less flexibility than full cloud control).</span>
+                      <a class="see-more" href="#" data-toggle>See more</a>
+                    </div>
+                    <div class="micro-more">
+                      Best when you want top-tier managed WordPress performance and support with minimal server decisions (less flexibility than full cloud control).
+                      <div class="micro-actions">
+                        <a class="see-more" href="#" data-toggle>See less</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </td>
-            <td style="color:var(--muted);">Hands-off teams</td>
-            <td><span class="tier">Premium</span></td>
-            <td><span class="wooYes"><span class="g"></span>Yes</span></td>
+            <td>Hands-off teams</td>
+            <td><span class="badge"><span class="dot"></span>Premium</span></td>
+            <td><span class="badge good"><span class="dot"></span>Yes</span></td>
             <td>
-              <span class="stars"><span class="s">★★★★★</span><span style="color:rgba(231,236,255,.9);font-weight:650;">5.0</span></span>
+              <span class="rating" aria-label="Review 5 out of 5">
+                <span class="stars" data-stars="5">
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                </span>
+                <span class="rnum">5.0</span>
+              </span>
             </td>
-            <td><span class="price">$</span><span class="price"> (premium)</span></td>
+            <td><span class="badge"><span class="dot"></span>$30/mo+</span></td>
             <td>
-              <a
-                class="cta"
-                href="TRACK_KINSTA_TABLE"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                aria-label="Kinsta affiliate link"
-              >View plans</a>
+              <a class="btn" href="https://kinsta.com/?kaid=GTMETMUUOMYF" target="_blank" rel="nofollow sponsored noopener">Get Kinsta</a>
             </td>
           </tr>
 
-          <!-- WP Engine -->
+          <!-- ✅ WP Engine -->
           <tr>
             <td>
-              <div class="providerCell">
-                <div class="logo" aria-label="WP Engine logo">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M4 6h16v12H4z" stroke="rgba(231,236,255,.8)" stroke-width="1.6"/>
-                    <path d="M7 9h10M7 12h10M7 15h6" stroke="rgba(231,236,255,.8)" stroke-width="1.6" stroke-linecap="round"/>
+              <div class="pname">
+                <span class="picon" aria-hidden="true" title="WP Engine">
+                  <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" aria-hidden="true" focusable="false">
+                    <path d="M86.8392157,256 L169.160784,256 L169.160784,193.756863 L149.082353,173.678431 L106.415686,173.678431 L86.8392157,193.756863 L86.8392157,256 Z M193.254902,86.8392157 L173.678431,106.415686 L173.678431,149.584314 L193.254902,169.160784 L256,169.160784 L256,86.8392157 L193.254902,86.8392157 Z M169.160784,0 L86.8392157,0 L86.8392157,62.745098 L106.415686,82.3215686 L149.082353,82.3215686 L169.160784,62.745098 L169.160784,0 Z M256,256 L256,193.756863 L236.423529,173.678431 L173.678431,173.678431 L173.678431,256 L256,256 Z M19.5764706,0 L0,19.5764706 L0,82.3215686 L82.3215686,82.3215686 L82.3215686,0 L19.5764706,0 Z M173.678431,0 L173.678431,62.745098 L193.254902,82.3215686 L256,82.3215686 L256,0 L173.678431,0 Z M128,140.047059 C121.47451,140.047059 116.454902,134.52549 116.454902,128.501961 C116.454902,121.976471 121.976471,116.956863 128,116.956863 C134.52549,116.956863 139.545098,122.478431 139.545098,128.501961 C139.545098,134.52549 134.52549,140.047059 128,140.047059 Z M82.3215686,86.8392157 L0,86.8392157 L0,169.160784 L62.2431373,169.160784 L82.3215686,149.584314 L82.3215686,86.8392157 Z M82.3215686,193.756863 L62.2431373,173.678431 L0,173.678431 L0,256 L62.2431373,256 L82.3215686,236.423529 L82.3215686,193.756863 Z" fill="#40BAC8"></path>
                   </svg>
-                </div>
-                <div>
-                  <div class="name">WP Engine</div>
-                  <div class="badges">
-                    <span class="badge"><span class="g"></span>Premium managed WP</span>
-                    <span class="badge">Strong tooling</span>
+                </span>
+
+                <div class="pmeta">
+                  <div class="title">
+                    <a href="https://wpengine.com/ca/plans/" target="_blank" rel="nofollow noopener">WP Engine</a>
                   </div>
-                  <a class="miniLink" href="#wpengine-details">See more</a>
+                  <div class="tag top"><span class="mini-dot"></span>Premium managed WP</div>
+                  <div class="tag"><span class="mini-dot"></span>Strong tooling</div>
+
+                  <div class="micro-wrap" data-micro>
+                    <div class="micro-line">
+                      <span class="micro-short">Great option for teams that want a polished managed WordPress platform: solid environments, dev workflow, and support.</span>
+                      <a class="see-more" href="#" data-toggle>See more</a>
+                    </div>
+                    <div class="micro-more">
+                      Great option for teams that want a polished managed WordPress platform: solid environments, dev workflow, and support.
+                      <div class="micro-actions">
+                        <a class="see-more" href="#" data-toggle>See less</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </td>
-            <td style="color:var(--muted);">Agencies / brands</td>
-            <td><span class="tier">Premium</span></td>
-            <td><span class="wooYes"><span class="g"></span>Yes</span></td>
+            <td>Agencies / brands</td>
+            <td><span class="badge"><span class="dot"></span>Premium</span></td>
+            <td><span class="badge good"><span class="dot"></span>Yes</span></td>
             <td>
-              <span class="stars"><span class="s">★★★★★</span><span style="color:rgba(231,236,255,.9);font-weight:650;">5.0</span></span>
+              <span class="rating" aria-label="Review 5 out of 5">
+                <span class="stars" data-stars="5">
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                </span>
+                <span class="rnum">5.0</span>
+              </span>
             </td>
-            <td><span class="price">$</span><span class="price"> (premium)</span></td>
+            <td><span class="badge"><span class="dot"></span>C$34/mo+</span></td>
             <td>
-              <!-- ✅ TON LIEN EXACT EVERFLOW (table_cta) -->
-              <a
-                class="cta"
-                href="https://www.wqvln8trk.com/CBMM242B9/724PP615R/?source_id=carlleger_github&sub1=managed-cloud-hosting&sub2=table_cta&sub3=wpengine"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                aria-label="WP Engine affiliate link"
-              >View offer</a>
+              <a class="btn" href="https://wpengine.com/ca/plans/" target="_blank" rel="nofollow noopener">Get WP Engine</a>
             </td>
           </tr>
 
-          <!-- SiteGround -->
+          <!-- ✅ SiteGround -->
           <tr>
             <td>
-              <div class="providerCell">
-                <div class="logo" aria-label="SiteGround logo">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 4c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8z" stroke="rgba(231,236,255,.8)" stroke-width="1.6"/>
-                    <path d="M8 12c1.2-2 3-3 5.5-3 1.7 0 3.3.6 4.5 2" stroke="rgba(45,212,167,.9)" stroke-width="1.8" stroke-linecap="round"/>
+              <div class="pname">
+                <span class="picon" aria-hidden="true" title="SiteGround">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+                    <path fill="none" d="M0,0H150V150H0V0Z"/>
+                    <path fill="#96cb4c" fill-rule="evenodd" d="M57.49,113.35c-15.8-5.17-27.08-20.52-29.85-36.61C20.02,32.32,67.28-7.75,114.48,14.5c.56,9.97-4.07,24.17-16.79,28.44,63.1,39.83,9.15,121.44-56.97,94.6-12.06-6.15-5.62-17.4,7.27-10.88,14.4,4.97,33.12,4.97,44.91-1.54,7.7-4.05,14.29-9.92,19.2-17.1,1.76-2.67,3.28-5.49,4.55-8.42,1-2.35,4.22-12.06,1.72-13.12-.63-.26-.96,.48-1.13,1.18-1.62,6.32-4.72,12.17-9.05,17.06-5.21,6.08-11.93,10.68-19.49,13.34-9.43,3.44-20.36,3.87-35.39,.58,.99-1.07,2.98-4.06,4.14-5.28h.01ZM101.05,18.49c.25,1.45,.39,2.92,.43,4.4,.53,6.55-2.05,12.97-6.97,17.32-1.06,1.06-2.27,2.17-3.61,3.31,17.82,11.08,27.13,35.31,16.78,52.24-13.96,22.82-41.63,17.63-56.74,2.01-15.82-16.35-13.73-37.51-2.36-53.2,12.45-16.42,31.86-26.07,52.47-26.08Z"/>
+                    <path fill="#333230" fill-rule="evenodd" d="M47.34,68.58c3.39-33.87,42.35-40.57,56.83,4.56,11.68,46.39-62.21,36.3-56.83-4.56Zm31.78,22.27c30.77,1.12,16.02-30.34-4.18-37.3-20.02-6.89-31.15,37.3,4.18,37.3Z"/>
                   </svg>
-                </div>
-                <div>
-                  <div class="name">SiteGround</div>
-                  <div class="badges">
-                    <span class="badge">Starter-friendly</span>
-                    <span class="badge">Good support</span>
+                </span>
+
+                <div class="pmeta">
+                  <div class="title">
+                    <a href="https://www.siteground.com/index.htm?afcode=99f973186a9f86fde0ad63669bf6d1fa"
+                       target="_blank" rel="nofollow sponsored noopener">SiteGround</a>
                   </div>
-                  <a class="miniLink" href="#siteground-details">See more</a>
+                  <div class="tag"><span class="mini-dot"></span>Starter-friendly</div>
+                  <div class="tag"><span class="mini-dot"></span>Good support</div>
+
+                  <div class="micro-wrap" data-micro>
+                    <div class="micro-line">
+                      <span class="micro-short">Great entry point for smaller WP/Woo sites that want an easy managed experience before moving into heavier cloud scaling.</span>
+                      <a class="see-more" href="#" data-toggle>See more</a>
+                    </div>
+                    <div class="micro-more">
+                      Great entry point for smaller WP/Woo sites that want an easy managed experience before moving into heavier cloud scaling.
+                      <div class="micro-actions">
+                        <a class="see-more" href="#" data-toggle>See less</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </td>
-            <td style="color:var(--muted);">Smaller stores</td>
-            <td><span class="tier">Pro</span></td>
-            <td><span class="wooYes"><span class="g"></span>Usually</span></td>
+            <td>Smaller stores</td>
+            <td><span class="badge"><span class="dot"></span>Pro</span></td>
+            <td><span class="badge good"><span class="dot"></span>Usually</span></td>
             <td>
-              <span class="stars"><span class="s">★★★★☆</span><span style="color:rgba(231,236,255,.9);font-weight:650;">4.0</span></span>
+              <span class="rating" aria-label="Review 4 out of 5">
+                <span class="stars" data-stars="4">
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star off" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                </span>
+                <span class="rnum">4.0</span>
+              </span>
             </td>
-            <td><span class="price">$</span><span class="price"> (varies)</span></td>
+            <td><span class="badge"><span class="dot"></span>$2.99/mo*</span></td>
             <td>
-              <a
-                class="cta"
-                href="TRACK_SITEGROUND_TABLE"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                aria-label="SiteGround affiliate link"
-              >See pricing</a>
+              <a class="btn"
+                 href="https://www.siteground.com/index.htm?afcode=99f973186a9f86fde0ad63669bf6d1fa"
+                 target="_blank" rel="nofollow sponsored noopener">Get SiteGround</a>
             </td>
           </tr>
 
-          <!-- Hosting.com -->
+          <!-- ✅ Hosting.com -->
           <tr>
             <td>
-              <div class="providerCell">
-                <div class="logo" aria-label="Hosting.com logo">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M7 7h10v10H7z" stroke="rgba(231,236,255,.8)" stroke-width="1.6"/>
-                    <path d="M9 12h6" stroke="rgba(231,236,255,.8)" stroke-width="1.6" stroke-linecap="round"/>
+              <div class="pname">
+                <span class="picon hosting" aria-hidden="true" title="Hosting.com">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 261 250" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
+                    <path style="fill:#96cb4c; stroke:none;" d="M141 26L142 27L141 26z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M142 26L143 27L142 26z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M143 26C145.052 26.8743 146.747 26.9528 149 27C146.948 26.1257 145.253 26.0472 143 26z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M149 26C150.248 26.6847 150.549 26.7488 152 27C150.752 26.3152 150.452 26.2512 149 26z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M137 27L138 28L137 27z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M138 27L139 28L138 27z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M139 27L140 28L139 27z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M116 177C112.764 190.593 114.261 215.075 134 211.671C142.563 210.195 149.676 204.261 156 198.714C178.665 178.833 193.955 147.549 198.561 118C199.169 114.1 199.222 109.928 198.829 106C198.564 103.345 198.093 100.5 197.136 98C189.938 79.1904 169.242 91.878 159 100C164.247 83.5896 169.299 65.385 166.561 48C164.422 34.4196 157.176 26.0466 143 27.0903C139.096 27.3777 135.516 28.5901 132 30.2616C127.029 32.6248 122.381 35.3151 118 38.6543C111.2 43.8369 104.903 49.6524 99.1698 56C70.7317 87.4849 49.4679 128.823 43.4282 171C42.6476 176.451 42.6221 182.518 43.1705 188C43.5415 191.708 44.4119 195.508 45.7106 199C46.6239 201.456 47.7988 203.826 49.5324 205.815C63.1773 221.466 86.5664 204.849 98 195C100.687 192.685 103.451 190.445 105.985 187.961C109.521 184.495 112.577 180.576 116 177z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M153 27L154 28L153 27z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M154 27L155 28L154 27z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M135 28L136 29L135 28z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M156 28L157 29L156 28M132 29L133 30L132 29z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M133 29L134 30L133 29z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M157 29L158 30L157 29z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M130 30L131 31L130 30z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M131 30L132 31L131 30z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M128 31L129 32L128 31z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M129 31L130 32L129 31M159 31C159.545 32.6352 159.365 32.455 161 33C160.455 31.3649 160.635 31.545 159 31M127 32L128 33L127 32z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M125 33L126 34L125 33M161 33L162 34L161 33z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M123 34L124 35L123 34z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M162 34L163 35L162 34z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M122 35L123 36L122 35z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M162 35L163 36L162 35z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M120 36L121 37L120 36M163 36L164 37L163 36z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M119 37L120 38L119 37z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M163 37L164 38L163 37z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M118 38L119 39L118 38z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M164 38L165 39L164 38M116 39L117 40L116 39z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M164 39L165 40L164 39M115 40L116 41L115 40z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M114 41L115 42L114 41z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M165 41L166 42L165 41z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M113 42L114 43L113 42z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M165 42L166 43L165 42z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M109 45C107.814 46.1863 107.472 46.5838 107 48C108.548 46.7383 108.808 46.8061 109 45z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M166 45L167 46L166 45z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M166.333 46.6667C166.278 46.7222 166.222 47.7778 166.667 47.3333C166.722 47.2777 166.778 46.2223 166.333 46.6667z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M106 48L102 53C104.089 51.4443 105.403 50.5116 106 48M167 52L167 58C167.951 55.7147 167.951 54.2853 167 52z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M101 53L102 54L101 53M167 58L167 65C168.059 62.4657 168.059 60.5343 167 58z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M96 59L97 60L96 59z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M95 60L96 61L95 60z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M94 61L93 63C94.2627 62.0287 94.3919 62.3063 94 61z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M92 63L93 64L92 63z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M91 65L92 66L91 65z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M90 66L91 67L90 66z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M89 67L90 68L89 67z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M88 68L89 69L88 68z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M166.333 68.6667C166.278 68.7222 166.222 69.7778 166.667 69.3333C166.722 69.2778 166.778 68.2223 166.333 68.6667z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M87 70L88 71L87 70z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M166.333 70.6667C166.278 70.7222 166.222 71.7778 166.667 71.3333C166.722 71.2778 166.778 70.2222 166.333 70.6667z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M86 71L87 72L86 71z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M85 72L86 73L85 72z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M84 74L85 75L84 74z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M83 75L84 76L83 75z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M165 75L166 76L165 75z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M165 76L166 77L165 76z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M165 77L166 78L165 77z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M81 78L82 79L81 78z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M80 79L81 80L80 79z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M164 80L165 81L164 80M79 81L80 82L79 81z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M164 81L165 82L164 81M78 82L79 83L78 82z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M77 84L78 85L77 84M163 84L164 85L163 84z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M76 85L77 86L76 85z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M163 85L164 86L163 85z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M76 86L77 87L76 86z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M75 87L76 88L75 87z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M74 88L75 89L74 88z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M162 88L163 89L162 88z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M177 88L178 89L177 88z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M178 88L179 89L178 88z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M179 88L180 89L179 88z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M188 88L189 89L188 88z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M74 89L75 90L74 89z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M162 89L163 90L162 89z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M175 89L176 90L175 89M190 89L191 90L190 89M73 90L74 91L73 90z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M172 90L173 91L172 90z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M173 90L174 91L173 90M161 91L162 92L161 91z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M171 91L172 92L171 91M72 92L73 93L72 92z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M161 92L162 93L161 92M169 92L170 93L169 92z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M167 93L168 94L167 93z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M194 93L195 94L194 93M71 94L72 95L71 94z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M166 94L167 95L166 94M195 94L196 95L195 94z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M70 95L71 96L70 95z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M160 95L161 96L160 95z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M164 95L165 96L164 95M196 95L197 96L196 95M160 96L161 97L160 96z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M163 96L164 97L163 96z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M69 97L70 98L69 97z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M162 97L163 98L162 97M159 98L160 99L159 98z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M197 98L198 99L197 98M68 99L69 100L68 99z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M159 99L160 100L159 99z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M67 101L68 102L67 101z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M198 101L199 102L198 101M66 102L67 103L66 102z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M198 102L199 103L198 102z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M66 103L67 104L66 103z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M198 103L199 104L198 103z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M65 104L66 105L65 104z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M65 105L66 106L65 105z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M64 106L65 107L64 106z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M64 107L65 108L64 107z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M63 108L64 109L63 108z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M63 109L64 110L63 109z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M62 110L63 111L62 110z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M62 111L63 112L62 111z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M61 112L62 113L61 112z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M61 113L62 114L61 113z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M60 115L61 116L60 115M59 117L60 118L59 117z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M58 119L59 120L58 119z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M198 120L199 121L198 120z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M57 121L58 122L57 121z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M56 123L57 124L56 123z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M197 123L198 124L197 123z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M56 124L57 125L56 124z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M55 125L56 126L55 125z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M55 126L56 127L55 126z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M54 128L55 129L54 128z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M196 128L197 129L196 128z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M196 129L197 130L196 129z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M196 130L197 131L196 130z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M53 131L54 132L53 131z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M195 132L196 133L195 132z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M52 133L53 134L52 133z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M195 133L196 134L195 133z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M52 134L53 135L52 134z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M51 136L52 137L51 136z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M194 136L195 137L194 136M51 137L52 138L51 137z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M194 137L195 138L194 137M50 139L51 140L50 139z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M193 139L194 140L193 139M50 140L51 141L50 140z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M193 140L194 141L193 140M49 142L50 143L49 142z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M192 142L193 143L192 142M49 143L50 144L49 143z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M191 144L192 145L191 144z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M48 145L49 146L48 145M191 145L192 146L191 145z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M48 146L49 147L48 146M190 147L191 148L190 147z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M47 149L48 150L47 149z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M189 149L190 150L189 149z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M218 150.533C202.066 153.988 189.525 175.909 187.301 191C185.952 200.15 187.276 214.309 200 211.609C216.195 208.172 228.16 186.086 230.674 171C232.125 162.298 230.076 147.915 218 150.533z"/>
+                    <path style="fill:#96cb4c; stroke:none;" d="M61 212C62.769 212.779 64.0359 212.912 66 213C64.231 212.221 62.9641 212.088 61 212z"/>
                   </svg>
-                </div>
-                <div>
-                  <div class="name">Hosting.com</div>
-                  <div class="badges">
-                    <span class="badge">VPS / performance</span>
+                </span>
+
+                <div class="pmeta">
+                  <div class="title">
+                    <a href="https://hosting.com/" target="_blank" rel="nofollow noopener">Hosting.com</a>
                   </div>
-                  <a class="miniLink" href="#hostingcom-details">See more</a>
+                  <div class="tag"><span class="mini-dot"></span>VPS / performance</div>
+                  <div class="tag"><span class="mini-dot"></span>More control</div>
+
+                  <div class="micro-wrap" data-micro>
+                    <div class="micro-line">
+                      <span class="micro-short">Good pick if you want stronger server options (VPS/dedicated) and you’re comfortable with a more technical setup than “managed WP only”.</span>
+                      <a class="see-more" href="#" data-toggle>See more</a>
+                    </div>
+                    <div class="micro-more">
+                      Good pick if you want stronger server options (VPS/dedicated) and you’re comfortable with a more technical setup than “managed WP only”.
+                      <div class="micro-actions">
+                        <a class="see-more" href="#" data-toggle>See less</a>
+                      </div>
+                      <div class="note" style="margin-top:10px;">
+                        Prices often show an intro deal, then renew higher. Always confirm at checkout.
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </td>
-            <td style="color:var(--muted);">Power users</td>
-            <td><span class="tier">Flexible</span></td>
-            <td><span class="wooYes"><span class="g"></span>Depends</span></td>
+            <td>Power users</td>
+            <td><span class="badge"><span class="dot"></span>Flexible</span></td>
+            <td><span class="badge"><span class="dot"></span>Depends</span></td>
             <td>
-              <span class="stars"><span class="s">★★★★☆</span><span style="color:rgba(231,236,255,.9);font-weight:650;">4.0</span></span>
+              <span class="rating" aria-label="Review 4 out of 5">
+                <span class="stars" data-stars="4">
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star off" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                </span>
+                <span class="rnum">4.0</span>
+              </span>
             </td>
-            <td><span class="price">$</span><span class="price"> (varies)</span></td>
+            <td><span class="badge"><span class="dot"></span>$1.00/mo*</span></td>
             <td>
-              <a
-                class="cta"
-                href="TRACK_HOSTINGCOM_TABLE"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-                aria-label="Hosting.com affiliate link"
-              >View options</a>
+              <a class="btn muted" href="https://hosting.com/" target="_blank" rel="nofollow noopener">Visit Hosting.com</a>
             </td>
           </tr>
+
         </tbody>
       </table>
     </div>
 
-    <!-- DETAILS / "SEE MORE" -->
-    <details id="cloudways-details" class="details">
-      <summary>Cloudways: what to know</summary>
-      <div class="details">
-        <p><strong>Best for:</strong> Woo stores that need a strong balance of performance + flexibility.</p>
-        <p><strong>Notes:</strong> Make sure to confirm caching exclusions for Woo (cart/checkout/account). Use staging for updates and test promo traffic.</p>
-        <p>
-          CTA tracking example format:
-          <code class="inline">...&amp;source_id=carlleger_github&amp;sub1=managed-cloud-hosting&amp;sub2=table_cta&amp;sub3=cloudways</code>
+    <div class="note">
+      Note: Links may be affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.
+      Pricing varies by region, promotions, term length, and plan. Always check the provider’s checkout page for current rates and limits.
+      <br/><br/>
+      *Prices marked with an asterisk are commonly intro prices (promos) and may renew higher.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What to look for (WooCommerce-focused)</h2>
+    <ul class="checklist">
+      <li><b>Scaling:</b> Can you upgrade RAM/CPU quickly when campaigns hit? Do you get clear resource limits?</li>
+      <li><b>Staging + backups:</b> Staging should be simple. Backups should be automated and restorable fast.</li>
+      <li><b>Cache safety:</b> Host-level cache should not break cart/checkout. Look for controls and exclusions.</li>
+      <li><b>Support quality:</b> When a store is down, you need real troubleshooting, not copy/paste scripts.</li>
+      <li><b>Security basics:</b> SSL, firewalls/WAF options, patching guidance, and sane access controls.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Quick FAQ</h2>
+    <ul class="checklist">
+      <li><b>Do I need managed cloud if I use a cache plugin?</b><br/>Not always. But hosting determines your baseline CPU/RAM, I/O, and stability under load. Plugins can’t fix a server that’s hitting limits.</li>
+      <li><b>Will this fix Core Web Vitals?</b><br/>It helps a lot with TTFB and stability, but CWV often needs front-end work too (images, JS, theme, fonts, third-party scripts).</li>
+      <li><b>What’s the biggest mistake when migrating?</b><br/>Moving without a staging test, DNS plan, and rollback. Always test cart/checkout, emails, and payments before flipping traffic.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="cta">
+      <div>
+        <h3>Need help choosing or migrating hosting?</h3>
+        <p class="subtitle">
+          I help WooCommerce stores improve stability, speed, and checkout reliability (hosting, caching, CDN, and performance debugging).
         </p>
       </div>
-    </details>
-
-    <details id="kinsta-details" class="details">
-      <summary>Kinsta: what to know</summary>
-      <div class="details">
-        <p><strong>Best for:</strong> Teams that want premium managed WordPress with minimal babysitting.</p>
-        <p><strong>Notes:</strong> Great support, clean stack. Verify Woo caching + dynamic fragments and keep a staging workflow.</p>
-      </div>
-    </details>
-
-    <details id="wpengine-details" class="details">
-      <summary>WP Engine: what to know</summary>
-      <div class="details">
-        <p><strong>Best for:</strong> Agencies/brands that want tooling, workflows, and a premium managed WP environment.</p>
-        <p><strong>Notes:</strong> Keep Woo-safe rules in mind (no caching cart/checkout, sessions, fragments). Test your theme + plugins in staging before shipping.</p>
-        <p><strong>Your link:</strong> Uses your Everflow tracking with <code class="inline">sub2=table_cta</code> and <code class="inline">sub3=wpengine</code>.</p>
-      </div>
-    </details>
-
-    <details id="siteground-details" class="details">
-      <summary>SiteGround: what to know</summary>
-      <div class="details">
-        <p><strong>Best for:</strong> Smaller stores that want support + decent performance without enterprise pricing.</p>
-        <p><strong>Notes:</strong> Validate Woo exclusions and keep an eye on resource limits if traffic grows fast.</p>
-      </div>
-    </details>
-
-    <details id="hostingcom-details" class="details">
-      <summary>Hosting.com: what to know</summary>
-      <div class="details">
-        <p><strong>Best for:</strong> Power users who want VPS-style performance and control.</p>
-        <p><strong>Notes:</strong> Woo-safety can depend on configuration. Ensure caching rules + server tuning are aligned with WooCommerce.</p>
-      </div>
-    </details>
-
-    <div class="note">
-      <strong>Tracking tip:</strong> Keep the naming consistent:
-      <code class="inline">source_id=carlleger_github</code>,
-      <code class="inline">sub1=managed-cloud-hosting</code>,
-      <code class="inline">sub2=table_cta</code> (or <code class="inline">hero_cta</code>),
-      <code class="inline">sub3=provider</code>.
-      You’ll get clean stats you can actually act on.
-      <div class="foot">
-        Affiliate links should include <code class="inline">rel="nofollow sponsored noopener"</code> and open in a new tab.
+      <div>
+        <a href="mailto:carlleger.dev@gmail.com?subject=Managed%20cloud%20hosting%20help">
+          Contact by email
+        </a>
       </div>
     </div>
-  </main>
+  </div>
+
+  <footer>
+    © <span id="y"></span> Carl Leger · <a href="/resources/">Resources</a>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  // Toggle "See more / See less" per row
+  document.querySelectorAll("[data-toggle]").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const wrap = btn.closest("[data-micro]");
+      const isOpen = wrap.classList.toggle("expanded");
+      wrap.querySelectorAll("[data-toggle]").forEach((t) => {
+        t.textContent = isOpen ? "See less" : "See more";
+      });
+    });
+  });
+</script>
 </body>
 </html>
