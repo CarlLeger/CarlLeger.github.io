@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Cloudways vs SiteGround (2026): Cloud Scaling vs Shared Hosting</title>
+  <meta name="description" content="Cloudways vs SiteGround in 2026: performance, pricing approach, scaling, WooCommerce fit, and who should choose what for growth." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://carlleger.github.io/resources/best/managed-cloud-hosting/cloudways-vs-siteground/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cloudways vs SiteGround (2026): Cloud Scaling vs Shared Hosting" />
+  <meta property="og:description" content="A practical comparison: Cloudways (managed cloud flexibility) vs SiteGround (traditional managed hosting approach). Choose based on scaling and WooCommerce needs." />
+  <meta property="og:url" content="https://carlleger.github.io/resources/best/managed-cloud-hosting/cloudways-vs-siteground/" />
+  <meta property="og:type" content="article" />
+
+  <style>
+    :root{
+      --bg:#070d17;
+      --panel:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.12);
+      --text:#e7ecff;
+      --muted:#a8b0d6;
+      --accent:#6ea8ff;
+      --good:#4ee59d;
+      --warn:#ffd36e;
+      --bad:#ff6e6e;
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 18% 0%, rgba(110,168,255,.18), transparent 55%),
+                  radial-gradient(900px 500px at 80% 10%, rgba(78,229,157,.10), transparent 60%),
+                  linear-gradient(180deg, #050913, var(--bg));
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1050px; margin:0 auto; padding:42px 18px 70px}
+    header.hero{
+      padding:28px 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    header.hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(700px 160px at 18% 20%, rgba(110,168,255,.25), transparent 55%),
+                  radial-gradient(700px 160px at 78% 0%, rgba(78,229,157,.16), transparent 55%);
+      filter: blur(10px);
+      opacity:.9;
+      pointer-events:none;
+    }
+    header.hero > *{position:relative}
+    .kicker{color:var(--muted); letter-spacing:.2px; font-size:14px}
+    h1{margin:10px 0 8px; font-size:38px; line-height:1.12}
+    .sub{max-width:80ch; color:var(--muted); margin:0}
+    .meta{margin-top:14px; display:flex; flex-wrap:wrap; gap:10px}
+    .pill{
+      font-size:13px; color:var(--muted);
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--stroke);
+      padding:6px 10px;
+      border-radius:999px;
+    }
+    .ctaRow{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:600;
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(110,168,255,.22), rgba(110,168,255,.10));
+      border-color: rgba(110,168,255,.35);
+    }
+    .btn.good{
+      background: linear-gradient(180deg, rgba(78,229,157,.22), rgba(78,229,157,.10));
+      border-color: rgba(78,229,157,.35);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .grid{display:grid; grid-template-columns: 1.3fr .7fr; gap:18px; margin-top:18px}
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} h1{font-size:34px} }
+    .card{
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    h2{font-size:22px; margin:0 0 10px}
+    h3{font-size:18px; margin:18px 0 8px}
+    p{margin:10px 0}
+    ul{margin:10px 0 0; padding-left:18px}
+    li{margin:6px 0; color:var(--muted)}
+    .note{color:var(--muted); font-size:14px}
+    .divider{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(110,168,255,.35), transparent);
+      margin:18px 0;
+    }
+    .tableWrap{
+      overflow:auto; border-radius:14px; border:1px solid var(--stroke);
+      background: rgba(0,0,0,.22);
+    }
+    table{border-collapse:collapse; width:100%; min-width:760px}
+    th,td{padding:12px 12px; border-bottom:1px solid rgba(255,255,255,.10); vertical-align:top}
+    th{color:var(--text); text-align:left; font-size:13px; letter-spacing:.2px; background: rgba(255,255,255,.05)}
+    td{color:var(--muted); font-size:14px}
+    .tag{
+      display:inline-flex; align-items:center; gap:6px;
+      padding:4px 8px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      font-size:12px; color:var(--muted);
+      white-space:nowrap;
+    }
+    .dot{width:8px; height:8px; border-radius:999px; background: var(--accent); display:inline-block}
+    .dot.good{background: var(--good)}
+    .dot.warn{background: var(--warn)}
+    .dot.bad{background: var(--bad)}
+    .twoCol{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width: 900px){ .twoCol{grid-template-columns:1fr} }
+    .faq details{
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.05);
+      border-radius: 14px;
+      padding:12px 12px;
+      margin:10px 0;
+    }
+    .faq summary{cursor:pointer; font-weight:700}
+    footer{
+      margin-top:26px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+      opacity:.9;
+    }
+    .miniLinks{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .miniLinks a{font-size:13px; color:var(--muted); border:1px solid var(--stroke); padding:6px 10px; border-radius:999px; background: rgba(255,255,255,.04)}
+    .callout{
+      margin-top:14px;
+      padding:14px;
+      border-radius: 14px;
+      border:1px solid rgba(110,168,255,.25);
+      background: linear-gradient(180deg, rgba(110,168,255,.12), rgba(255,255,255,.04));
+      color: var(--muted);
+    }
+  </style>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Is Cloudways better than SiteGround for WooCommerce?",
+        "acceptedAnswer":{"@type":"Answer","text":"Cloudways is often a better fit when you expect growth and need flexible scaling. SiteGround can be a good fit for smaller sites that want a simpler traditional hosting approach and strong day-to-day support."}
+      },
+      {
+        "@type":"Question",
+        "name":"What is the main difference between Cloudways and SiteGround?",
+        "acceptedAnswer":{"@type":"Answer","text":"Cloudways is built around managed cloud infrastructure and scaling flexibility. SiteGround is closer to a traditional managed hosting approach that can feel simpler, especially for smaller sites."}
+      },
+      {
+        "@type":"Question",
+        "name":"Which one is better for traffic spikes?",
+        "acceptedAnswer":{"@type":"Answer","text":"Cloudways tends to handle scaling use cases more naturally because you can increase resources more directly. With SiteGround, you may need plan upgrades sooner as your site grows."}
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="kicker">Managed hosting comparison • Updated for 2026</div>
+      <h1>Cloudways vs SiteGround (2026)</h1>
+      <p class="sub">This comparison is mostly about <strong>growth dynamics</strong>: Cloudways is built around managed cloud scaling flexibility, while SiteGround is closer to a traditional managed hosting approach that’s often simpler for smaller sites.</p>
+
+      <div class="meta">
+        <span class="pill">Best for: scaling vs simplicity</span>
+        <span class="pill">Use case: WooCommerce + growing sites</span>
+        <span class="pill">Focus: fit + tradeoffs</span>
+      </div>
+
+      <!-- CTA #1 (top) -->
+      <div class="ctaRow">
+        <a class="btn primary" href="https://carlleger.github.io/resources/best/managed-cloud-hosting/">← Back to Managed Cloud Hosting hub</a>
+        <a class="btn good" href="#verdict">See the verdict</a>
+      </div>
+
+      <div class="miniLinks">
+        <a href="../cloudways-vs-wp-engine/">Cloudways vs WP Engine</a>
+        <a href="../cloudways-vs-kinsta/">Cloudways vs Kinsta</a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main class="card">
+        <h2>Quick verdict</h2>
+        <p><strong>Pick Cloudways</strong> if you expect growth and want <strong>more scaling headroom</strong>, plus the ability to adjust resources as traffic increases.</p>
+        <p><strong>Pick SiteGround</strong> if you want a <strong>simpler traditional hosting experience</strong> for a smaller site, and you value a straightforward day-to-day workflow.</p>
+
+        <div class="callout">
+          <strong>Plain-English shortcut:</strong> If your site is “a store that might blow up”, Cloudways is usually safer. If it’s “a business site that just needs to be stable”, SiteGround can be plenty.
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>Comparison table</h2>
+        <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Cloudways</th>
+                <th>SiteGround</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Best for</strong></td>
+                <td>
+                  <span class="tag"><span class="dot good"></span>Scaling flexibility</span>
+                  <span class="tag"><span class="dot good"></span>Growing stores</span>
+                </td>
+                <td>
+                  <span class="tag"><span class="dot good"></span>Simplicity</span>
+                  <span class="tag"><span class="dot good"></span>Smaller sites</span>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Scaling</strong></td>
+                <td>Resource scaling is a core part of the model (more headroom as you grow).</td>
+                <td>Often fine at small-to-medium scale, but you may need plan upgrades sooner.</td>
+              </tr>
+              <tr>
+                <td><strong>WooCommerce fit</strong></td>
+                <td>Strong for growth + spikes when you want more control over resources.</td>
+                <td>Good for smaller WooCommerce stores with steady traffic and simpler needs.</td>
+              </tr>
+              <tr>
+                <td><strong>Flexibility</strong></td>
+                <td>More options and tuning decisions (a “managed cloud layer”).</td>
+                <td>More opinionated, traditional hosting experience (fewer knobs).</td>
+              </tr>
+              <tr>
+                <td><strong>Support style</strong></td>
+                <td>Platform support + infrastructure choices depending on setup.</td>
+                <td>Often appreciated for day-to-day hosting support and guidance.</td>
+              </tr>
+              <tr>
+                <td><strong>Pricing approach</strong></td>
+                <td>Typically resource-based (depends on infra + add-ons).</td>
+                <td>Typically plan-based tiers.</td>
+              </tr>
+              <tr>
+                <td><strong>Best “why”</strong></td>
+                <td>“I need scaling room without full sysadmin.”</td>
+                <td>“I want stable hosting that stays simple.”</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- CTA #2 (after table) -->
+        <div class="ctaRow" style="margin-top:14px">
+          <a class="btn good" href="#who">Help me choose</a>
+          <a class="btn primary" href="#faq">FAQ</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2 id="who">Who should choose what?</h2>
+        <div class="twoCol">
+          <section class="card" style="padding:16px; background:rgba(255,255,255,.05)">
+            <h3>Choose Cloudways if…</h3>
+            <ul>
+              <li>You expect growth or seasonal spikes (sales, launches, ads).</li>
+              <li>You want the ability to scale resources as the site gets heavier.</li>
+              <li>You want more flexibility for performance tuning and stack choices.</li>
+              <li>You run WooCommerce and care about headroom under load.</li>
+            </ul>
+          </section>
+
+          <section class="card" style="padding:16px; background:rgba(255,255,255,.05)">
+            <h3>Choose SiteGround if…</h3>
+            <ul>
+              <li>You have steady traffic and a simpler site (or smaller store).</li>
+              <li>You want a traditional hosting experience that’s easy to manage.</li>
+              <li>You prefer fewer decisions and a straightforward workflow.</li>
+              <li>You want “set it up and run the business” without tinkering.</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>What actually impacts performance (more than the host)</h2>
+        <ul>
+          <li><strong>Cache rules + WooCommerce exclusions:</strong> cart/checkout/account should not be cached incorrectly.</li>
+          <li><strong>Image strategy:</strong> modern formats + correct sizing beats “bigger server” most of the time.</li>
+          <li><strong>Theme & plugins:</strong> heavy builders and 40 plugins will hurt anywhere.</li>
+          <li><strong>Database hygiene:</strong> autoload cleanup, slow queries, scheduled tasks.</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <h2 id="verdict">Final verdict</h2>
+        <p>If you’re building for <strong>growth</strong> and want more scaling headroom, Cloudways is usually the better long-term bet.</p>
+        <p>If you want a <strong>simple, traditional managed hosting</strong> experience for a smaller site with steady traffic, SiteGround can be a strong pick.</p>
+
+        <!-- CTA #3 (conclusion) -->
+        <div class="ctaRow">
+          <a class="btn good" href="https://carlleger.github.io/resources/best/managed-cloud-hosting/">Go to the main hosting shortlist</a>
+          <a class="btn primary" href="../cloudways-vs-kinsta/">Next: Cloudways vs Kinsta →</a>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2 id="faq">FAQ</h2>
+        <div class="faq">
+          <details>
+            <summary>Is SiteGround good for WooCommerce?</summary>
+            <p class="note">It can be, especially for smaller stores with steady traffic. If you expect spikes or rapid growth, scaling flexibility becomes more important, which is where Cloudways can be an advantage.</p>
+          </details>
+
+          <details>
+            <summary>Which one is easier for non-technical users?</summary>
+            <p class="note">SiteGround often feels simpler day-to-day. Cloudways is still user-friendly, but you’ll face more choices around scaling and setup.</p>
+          </details>
+
+          <details>
+            <summary>What should I do if I’m not sure?</summary>
+            <p class="note">Choose based on growth expectations: if you plan to run ads, launch products, or scale content aggressively, pick the option with more scaling headroom.</p>
+          </details>
+        </div>
+      </main>
+
+      <aside class="card">
+        <h2>Internal SEO links</h2>
+        <ul>
+          <li><a href="../cloudways-vs-wp-engine/">Cloudways vs WP Engine</a></li>
+          <li><a href="../cloudways-vs-kinsta/">Cloudways vs Kinsta</a></li>
+          <li><a href="https://carlleger.github.io/resources/tools/performance-cwv/">Core Web Vitals tools</a></li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <h2>Publishing checklist</h2>
+        <ul>
+          <li>Make sure the folder path matches the canonical URL.</li>
+          <li>Add internal links from the main Cloudways page to this page.</li>
+          <li>After deploy, test the URL loads (no 404).</li>
+        </ul>
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="y"></span> CarlLeger.github.io • Practical hosting comparisons
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
