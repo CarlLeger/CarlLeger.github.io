@@ -8,15 +8,19 @@
   <meta name="description" content="Best managed cloud hosting for WordPress & WooCommerce in 2026. Practical shortlist, what to look for, and how to choose the right host for performance and stability." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://carlleger.github.io/resources/best/managed-cloud-hosting/" />
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-3KXQFTWTBD');
-</script>
 
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3KXQFTWTBD', { anonymize_ip: true });
+  </script>
 
   <!-- Open Graph -->
   <meta property="og:title" content="Best Managed Cloud Hosting for WordPress & WooCommerce (2026)" />
@@ -123,6 +127,27 @@
     @media(max-width:900px){ .grid{grid-template-columns:1fr;} }
 
     ul{ color:var(--muted); margin:10px 0 0 18px; }
+
+    .hero-cta{
+      border:1px solid rgba(46,229,157,.35);
+      background:rgba(46,229,157,.10);
+      border-radius:18px;
+      padding:16px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:14px;
+      align-items:flex-start;
+      margin-top:14px;
+    }
+    .hero-cta h2{ margin:0 0 6px; font-size:16px; }
+    .hero-cta p{ margin:0; color:var(--muted); max-width:70ch; }
+    .hero-cta .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
 
     .table-wrap{
       position:relative;
@@ -240,28 +265,28 @@
     }
     .picon svg{ width:var(--icon); height:var(--icon); display:block; }
 
-    /* ✅ Kinsta icon (inline SVG) */
-.picon.kinsta{
-  width: var(--icon);
-  height: var(--icon);
-  flex: 0 0 auto;
-  margin-top: 2px;
-  border-radius: 10px;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,.18);
-  border: 1px solid rgba(255,255,255,.10);
-  color: rgba(231,236,255,.96); /* SVG uses currentColor */
-}
-.picon.kinsta svg{
-  width: calc(var(--icon) - 8px);
-  height: calc(var(--icon) - 8px);
-  display:block;
-}
+    /* Kinsta icon */
+    .picon.kinsta{
+      width: var(--icon);
+      height: var(--icon);
+      flex: 0 0 auto;
+      margin-top: 2px;
+      border-radius: 10px;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.10);
+      color: rgba(231,236,255,.96);
+    }
+    .picon.kinsta svg{
+      width: calc(var(--icon) - 8px);
+      height: calc(var(--icon) - 8px);
+      display:block;
+    }
 
-    /* ✅ Hosting.com icon: force clean sizing + SiteGround green */
+    /* Hosting.com icon */
     .picon.hosting{ color:#96cb4c; }
     .picon.hosting svg{ width:var(--icon); height:var(--icon); display:block; }
 
@@ -362,6 +387,7 @@
       width:100%;
       max-width:210px;
       min-width:170px;
+      cursor:pointer;
     }
     .btn:hover{ border-color: rgba(106,166,255,.70); text-decoration:none; }
     .btn.primary{
@@ -417,7 +443,7 @@
     }
     .cta a:hover{ border-color: rgba(46,229,157,.85); }
 
-    /* ⭐ Yellow stars (all rows) */
+    /* Stars */
     .stars{
       display:inline-flex;
       align-items:center;
@@ -443,7 +469,6 @@
       color:rgba(231,236,255,.85);
     }
 
-    /* ✅ Review link under stars */
     .review-link{
       display:inline-block;
       margin-top:6px;
@@ -454,7 +479,6 @@
     }
     .review-link:hover{ text-decoration:underline; }
 
-    /* ✅ Make star links feel clickable without looking like a normal underlined link */
     .stars-link{
       text-decoration:none;
       cursor:pointer;
@@ -477,9 +501,37 @@
       <div>
         <h1>Best Managed Cloud Hosting for WordPress & WooCommerce (2026)</h1>
         <p class="subtitle">
-          If your store is outgrowing shared hosting, managed cloud hosting is often the upgrade path that fixes speed, scaling, and “random” checkout instability.
+          If your store is outgrowing shared hosting, managed cloud hosting is often the upgrade path that fixes speed, scaling, and checkout instability.
           This page is a practical shortlist plus what to look for.
         </p>
+
+        <!-- CTA #1 (Top of page) -->
+        <div class="hero-cta">
+          <div>
+            <h2>Quick recommendation</h2>
+            <p>
+              If you want the best balance of performance, flexibility, and simple scaling, Cloudways is the easiest “upgrade path” for most WooCommerce sites.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary affiliate-link"
+               data-partner="cloudways"
+               data-placement="hero_cta"
+               data-link-type="affiliate"
+               href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=hero-cta"
+               target="_blank"
+               rel="nofollow sponsored noopener">
+              Get Cloudways
+            </a>
+            <a class="btn muted"
+               href="#comparison"
+               data-link-type="internal"
+               data-placement="hero_jump">
+              Compare options
+            </a>
+          </div>
+        </div>
+
       </div>
 
       <div class="pill good" title="Shortlist updated">
@@ -509,7 +561,7 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="comparison">
     <h2>Best Managed Cloud Hosting (quick comparison)</h2>
 
     <div class="table-wrap" aria-label="Comparison table (scroll horizontally on small screens)">
@@ -527,7 +579,7 @@
         </thead>
         <tbody>
 
-          <!-- ✅ Cloudways -->
+          <!-- Cloudways -->
           <tr class="row-top">
             <td>
               <div class="pname">
@@ -539,7 +591,11 @@
 
                 <div class="pmeta">
                   <div class="title">
-                    <a href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=table-title"
+                    <a class="affiliate-link"
+                       data-partner="cloudways"
+                       data-placement="table_title"
+                       data-link-type="affiliate"
+                       href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=table-title"
                        target="_blank" rel="nofollow sponsored noopener">Cloudways</a>
                   </div>
                   <div class="tag top"><span class="mini-dot"></span>#1 pick (best balance)</div>
@@ -569,6 +625,9 @@
                 <a class="stars stars-link"
                    href="https://carlleger.github.io/resources/best/cloudways-review/"
                    target="_blank" rel="noopener"
+                   data-link-type="review"
+                   data-partner="cloudways"
+                   data-placement="table_review_stars"
                    aria-label="Read the Cloudways review (opens in a new tab)">
                   <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
                   <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
@@ -581,97 +640,103 @@
 
               <a class="review-link"
                  href="https://carlleger.github.io/resources/best/cloudways-review/"
-                 target="_blank" rel="noopener">Read review</a>
+                 target="_blank" rel="noopener"
+                 data-link-type="review"
+                 data-partner="cloudways"
+                 data-placement="table_review_link">Read review</a>
             </td>
 
             <td><span class="badge"><span class="dot"></span>$11/mo+</span></td>
             <td>
-              <a class="btn primary"
+              <a class="btn primary affiliate-link"
+                 data-partner="cloudways"
+                 data-placement="table_cta"
+                 data-link-type="affiliate"
                  href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=table-cta"
                  target="_blank" rel="nofollow sponsored noopener">Get Cloudways</a>
             </td>
           </tr>
 
-          <!-- ✅ Kinsta (UPDATED: inline SVG icon, no external file) -->
-<tr>
-  <td>
-    <div class="pname">
-      <span class="picon kinsta" aria-hidden="true" title="Kinsta">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kinsta">
-          <title>Kinsta</title>
-          <g fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 14v36"/>
-            <path d="M18 32l20-18"/>
-            <path d="M18 32l20 18"/>
-          </g>
-        </svg>
-      </span>
+          <!-- Kinsta -->
+          <tr>
+            <td>
+              <div class="pname">
+                <span class="picon kinsta" aria-hidden="true" title="Kinsta">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kinsta">
+                    <title>Kinsta</title>
+                    <g fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 14v36"/>
+                      <path d="M18 32l20-18"/>
+                      <path d="M18 32l20 18"/>
+                    </g>
+                  </svg>
+                </span>
 
-      <div class="pmeta">
-        <div class="title">
-          <a href="https://kinsta.com/?kaid=GTMETMUUOMYF"
-             target="_blank" rel="nofollow sponsored noopener">Kinsta</a>
-        </div>
+                <div class="pmeta">
+                  <div class="title">
+                    <a class="affiliate-link"
+                       data-partner="kinsta"
+                       data-placement="table_title"
+                       data-link-type="affiliate"
+                       href="https://kinsta.com/?kaid=GTMETMUUOMYF"
+                       target="_blank" rel="nofollow sponsored noopener">Kinsta</a>
+                  </div>
 
-        <div class="tag top"><span class="mini-dot"></span>Premium managed WP</div>
-        <div class="tag"><span class="mini-dot"></span>Low-maintenance</div>
+                  <div class="tag top"><span class="mini-dot"></span>Premium managed WP</div>
+                  <div class="tag"><span class="mini-dot"></span>Low-maintenance</div>
 
-        <div class="micro-wrap" data-micro>
-          <div class="micro-line">
-            <span class="micro-short">
-              Best when you want top-tier managed WordPress performance and support with minimal server decisions (less flexibility than full cloud control).
-            </span>
-            <a class="see-more" href="#" data-toggle>See more</a>
-          </div>
+                  <div class="micro-wrap" data-micro>
+                    <div class="micro-line">
+                      <span class="micro-short">
+                        Best when you want top-tier managed WordPress performance and support with minimal server decisions (less flexibility than full cloud control).
+                      </span>
+                      <a class="see-more" href="#" data-toggle>See more</a>
+                    </div>
 
-          <div class="micro-more">
-            Best when you want top-tier managed WordPress performance and support with minimal server decisions (less flexibility than full cloud control).
-            <div class="micro-actions">
-              <a class="see-more" href="#" data-toggle>See less</a>
-            </div>
-          </div>
-        </div>
+                    <div class="micro-more">
+                      Best when you want top-tier managed WordPress performance and support with minimal server decisions (less flexibility than full cloud control).
+                      <div class="micro-actions">
+                        <a class="see-more" href="#" data-toggle>See less</a>
+                      </div>
+                    </div>
+                  </div>
 
-      </div>
-    </div>
-  </td>
+                </div>
+              </div>
+            </td>
 
-  <td>Hands-off teams</td>
+            <td>Hands-off teams</td>
 
-  <td>
-    <span class="badge"><span class="dot"></span>Premium</span>
-  </td>
+            <td><span class="badge"><span class="dot"></span>Premium</span></td>
 
-  <td>
-    <span class="badge good"><span class="dot"></span>Yes</span>
-  </td>
+            <td><span class="badge good"><span class="dot"></span>Yes</span></td>
 
-  <td>
-    <span class="rating" aria-label="Review 5 out of 5">
-      <span class="stars" data-stars="5">
-        <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-        <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-        <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-        <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-        <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-      </span>
-      <span class="rnum">5.0</span>
-    </span>
-  </td>
+            <td>
+              <span class="rating" aria-label="Review 5 out of 5">
+                <span class="stars" data-stars="5">
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
+                </span>
+                <span class="rnum">5.0</span>
+              </span>
+            </td>
 
-  <td>
-    <span class="badge"><span class="dot"></span>$30/mo+</span>
-  </td>
+            <td><span class="badge"><span class="dot"></span>$30/mo+</span></td>
 
-  <td>
-    <a class="btn"
-       href="https://kinsta.com/?kaid=GTMETMUUOMYF"
-       target="_blank" rel="nofollow sponsored noopener">Get Kinsta</a>
-  </td>
-</tr>
-          
+            <td>
+              <a class="btn affiliate-link"
+                 data-partner="kinsta"
+                 data-placement="table_cta"
+                 data-link-type="affiliate"
+                 href="https://kinsta.com/?kaid=GTMETMUUOMYF"
+                 target="_blank" rel="nofollow sponsored noopener">Get Kinsta</a>
+            </td>
+          </tr>
 
-          <!-- ✅ WP Engine (Everflow tracking) -->
+          <!-- WP Engine -->
           <tr>
             <td>
               <div class="pname">
@@ -683,7 +748,10 @@
 
                 <div class="pmeta">
                   <div class="title">
-                    <a
+                    <a class="affiliate-link"
+                      data-partner="wpengine"
+                      data-placement="table_title"
+                      data-link-type="affiliate"
                       href="https://www.wqwln8trk.com/CBMM242B9/724PP615R/?source_id=managed-cloud-hosting-2026&sub1=table&sub2=title&sub3=comparison&sub4=wpengine"
                       target="_blank"
                       rel="nofollow sponsored noopener"
@@ -729,8 +797,10 @@
             <td><span class="badge"><span class="dot"></span>C$34/mo+</span></td>
 
             <td>
-              <a
-                class="btn"
+              <a class="btn affiliate-link"
+                data-partner="wpengine"
+                data-placement="table_cta"
+                data-link-type="affiliate"
                 href="https://www.wqwln8trk.com/CBMM242B9/724PP615R/?source_id=managed-cloud-hosting-2026&sub1=table&sub2=cta&sub3=comparison&sub4=wpengine"
                 target="_blank"
                 rel="nofollow sponsored noopener"
@@ -738,7 +808,7 @@
             </td>
           </tr>
 
-          <!-- ✅ SiteGround -->
+          <!-- SiteGround -->
           <tr>
             <td>
               <div class="pname">
@@ -752,7 +822,11 @@
 
                 <div class="pmeta">
                   <div class="title">
-                    <a href="https://www.siteground.com/index.htm?afcode=99f973186a9f86fde0ad63669bf6d1fa"
+                    <a class="affiliate-link"
+                       data-partner="siteground"
+                       data-placement="table_title"
+                       data-link-type="affiliate"
+                       href="https://www.siteground.com/index.htm?afcode=99f973186a9f86fde0ad63669bf6d1fa"
                        target="_blank" rel="nofollow sponsored noopener">SiteGround</a>
                   </div>
                   <div class="tag"><span class="mini-dot"></span>Starter-friendly</div>
@@ -790,159 +864,35 @@
             </td>
             <td><span class="badge"><span class="dot"></span>$2.99/mo*</span></td>
             <td>
-              <a class="btn"
+              <a class="btn affiliate-link"
+                 data-partner="siteground"
+                 data-placement="table_cta"
+                 data-link-type="affiliate"
                  href="https://www.siteground.com/index.htm?afcode=99f973186a9f86fde0ad63669bf6d1fa"
                  target="_blank" rel="nofollow sponsored noopener">Get SiteGround</a>
             </td>
           </tr>
 
-          <!-- ✅ Hosting.com -->
+          <!-- Hosting.com -->
           <tr>
             <td>
               <div class="pname">
                 <span class="picon hosting" aria-hidden="true" title="Hosting.com">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 261 250" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
-                    <path style="fill:#96cb4c; stroke:none;" d="M141 26L142 27L141 26z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M142 26L143 27L142 26z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M143 26C145.052 26.8743 146.747 26.9528 149 27C146.948 26.1257 145.253 26.0472 143 26z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M149 26C150.248 26.6847 150.549 26.7488 152 27C150.752 26.3152 150.452 26.2512 149 26z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M137 27L138 28L137 27z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M138 27L139 28L138 27z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M139 27L140 28L139 27z"/>
                     <path style="fill:#96cb4c; stroke:none;" d="M116 177C112.764 190.593 114.261 215.075 134 211.671C142.563 210.195 149.676 204.261 156 198.714C178.665 178.833 193.955 147.549 198.561 118C199.169 114.1 199.222 109.928 198.829 106C198.564 103.345 198.093 100.5 197.136 98C189.938 79.1904 169.242 91.878 159 100C164.247 83.5896 169.299 65.385 166.561 48C164.422 34.4196 157.176 26.0466 143 27.0903C139.096 27.3777 135.516 28.5901 132 30.2616C127.029 32.6248 122.381 35.3151 118 38.6543C111.2 43.8369 104.903 49.6524 99.1698 56C70.7317 87.4849 49.4679 128.823 43.4282 171C42.6476 176.451 42.6221 182.518 43.1705 188C43.5415 191.708 44.4119 195.508 45.7106 199C46.6239 201.456 47.7988 203.826 49.5324 205.815C63.1773 221.466 86.5664 204.849 98 195C100.687 192.685 103.451 190.445 105.985 187.961C109.521 184.495 112.577 180.576 116 177z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M153 27L154 28L153 27z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M154 27L155 28L154 27z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M135 28L136 29L135 28z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M156 28L157 29L156 28M132 29L133 30L132 29z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M133 29L134 30L133 29z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M157 29L158 30L157 29z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M130 30L131 31L130 30z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M131 30L132 31L131 30z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M128 31L129 32L128 31z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M129 31L130 32L129 31M159 31C159.545 32.6352 159.365 32.455 161 33C160.455 31.3649 160.635 31.545 159 31M127 32L128 33L127 32z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M125 33L126 34L125 33M161 33L162 34L161 33z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M123 34L124 35L123 34z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M162 34L163 35L162 34z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M122 35L123 36L122 35z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M162 35L163 36L162 35z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M120 36L121 37L120 36M163 36L164 37L163 36z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M119 37L120 38L119 37z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M163 37L164 38L163 37z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M118 38L119 39L118 38z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M164 38L165 39L164 38M116 39L117 40L116 39z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M164 39L165 40L164 39M115 40L116 41L115 40z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M114 41L115 42L114 41z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M165 41L166 42L165 41z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M113 42L114 43L113 42z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M165 42L166 43L165 42z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M109 45C107.814 46.1863 107.472 46.5838 107 48C108.548 46.7383 108.808 46.8061 109 45z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M166 45L167 46L166 45z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M166.333 46.6667C166.278 46.7222 166.222 47.7778 166.667 47.3333C166.722 47.2777 166.778 46.2223 166.333 46.6667z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M106 48L102 53C104.089 51.4443 105.403 50.5116 106 48M167 52L167 58C167.951 55.7147 167.951 54.2853 167 52z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M101 53L102 54L101 53M167 58L167 65C168.059 62.4657 168.059 60.5343 167 58z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M96 59L97 60L96 59z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M95 60L96 61L95 60z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M94 61L93 63C94.2627 62.0287 94.3919 62.3063 94 61z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M92 63L93 64L92 63z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M91 65L92 66L91 65z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M90 66L91 67L90 66z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M89 67L90 68L89 67z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M88 68L89 69L88 68z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M166.333 68.6667C166.278 68.7222 166.222 69.7778 166.667 69.3333C166.722 69.2778 166.778 68.2223 166.333 68.6667z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M87 70L88 71L87 70z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M166.333 70.6667C166.278 70.7222 166.222 71.7778 166.667 71.3333C166.722 71.2778 166.778 70.2222 166.333 70.6667z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M86 71L87 72L86 71z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M85 72L86 73L85 72z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M84 74L85 75L84 74z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M83 75L84 76L83 75z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M165 75L166 76L165 75z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M165 76L166 77L165 76z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M165 77L166 78L165 77z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M81 78L82 79L81 78z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M80 79L81 80L80 79z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M164 80L165 81L164 80M79 81L80 82L79 81z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M164 81L165 82L164 81M78 82L79 83L78 82z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M77 84L78 85L77 84M163 84L164 85L163 84z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M76 85L77 86L76 85z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M163 85L164 86L163 85z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M76 86L77 87L76 86z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M75 87L76 88L75 87z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M74 88L75 89L74 88z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M162 88L163 89L162 88z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M177 88L178 89L177 88z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M178 88L179 89L178 88z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M179 88L180 89L179 88z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M188 88L189 89L188 88z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M74 89L75 90L74 89z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M162 89L163 90L162 89z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M175 89L176 90L175 89M190 89L191 90L190 89M73 90L74 91L73 90z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M172 90L173 91L172 90z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M173 90L174 91L173 90M161 91L162 92L161 91z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M171 91L172 92L171 91M72 92L73 93L72 92z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M161 92L162 93L161 92M169 92L170 93L169 92z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M167 93L168 94L167 93z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M194 93L195 94L194 93M71 94L72 95L71 94z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M166 94L167 95L166 94M195 94L196 95L195 94z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M70 95L71 96L70 95z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M160 95L161 96L160 95z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M164 95L165 96L164 95M196 95L197 96L196 95M160 96L161 97L160 96z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M163 96L164 97L163 96z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M69 97L70 98L69 97z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M162 97L163 98L162 97M159 98L160 99L159 98z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M197 98L198 99L197 98M68 99L69 100L68 99z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M159 99L160 100L159 99z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M67 101L68 102L67 101z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M198 101L199 102L198 101M66 102L67 103L66 102z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M198 102L199 103L198 102z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M66 103L67 104L66 103z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M198 103L199 104L198 103z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M65 104L66 105L65 104z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M65 105L66 106L65 105z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M64 106L65 107L64 106z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M64 107L65 108L64 107z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M63 108L64 109L63 108z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M63 109L64 110L63 109z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M62 110L63 111L62 110z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M62 111L63 112L62 111z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M61 112L62 113L61 112z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M61 113L62 114L61 113z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M60 115L61 116L60 115M59 117L60 118L59 117z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M58 119L59 120L58 119z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M198 120L199 121L198 120z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M57 121L58 122L57 121z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M56 123L57 124L56 123z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M197 123L198 124L197 123z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M56 124L57 125L56 124z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M55 125L56 126L55 125z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M55 126L56 127L55 126z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M54 128L55 129L54 128z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M196 128L197 129L196 128z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M196 129L197 130L196 129z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M196 130L197 131L196 130z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M53 131L54 132L53 131z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M195 132L196 133L195 132z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M52 133L53 134L52 133z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M195 133L196 134L195 133z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M52 134L53 135L52 134z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M51 136L52 137L51 136z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M194 136L195 137L194 136M51 137L52 138L51 137z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M194 137L195 138L194 137M50 139L51 140L50 139z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M193 139L194 140L193 139M50 140L51 141L50 140z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M193 140L194 141L193 140M49 142L50 143L49 142z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M192 142L193 143L192 142M49 143L50 144L49 143z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M191 144L192 145L191 144z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M48 145L49 146L48 145M191 145L192 146L191 145z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M48 146L49 147L48 146M190 147L191 148L190 147z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M47 149L48 150L47 149z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M189 149L190 150L189 149z"/>
                     <path style="fill:#96cb4c; stroke:none;" d="M218 150.533C202.066 153.988 189.525 175.909 187.301 191C185.952 200.15 187.276 214.309 200 211.609C216.195 208.172 228.16 186.086 230.674 171C232.125 162.298 230.076 147.915 218 150.533z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M61 212C62.769 212.779 64.0359 212.912 66 213C64.231 212.221 62.9641 212.088 61 212z"/>
                   </svg>
                 </span>
 
                 <div class="pmeta">
                   <div class="title">
-                    <a href="https://hosting.com/" target="_blank" rel="nofollow noopener">Hosting.com</a>
+                    <a class="affiliate-link"
+                       data-partner="hostingdotcom"
+                       data-placement="table_title"
+                       data-link-type="outbound"
+                       href="https://hosting.com/"
+                       target="_blank"
+                       rel="nofollow sponsored noopener">Hosting.com</a>
                   </div>
                   <div class="tag"><span class="mini-dot"></span>VPS / performance</div>
                   <div class="tag"><span class="mini-dot"></span>More control</div>
@@ -982,12 +932,41 @@
             </td>
             <td><span class="badge"><span class="dot"></span>$1.00/mo*</span></td>
             <td>
-              <a class="btn muted" href="https://hosting.com/" target="_blank" rel="nofollow noopener">Visit Hosting.com</a>
+              <a class="btn muted affiliate-link"
+                 data-partner="hostingdotcom"
+                 data-placement="table_cta"
+                 data-link-type="outbound"
+                 href="https://hosting.com/"
+                 target="_blank"
+                 rel="nofollow sponsored noopener">Visit Hosting.com</a>
             </td>
           </tr>
 
         </tbody>
       </table>
+    </div>
+
+    <!-- CTA #2 (After pricing/comparison section) -->
+    <div class="section" style="margin-top:16px;">
+      <div class="cta">
+        <div>
+          <h3>Want the quickest “safe upgrade” for WooCommerce?</h3>
+          <p class="subtitle">
+            If you do not want to micromanage servers but still want real scaling, staging, and backups, Cloudways is usually the smoothest move.
+          </p>
+        </div>
+        <div>
+          <a class="affiliate-link"
+             data-partner="cloudways"
+             data-placement="after_table_cta"
+             data-link-type="affiliate"
+             href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=after-table-cta"
+             target="_blank"
+             rel="nofollow sponsored noopener">
+            Get Cloudways
+          </a>
+        </div>
+      </div>
     </div>
 
     <div class="note">
@@ -1018,6 +997,30 @@
     </ul>
   </div>
 
+  <!-- CTA #3 (Conclusion) -->
+  <div class="section">
+    <div class="cta">
+      <div>
+        <h3>Conclusion</h3>
+        <p class="subtitle">
+          If you want flexibility and scaling without getting lost in server complexity, Cloudways is the best overall pick for most WooCommerce stores.
+          If you prefer a premium managed WordPress platform, Kinsta and WP Engine are strong choices.
+        </p>
+      </div>
+      <div>
+        <a class="affiliate-link"
+           data-partner="cloudways"
+           data-placement="conclusion_cta"
+           data-link-type="affiliate"
+           href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=conclusion-cta"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Get Cloudways
+        </a>
+      </div>
+    </div>
+  </div>
+
   <div class="section">
     <div class="cta">
       <div>
@@ -1027,7 +1030,9 @@
         </p>
       </div>
       <div>
-        <a href="mailto:carlleger.dev@gmail.com?subject=Managed%20cloud%20hosting%20help">
+        <a href="mailto:carlleger.dev@gmail.com?subject=Managed%20cloud%20hosting%20help"
+           data-link-type="contact"
+           data-placement="footer_contact">
           Contact by email
         </a>
       </div>
@@ -1035,7 +1040,7 @@
   </div>
 
   <footer>
-    © <span id="y"></span> Carl Leger · <a href="/resources/">Resources</a>
+    © <span id="y"></span> Carl Leger · <a href="/resources/" data-link-type="internal" data-placement="footer_resources">Resources</a>
   </footer>
 
 </div>
@@ -1054,6 +1059,57 @@
       });
     });
   });
+
+  // GA4: Track affiliate / outbound / review clicks (best practice: automatic, no manual onclick)
+  (function(){
+    function sendEvent(name, params){
+      if (typeof gtag === "function") gtag("event", name, params);
+    }
+
+    document.addEventListener("click", function(e){
+      const a = e.target.closest("a");
+      if (!a) return;
+
+      const href = a.getAttribute("href") || "";
+      const isExternal = /^https?:\/\//i.test(href) && !href.includes(location.hostname);
+
+      const partner = a.getAttribute("data-partner") || (isExternal ? "external" : "internal");
+      const placement = a.getAttribute("data-placement") || "unknown";
+      const linkType = a.getAttribute("data-link-type") || (isExternal ? "outbound" : "internal");
+
+      // Track affiliate + outbound clicks (external only)
+      if (isExternal && (linkType === "affiliate" || linkType === "outbound")){
+        sendEvent("affiliate_click", {
+          partner: partner,
+          placement: placement,
+          link_type: linkType,
+          link_url: href,
+          page: location.pathname
+        });
+        return;
+      }
+
+      // Track review clicks (internal)
+      if (linkType === "review"){
+        sendEvent("review_click", {
+          partner: partner,
+          placement: placement,
+          link_url: href,
+          page: location.pathname
+        });
+        return;
+      }
+
+      // Track contact clicks
+      if (linkType === "contact"){
+        sendEvent("contact_click", {
+          placement: placement,
+          link_url: href,
+          page: location.pathname
+        });
+      }
+    });
+  })();
 </script>
 </body>
 </html>
