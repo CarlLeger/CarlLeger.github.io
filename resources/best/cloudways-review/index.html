@@ -17,6 +17,7 @@
   <meta property="og:description" content="Independent Cloudways review: speed, Core Web Vitals, pricing, pros/cons, and WooCommerce notes.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://carlleger.github.io/resources/best/cloudways-review/">
+  <meta property="og:site_name" content="Carl Leger">
 
   <meta property="og:image" content="https://carlleger.github.io/assets/og/cloudways-review-2026.png">
   <meta property="og:image:width" content="1200">
@@ -31,6 +32,8 @@
   <meta name="twitter:image" content="https://carlleger.github.io/assets/og/cloudways-review-2026.png">
   <meta name="twitter:image:alt" content="Cloudways Review 2026 – Managed Cloud Hosting for WordPress">
   <meta name="twitter:url" content="https://carlleger.github.io/resources/best/cloudways-review/">
+  <!-- Optional: add your handle if you have one -->
+  <!-- <meta name="twitter:site" content="@yourhandle"> -->
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
@@ -474,21 +477,21 @@
 
       <ul class="checklist">
         <li>
-          <a href="/resources/best/managed-cloud-hosting/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a>
+          <a href="https://carlleger.github.io/resources/best/managed-cloud-hosting/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a>
           <span class="fineprint">— curated managed WordPress experience vs managed cloud flexibility</span>
         </li>
         <li>
-          <a href="/resources/best/managed-cloud-hosting/cloudways-vs-kinsta/">Cloudways vs Kinsta</a>
+          <a href="https://carlleger.github.io/resources/best/managed-cloud-hosting/cloudways-vs-kinsta/">Cloudways vs Kinsta</a>
           <span class="fineprint">— premium managed WordPress vs scaling control and infrastructure choices</span>
         </li>
         <li>
-          <a href="/resources/best/managed-cloud-hosting/cloudways-vs-siteground/">Cloudways vs SiteGround</a>
+          <a href="https://carlleger.github.io/resources/best/managed-cloud-hosting/cloudways-vs-siteground/">Cloudways vs SiteGround</a>
           <span class="fineprint">— simpler hosting approach vs growth-ready cloud scaling</span>
         </li>
       </ul>
 
       <div class="ctaRow" style="margin-top:14px">
-        <a class="ghost" href="/resources/best/managed-cloud-hosting/">
+        <a class="ghost" href="https://carlleger.github.io/resources/best/managed-cloud-hosting/">
           See the full managed hosting shortlist
         </a>
       </div>
@@ -529,7 +532,7 @@
          data-asset="cta">
         Start with Cloudways (Affiliate)
       </a>
-      <a class="ghost" href="/resources/best/managed-cloud-hosting/">Compare top hosting options</a>
+      <a class="ghost" href="https://carlleger.github.io/resources/best/managed-cloud-hosting/">Compare top hosting options</a>
     </div>
 
     <p class="fineprint">
@@ -538,7 +541,7 @@
   </div>
 
   <footer>
-    © <span id="y"></span> Carl Leger · <a href="/resources/">Resources</a>
+    © <span id="y"></span> Carl Leger · <a href="https://carlleger.github.io/resources/">Resources</a>
   </footer>
 
 </main>
@@ -548,17 +551,24 @@
   document.getElementById("y").textContent = new Date().getFullYear();
 
   function trackAffiliateClick(el, evt) {
+    const url = el.href || "";
+    const targetBlank = (el.getAttribute("target") === "_blank");
+
+    // If opening same tab, briefly delay navigation to ensure event sends
+    if (!targetBlank && evt) evt.preventDefault();
+
+    // If gtag is unavailable (adblock), just navigate
+    if (typeof window.gtag !== "function") {
+      if (!targetBlank) window.location.href = url;
+      return;
+    }
+
     try {
       const affiliate = el.getAttribute("data-affiliate") || "unknown";
       const placement = el.getAttribute("data-placement") || "unknown";
       const asset = el.getAttribute("data-asset") || "link";
-      const url = el.href || "";
-      const targetBlank = (el.getAttribute("target") === "_blank");
 
-      // If opening same tab, briefly delay navigation to ensure event sends
-      if (!targetBlank && evt) evt.preventDefault();
-
-      gtag('event', 'affiliate_click', {
+      window.gtag('event', 'affiliate_click', {
         affiliate: affiliate,
         placement: placement,
         asset: asset,
@@ -572,7 +582,9 @@
       // Fallback in case callback doesn't fire
       if (!targetBlank) setTimeout(() => { window.location.href = url; }, 350);
 
-    } catch (e) {}
+    } catch (e) {
+      if (!targetBlank) window.location.href = url;
+    }
   }
 
   document.querySelectorAll(".js-aff").forEach((a) => {
