@@ -17,16 +17,20 @@
   <meta property="og:description" content="Independent Cloudways review: speed, Core Web Vitals, pricing, pros/cons, and WooCommerce notes.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://carlleger.github.io/resources/best/cloudways-review/">
-  <!-- ✅ IMPORTANT: add a real OG image path you host -->
+
   <meta property="og:image" content="https://carlleger.github.io/assets/og/cloudways-review-2026.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Cloudways Review 2026 – Managed Cloud Hosting for WordPress">
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cloudways Review 2026 – Managed Cloud Hosting for WordPress">
   <meta name="twitter:description" content="Speed, Core Web Vitals, pricing, pros/cons, and WooCommerce notes.">
   <meta name="twitter:image" content="https://carlleger.github.io/assets/og/cloudways-review-2026.png">
+  <meta name="twitter:image:alt" content="Cloudways Review 2026 – Managed Cloud Hosting for WordPress">
+  <meta name="twitter:url" content="https://carlleger.github.io/resources/best/cloudways-review/">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
@@ -34,9 +38,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-3KXQFTWTBD', {
-      anonymize_ip: true
-    });
+    gtag('config', 'G-3KXQFTWTBD', { anonymize_ip: true });
   </script>
 
   <style>
@@ -57,6 +59,7 @@
       --radius: 18px;
       --max: 980px;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
@@ -68,16 +71,39 @@
         linear-gradient(180deg,var(--bg2),var(--bg));
       color:var(--text);
       line-height:1.65;
+      text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
+
     main{max-width:var(--max);margin:auto;padding:44px 18px 70px}
+
+    /* Links */
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
+
+    /* Keyboard accessibility */
+    a:focus{outline:none}
+    a:focus-visible{
+      outline:3px solid rgba(159,208,255,.85);
+      outline-offset:3px;
+      border-radius:14px;
+    }
+
+    /* Typography */
     h1{font-size:clamp(30px,3.2vw,40px);line-height:1.12;margin:10px 0 12px}
     h2{margin-top:44px;font-size:clamp(20px,2.6vw,28px)}
     h3{margin:0 0 8px}
     p,li{color:var(--muted)}
+    strong{color:rgba(255,255,255,.95)}
+
+    /* Small helper text */
     .kicker{color:var(--accent2);font-weight:800;font-size:13px;letter-spacing:.4px;text-transform:uppercase}
     .sub{margin:0 0 18px;color:var(--muted);max-width:74ch}
+    .note{font-size:14px;color:rgba(231,236,255,.72)}
+    .fineprint{font-size:13px;color:rgba(231,236,255,.65);margin:10px 0 0}
+
+    /* Layout blocks */
     .box{
       background:linear-gradient(180deg,var(--panel),rgba(255,255,255,.03));
       border:1px solid var(--stroke);
@@ -86,6 +112,7 @@
       margin:22px 0;
       box-shadow:var(--shadow);
     }
+
     .grid{
       display:grid;
       grid-template-columns:1.25fr .75fr;
@@ -94,7 +121,9 @@
     }
     @media (max-width:860px){
       .grid{grid-template-columns:1fr}
+      main{padding:36px 16px 64px}
     }
+
     .badgeRow{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 6px}
     .badge{
       border:1px solid var(--stroke2);
@@ -104,8 +133,10 @@
       font-size:13px;
       color:rgba(231,236,255,.78);
     }
+
     .checklist{margin:10px 0 0;padding-left:18px}
     .checklist li{margin:7px 0}
+
     .callout{
       border-left:4px solid var(--accent);
       padding:12px 14px;
@@ -115,7 +146,10 @@
       margin-top:12px;
       color:var(--muted);
     }
+
+    /* CTA buttons */
     .ctaRow{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:12px}
+
     .cta{
       display:inline-flex;
       align-items:center;
@@ -127,8 +161,12 @@
       text-decoration:none;
       font-weight:900;
       border:1px solid rgba(255,255,255,.18);
+      transition:filter .15s ease, transform .15s ease;
+      will-change:transform;
     }
     .cta:hover{filter:brightness(1.06);text-decoration:none}
+    .cta:active{transform:translateY(1px)}
+
     .ghost{
       display:inline-flex;
       align-items:center;
@@ -140,23 +178,31 @@
       background:rgba(255,255,255,.03);
       text-decoration:none;
       font-weight:800;
+      transition:filter .15s ease, transform .15s ease;
+      will-change:transform;
     }
     .ghost:hover{text-decoration:none;filter:brightness(1.06)}
-    .fineprint{font-size:13px;color:rgba(231,236,255,.65);margin:10px 0 0}
+    .ghost:active{transform:translateY(1px)}
+
+    /* TOC */
     .toc a{display:block;padding:6px 0;color:rgba(231,236,255,.82)}
     .toc a:hover{color:#fff;text-decoration:none}
+
     .hr{height:1px;background:var(--stroke);margin:24px 0}
+
     .proscons{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:14px;
     }
     @media (max-width:860px){.proscons{grid-template-columns:1fr}}
+
     .pros h3{color:var(--ok)}
     .cons h3{color:var(--warn)}
-    .note{font-size:14px;color:rgba(231,236,255,.72)}
     .faq li{margin:10px 0}
+
     .footerBox{margin-top:26px}
+
     .metaRow{
       display:flex;
       flex-wrap:wrap;
@@ -172,7 +218,7 @@
       background:rgba(255,255,255,.03);
     }
 
-    /* Anchor offset for sticky-ish headers */
+    /* Anchor offset */
     section{scroll-margin-top:18px}
 
     footer{
@@ -182,6 +228,12 @@
       font-size:13px;
     }
     footer a{color:rgba(231,236,255,.78)}
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .cta,.ghost{transition:none}
+    }
   </style>
 
   <!-- ✅ Schema (Article) -->
@@ -192,8 +244,9 @@
     "headline":"Cloudways Review 2026 – Managed Cloud Hosting for WordPress (Speed & CWV)",
     "description":"Cloudways review 2026 for WordPress & WooCommerce: performance, Core Web Vitals, pricing explained, pros & cons, and who should use Cloudways in 2026.",
     "author":{"@type":"Person","name":"Carl Leger"},
-    "publisher":{"@type":"Person","name":"Carl Leger"},
+    "publisher":{"@type":"Organization","name":"Carl Leger"},
     "mainEntityOfPage":"https://carlleger.github.io/resources/best/cloudways-review/",
+    "url":"https://carlleger.github.io/resources/best/cloudways-review/",
     "image":"https://carlleger.github.io/assets/og/cloudways-review-2026.png",
     "datePublished":"2026-01-10",
     "dateModified":"2026-01-11"
@@ -271,7 +324,7 @@
       <div class="ctaRow">
         <a class="cta js-aff"
            href="https://www.cloudways.com/en/?id=2063019&data1=cloudways-review-2026&data2=cta-top"
-           rel="nofollow sponsored noopener"
+           rel="nofollow sponsored noopener noreferrer"
            target="_blank"
            data-affiliate="cloudways"
            data-placement="top"
@@ -359,7 +412,7 @@
       <div class="ctaRow" style="margin-top:14px">
         <a class="cta js-aff"
            href="https://www.cloudways.com/en/?id=2063019&data1=cloudways-review-2026&data2=cta-after-pricing"
-           rel="nofollow sponsored noopener"
+           rel="nofollow sponsored noopener noreferrer"
            target="_blank"
            data-affiliate="cloudways"
            data-placement="after_pricing"
@@ -469,7 +522,7 @@
     <div class="ctaRow">
       <a class="cta js-aff"
          href="https://www.cloudways.com/en/?id=2063019&data1=cloudways-review-2026&data2=cta-conclusion"
-         rel="nofollow sponsored noopener"
+         rel="nofollow sponsored noopener noreferrer"
          target="_blank"
          data-affiliate="cloudways"
          data-placement="conclusion"
@@ -494,27 +547,37 @@
   // Footer year
   document.getElementById("y").textContent = new Date().getFullYear();
 
-  // ✅ GA4 affiliate click tracking (Cloudways)
-  // Fires an event with placement + asset so you can see what CTA converts
-  function trackAffiliateClick(el) {
+  function trackAffiliateClick(el, evt) {
     try {
       const affiliate = el.getAttribute("data-affiliate") || "unknown";
       const placement = el.getAttribute("data-placement") || "unknown";
       const asset = el.getAttribute("data-asset") || "link";
       const url = el.href || "";
+      const targetBlank = (el.getAttribute("target") === "_blank");
+
+      // If opening same tab, briefly delay navigation to ensure event sends
+      if (!targetBlank && evt) evt.preventDefault();
 
       gtag('event', 'affiliate_click', {
-        affiliate,
-        placement,
-        asset,
-        link_url: url
+        affiliate: affiliate,
+        placement: placement,
+        asset: asset,
+        link_url: url,
+        transport_type: 'beacon',
+        event_callback: function () {
+          if (!targetBlank) window.location.href = url;
+        }
       });
+
+      // Fallback in case callback doesn't fire
+      if (!targetBlank) setTimeout(() => { window.location.href = url; }, 350);
+
     } catch (e) {}
   }
 
   document.querySelectorAll(".js-aff").forEach((a) => {
-    a.addEventListener("click", () => trackAffiliateClick(a));
-    a.addEventListener("auxclick", () => trackAffiliateClick(a)); // middle click
+    a.addEventListener("click", (e) => trackAffiliateClick(a, e));
+    a.addEventListener("auxclick", (e) => trackAffiliateClick(a, e)); // middle click
   });
 </script>
 </body>
