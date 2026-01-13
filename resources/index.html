@@ -144,6 +144,18 @@
       text-decoration:none;
     }
 
+    /* ✅ Featured thumbnails (no CLS) */
+    .thumb{
+      width:100%;
+      aspect-ratio:16/9;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      display:block;
+      object-fit:cover;
+      margin:0 0 12px;
+    }
+
     .card h3{margin:0 0 6px;font-size:18px}
     .card p{margin:0;color:var(--muted);font-size:14px}
 
@@ -247,7 +259,7 @@
         <p class="seo-intro">
           You’ll find practical checklists, real-world recommendations, and platform comparisons
           based on hands-on experience with high-traffic WordPress and WooCommerce sites.
-          No fluff, no generic advice – only strategies and tools I genuinely use and trust.
+          No fluff, no generic advice - only strategies and tools I genuinely use and trust.
         </p>
       </div>
 
@@ -264,6 +276,13 @@
 
       <div class="grid">
         <a class="card featured" href="/resources/woocommerce-cache-mistakes/">
+          <img
+            class="thumb"
+            src="/resources/images/woocommerce-cache-mistakes.webp"
+            alt="WooCommerce cache mistakes and performance issues"
+            loading="lazy"
+            decoding="async"
+          />
           <h3>WooCommerce Cache Mistakes (and how to fix them)</h3>
           <p>What NOT to cache, the exclusions you must set, and a Woo-safe checklist to keep cart/checkout stable.</p>
           <div class="tags">
@@ -287,6 +306,13 @@
         </a>
 
         <a class="card featured" href="/resources/best-online-learning/">
+          <img
+            class="thumb"
+            src="/resources/images/best-online-learning-platforms.webp"
+            alt="Best online learning platforms comparison"
+            loading="lazy"
+            decoding="async"
+          />
           <h3>Best Online Learning Platforms (2026)</h3>
           <p>A curated comparison of the best online learning platforms for tech, business, and professional skills.</p>
           <div class="tags">
