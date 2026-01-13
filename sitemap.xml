@@ -28,6 +28,12 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Learning -->
+  <url>
+    <loc>https://carlleger.github.io/resources/best-online-learning/</loc>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Tools -->
   <url>
     <loc>https://carlleger.github.io/resources/tools/performance-cwv/</loc>
