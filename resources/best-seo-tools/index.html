@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Best SEO Tools (2026) for WordPress & WooCommerce | Carl Leger</title>
+  <meta name="description" content="Best SEO tools for WordPress & WooCommerce in 2026: audits, keyword research, rank tracking, content optimization, GA4, and behavior analytics. Practical picks and who each tool is for." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://carlleger.github.io/best-seo-tools/" />
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3KXQFTWTBD');
+  </script>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Best SEO Tools (2026) for WordPress & WooCommerce" />
+  <meta property="og:description" content="Audits, keywords, rank tracking, content optimization, GA4, and behavior analytics. Practical picks for WordPress & WooCommerce." />
+  <meta property="og:url" content="https://carlleger.github.io/best-seo-tools/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Structured data: CollectionPage + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Best SEO Tools (2026) for WordPress & WooCommerce",
+    "description":"Best SEO tools for WordPress & WooCommerce: audits, keyword research, rank tracking, content optimization, GA4, and behavior analytics.",
+    "url":"https://carlleger.github.io/best-seo-tools/",
+    "publisher":{"@type":"Person","name":"Carl Leger"}
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"What are the best SEO tools for WordPress?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"For WordPress, prioritize a reliable SEO suite for keyword research and audits, a crawler for technical issues, and a rank tracker for reporting. Combine that with GA4 + Search Console for measurement."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Do SEO tools help WooCommerce stores?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. For WooCommerce, SEO tools help identify crawl/indexing issues, duplicate content, internal linking gaps, and category/product keyword opportunities. Pair SEO insights with analytics + behavior tools to improve conversion."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Should affiliate links be nofollow?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"In general, affiliate links should use rel=\"nofollow\" or rel=\"sponsored\" (or both) to follow Google guidance. You can also route them through /go/ redirects for cleaner tracking."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg1:#0b1220;
+      --bg2:#070d17;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.04);
+      --stroke:rgba(255,255,255,.12);
+      --text:#e7ecff;
+      --muted:#a8b0d6;
+      --accent:#6ea8ff;
+      --good:#2ee59d;
+      --warn:#ffd36e;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 18% 18%, rgba(110,168,255,.16), transparent 60%),
+        radial-gradient(900px 600px at 82% 22%, rgba(46,229,157,.10), transparent 55%),
+        linear-gradient(180deg,var(--bg2),var(--bg1));
+    }
+
+    .wrap{max-width:1080px;margin:0 auto;padding:40px 18px 70px}
+    h1{font-size:clamp(28px,3vw,40px);margin:0 0 10px;letter-spacing:.2px}
+    h2{margin:0 0 10px;font-size:16px;letter-spacing:.2px}
+    h3{margin:0 0 6px;font-size:18px}
+    p{color:var(--muted);line-height:1.65;margin:0}
+
+    .topbar{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+      color:rgba(231,236,255,.92);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .pill .dot{width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.25)}
+    .pill.good{border-color:rgba(46,229,157,.35);background:rgba(46,229,157,.10)}
+    .pill.good .dot{background:var(--good)}
+    .pill.warn{border-color:rgba(255,211,110,.35);background:rgba(255,211,110,.10)}
+    .pill.warn .dot{background:var(--warn)}
+
+    .section{
+      margin-top:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg,var(--panel),rgba(255,255,255,.03));
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .hint{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:14px;
+    }
+
+    .card{
+      display:block;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.05);
+      border-radius:16px;
+      padding:16px;
+      text-decoration:none;
+      color:var(--text);
+      transition:transform .12s ease, border-color .12s ease, background .12s ease;
+      min-height:160px;
+      position:relative;
+      overflow:hidden;
+    }
+    .card:hover{
+      transform:translateY(-1px);
+      border-color:rgba(110,168,255,.35);
+      background:rgba(110,168,255,.07);
+      text-decoration:none;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.03);
+      padding:6px 10px;
+      border-radius:999px;
+      color:rgba(231,236,255,.88);
+      margin-bottom:10px;
+    }
+    .badge .mini-dot{width:7px;height:7px;border-radius:999px;background:rgba(255,255,255,.25)}
+    .badge.good{border-color:rgba(46,229,157,.35);background:rgba(46,229,157,.10)}
+    .badge.good .mini-dot{background:var(--good)}
+
+    .tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;
+      padding:5px 10px;
+      color:rgba(231,236,255,.82);
+      font-size:12px;
+      background:rgba(255,255,255,.03);
+    }
+    .tag .mini-dot{width:7px;height:7px;border-radius:999px;background:rgba(255,255,255,.25)}
+
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(110,168,255,.35);
+      background:rgba(110,168,255,.16);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .btn:hover{background:rgba(110,168,255,.22);text-decoration:none}
+    .btn.secondary{
+      border-color:rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:rgba(231,236,255,.92);
+    }
+    .btn.secondary:hover{background:rgba(255,255,255,.09)}
+
+    .mini{
+      font-size:12px;
+      color:rgba(168,176,214,.95);
+      line-height:1.6;
+    }
+
+    .toc{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .toc a{
+      text-decoration:none;
+      color:rgba(231,236,255,.90);
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.03);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+    }
+    .toc a:hover{background:rgba(110,168,255,.10);border-color:rgba(110,168,255,.25)}
+
+    .anchor{scroll-margin-top:22px}
+
+    .faq{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+    }
+    details{
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      border-radius:14px;
+      padding:12px 12px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:800;
+      color:rgba(231,236,255,.95);
+      outline:none;
+    }
+    details p{margin-top:8px}
+
+    footer{
+      margin-top:22px;
+      border-top:1px solid rgba(255,255,255,.10);
+      padding-top:14px;
+      font-size:13px;
+      color:var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div>
+        <h1>Best SEO Tools (2026) for WordPress & WooCommerce</h1>
+        <p>Audits, keywords, rank tracking, content optimization, GA4, and behavior analytics. Practical picks and who each tool is for.</p>
+
+        <p class="mini" style="margin-top:10px;max-width:860px;">
+          This page is a curated hub. I focus on tools that help site owners and WooCommerce stores improve
+          rankings, Core Web Vitals, and conversions. Some links may be affiliate links (no extra cost to you).
+        </p>
+
+        <div class="toc" aria-label="On-page navigation">
+          <a href="#suites">SEO Suites</a>
+          <a href="#technical">Technical SEO</a>
+          <a href="#content">Content Optimization</a>
+          <a href="#rank">Rank Tracking</a>
+          <a href="#analytics">Analytics & Behavior</a>
+          <a href="#wp">WordPress SEO</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <div class="pill good" title="Best for ROI">
+          <span class="dot"></span>
+          Best for client ROI
+        </div>
+        <div class="pill warn" title="Affiliate links">
+          <span class="dot"></span>
+          Affiliate links used
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick stack -->
+    <div class="section">
+      <h2>Recommended stack (simple)</h2>
+      <p class="hint">If you want one clean setup that covers 80% of SEO work.</p>
+
+      <div class="grid">
+        <div class="card" style="cursor:default">
+          <span class="badge good"><span class="mini-dot"></span>1) SEO Suite</span>
+          <h3>All-in-one SEO suite</h3>
+          <p>Keyword research + competitor analysis + site audits. Best when you want one tool to run the show.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Keywords</span>
+            <span class="tag"><span class="mini-dot"></span>Audits</span>
+            <span class="tag"><span class="mini-dot"></span>Backlinks</span>
+          </div>
+        </div>
+
+        <div class="card" style="cursor:default">
+          <span class="badge good"><span class="mini-dot"></span>2) Technical Crawler</span>
+          <h3>Technical SEO crawler</h3>
+          <p>Find indexation issues, broken links, duplicates, thin pages, and internal linking gaps fast.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Crawl</span>
+            <span class="tag"><span class="mini-dot"></span>Index</span>
+            <span class="tag"><span class="mini-dot"></span>Internal links</span>
+          </div>
+        </div>
+
+        <div class="card" style="cursor:default">
+          <span class="badge good"><span class="mini-dot"></span>3) Analytics</span>
+          <h3>GA4 + Search Console</h3>
+          <p>Measure SEO impact with conversions, landing pages, and query data. Add heatmaps for CRO.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>GA4</span>
+            <span class="tag"><span class="mini-dot"></span>GSC</span>
+            <span class="tag"><span class="mini-dot"></span>CRO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <a class="btn secondary" href="/resources/">Back to resources</a>
+        <a class="btn" href="/" aria-label="Back to main site">Main site</a>
+      </div>
+    </div>
+
+    <!-- SEO suites -->
+    <div class="section anchor" id="suites">
+      <h2>SEO Suites</h2>
+      <p class="hint">Often the best earners: high intent buyers + recurring plans + “sticky” tools.</p>
+
+      <div class="grid">
+        <a class="card" href="/go/semrush/" rel="nofollow sponsored">
+          <span class="badge good"><span class="mini-dot"></span>High intent</span>
+          <h3>SEMrush</h3>
+          <p>Keywords, audits, competitor research, backlinks, and content tools. Strong choice for agencies and serious sites.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Suite</span>
+            <span class="tag"><span class="mini-dot"></span>Audits</span>
+            <span class="tag"><span class="mini-dot"></span>Keywords</span>
+          </div>
+        </a>
+
+        <a class="card" href="/go/ahrefs/" rel="nofollow sponsored">
+          <span class="badge good"><span class="mini-dot"></span>Link data</span>
+          <h3>Ahrefs</h3>
+          <p>Excellent backlink + competitor analysis. Great when SERP research and link building matter.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Backlinks</span>
+            <span class="tag"><span class="mini-dot"></span>SERP</span>
+            <span class="tag"><span class="mini-dot"></span>Research</span>
+          </div>
+        </a>
+
+        <a class="card" href="/go/se-ranking/" rel="nofollow sponsored">
+          <span class="badge"><span class="mini-dot"></span>Value pick</span>
+          <h3>SE Ranking</h3>
+          <p>Balanced suite with strong tracking + audits + reporting at a friendlier price. Great for SMBs.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Tracking</span>
+            <span class="tag"><span class="mini-dot"></span>Reports</span>
+            <span class="tag"><span class="mini-dot"></span>SMB</span>
+          </div>
+        </a>
+      </div>
+
+      <p class="mini" style="margin-top:12px;">
+        Pro tip: send traffic first to a short “review” page (pros/cons + who it’s for + screenshots),
+        then link to the affiliate CTA. This usually improves conversion rate.
+      </p>
+    </div>
+
+    <!-- Technical SEO -->
+    <div class="section anchor" id="technical">
+      <h2>Technical SEO</h2>
+      <p class="hint">Crawl, indexation, redirects, duplicates, schema, internal linking, and “why Google ignores this URL”.</p>
+
+      <div class="grid">
+        <a class="card" href="/go/screaming-frog/" rel="nofollow sponsored">
+          <span class="badge good"><span class="mini-dot"></span>Must-have</span>
+          <h3>Screaming Frog</h3>
+          <p>The classic crawler for technical audits. Find indexation issues, broken links, canonicals, and duplicates.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Crawler</span>
+            <span class="tag"><span class="mini-dot"></span>Audits</span>
+            <span class="tag"><span class="mini-dot"></span>Tech SEO</span>
+          </div>
+        </a>
+
+        <a class="card" href="/go/sitebulb/" rel="nofollow sponsored">
+          <span class="badge"><span class="mini-dot"></span>Visual audits</span>
+          <h3>Sitebulb</h3>
+          <p>Audit tool with clear prioritization and visual reports. Helpful when presenting findings to clients.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Audits</span>
+            <span class="tag"><span class="mini-dot"></span>Reports</span>
+            <span class="tag"><span class="mini-dot"></span>Priority</span>
+          </div>
+        </a>
+
+        <a class="card" href="/go/cwv-tools/" rel="nofollow sponsored">
+          <span class="badge"><span class="mini-dot"></span>Performance</span>
+          <h3>Core Web Vitals toolkit</h3>
+          <p>Measure LCP/INP/CLS, detect regressions, and prioritize fixes using field data and lab testing.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>CWV</span>
+            <span class="tag"><span class="mini-dot"></span>INP</span>
+            <span class="tag"><span class="mini-dot"></span>LCP</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Content optimization -->
+    <div class="section anchor" id="content">
+      <h2>Content Optimization</h2>
+      <p class="hint">Build pages that match search intent and cover topics completely (without fluff).</p>
+
+      <div class="grid">
+        <a class="card" href="/go/surfer/" rel="nofollow sponsored">
+          <span class="badge good"><span class="mini-dot"></span>Content</span>
+          <h3>Surfer</h3>
+          <p>Content briefs + on-page suggestions based on SERP analysis. Useful for scaling content production.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Briefs</span>
+            <span class="tag"><span class="mini-dot"></span>On-page</span>
+            <span class="tag"><span class="mini-dot"></span>SERP</span>
+          </div>
+        </a>
+
+        <a class="card" href="/go/frase/" rel="nofollow sponsored">
+          <span class="badge"><span class="mini-dot"></span>Research</span>
+          <h3>Frase</h3>
+          <p>Research and outline faster. Great for answering People Also Ask and building helpful sections.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Outlines</span>
+            <span class="tag"><span class="mini-dot"></span>PAA</span>
+            <span class="tag"><span class="mini-dot"></span>FAQ</span>
+          </div>
+        </a>
+
+        <a class="card" href="/go/writerzen/" rel="nofollow sponsored">
+          <span class="badge"><span class="mini-dot"></span>Keywords</span>
+          <h3>Topic clustering tool</h3>
+          <p>Cluster keywords into topical groups and plan internal linking. Useful for building topical authority.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Clusters</span>
+            <span class="tag"><span class="mini-dot"></span>Topology</span>
+            <span class="tag"><span class="mini-dot"></span>Planning</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Rank tracking -->
+    <div class="section anchor" id="rank">
+      <h2>Rank Tracking</h2>
+      <p class="hint">Clean reporting = clients stay longer. Better retention = better recurring revenue.</p>
+
+      <div class="grid">
+        <a class="card" href="/go/accuranker/" rel="nofollow sponsored">
+          <span class="badge good"><span class="mini-dot"></span>Accurate</span>
+          <h3>AccuRanker</h3>
+          <p>Fast, accurate daily tracking with strong reporting. Great when tracking is your primary need.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Rank</span>
+            <span class="tag"><span class="mini-dot"></span>Reports</span>
+            <span class="tag"><span class="mini-dot"></span>Agency</span>
+          </div>
+        </a>
+
+        <a class="card" href="/go/serpwatch/" rel="nofollow sponsored">
+          <span class="badge"><span class="mini-dot"></span>Budget</span>
+          <h3>Budget rank tracker</h3>
+          <p>Good tracking without enterprise pricing. Perfect for solo site owners and small teams.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Tracking</span>
+            <span class="tag"><span class="mini-dot"></span>SMB</span>
+            <span class="tag"><span class="mini-dot"></span>Budget</span>
+          </div>
+        </a>
+
+        <a class="card" href="/go/local-rank-tracker/" rel="nofollow sponsored">
+          <span class="badge"><span class="mini-dot"></span>Local</span>
+          <h3>Local SEO tracker</h3>
+          <p>Track rankings by location/device and monitor map-pack visibility. Great for service businesses.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Local</span>
+            <span class="tag"><span class="mini-dot"></span>Maps</span>
+            <span class="tag"><span class="mini-dot"></span>Visibility</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Analytics -->
+    <div class="section anchor" id="analytics">
+      <h2>Analytics & Behavior</h2>
+      <p class="hint">Connect SEO → leads → revenue with tracking, dashboards, and behavior insights.</p>
+
+      <div class="grid">
+        <a class="card" href="/go/hotjar/" rel="nofollow sponsored">
+          <span class="badge good"><span class="mini-dot"></span>CRO</span>
+          <h3>Heatmaps + session recordings</h3>
+          <p>See where users click, scroll, and get stuck. Perfect for fixing “traffic but no sales”.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Heatmaps</span>
+            <span class="tag"><span class="mini-dot"></span>Sessions</span>
+            <span class="tag"><span class="mini-dot"></span>Funnels</span>
+          </div>
+        </a>
+
+        <a class="card" href="https://support.google.com/analytics/answer/10089681" target="_blank" rel="nofollow">
+          <span class="badge"><span class="mini-dot"></span>Free</span>
+          <h3>Google Analytics 4 (GA4)</h3>
+          <p>Measure conversions, landing page performance, and events. Combine with Search Console for SEO.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>GA4</span>
+            <span class="tag"><span class="mini-dot"></span>Events</span>
+            <span class="tag"><span class="mini-dot"></span>Conversions</span>
+          </div>
+        </a>
+
+        <a class="card" href="https://search.google.com/search-console/about" target="_blank" rel="nofollow">
+          <span class="badge"><span class="mini-dot"></span>Free</span>
+          <h3>Google Search Console</h3>
+          <p>Queries, indexing, sitemaps, coverage, and URL inspection. Essential for every SEO workflow.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Queries</span>
+            <span class="tag"><span class="mini-dot"></span>Indexing</span>
+            <span class="tag"><span class="mini-dot"></span>Sitemaps</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- WordPress SEO -->
+    <div class="section anchor" id="wp">
+      <h2>WordPress SEO (plugins)</h2>
+      <p class="hint">Pick one solid plugin, configure it correctly, and keep things simple.</p>
+
+      <div class="grid">
+        <a class="card" href="/go/rank-math/" rel="nofollow sponsored">
+          <span class="badge good"><span class="mini-dot"></span>Popular</span>
+          <h3>Rank Math</h3>
+          <p>Schema, sitemaps, on-page controls, breadcrumbs, redirections. Great feature set for WordPress sites.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Schema</span>
+            <span class="tag"><span class="mini-dot"></span>Sitemaps</span>
+            <span class="tag"><span class="mini-dot"></span>WP</span>
+          </div>
+        </a>
+
+        <a class="card" href="/go/yoast/" rel="nofollow sponsored">
+          <span class="badge"><span class="mini-dot"></span>Classic</span>
+          <h3>Yoast SEO</h3>
+          <p>The classic option. Strong basics for meta, sitemaps, and structured data.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Meta</span>
+            <span class="tag"><span class="mini-dot"></span>Basics</span>
+            <span class="tag"><span class="mini-dot"></span>WP</span>
+          </div>
+        </a>
+
+        <a class="card" href="/go/aioseo/" rel="nofollow sponsored">
+          <span class="badge"><span class="mini-dot"></span>Simple</span>
+          <h3>AIOSEO</h3>
+          <p>Easy setup and good features for SMB WordPress sites, including schema and local SEO options.</p>
+          <div class="tags">
+            <span class="tag"><span class="mini-dot"></span>Local SEO</span>
+            <span class="tag"><span class="mini-dot"></span>Schema</span>
+            <span class="tag"><span class="mini-dot"></span>SMB</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="row">
+        <a class="btn secondary" href="/resources/">Back to resources</a>
+        <a class="btn" href="/" aria-label="Back to main site">Main site</a>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section anchor" id="faq">
+      <h2>FAQ</h2>
+      <p class="hint">Quick answers people search for (good for SEO + featured snippets).</p>
+
+      <div class="faq">
+        <details>
+          <summary>What are the best SEO tools for WordPress?</summary>
+          <p>Start with one SEO suite for keywords and audits, add a technical crawler for deep issues, and use GA4 + Search Console for measurement. If you run WooCommerce, pair SEO with behavior tools (heatmaps) to improve conversion.</p>
+        </details>
+
+        <details>
+          <summary>Which SEO tools are best for WooCommerce stores?</summary>
+          <p>WooCommerce sites benefit most from tools that help with technical audits (crawl/indexing), category/product keyword research, internal linking analysis, and conversion measurement. Speed and CWV tools also matter a lot for store performance.</p>
+        </details>
+
+        <details>
+          <summary>Should affiliate links be nofollow or sponsored?</summary>
+          <p>Yes. For affiliate links, use <code>rel="nofollow sponsored"</code>. A clean approach is to route affiliate clicks through internal <code>/go/</code> links for tracking and consistent link management.</p>
+        </details>
+      </div>
+    </div>
+
+    <footer>
+      <strong>Affiliate disclosure:</strong> Some links on this page may be affiliate links. I may earn a commission at no extra cost to you. I only recommend tools I genuinely trust.
+    </footer>
+
+  </div>
+</body>
+</html>
