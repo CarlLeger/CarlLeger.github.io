@@ -10,12 +10,12 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="author" content="Carl Leger">
 
-  <!-- ✅ Canonical (FR) -->
-  <link rel="canonical" href="https://carlleger.github.io/fr/resources/best/cloudways-review/">
+  <!-- ✅ Canonical (FR) — IMPORTANT: doit matcher l'URL réelle -->
+  <link rel="canonical" href="https://carlleger.github.io/fr/ressources/meilleurs/avis-cloudways/">
 
   <!-- ✅ Hreflang (EN/FR) -->
   <link rel="alternate" hreflang="en-CA" href="https://carlleger.github.io/resources/best/cloudways-review/" />
-  <link rel="alternate" hreflang="fr-CA" href="https://carlleger.github.io/fr/resources/best/cloudways-review/" />
+  <link rel="alternate" hreflang="fr-CA" href="https://carlleger.github.io/fr/ressources/meilleurs/avis-cloudways/" />
   <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/resources/best/cloudways-review/" />
 
   <!-- Performance hints -->
@@ -24,16 +24,13 @@
 
   <!-- Favicons (optionnels) -->
   <!-- <link rel="icon" href="/favicon.ico"> -->
-  <!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"> -->
-  <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
-  <!-- <link rel="manifest" href="/site.webmanifest"> -->
   <meta name="theme-color" content="#0b1220">
 
   <!-- Open Graph (FR) -->
   <meta property="og:title" content="Avis Cloudways 2026 – Hébergement cloud géré pour WordPress">
   <meta property="og:description" content="Avis indépendant : vitesse, Core Web Vitals, prix, avantages/inconvénients et notes WooCommerce.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://carlleger.github.io/fr/resources/best/cloudways-review/">
+  <meta property="og:url" content="https://carlleger.github.io/fr/ressources/meilleurs/avis-cloudways/">
   <meta property="og:site_name" content="Carl Leger">
   <meta property="og:locale" content="fr_CA">
 
@@ -53,7 +50,7 @@
   <meta name="twitter:description" content="Vitesse, Core Web Vitals, prix, avantages/inconvénients et notes WooCommerce.">
   <meta name="twitter:image" content="https://carlleger.github.io/assets/og/cloudways-review-2026.png">
   <meta name="twitter:image:alt" content="Avis Cloudways 2026 – Hébergement cloud géré pour WordPress">
-  <meta name="twitter:url" content="https://carlleger.github.io/fr/resources/best/cloudways-review/">
+  <meta name="twitter:url" content="https://carlleger.github.io/fr/ressources/meilleurs/avis-cloudways/">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
@@ -214,6 +211,36 @@
     .ghost:hover{text-decoration:none;filter:brightness(1.06)}
     .ghost:active{transform:translateY(1px)}
 
+    /* ✅ Bouton langue */
+    .langbar{
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      margin: 6px 0 18px;
+    }
+    .langbtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+      color:rgba(231,236,255,.9);
+      font-weight:900;
+      font-size:13px;
+      text-decoration:none;
+      transition:filter .15s ease, transform .15s ease;
+      will-change:transform;
+    }
+    .langbtn:hover{filter:brightness(1.06); text-decoration:none}
+    .langbtn:active{transform:translateY(1px)}
+    .langbtn.is-active{
+      background:rgba(110,168,255,.16);
+      border-color:rgba(110,168,255,.35);
+      color:#fff;
+    }
+
     .toc a{display:block;padding:6px 0;color:rgba(231,236,255,.82)}
     .toc a:hover{color:#fff;text-decoration:none}
 
@@ -257,11 +284,11 @@
 
     @media (prefers-reduced-motion: reduce){
       html{scroll-behavior:auto}
-      .cta,.ghost{transition:none}
+      .cta,.ghost,.langbtn{transition:none}
     }
   </style>
 
-  <!-- ✅ Schema (Article) -->
+  <!-- ✅ Schema (Article) — URLs corrigées -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -273,19 +300,11 @@
     "publisher":{
       "@type":"Organization",
       "name":"Carl Leger",
-      "logo":{
-        "@type":"ImageObject",
-        "url":"https://carlleger.github.io/avatar.png"
-      }
+      "logo":{"@type":"ImageObject","url":"https://carlleger.github.io/avatar.png"}
     },
-    "mainEntityOfPage":"https://carlleger.github.io/fr/resources/best/cloudways-review/",
-    "url":"https://carlleger.github.io/fr/resources/best/cloudways-review/",
-    "image":{
-      "@type":"ImageObject",
-      "url":"https://carlleger.github.io/assets/og/cloudways-review-2026.png",
-      "width":1200,
-      "height":630
-    },
+    "mainEntityOfPage":"https://carlleger.github.io/fr/ressources/meilleurs/avis-cloudways/",
+    "url":"https://carlleger.github.io/fr/ressources/meilleurs/avis-cloudways/",
+    "image":{"@type":"ImageObject","url":"https://carlleger.github.io/assets/og/cloudways-review-2026.png","width":1200,"height":630},
     "datePublished":"2026-01-10",
     "dateModified":"2026-01-11"
   }
@@ -297,38 +316,10 @@
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"Cloudways est-il bon pour WordPress ?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Oui. Cloudways est un excellent choix si tu veux de bonnes performances, de la stabilité, et une capacité de mise à l’échelle supérieure à l’hébergement partagé."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Cloudways est-il bon pour WooCommerce ?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Oui, à condition de bien configurer les exclusions de cache (panier, paiement, mon-compte) et de garder le site léger (thème, plugins, images, base de données)."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Cloudways inclut-il les courriels ?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Généralement non. Prévois un fournisseur de courriel séparé (Google Workspace, Microsoft 365, etc.)."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Cloudways est-il facile pour débuter ?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Plus simple qu’un serveur cloud brut, mais moins “one-click” qu’un hébergement partagé classique. En échange, tu obtiens plus de marge de performance."
-        }
-      }
+      {"@type":"Question","name":"Cloudways est-il bon pour WordPress ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Cloudways est un excellent choix si tu veux de bonnes performances, de la stabilité, et une capacité de mise à l’échelle supérieure à l’hébergement partagé."}},
+      {"@type":"Question","name":"Cloudways est-il bon pour WooCommerce ?","acceptedAnswer":{"@type":"Answer","text":"Oui, à condition de bien configurer les exclusions de cache (panier, paiement, mon-compte) et de garder le site léger (thème, plugins, images, base de données)."}},
+      {"@type":"Question","name":"Cloudways inclut-il les courriels ?","acceptedAnswer":{"@type":"Answer","text":"Généralement non. Prévois un fournisseur de courriel séparé (Google Workspace, Microsoft 365, etc.)."}},
+      {"@type":"Question","name":"Cloudways est-il facile pour débuter ?","acceptedAnswer":{"@type":"Answer","text":"Plus simple qu’un serveur cloud brut, mais moins “one-click” qu’un hébergement partagé classique. En échange, tu obtiens plus de marge de performance."}}
     ]
   }
   </script>
@@ -338,6 +329,12 @@
 <a class="skip" href="#main">Aller au contenu</a>
 
 <main id="main">
+
+  <!-- ✅ Switch langue (redirige) -->
+  <div class="langbar" aria-label="Choix de langue">
+    <a class="langbtn is-active" href="https://carlleger.github.io/fr/ressources/meilleurs/avis-cloudways/" aria-current="page">FR</a>
+    <a class="langbtn" href="https://carlleger.github.io/resources/best/cloudways-review/">EN</a>
+  </div>
 
   <div class="kicker">Hébergement cloud géré</div>
   <h1>Avis Cloudways 2026 : Hébergement cloud géré pour WordPress (Vitesse & Core Web Vitals)</h1>
@@ -360,16 +357,15 @@
         au-dessus de fournisseurs cloud reconnus. Ce n’est pas de l’hébergement “cheap” : c’est une plateforme axée performance.
       </p>
 
-      <!-- ✅ CTA #1 (Haut) -->
+      <!-- ✅ CTA #1 -->
       <div class="ctaRow">
         <a class="cta js-aff"
-           href="https://www.cloudways.com/en/?id=2063019&data1=cloudways-review-2026-fr&data2=cta-top"
+           href="https://www.cloudways.com/en/?id=2063019&data1=avis-cloudways-2026-fr&data2=cta-top"
            rel="nofollow sponsored noopener noreferrer"
            target="_blank"
            data-affiliate="cloudways"
            data-placement="top"
-           data-asset="cta"
-           aria-label="Essayer Cloudways (lien affilié)">
+           data-asset="cta">
           Essayer Cloudways (Affilié)
         </a>
         <a class="ghost" href="#prix">Voir les prix expliqués</a>
@@ -379,7 +375,7 @@
         Divulgation : cette page contient des liens affiliés. Je peux recevoir une commission sans frais supplémentaires pour toi.
       </p>
 
-      <div class="badgeRow" aria-label="Sujets">
+      <div class="badgeRow">
         <div class="badge">WordPress</div>
         <div class="badge">WooCommerce</div>
         <div class="badge">Performance</div>
@@ -388,7 +384,7 @@
       </div>
     </div>
 
-    <div class="box toc" aria-label="Table des matières">
+    <div class="box toc">
       <strong>Sur cette page</strong>
       <a href="#pourqui">Pour qui Cloudways est idéal</a>
       <a href="#performance">Performance & stack</a>
@@ -403,9 +399,7 @@
   <section id="pourqui">
     <h2>Pour qui Cloudways est idéal</h2>
     <div class="box">
-      <p class="note">
-        Cette section filtre les visiteurs “bon fit” pour augmenter les conversions (et réduire les clics frustrés).
-      </p>
+      <p class="note">Cette section filtre les visiteurs “bon fit” pour augmenter les conversions (et réduire les clics frustrés).</p>
       <ul class="checklist">
         <li><strong>Très bon fit :</strong> sites qui veulent vitesse, CWV et stabilité (agences, boutiques, sites de contenu).</li>
         <li><strong>Très bon fit :</strong> tu veux le confort d’un hébergement géré tout en gardant de la flexibilité cloud.</li>
@@ -419,28 +413,20 @@
 
   <section id="performance">
     <h2>Performance Cloudways & stack</h2>
-    <p>
-      Cloudways s’appuie sur une infrastructure cloud et ajoute une couche de gestion. Résultat : un bon potentiel de vitesse
-      si ton site est bien configuré.
-    </p>
+    <p>Cloudways s’appuie sur une infrastructure cloud et ajoute une couche de gestion. Résultat : un bon potentiel de vitesse si ton site est bien configuré.</p>
     <div class="box">
       <ul class="checklist">
         <li>Stack serveur optimisée (souvent Nginx + PHP-FPM, couches de cache, Redis/objet cache en option).</li>
         <li>Options d’intégration CDN et outils orientés performance.</li>
         <li>Staging, sauvegardes et mise à l’échelle adaptés à la croissance.</li>
       </ul>
-      <p class="fineprint">
-        Note : les résultats dépendent aussi du thème, des plugins, des images, des règles de cache et du dimensionnement serveur.
-      </p>
+      <p class="fineprint">Note : les résultats dépendent aussi du thème, des plugins, des images, des règles de cache et du dimensionnement serveur.</p>
     </div>
   </section>
 
   <section id="prix">
     <h2>Prix Cloudways expliqués</h2>
-    <p>
-      Les prix dépendent du fournisseur choisi (ex. DigitalOcean, AWS, Google Cloud). En clair :
-      tu choisis une taille adaptée maintenant, puis tu augmentes au besoin quand le trafic progresse.
-    </p>
+    <p>Les prix dépendent du fournisseur choisi (ex. DigitalOcean, AWS, Google Cloud). En clair : tu choisis une taille adaptée maintenant, puis tu augmentes au besoin quand le trafic progresse.</p>
 
     <div class="box">
       <strong>Comment choisir un plan (simple)</strong>
@@ -450,16 +436,15 @@
         <li><strong>Trafic en croissance :</strong> augmente progressivement au lieu de migrer en panique plus tard.</li>
       </ul>
 
-      <!-- ✅ CTA #2 (Après prix) -->
+      <!-- ✅ CTA #2 -->
       <div class="ctaRow" style="margin-top:14px">
         <a class="cta js-aff"
-           href="https://www.cloudways.com/en/?id=2063019&data1=cloudways-review-2026-fr&data2=cta-after-pricing"
+           href="https://www.cloudways.com/en/?id=2063019&data1=avis-cloudways-2026-fr&data2=cta-after-pricing"
            rel="nofollow sponsored noopener noreferrer"
            target="_blank"
            data-affiliate="cloudways"
            data-placement="after_pricing"
-           data-asset="cta"
-           aria-label="Voir les plans Cloudways (lien affilié)">
+           data-asset="cta">
           Voir les plans Cloudways (Affilié)
         </a>
         <span class="fineprint">Astuce : commence petit, scale quand tu as une preuve de demande.</span>
@@ -469,10 +454,7 @@
 
   <section id="woocommerce">
     <h2>Cloudways pour WooCommerce</h2>
-    <p>
-      WooCommerce est dynamique (panier, paiement, sessions, compte). Cloudways peut très bien fonctionner,
-      mais tes règles de cache et tes choix de plugins font une grosse différence.
-    </p>
+    <p>WooCommerce est dynamique (panier, paiement, sessions, compte). Cloudways peut très bien fonctionner, mais tes règles de cache et tes choix de plugins font une grosse différence.</p>
     <div class="box">
       <ul class="checklist">
         <li>Exclusions de cache WooCommerce (panier, checkout, mon-compte, fragments).</li>
@@ -561,16 +543,15 @@
       C’est un bon choix si tu veux vitesse, stabilité et un chemin clair vers la croissance.
     </p>
 
-    <!-- ✅ CTA #3 (Conclusion) -->
+    <!-- ✅ CTA #3 -->
     <div class="ctaRow">
       <a class="cta js-aff"
-         href="https://www.cloudways.com/en/?id=2063019&data1=cloudways-review-2026-fr&data2=cta-conclusion"
+         href="https://www.cloudways.com/en/?id=2063019&data1=avis-cloudways-2026-fr&data2=cta-conclusion"
          rel="nofollow sponsored noopener noreferrer"
          target="_blank"
          data-affiliate="cloudways"
          data-placement="conclusion"
-         data-asset="cta"
-         aria-label="Démarrer avec Cloudways (lien affilié)">
+         data-asset="cta">
         Démarrer avec Cloudways (Affilié)
       </a>
       <a class="ghost" href="https://carlleger.github.io/resources/best/managed-cloud-hosting/">Comparer les options (EN)</a>
@@ -595,11 +576,11 @@
     const url = el.href || "";
     const targetBlank = (el.getAttribute("target") === "_blank");
 
-    // Respect ctrl/cmd click: ne pas bloquer l’intention d’ouvrir dans un nouvel onglet
+    // Respect ctrl/cmd click
     const isModifiedClick = evt && (evt.metaKey || evt.ctrlKey || evt.shiftKey || evt.altKey);
     if (!targetBlank && !isModifiedClick && evt) evt.preventDefault();
 
-    // Si gtag est indisponible (adblock), naviguer quand même
+    // If gtag is unavailable (adblock), just navigate
     if (typeof window.gtag !== "function") {
       if (!targetBlank && !isModifiedClick) window.location.href = url;
       return;
@@ -610,7 +591,6 @@
       const placement = el.getAttribute("data-placement") || "unknown";
       const asset = el.getAttribute("data-asset") || "link";
 
-      // Event principal
       window.gtag('event', 'affiliate_click', {
         affiliate: affiliate,
         placement: placement,
@@ -619,14 +599,6 @@
         transport_type: 'beacon'
       });
 
-      // Event secondaire (utile pour reporting)
-      window.gtag('event', 'outbound_click', {
-        link_url: url,
-        link_domain: (new URL(url)).hostname,
-        transport_type: 'beacon'
-      });
-
-      // Navigation seulement si clic normal en même onglet
       if (!targetBlank && !isModifiedClick) {
         setTimeout(() => { window.location.href = url; }, 250);
       }
@@ -638,7 +610,7 @@
 
   document.querySelectorAll(".js-aff").forEach((a) => {
     a.addEventListener("click", (e) => trackAffiliateClick(a, e));
-    a.addEventListener("auxclick", (e) => trackAffiliateClick(a, e)); // clic molette
+    a.addEventListener("auxclick", (e) => trackAffiliateClick(a, e)); // middle click
   });
 </script>
 </body>
