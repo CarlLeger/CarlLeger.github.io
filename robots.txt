@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://carlleger.github.io/sitemap.xml
