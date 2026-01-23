@@ -10,9 +10,10 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://carlleger.github.io/" />
   <meta name="theme-color" content="#0b1220">
+  <meta name="color-scheme" content="dark">
 
-  <!-- Performance: preload your main image -->
-  <link rel="preload" as="image" href="/avatar.png" imagesizes="190px">
+  <!-- Performance: preload your main image (match the img src) -->
+  <link rel="preload" as="image" href="/avatar.png">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
@@ -29,7 +30,6 @@
   <meta property="og:url" content="https://carlleger.github.io/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Carl Leger" />
-  <!-- Add this file to your repo: /assets/og/og.png (1200x630) -->
   <meta property="og:image" content="https://carlleger.github.io/assets/og/og.png" />
 
   <!-- Twitter Cards -->
@@ -57,10 +57,6 @@
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-
-  <!-- Icons (Font Awesome) -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     :root{
@@ -136,7 +132,7 @@
     .badge{
       display:inline-flex;
       align-items:center;
-      gap:8px;
+      gap:10px;
       padding: 8px 12px;
       border-radius: 999px;
       background: rgba(56,189,248,.10);
@@ -145,8 +141,6 @@
       font-size: 13px;
       white-space:nowrap;
     }
-
-    .badge i{ color: var(--accent); }
 
     .pillrow{
       display:flex;
@@ -158,7 +152,6 @@
     .pill{
       display:inline-flex;
       align-items:center;
-      gap:10px;
       padding: 9px 12px;
       border-radius: 12px;
       background: rgba(255,255,255,.05);
@@ -166,7 +159,6 @@
       font-size: 13px;
       color: var(--text);
     }
-    .pill i{ color: var(--accent); }
 
     .hero{
       display:grid;
@@ -271,11 +263,21 @@
       border: 1px solid rgba(255,255,255,.20);
       color:#06101d;
     }
-    .btn.primary i{ color:#06101d; }
 
     .btn.ghost{
       background: rgba(255,255,255,.03);
     }
+
+    .icon{
+      width: 16px;
+      height: 16px;
+      display:inline-block;
+      vertical-align: -2px;
+      color: currentColor;
+      flex: 0 0 auto;
+    }
+
+    .btn.primary .icon{ color:#06101d; }
 
     .grid{
       display:grid;
@@ -301,12 +303,7 @@
       letter-spacing: .02em;
       text-transform: uppercase;
       color: #dbe4ff;
-      display:flex;
-      align-items:center;
-      gap:10px;
     }
-
-    .section h2 i{ color: var(--accent); }
 
     ul{
       margin: 0;
@@ -335,12 +332,21 @@
       color: var(--text);
       font-size: 13px;
     }
-    .chip i{ color: var(--accent2); }
+    .chip .dot{
+      width:8px;height:8px;border-radius:999px;
+      background: rgba(167,139,250,.9);
+      box-shadow: 0 0 0 3px rgba(167,139,250,.15);
+      display:inline-block;
+    }
 
     .micro{
       margin-top: 10px;
       font-size: 13px;
       color: rgba(168,179,214,.9);
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
     }
 
     /* AUDIT SECTION */
@@ -362,11 +368,7 @@
       letter-spacing: .02em;
       text-transform: uppercase;
       color: #dbe4ff;
-      display:flex;
-      align-items:center;
-      gap:10px;
     }
-    .audit h2 i{ color: var(--accent); }
     .audit .cols{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -386,11 +388,7 @@
       margin:0 0 8px;
       font-size: 14px;
       color: var(--text);
-      display:flex;
-      align-items:center;
-      gap:10px;
     }
-    .auditBox h3 i{ color: var(--accent2); }
     .auditBox p{
       margin: 0;
       color: var(--muted);
@@ -432,7 +430,6 @@
       align-items:center;
       gap:10px;
     }
-    .contactHeader h2 i{ color: var(--accent); }
 
     .contactHeader p{
       margin: 6px 0 0;
@@ -454,7 +451,6 @@
       white-space:nowrap;
       height: fit-content;
     }
-    .contactHint i{ color: var(--good); }
 
     form{
       display:grid;
@@ -581,7 +577,6 @@
       border: 1px solid rgba(255,255,255,.08);
       transition: transform .12s ease, border-color .12s ease, background .12s ease;
     }
-    .links a i{ color: var(--accent); }
     .links a:hover{
       text-decoration:none;
       border-color: rgba(255,255,255,.16);
@@ -600,26 +595,46 @@
 </head>
 
 <body>
+  <!-- Minimal inline icon set (tiny, no external library) -->
+  <svg class="sr-only" aria-hidden="true" focusable="false">
+    <symbol id="i-bolt" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M13 2L3 14h7l-1 8 12-14h-7l-1-6z"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5L9 16.2z"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+    </symbol>
+    <symbol id="i-link" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M3.9 12c0-2.3 1.8-4.1 4.1-4.1h4v-2h-4C4.6 5.9 2 8.5 2 12s2.6 6.1 6 6.1h4v-2h-4c-2.3 0-4.1-1.8-4.1-4.1zM9 13h6v-2H9v2zm7-7.1h-4v2h4c2.3 0 4.1 1.8 4.1 4.1s-1.8 4.1-4.1 4.1h-4v2h4c3.4 0 6-2.6 6-6.1S19.4 5.9 16 5.9z"/>
+    </symbol>
+    <symbol id="i-send" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M2 21l21-9L2 3v7l15 2-15 2v7z"/>
+    </symbol>
+  </svg>
+
   <div class="wrap">
     <div class="card">
 
       <div class="topbar">
         <div class="badge">
-          <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
+          <svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>
           Performance • Core Web Vitals • WooCommerce
         </div>
 
         <div class="pillrow">
-          <div class="pill"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Speed</div>
-          <div class="pill"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Security</div>
-          <div class="pill"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> CRO</div>
+          <div class="pill">Speed</div>
+          <div class="pill">Security</div>
+          <div class="pill">CRO</div>
         </div>
       </div>
 
       <div class="hero">
         <div class="avatarWrap">
           <div class="avatar" aria-label="Carl Leger portrait">
-            <img src="avatar.png" alt="Carl Leger" loading="eager" fetchpriority="high" decoding="async" />
+            <img src="/avatar.png" alt="Carl Leger" width="190" height="190"
+                 loading="eager" fetchpriority="high" decoding="async" />
           </div>
         </div>
 
@@ -632,48 +647,56 @@
 
           <div class="ctaRow">
             <a class="btn primary" href="#contact">
-              <i class="fa-solid fa-bolt" aria-hidden="true"></i> Request a Performance Audit
+              <svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>
+              Request a Performance Audit
             </a>
 
             <a class="btn" href="#audit">
-              <i class="fa-solid fa-list-check" aria-hidden="true"></i> See what you get
+              See what you get
             </a>
 
             <a class="btn" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener">
-              <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Hire me on Upwork
+              <svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg>
+              Hire me on Upwork
             </a>
 
             <a class="btn" href="mailto:carlleger.dev@gmail.com">
-              <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email me
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+              Email me
             </a>
 
             <a class="btn" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener">
-              <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+              <svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg>
+              LinkedIn
             </a>
 
             <a class="btn" href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener">
-              <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Portfolio (Notion)
+              <svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg>
+              Portfolio (Notion)
             </a>
 
             <a class="btn" href="/resources/">
-              <i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources
+              Resources
             </a>
 
             <a class="btn ghost" href="https://github.com/CarlLeger" target="_blank" rel="noopener">
-              <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+              <svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg>
+              GitHub
             </a>
           </div>
 
           <div class="micro">
-            <i class="fa-solid fa-circle-check" style="color: var(--good);" aria-hidden="true"></i>
-            No obligation. If I’m not the right fit, I’ll tell you quickly.
+            <span style="display:inline-flex;align-items:center;gap:8px;">
+              <svg class="icon" aria-hidden="true" style="color: var(--good);"><use href="#i-check"></use></svg>
+              No obligation. If I’m not the right fit, I’ll tell you quickly.
+            </span>
           </div>
         </div>
       </div>
 
       <div class="grid">
         <section class="section">
-          <h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> What I Do</h2>
+          <h2>What I Do</h2>
           <ul>
             <li><b>WooCommerce speed optimization</b> (CWV, TTFB, caching, query reduction)</li>
             <li><b>Cloudflare configuration</b> + WooCommerce-safe caching rules</li>
@@ -683,15 +706,15 @@
         </section>
 
         <section class="section">
-          <h2><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Tech Stack</h2>
+          <h2>Tech Stack</h2>
           <div class="chips">
-            <span class="chip"><i class="fa-brands fa-wordpress" aria-hidden="true"></i> WordPress</span>
-            <span class="chip"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> WooCommerce</span>
-            <span class="chip"><i class="fa-brands fa-php" aria-hidden="true"></i> PHP</span>
-            <span class="chip"><i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript</span>
-            <span class="chip"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Cloudflare</span>
-            <span class="chip"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</span>
-            <span class="chip"><i class="fa-solid fa-terminal" aria-hidden="true"></i> WP-CLI</span>
+            <span class="chip"><span class="dot" aria-hidden="true"></span> WordPress</span>
+            <span class="chip"><span class="dot" aria-hidden="true"></span> WooCommerce</span>
+            <span class="chip"><span class="dot" aria-hidden="true"></span> PHP</span>
+            <span class="chip"><span class="dot" aria-hidden="true"></span> JavaScript</span>
+            <span class="chip"><span class="dot" aria-hidden="true"></span> Cloudflare</span>
+            <span class="chip"><span class="dot" aria-hidden="true"></span> GitHub</span>
+            <span class="chip"><span class="dot" aria-hidden="true"></span> WP-CLI</span>
           </div>
           <div class="micro">
             Focus: measurable gains, documented changes, and production-safe rollouts.
@@ -702,17 +725,17 @@
       <!-- AUDIT VALUE SECTION -->
       <div class="auditWrap">
         <section id="audit" class="audit" aria-labelledby="audit-title">
-          <h2 id="audit-title"><i class="fa-solid fa-list-check" aria-hidden="true"></i> What you get</h2>
+          <h2 id="audit-title">What you get</h2>
           <div class="cols">
             <div class="auditBox">
-              <h3><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> Audit deliverables</h3>
+              <h3>Audit deliverables</h3>
               <p>
                 A prioritized action plan, quick wins, performance bottlenecks (CWV, TTFB, long tasks),
                 and a clear next step for implementation.
               </p>
             </div>
             <div class="auditBox">
-              <h3><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> WooCommerce-safe approach</h3>
+              <h3>WooCommerce-safe approach</h3>
               <p>
                 Checkout-safe caching guidance, plugin conflict triage, database hotspots, and
                 production-safe rollout recommendations.
@@ -730,14 +753,18 @@
         <section id="contact" class="contact" aria-labelledby="contact-title">
           <div class="contactHeader">
             <div>
-              <h2 id="contact-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Request a Performance Audit</h2>
+              <h2 id="contact-title">
+                <svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg>
+                Request a Performance Audit
+              </h2>
               <p>
                 Tell me what’s slowing your site down. I’ll reply within 24 hours with the best next step.
                 (No spam, no fluff.)
               </p>
             </div>
             <div class="contactHint">
-              <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Response in 24h
+              <svg class="icon" aria-hidden="true" style="color: var(--good);"><use href="#i-check"></use></svg>
+              Response in 24h
             </div>
           </div>
 
@@ -779,7 +806,6 @@
               </select>
             </div>
 
-            <!-- Optional qualifiers (helps you prioritize serious leads) -->
             <div class="field">
               <label for="budget">Budget (optional)</label>
               <select id="budget" name="budget">
@@ -829,7 +855,8 @@
                 I only use your info to respond.
               </div>
               <button class="submitBtn" type="submit">
-                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send request
+                <svg class="icon" aria-hidden="true"><use href="#i-send"></use></svg>
+                Send request
               </button>
             </div>
           </form>
@@ -839,11 +866,25 @@
       <div class="footer">
         <div>© <span id="year"></span> Carl Leger</div>
         <div class="links">
-          <a href="mailto:carlleger.dev@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
-          <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
-          <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
-          <a href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Notion</a>
-          <a href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
+          <a href="mailto:carlleger.dev@gmail.com">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+            Email
+          </a>
+          <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg>
+            Upwork
+          </a>
+          <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg>
+            LinkedIn
+          </a>
+          <a href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg>
+            Notion
+          </a>
+          <a href="/resources/">
+            Resources
+          </a>
         </div>
       </div>
 
@@ -858,12 +899,22 @@
 
     // Anti-bot timing: require a minimum time before submit
     let formStartTime = Date.now();
+    let trackedStart = false;
 
-    // Start timer when user interacts with the form (more accurate than page load)
+    // Start timer when user interacts with the form
     form.addEventListener("focusin", () => {
       if (!form.dataset.started) {
         form.dataset.started = "1";
         formStartTime = Date.now();
+      }
+
+      // GA4: form_start (one time)
+      if (!trackedStart && typeof gtag === "function") {
+        trackedStart = true;
+        gtag("event", "form_start", {
+          event_category: "form",
+          event_label: "performance_audit"
+        });
       }
     });
 
@@ -881,7 +932,12 @@
 
       // 2) Honeypot check (if filled => likely bot)
       const company = form.querySelector("#company")?.value?.trim();
-      if (company) return;
+      if (company) {
+        statusBox.className = "status err";
+        statusBox.textContent = "Submission blocked. Please try again or email me directly.";
+        statusBox.style.display = "block";
+        return;
+      }
 
       statusBox.className = "status";
       statusBox.textContent = "Sending...";
@@ -893,7 +949,11 @@
       const website = (data.get("website") || "").toString().trim();
       const message = (data.get("message") || "").toString().trim();
 
-      if (!website.startsWith("http")) {
+      // Robust URL check
+      try {
+        const u = new URL(website);
+        if (!u.protocol.startsWith("http")) throw new Error("bad-proto");
+      } catch {
         statusBox.className = "status err";
         statusBox.textContent = "Please enter a valid website URL (include https://).";
         statusBox.style.display = "block";
@@ -903,6 +963,13 @@
       if (message.length < 20) {
         statusBox.className = "status err";
         statusBox.textContent = "Please provide a bit more detail (at least 20 characters).";
+        statusBox.style.display = "block";
+        return;
+      }
+
+      if (message.length > 2000) {
+        statusBox.className = "status err";
+        statusBox.textContent = "Message is too long. Please keep it under 2000 characters.";
         statusBox.style.display = "block";
         return;
       }
