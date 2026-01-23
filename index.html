@@ -9,14 +9,15 @@
   <meta name="description" content="Freelance WordPress & WooCommerce performance specialist focused on speed, Core Web Vitals, and scalable production setups." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://carlleger.github.io/" />
+
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-3KXQFTWTBD');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3KXQFTWTBD');
+  </script>
 
   <!-- Open Graph -->
   <meta property="og:title" content="Carl Leger — WordPress & WooCommerce Performance Specialist" />
@@ -24,8 +25,6 @@
   <meta property="og:url" content="https://carlleger.github.io/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Carl Leger" />
-  <!-- Optional: if you later add an OG image in your repo root -->
-  <!-- <meta property="og:image" content="https://carlleger.github.io/og-image.png" /> -->
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary" />
@@ -51,6 +50,7 @@
       --accent:#38bdf8;
       --accent2:#a78bfa;
       --good:#22c55e;
+      --warn:#fbbf24;
       --shadow: 0 20px 60px rgba(0,0,0,.35);
       --radius: 18px;
     }
@@ -80,7 +80,6 @@
     a{ color:inherit; text-decoration:none; }
     a:hover{ text-decoration:underline; }
 
-    /* Better keyboard focus */
     :focus-visible{
       outline: 3px solid rgba(56,189,248,.55);
       outline-offset: 3px;
@@ -314,6 +313,166 @@
     }
     .chip i{ color: var(--accent2); }
 
+    .micro{
+      margin-top: 10px;
+      font-size: 13px;
+      color: rgba(168,179,214,.9);
+    }
+
+    /* CONTACT SECTION */
+    .contactWrap{
+      padding: 0 26px 26px;
+    }
+    @media (max-width: 900px){
+      .contactWrap{ padding: 0 18px 22px; }
+    }
+
+    .contact{
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border-radius: 24px;
+      padding: 18px;
+    }
+
+    .contactHeader{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom: 12px;
+    }
+
+    .contactHeader h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: .01em;
+      text-transform: none;
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .contactHeader h2 i{ color: var(--accent); }
+
+    .contactHeader p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      max-width: 72ch;
+      font-size: 14px;
+    }
+
+    .contactHint{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(34,197,94,.10);
+      border: 1px solid rgba(34,197,94,.18);
+      color: rgba(220,252,231,.95);
+      font-size: 12px;
+      white-space:nowrap;
+      height: fit-content;
+    }
+    .contactHint i{ color: var(--good); }
+
+    form{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 760px){
+      form{ grid-template-columns: 1fr; }
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap: 7px;
+    }
+
+    label{
+      font-size: 12px;
+      color: rgba(219,228,255,.92);
+      letter-spacing: .02em;
+    }
+
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(8,13,23,.55);
+      color: var(--text);
+      outline: none;
+      font-size: 14px;
+    }
+
+    input::placeholder, textarea::placeholder{ color: rgba(168,179,214,.65); }
+
+    textarea{
+      min-height: 110px;
+      resize: vertical;
+      grid-column: 1 / -1;
+    }
+
+    .full{ grid-column: 1 / -1; }
+
+    .formRow{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      grid-column: 1 / -1;
+      margin-top: 2px;
+    }
+
+    .note{
+      color: rgba(168,179,214,.85);
+      font-size: 12px;
+    }
+
+    .submitBtn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.85));
+      color:#06101d;
+      font-weight: 800;
+      font-size: 14px;
+      cursor:pointer;
+      transition: transform .12s ease, opacity .12s ease;
+    }
+    .submitBtn:hover{ transform: translateY(-1px); opacity:.98; }
+
+    .status{
+      grid-column: 1 / -1;
+      display:none;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-size: 13px;
+    }
+    .status.ok{
+      display:block;
+      border-color: rgba(34,197,94,.25);
+      background: rgba(34,197,94,.10);
+    }
+    .status.err{
+      display:block;
+      border-color: rgba(251,191,36,.25);
+      background: rgba(251,191,36,.10);
+    }
+
     .footer{
       display:flex;
       justify-content:space-between;
@@ -349,13 +508,6 @@
       transform: translateY(-1px);
     }
 
-    .micro{
-      margin-top: 10px;
-      font-size: 13px;
-      color: rgba(168,179,214,.9);
-    }
-
-    /* Tiny helper for SR-only text (if needed later) */
     .sr-only{
       position:absolute;
       width:1px;height:1px;
@@ -386,7 +538,6 @@
       <div class="hero">
         <div class="avatarWrap">
           <div class="avatar" aria-label="Carl Leger portrait">
-            <!-- Put avatar.png at repository root -->
             <img src="avatar.png" alt="Carl Leger" loading="lazy" decoding="async" />
           </div>
         </div>
@@ -399,7 +550,11 @@
           </p>
 
           <div class="ctaRow">
-            <a class="btn primary" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener">
+            <a class="btn primary" href="#contact">
+              <i class="fa-solid fa-bolt" aria-hidden="true"></i> Request a Performance Audit
+            </a>
+
+            <a class="btn" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener">
               <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Hire me on Upwork
             </a>
 
@@ -415,12 +570,10 @@
               <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Portfolio (Notion)
             </a>
 
-            <!-- NEW: Resources -->
             <a class="btn" href="/resources/">
               <i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources
             </a>
 
-            <!-- Optional but very pro -->
             <a class="btn ghost" href="https://github.com/CarlLeger" target="_blank" rel="noopener">
               <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
             </a>
@@ -461,6 +614,82 @@
         </section>
       </div>
 
+      <!-- CONTACT -->
+      <div class="contactWrap">
+        <section id="contact" class="contact" aria-labelledby="contact-title">
+          <div class="contactHeader">
+            <div>
+              <h2 id="contact-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Request a Performance Audit</h2>
+              <p>
+                Tell me what’s slowing your site down. I’ll reply within 24 hours with the best next step.
+                (No spam, no fluff.)
+              </p>
+            </div>
+            <div class="contactHint">
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Response in 24h
+            </div>
+          </div>
+
+          <form id="auditForm" action="https://formspree.io/f/mwvlenpe" method="POST">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+            </div>
+
+            <div class="field full">
+              <label for="site">Website URL</label>
+              <input id="site" name="website" type="url" placeholder="https://example.com" required>
+            </div>
+
+            <div class="field">
+              <label for="project">Project type</label>
+              <select id="project" name="project_type" required>
+                <option value="" selected disabled>Select one</option>
+                <option value="Performance audit (recommended)">Performance audit (recommended)</option>
+                <option value="WordPress/WooCommerce optimization">WordPress/WooCommerce optimization</option>
+                <option value="SEO & analytics consulting">SEO & analytics consulting</option>
+                <option value="Create a website (new site or redesign)">Create a website (new site or redesign)</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="timeline">Timeline</label>
+              <select id="timeline" name="timeline" required>
+                <option value="" selected disabled>Select one</option>
+                <option value="ASAP">ASAP</option>
+                <option value="This week">This week</option>
+                <option value="This month">This month</option>
+                <option value="Flexible">Flexible</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="message">What’s the main issue?</label>
+              <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, plugin conflicts, etc." required></textarea>
+            </div>
+
+            <!-- optional: helps you on Formspree inbox -->
+            <input type="hidden" name="_subject" value="New Lead — CarlLeger.github.io (Performance Audit)">
+            <!-- optional: basic anti-bot honey pot -->
+            <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off">
+
+            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+
+            <div class="formRow">
+              <div class="note">By submitting, you agree to be contacted about this request.</div>
+              <button class="submitBtn" type="submit">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send request
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+
       <div class="footer">
         <div>© <span id="year"></span> Carl Leger</div>
         <div class="links">
@@ -468,8 +697,6 @@
           <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
           <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
           <a href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Notion</a>
-
-          <!-- NEW: Resources -->
           <a href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
         </div>
       </div>
@@ -479,6 +706,47 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Nice UX: AJAX submit + GA4 event
+    const form = document.getElementById("auditForm");
+    const statusBox = document.getElementById("formStatus");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      statusBox.className = "status";
+      statusBox.textContent = "Sending...";
+      statusBox.style.display = "block";
+
+      const data = new FormData(form);
+
+      try{
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
+
+        if(res.ok){
+          form.reset();
+          statusBox.className = "status ok";
+          statusBox.textContent = "Thanks! Your request was sent. I’ll reply within 24 hours.";
+
+          // GA4 event (safe)
+          if (typeof gtag === "function") {
+            gtag("event", "lead_submit", {
+              event_category: "form",
+              event_label: "performance_audit"
+            });
+          }
+        } else {
+          statusBox.className = "status err";
+          statusBox.textContent = "Something went wrong. Please email me directly: carlleger.dev@gmail.com";
+        }
+      } catch(err){
+        statusBox.className = "status err";
+        statusBox.textContent = "Network error. Please email me directly: carlleger.dev@gmail.com";
+      }
+    });
   </script>
 </body>
 </html>
