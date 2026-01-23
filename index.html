@@ -11,8 +11,16 @@
   <link rel="canonical" href="https://carlleger.github.io/" />
   <meta name="theme-color" content="#0b1220">
 
+  <!-- Helpful meta -->
+  <meta name="language" content="en">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <!-- Performance: preload your main image -->
-  <link rel="preload" as="image" href="/avatar.png" imagesizes="190px">
+  <link rel="preload" as="image" href="/avatar.png" imagesizes="190px" fetchpriority="high">
+
+  <!-- Preconnect for GA -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
@@ -29,6 +37,7 @@
   <meta property="og:url" content="https://carlleger.github.io/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Carl Leger" />
+  <meta property="og:locale" content="en_US" />
   <!-- Add this file to your repo: /assets/og/og.png (1200x630) -->
   <meta property="og:image" content="https://carlleger.github.io/assets/og/og.png" />
 
@@ -38,7 +47,7 @@
   <meta name="twitter:description" content="Speed, Core Web Vitals, WooCommerce-safe caching, and checkout troubleshooting." />
   <meta name="twitter:image" content="https://carlleger.github.io/assets/og/og.png" />
 
-  <!-- Structured Data -->
+  <!-- Structured Data: Person -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -51,6 +60,36 @@
       "https://www.linkedin.com/in/carlleger/",
       "https://github.com/CarlLeger",
       "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"Carl Leger",
+    "url":"https://carlleger.github.io/"
+  }
+  </script>
+
+  <!-- Structured Data: Service -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"WooCommerce Performance Audit",
+    "provider":{
+      "@type":"Person",
+      "name":"Carl Leger",
+      "url":"https://carlleger.github.io/"
+    },
+    "areaServed":["CA","US"],
+    "serviceType":[
+      "WooCommerce optimization",
+      "Core Web Vitals",
+      "Performance audit"
     ]
   }
   </script>
@@ -515,8 +554,6 @@
       font-size: 12px;
     }
 
-    .note a{ text-decoration: underline; }
-
     .submitBtn{
       display:inline-flex;
       align-items:center;
@@ -619,7 +656,7 @@
       <div class="hero">
         <div class="avatarWrap">
           <div class="avatar" aria-label="Carl Leger portrait">
-            <img src="avatar.png" alt="Carl Leger" loading="eager" fetchpriority="high" decoding="async" />
+            <img src="avatar.png" alt="Carl Leger" width="190" height="190" loading="eager" fetchpriority="high" decoding="async" />
           </div>
         </div>
 
@@ -631,15 +668,15 @@
           </p>
 
           <div class="ctaRow">
-            <a class="btn primary" href="#contact">
+            <a class="btn primary" href="#contact" aria-label="Request a performance audit">
               <i class="fa-solid fa-bolt" aria-hidden="true"></i> Request a Performance Audit
             </a>
 
-            <a class="btn" href="#audit">
+            <a class="btn" href="#audit" aria-label="See what you get in the audit">
               <i class="fa-solid fa-list-check" aria-hidden="true"></i> See what you get
             </a>
 
-            <a class="btn" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener">
+            <a class="btn" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Hire me on Upwork
             </a>
 
@@ -647,11 +684,11 @@
               <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email me
             </a>
 
-            <a class="btn" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener">
+            <a class="btn" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
             </a>
 
-            <a class="btn" href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener">
+            <a class="btn" href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener noreferrer">
               <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Portfolio (Notion)
             </a>
 
@@ -659,7 +696,7 @@
               <i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources
             </a>
 
-            <a class="btn ghost" href="https://github.com/CarlLeger" target="_blank" rel="noopener">
+            <a class="btn ghost" href="https://github.com/CarlLeger" target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
             </a>
           </div>
@@ -779,7 +816,6 @@
               </select>
             </div>
 
-            <!-- Optional qualifiers (helps you prioritize serious leads) -->
             <div class="field">
               <label for="budget">Budget (optional)</label>
               <select id="budget" name="budget">
@@ -808,14 +844,11 @@
               <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, plugin conflicts, etc." required></textarea>
             </div>
 
-            <!-- Email formatting + subject -->
             <input type="hidden" name="_subject" value="New Lead — CarlLeger.github.io (Performance Audit)">
             <input type="hidden" name="_template" value="table">
 
-            <!-- Honeypot (Formspree) -->
             <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off">
 
-            <!-- Extra honeypot -->
             <div class="sr-only">
               <label for="company">Company</label>
               <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
@@ -840,9 +873,9 @@
         <div>© <span id="year"></span> Carl Leger</div>
         <div class="links">
           <a href="mailto:carlleger.dev@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
-          <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
-          <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
-          <a href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Notion</a>
+          <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
+          <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          <a href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Notion</a>
           <a href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
         </div>
       </div>
@@ -856,10 +889,8 @@
     const form = document.getElementById("auditForm");
     const statusBox = document.getElementById("formStatus");
 
-    // Anti-bot timing: require a minimum time before submit
     let formStartTime = Date.now();
 
-    // Start timer when user interacts with the form (more accurate than page load)
     form.addEventListener("focusin", () => {
       if (!form.dataset.started) {
         form.dataset.started = "1";
@@ -870,7 +901,6 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // 1) Time-trap (bots submit too fast)
       const secondsSpent = (Date.now() - formStartTime) / 1000;
       if (secondsSpent < 3) {
         statusBox.className = "status err";
@@ -879,7 +909,6 @@
         return;
       }
 
-      // 2) Honeypot check (if filled => likely bot)
       const company = form.querySelector("#company")?.value?.trim();
       if (company) return;
 
@@ -889,7 +918,6 @@
 
       const data = new FormData(form);
 
-      // 3) Light validation (quality + anti-spam)
       const website = (data.get("website") || "").toString().trim();
       const message = (data.get("message") || "").toString().trim();
 
@@ -922,7 +950,6 @@
           statusBox.className = "status ok";
           statusBox.textContent = "Thanks! Your request was sent. I’ll reply within 24 hours.";
 
-          // GA4 event
           if (typeof gtag === "function") {
             gtag("event", "lead_submit", {
               event_category: "form",
