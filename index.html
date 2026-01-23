@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Carl Leger — WordPress & WooCommerce Performance Specialist</title>
 
   <meta name="impact-site-verification" content="81c8de61-5fd4-4865-8d6f-5352debc98dc">
   <meta name="description" content="Freelance WordPress & WooCommerce performance specialist focused on speed, Core Web Vitals, and scalable production setups." />
-  <meta name="robots" content="index,follow" />
+  <meta name="author" content="Carl Leger" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
   <link rel="canonical" href="https://carlleger.github.io/" />
   <meta name="theme-color" content="#0b1220">
-
-  <!-- Helpful meta -->
-  <meta name="language" content="en">
   <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Optional now (useful later when you add FR version) -->
+  <link rel="alternate" hreflang="en" href="https://carlleger.github.io/" />
+  <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/" />
 
   <!-- Performance: preload your main image -->
   <link rel="preload" as="image" href="/avatar.png" imagesizes="190px" fetchpriority="high">
@@ -38,8 +42,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Carl Leger" />
   <meta property="og:locale" content="en_US" />
-  <!-- Add this file to your repo: /assets/og/og.png (1200x630) -->
   <meta property="og:image" content="https://carlleger.github.io/assets/og/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Carl Leger — WordPress & WooCommerce Performance Specialist" />
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -52,6 +58,7 @@
   {
     "@context":"https://schema.org",
     "@type":"Person",
+    "@id":"https://carlleger.github.io/#person",
     "name":"Carl Leger",
     "jobTitle":"WordPress & WooCommerce Performance Specialist",
     "url":"https://carlleger.github.io/",
@@ -69,28 +76,28 @@
   {
     "@context":"https://schema.org",
     "@type":"WebSite",
+    "@id":"https://carlleger.github.io/#website",
     "name":"Carl Leger",
-    "url":"https://carlleger.github.io/"
+    "url":"https://carlleger.github.io/",
+    "publisher": { "@id":"https://carlleger.github.io/#person" }
   }
   </script>
 
-  <!-- Structured Data: Service -->
+  <!-- Structured Data: WebPage (fits homepage intent better than Service) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"Service",
-    "name":"WooCommerce Performance Audit",
-    "provider":{
-      "@type":"Person",
-      "name":"Carl Leger",
-      "url":"https://carlleger.github.io/"
-    },
-    "areaServed":["CA","US"],
-    "serviceType":[
-      "WooCommerce optimization",
-      "Core Web Vitals",
-      "Performance audit"
-    ]
+    "@type":"WebPage",
+    "@id":"https://carlleger.github.io/#webpage",
+    "url":"https://carlleger.github.io/",
+    "name":"Carl Leger — WordPress & WooCommerce Performance Specialist",
+    "description":"Freelance WordPress & WooCommerce performance specialist focused on speed, Core Web Vitals, and scalable production setups.",
+    "isPartOf": { "@id":"https://carlleger.github.io/#website" },
+    "about": { "@id":"https://carlleger.github.io/#person" },
+    "primaryImageOfPage": {
+      "@type":"ImageObject",
+      "url":"https://carlleger.github.io/avatar.png"
+    }
   }
   </script>
 
@@ -157,9 +164,9 @@
 
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border: 1px solid var(--stroke);
+      border: 1px solid rgba(255,255,255,.10);
       border-radius: 24px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
       overflow:hidden;
       position:relative;
     }
@@ -268,7 +275,7 @@
 
     .subtitle{
       margin: 0;
-      color: var(--muted);
+      color: rgba(168,179,214,1);
       font-size: 16px;
       line-height: 1.55;
       max-width: 62ch;
@@ -312,9 +319,7 @@
     }
     .btn.primary i{ color:#06101d; }
 
-    .btn.ghost{
-      background: rgba(255,255,255,.03);
-    }
+    .btn.ghost{ background: rgba(255,255,255,.03); }
 
     .grid{
       display:grid;
@@ -330,7 +335,7 @@
     .section{
       border: 1px solid rgba(255,255,255,.08);
       background: rgba(255,255,255,.04);
-      border-radius: var(--radius);
+      border-radius: 18px;
       padding: 18px;
     }
 
@@ -347,13 +352,8 @@
 
     .section h2 i{ color: var(--accent); }
 
-    ul{
-      margin: 0;
-      padding-left: 18px;
-      color: var(--text);
-    }
-
-    li{ margin: 10px 0; color: var(--muted); line-height: 1.45; }
+    ul{ margin: 0; padding-left: 18px; color: var(--text); }
+    li{ margin: 10px 0; color: rgba(168,179,214,1); line-height: 1.45; }
     li b{ color: var(--text); font-weight: 700; }
 
     .chips{
@@ -382,13 +382,9 @@
       color: rgba(168,179,214,.9);
     }
 
-    /* AUDIT SECTION */
-    .auditWrap{
-      padding: 0 26px 26px;
-    }
-    @media (max-width: 900px){
-      .auditWrap{ padding: 0 18px 22px; }
-    }
+    .auditWrap{ padding: 0 26px 26px; }
+    @media (max-width: 900px){ .auditWrap{ padding: 0 18px 22px; } }
+
     .audit{
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
@@ -412,9 +408,8 @@
       gap: 16px;
       margin-top: 10px;
     }
-    @media (max-width: 900px){
-      .audit .cols{ grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px){ .audit .cols{ grid-template-columns: 1fr; } }
+
     .auditBox{
       border: 1px solid rgba(255,255,255,.08);
       background: rgba(255,255,255,.03);
@@ -432,18 +427,13 @@
     .auditBox h3 i{ color: var(--accent2); }
     .auditBox p{
       margin: 0;
-      color: var(--muted);
+      color: rgba(168,179,214,1);
       font-size: 13px;
       line-height: 1.55;
     }
 
-    /* CONTACT SECTION */
-    .contactWrap{
-      padding: 0 26px 26px;
-    }
-    @media (max-width: 900px){
-      .contactWrap{ padding: 0 18px 22px; }
-    }
+    .contactWrap{ padding: 0 26px 26px; }
+    @media (max-width: 900px){ .contactWrap{ padding: 0 18px 22px; } }
 
     .contact{
       border: 1px solid rgba(255,255,255,.10);
@@ -465,7 +455,6 @@
       margin:0;
       font-size: 18px;
       letter-spacing: .01em;
-      text-transform: none;
       color: var(--text);
       display:flex;
       align-items:center;
@@ -475,7 +464,7 @@
 
     .contactHeader p{
       margin: 6px 0 0;
-      color: var(--muted);
+      color: rgba(168,179,214,1);
       max-width: 72ch;
       font-size: 14px;
     }
@@ -501,16 +490,9 @@
       gap: 12px;
       margin-top: 12px;
     }
+    @media (max-width: 760px){ form{ grid-template-columns: 1fr; } }
 
-    @media (max-width: 760px){
-      form{ grid-template-columns: 1fr; }
-    }
-
-    .field{
-      display:flex;
-      flex-direction:column;
-      gap: 7px;
-    }
+    .field{ display:flex; flex-direction:column; gap: 7px; }
 
     label{
       font-size: 12px;
@@ -549,10 +531,7 @@
       margin-top: 2px;
     }
 
-    .note{
-      color: rgba(168,179,214,.85);
-      font-size: 12px;
-    }
+    .note{ color: rgba(168,179,214,.85); font-size: 12px; }
 
     .submitBtn{
       display:inline-flex;
@@ -598,7 +577,7 @@
       flex-wrap:wrap;
       padding: 18px 26px 22px;
       border-top: 1px solid rgba(255,255,255,.08);
-      color: var(--muted);
+      color: rgba(168,179,214,1);
       font-size: 13px;
     }
 
@@ -672,6 +651,10 @@
               <i class="fa-solid fa-bolt" aria-hidden="true"></i> Request a Performance Audit
             </a>
 
+            <a class="btn" href="/services/performance-audit/" aria-label="View the performance audit service page">
+              <i class="fa-solid fa-file-lines" aria-hidden="true"></i> Service page
+            </a>
+
             <a class="btn" href="#audit" aria-label="See what you get in the audit">
               <i class="fa-solid fa-list-check" aria-hidden="true"></i> See what you get
             </a>
@@ -736,7 +719,6 @@
         </section>
       </div>
 
-      <!-- AUDIT VALUE SECTION -->
       <div class="auditWrap">
         <section id="audit" class="audit" aria-labelledby="audit-title">
           <h2 id="audit-title"><i class="fa-solid fa-list-check" aria-hidden="true"></i> What you get</h2>
@@ -762,7 +744,6 @@
         </section>
       </div>
 
-      <!-- CONTACT -->
       <div class="contactWrap">
         <section id="contact" class="contact" aria-labelledby="contact-title">
           <div class="contactHeader">
@@ -877,6 +858,7 @@
           <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
           <a href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Notion</a>
           <a href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
+          <a href="/services/performance-audit/"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Service</a>
         </div>
       </div>
 
