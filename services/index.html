@@ -97,6 +97,30 @@
   }
   </script>
 
+  <!-- Structured Data: ItemList (services list) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "@id":"https://carlleger.github.io/services/#servicelist",
+    "name":"Services",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"WooCommerce Performance Audit",
+        "url":"https://carlleger.github.io/services/performance-audit/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"WooCommerce Optimization",
+        "url":"https://carlleger.github.io/services/woocommerce-optimization/"
+      }
+    ]
+  }
+  </script>
+
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
@@ -333,11 +357,14 @@
         </p>
 
         <div class="ctaRow">
-          <a class="btn primary" href="/services/performance-audit/">
-            <i class="fa-solid fa-gauge-high" aria-hidden="true"></i> WooCommerce Performance Audit
-          </a>
-          <a class="btn" href="/#contact">
+          <a class="btn primary" href="/#contact">
             <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request a quote
+          </a>
+          <a class="btn" href="/services/performance-audit/">
+            <i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Performance Audit
+          </a>
+          <a class="btn" href="/services/woocommerce-optimization/">
+            <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> WooCommerce Optimization
           </a>
         </div>
       </header>
@@ -367,24 +394,25 @@
           </div>
         </section>
 
-        <!-- Service 2 (placeholder ready for later) -->
+        <!-- Service 2 -->
         <section class="service">
-          <h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Implementation and Optimization</h2>
+          <h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> WooCommerce Optimization</h2>
           <p>
-            If you want help beyond the audit, I can implement fixes safely with staging, validation, and rollback steps.
-            Ideal for checkout speed, CWV regressions, and caching configuration.
+            Implementation work to improve real-world speed: reduce TTFB, stabilize Core Web Vitals, optimize checkout,
+            fix plugin conflicts, and harden caching rules (Cloudflare/server) without breaking cart or sessions.
           </p>
           <div class="mini" aria-label="Topics">
+            <span class="tag"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Speed fixes</span>
             <span class="tag"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Production safe</span>
-            <span class="tag"><i class="fa-solid fa-database" aria-hidden="true"></i> DB hotspots</span>
-            <span class="tag"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Rollback</span>
+            <span class="tag"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Rollback plan</span>
+            <span class="tag"><i class="fa-solid fa-cookie-bite" aria-hidden="true"></i> Session safety</span>
           </div>
           <div class="ctaRow" style="margin-top:14px;">
-            <a class="btn" href="/#contact">
-              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact me
+            <a class="btn primary" href="/services/woocommerce-optimization/">
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View service page
             </a>
-            <a class="btn" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork
+            <a class="btn" href="/#contact">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request a quote
             </a>
           </div>
         </section>
