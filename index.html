@@ -15,18 +15,14 @@
   <meta name="theme-color" content="#0b1220">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <!-- Optional now (useful later when you add FR version) -->
   <link rel="alternate" hreflang="en" href="https://carlleger.github.io/" />
   <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/" />
 
-  <!-- Performance: preload your main image -->
   <link rel="preload" as="image" href="/avatar.png" imagesizes="190px" fetchpriority="high">
 
-  <!-- Preconnect for GA -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -83,7 +79,7 @@
   }
   </script>
 
-  <!-- Structured Data: WebPage (fits homepage intent better than Service) -->
+  <!-- Structured Data: WebPage -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -101,10 +97,8 @@
   }
   </script>
 
-  <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
-  <!-- Icons (Font Awesome) -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -177,6 +171,7 @@
       gap:12px;
       padding: 18px 18px 0;
       align-items:center;
+      flex-wrap:wrap;
     }
 
     .badge{
@@ -191,17 +186,16 @@
       font-size: 13px;
       white-space:nowrap;
     }
-
     .badge i{ color: var(--accent); }
 
-    .pillrow{
+    /* NEW: nav pills */
+    .navrow{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
-
-    .pill{
+    .navpill{
       display:inline-flex;
       align-items:center;
       gap:10px;
@@ -212,7 +206,7 @@
       font-size: 13px;
       color: var(--text);
     }
-    .pill i{ color: var(--accent); }
+    .navpill i{ color: var(--accent); }
 
     .hero{
       display:grid;
@@ -228,16 +222,11 @@
         text-align:center;
         padding: 22px 18px 10px;
       }
-      .pillrow{ justify-content:center; }
       .topbar{ flex-direction:column; align-items:flex-start; }
-      .pillrow{ width:100%; }
+      .navrow{ width:100%; justify-content:center; }
     }
 
-    .avatarWrap{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
+    .avatarWrap{ display:flex; justify-content:center; align-items:center; }
 
     .avatar{
       width: 190px;
@@ -248,7 +237,6 @@
       box-shadow:
         0 0 0 8px rgba(56,189,248,.08),
         0 25px 70px rgba(0,0,0,.45);
-      position:relative;
       background: rgba(0,0,0,.2);
     }
 
@@ -259,7 +247,6 @@
       object-position:center;
       display:block;
       transform: scale(1.02);
-      image-rendering: auto;
     }
 
     .title{
@@ -268,10 +255,7 @@
       margin: 0 0 10px;
       letter-spacing: -0.02em;
     }
-
-    @media (max-width: 760px){
-      .title{ font-size: 38px; }
-    }
+    @media (max-width: 760px){ .title{ font-size: 38px; } }
 
     .subtitle{
       margin: 0;
@@ -287,10 +271,7 @@
       flex-wrap:wrap;
       margin-top: 18px;
     }
-
-    @media (max-width:760px){
-      .ctaRow{ justify-content:center; }
-    }
+    @media (max-width:760px){ .ctaRow{ justify-content:center; } }
 
     .btn{
       display:inline-flex;
@@ -301,7 +282,7 @@
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.06);
       color: var(--text);
-      font-weight: 600;
+      font-weight: 650;
       font-size: 14px;
       transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
     }
@@ -316,10 +297,9 @@
       background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.85));
       border: 1px solid rgba(255,255,255,.20);
       color:#06101d;
+      font-weight: 850;
     }
     .btn.primary i{ color:#06101d; }
-
-    .btn.ghost{ background: rgba(255,255,255,.03); }
 
     .grid{
       display:grid;
@@ -327,10 +307,7 @@
       gap: 16px;
       padding: 18px 26px 10px;
     }
-
-    @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; padding: 16px 18px 10px; }
-    }
+    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; padding: 16px 18px 10px; } }
 
     .section{
       border: 1px solid rgba(255,255,255,.08);
@@ -349,12 +326,11 @@
       align-items:center;
       gap:10px;
     }
-
     .section h2 i{ color: var(--accent); }
 
-    ul{ margin: 0; padding-left: 18px; color: var(--text); }
+    ul{ margin: 0; padding-left: 18px; }
     li{ margin: 10px 0; color: rgba(168,179,214,1); line-height: 1.45; }
-    li b{ color: var(--text); font-weight: 700; }
+    li b{ color: var(--text); font-weight: 800; }
 
     .chips{
       display:flex;
@@ -381,6 +357,76 @@
       font-size: 13px;
       color: rgba(168,179,214,.9);
     }
+
+    /* NEW: services section */
+    .servicesWrap{ padding: 0 26px 18px; }
+    @media (max-width: 900px){ .servicesWrap{ padding: 0 18px 18px; } }
+
+    .services{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: 24px;
+      padding: 18px;
+    }
+    .services h2{
+      margin:0 0 10px;
+      font-size: 16px;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      color: #dbe4ff;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .services h2 i{ color: var(--accent); }
+
+    .svcGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    @media (max-width: 900px){ .svcGrid{ grid-template-columns: 1fr; } }
+
+    .svc{
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .svc h3{
+      margin:0 0 8px;
+      font-size: 15px;
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .svc h3 i{ color: var(--accent2); }
+    .svc p{
+      margin:0;
+      color: rgba(168,179,214,1);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .svc .mini{
+      margin-top: 10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      color: rgba(168,179,214,.9);
+      font-size: 12px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .tag i{ color: var(--accent); }
 
     .auditWrap{ padding: 0 26px 26px; }
     @media (max-width: 900px){ .auditWrap{ padding: 0 18px 22px; } }
@@ -542,7 +588,7 @@
       border: 1px solid rgba(255,255,255,.12);
       background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.85));
       color:#06101d;
-      font-weight: 800;
+      font-weight: 900;
       font-size: 14px;
       cursor:pointer;
       transition: transform .12s ease, opacity .12s ease;
@@ -559,16 +605,8 @@
       color: var(--text);
       font-size: 13px;
     }
-    .status.ok{
-      display:block;
-      border-color: rgba(34,197,94,.25);
-      background: rgba(34,197,94,.10);
-    }
-    .status.err{
-      display:block;
-      border-color: rgba(251,191,36,.25);
-      background: rgba(251,191,36,.10);
-    }
+    .status.ok{ display:block; border-color: rgba(34,197,94,.25); background: rgba(34,197,94,.10); }
+    .status.err{ display:block; border-color: rgba(251,191,36,.25); background: rgba(251,191,36,.10); }
 
     .footer{
       display:flex;
@@ -625,10 +663,11 @@
           Performance • Core Web Vitals • WooCommerce
         </div>
 
-        <div class="pillrow">
-          <div class="pill"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Speed</div>
-          <div class="pill"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Security</div>
-          <div class="pill"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> CRO</div>
+        <!-- UPDATED: nav -->
+        <div class="navrow" aria-label="Primary navigation">
+          <a class="navpill" href="/services/"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services</a>
+          <a class="navpill" href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
+          <a class="navpill" href="#contact"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact</a>
         </div>
       </div>
 
@@ -642,21 +681,22 @@
         <div>
           <h1 class="title">Carl Leger</h1>
           <p class="subtitle">
-            Freelance WordPress & WooCommerce performance specialist focused on speed, optimization,
-            Core Web Vitals, and scalable production setups.
+            Freelance WordPress & WooCommerce performance specialist focused on speed, Core Web Vitals,
+            and production-safe rollouts (checkout and revenue first).
           </p>
 
           <div class="ctaRow">
-            <a class="btn primary" href="#contact" aria-label="Request a performance audit">
-              <i class="fa-solid fa-bolt" aria-hidden="true"></i> Request a Performance Audit
+            <!-- UPDATED: primary CTA to money page -->
+            <a class="btn primary" href="/services/woocommerce-optimization/" aria-label="View WooCommerce optimization service page">
+              <i class="fa-solid fa-bolt" aria-hidden="true"></i> WooCommerce Optimization
             </a>
 
             <a class="btn" href="/services/performance-audit/" aria-label="View the performance audit service page">
-              <i class="fa-solid fa-file-lines" aria-hidden="true"></i> Service page
+              <i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Performance Audit
             </a>
 
-            <a class="btn" href="#audit" aria-label="See what you get in the audit">
-              <i class="fa-solid fa-list-check" aria-hidden="true"></i> See what you get
+            <a class="btn" href="#services" aria-label="See services">
+              <i class="fa-solid fa-list-check" aria-hidden="true"></i> Services
             </a>
 
             <a class="btn" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer">
@@ -679,7 +719,7 @@
               <i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources
             </a>
 
-            <a class="btn ghost" href="https://github.com/CarlLeger" target="_blank" rel="noopener noreferrer">
+            <a class="btn" href="https://github.com/CarlLeger" target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
             </a>
           </div>
@@ -696,10 +736,11 @@
           <h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> What I Do</h2>
           <ul>
             <li><b>WooCommerce speed optimization</b> (CWV, TTFB, caching, query reduction)</li>
-            <li><b>Cloudflare configuration</b> + WooCommerce-safe caching rules</li>
-            <li><b>Troubleshooting</b> (slow wp-admin, plugin conflicts, heavy scripts, DB issues)</li>
-            <li><b>Security hardening</b> + malware cleanup & prevention</li>
+            <li><b>Checkout troubleshooting</b> (payment gateways, fragments, heavy scripts)</li>
+            <li><b>WooCommerce-safe caching</b> (Cloudflare/server cache boundaries)</li>
+            <li><b>Troubleshooting</b> (slow wp-admin, plugin conflicts, DB hotspots)</li>
           </ul>
+          <div class="micro">Goal: faster checkout + stable deployments.</div>
         </section>
 
         <section class="section">
@@ -719,6 +760,64 @@
         </section>
       </div>
 
+      <!-- NEW: SERVICES SECTION -->
+      <div class="servicesWrap" id="services">
+        <section class="services" aria-labelledby="services-title">
+          <h2 id="services-title"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services</h2>
+
+          <div class="svcGrid">
+            <article class="svc">
+              <h3><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> WooCommerce Performance Audit</h3>
+              <p>
+                Deep audit focused on Core Web Vitals, TTFB, checkout speed, caching safety, and bottleneck mapping.
+                You get a prioritized plan with quick wins + rollout steps.
+              </p>
+              <div class="mini">
+                <span class="tag"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> TTFB</span>
+                <span class="tag"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> CWV</span>
+                <span class="tag"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout</span>
+                <span class="tag"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Cache safety</span>
+              </div>
+              <div class="ctaRow">
+                <a class="btn primary" href="/services/performance-audit/">
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View audit page
+                </a>
+                <a class="btn" href="#contact" onclick="document.getElementById('project').value='Performance audit (recommended)';">
+                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request audit
+                </a>
+              </div>
+            </article>
+
+            <article class="svc">
+              <h3><i class="fa-solid fa-bolt" aria-hidden="true"></i> WooCommerce Optimization</h3>
+              <p>
+                Implementation phase: production-safe fixes for CWV, TTFB, and checkout performance.
+                Staging validation + rollback plan included.
+              </p>
+              <div class="mini">
+                <span class="tag"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Safe rollouts</span>
+                <span class="tag"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Faster checkout</span>
+                <span class="tag"><i class="fa-solid fa-database" aria-hidden="true"></i> DB hotspots</span>
+                <span class="tag"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Cache boundaries</span>
+              </div>
+              <div class="ctaRow">
+                <a class="btn primary" href="/services/woocommerce-optimization/">
+                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View optimization page
+                </a>
+                <a class="btn" href="#contact" onclick="document.getElementById('project').value='WordPress/WooCommerce optimization';">
+                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request optimization
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="micro">
+            Not sure which one you need? Start with the audit. If you already have strong data, we can go straight to implementation.
+          </div>
+        </section>
+      </div>
+
+      <!-- Keep your "What you get" section (still useful) -->
       <div class="auditWrap">
         <section id="audit" class="audit" aria-labelledby="audit-title">
           <h2 id="audit-title"><i class="fa-solid fa-list-check" aria-hidden="true"></i> What you get</h2>
@@ -748,7 +847,7 @@
         <section id="contact" class="contact" aria-labelledby="contact-title">
           <div class="contactHeader">
             <div>
-              <h2 id="contact-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Request a Performance Audit</h2>
+              <h2 id="contact-title"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request a quote</h2>
               <p>
                 Tell me what’s slowing your site down. I’ll reply within 24 hours with the best next step.
                 (No spam, no fluff.)
@@ -779,10 +878,10 @@
               <label for="project">Project type</label>
               <select id="project" name="project_type" required>
                 <option value="" selected disabled>Select one</option>
-                <option value="Performance audit (recommended)">Performance audit (recommended)</option>
                 <option value="WordPress/WooCommerce optimization">WordPress/WooCommerce optimization</option>
+                <option value="Performance audit (recommended)">Performance audit (recommended)</option>
+                <option value="Checkout troubleshooting">Checkout troubleshooting</option>
                 <option value="SEO & analytics consulting">SEO & analytics consulting</option>
-                <option value="Create a website (new site or redesign)">Create a website (new site or redesign)</option>
               </select>
             </div>
 
@@ -825,7 +924,7 @@
               <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, plugin conflicts, etc." required></textarea>
             </div>
 
-            <input type="hidden" name="_subject" value="New Lead — CarlLeger.github.io (Performance Audit)">
+            <input type="hidden" name="_subject" value="New Lead — CarlLeger.github.io (Home)">
             <input type="hidden" name="_template" value="table">
 
             <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off">
@@ -853,12 +952,13 @@
       <div class="footer">
         <div>© <span id="year"></span> Carl Leger</div>
         <div class="links">
+          <a href="/services/"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services</a>
+          <a href="/services/woocommerce-optimization/"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Optimization</a>
+          <a href="/services/performance-audit/"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Audit</a>
+          <a href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
           <a href="mailto:carlleger.dev@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
           <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
           <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
-          <a href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Notion</a>
-          <a href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
-          <a href="/services/performance-audit/"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Service</a>
         </div>
       </div>
 
@@ -902,6 +1002,7 @@
 
       const website = (data.get("website") || "").toString().trim();
       const message = (data.get("message") || "").toString().trim();
+      const chosenType = (data.get("project_type") || "").toString();
 
       if (!website.startsWith("http")) {
         statusBox.className = "status err";
@@ -935,7 +1036,7 @@
           if (typeof gtag === "function") {
             gtag("event", "lead_submit", {
               event_category: "form",
-              event_label: "performance_audit"
+              event_label: chosenType || "home"
             });
           }
         } else {
