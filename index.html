@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carl Leger — WordPress & WooCommerce Performance Specialist</title>
 
-  <meta name='impact-site-verification' content='81c8de61-5fd4-4865-8d6f-5352debc98dc'>
+  <meta name="impact-site-verification" content="81c8de61-5fd4-4865-8d6f-5352debc98dc">
   <meta name="description" content="Freelance WordPress & WooCommerce performance specialist focused on speed, Core Web Vitals, and scalable production setups." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://carlleger.github.io/" />
+  <meta name="theme-color" content="#0b1220">
+
+  <!-- Performance: preload your main image -->
+  <link rel="preload" as="image" href="/avatar.png" imagesizes="190px">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
@@ -25,11 +29,31 @@
   <meta property="og:url" content="https://carlleger.github.io/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Carl Leger" />
+  <!-- Add this file to your repo: /assets/og/og.png (1200x630) -->
+  <meta property="og:image" content="https://carlleger.github.io/assets/og/og.png" />
 
   <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Carl Leger — WordPress & WooCommerce Performance" />
   <meta name="twitter:description" content="Speed, Core Web Vitals, WooCommerce-safe caching, and checkout troubleshooting." />
+  <meta name="twitter:image" content="https://carlleger.github.io/assets/og/og.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Carl Leger",
+    "jobTitle":"WordPress & WooCommerce Performance Specialist",
+    "url":"https://carlleger.github.io/",
+    "image":"https://carlleger.github.io/avatar.png",
+    "sameAs":[
+      "https://www.linkedin.com/in/carlleger/",
+      "https://github.com/CarlLeger",
+      "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
+    ]
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
@@ -257,11 +281,11 @@
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      padding: 18px 26px 26px;
+      padding: 18px 26px 10px;
     }
 
     @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; padding: 16px 18px 22px; }
+      .grid{ grid-template-columns: 1fr; padding: 16px 18px 10px; }
     }
 
     .section{
@@ -317,6 +341,61 @@
       margin-top: 10px;
       font-size: 13px;
       color: rgba(168,179,214,.9);
+    }
+
+    /* AUDIT SECTION */
+    .auditWrap{
+      padding: 0 26px 26px;
+    }
+    @media (max-width: 900px){
+      .auditWrap{ padding: 0 18px 22px; }
+    }
+    .audit{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: 24px;
+      padding: 18px;
+    }
+    .audit h2{
+      margin:0 0 10px;
+      font-size: 16px;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      color: #dbe4ff;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .audit h2 i{ color: var(--accent); }
+    .audit .cols{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+    @media (max-width: 900px){
+      .audit .cols{ grid-template-columns: 1fr; }
+    }
+    .auditBox{
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .auditBox h3{
+      margin:0 0 8px;
+      font-size: 14px;
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .auditBox h3 i{ color: var(--accent2); }
+    .auditBox p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
     }
 
     /* CONTACT SECTION */
@@ -436,6 +515,8 @@
       font-size: 12px;
     }
 
+    .note a{ text-decoration: underline; }
+
     .submitBtn{
       display:inline-flex;
       align-items:center;
@@ -538,7 +619,7 @@
       <div class="hero">
         <div class="avatarWrap">
           <div class="avatar" aria-label="Carl Leger portrait">
-            <img src="avatar.png" alt="Carl Leger" loading="lazy" decoding="async" />
+            <img src="avatar.png" alt="Carl Leger" loading="eager" fetchpriority="high" decoding="async" />
           </div>
         </div>
 
@@ -552,6 +633,10 @@
           <div class="ctaRow">
             <a class="btn primary" href="#contact">
               <i class="fa-solid fa-bolt" aria-hidden="true"></i> Request a Performance Audit
+            </a>
+
+            <a class="btn" href="#audit">
+              <i class="fa-solid fa-list-check" aria-hidden="true"></i> See what you get
             </a>
 
             <a class="btn" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener">
@@ -581,7 +666,7 @@
 
           <div class="micro">
             <i class="fa-solid fa-circle-check" style="color: var(--good);" aria-hidden="true"></i>
-            Available for performance audits, implementation, and ongoing optimization.
+            No obligation. If I’m not the right fit, I’ll tell you quickly.
           </div>
         </div>
       </div>
@@ -610,6 +695,32 @@
           </div>
           <div class="micro">
             Focus: measurable gains, documented changes, and production-safe rollouts.
+          </div>
+        </section>
+      </div>
+
+      <!-- AUDIT VALUE SECTION -->
+      <div class="auditWrap">
+        <section id="audit" class="audit" aria-labelledby="audit-title">
+          <h2 id="audit-title"><i class="fa-solid fa-list-check" aria-hidden="true"></i> What you get</h2>
+          <div class="cols">
+            <div class="auditBox">
+              <h3><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> Audit deliverables</h3>
+              <p>
+                A prioritized action plan, quick wins, performance bottlenecks (CWV, TTFB, long tasks),
+                and a clear next step for implementation.
+              </p>
+            </div>
+            <div class="auditBox">
+              <h3><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> WooCommerce-safe approach</h3>
+              <p>
+                Checkout-safe caching guidance, plugin conflict triage, database hotspots, and
+                production-safe rollout recommendations.
+              </p>
+            </div>
+          </div>
+          <div class="micro">
+            Typical goals: faster checkout, cleaner CWV, lower TTFB, fewer regressions after updates.
           </div>
         </section>
       </div>
@@ -668,20 +779,55 @@
               </select>
             </div>
 
+            <!-- Optional qualifiers (helps you prioritize serious leads) -->
+            <div class="field">
+              <label for="budget">Budget (optional)</label>
+              <select id="budget" name="budget">
+                <option value="" selected>Prefer not to say</option>
+                <option value="< $1k">< $1k</option>
+                <option value="$1k–$3k">$1k–$3k</option>
+                <option value="$3k–$10k">$3k–$10k</option>
+                <option value="$10k+">$10k+</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="platform">Hosting (optional)</label>
+              <select id="platform" name="hosting">
+                <option value="" selected>Prefer not to say</option>
+                <option value="Cloudways">Cloudways</option>
+                <option value="Kinsta">Kinsta</option>
+                <option value="WP Engine">WP Engine</option>
+                <option value="SiteGround">SiteGround</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
             <div class="field full">
               <label for="message">What’s the main issue?</label>
               <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, plugin conflicts, etc." required></textarea>
             </div>
 
-            <!-- optional: helps you on Formspree inbox -->
+            <!-- Email formatting + subject -->
             <input type="hidden" name="_subject" value="New Lead — CarlLeger.github.io (Performance Audit)">
-            <!-- optional: basic anti-bot honey pot -->
+            <input type="hidden" name="_template" value="table">
+
+            <!-- Honeypot (Formspree) -->
             <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off">
+
+            <!-- Extra honeypot -->
+            <div class="sr-only">
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+            </div>
 
             <div id="formStatus" class="status" role="status" aria-live="polite"></div>
 
             <div class="formRow">
-              <div class="note">By submitting, you agree to be contacted about this request.</div>
+              <div class="note">
+                By submitting, you agree to be contacted about this request.
+                I only use your info to respond.
+              </div>
               <button class="submitBtn" type="submit">
                 <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send request
               </button>
@@ -707,17 +853,59 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Nice UX: AJAX submit + GA4 event
     const form = document.getElementById("auditForm");
     const statusBox = document.getElementById("formStatus");
 
+    // Anti-bot timing: require a minimum time before submit
+    let formStartTime = Date.now();
+
+    // Start timer when user interacts with the form (more accurate than page load)
+    form.addEventListener("focusin", () => {
+      if (!form.dataset.started) {
+        form.dataset.started = "1";
+        formStartTime = Date.now();
+      }
+    });
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      // 1) Time-trap (bots submit too fast)
+      const secondsSpent = (Date.now() - formStartTime) / 1000;
+      if (secondsSpent < 3) {
+        statusBox.className = "status err";
+        statusBox.textContent = "Submission blocked. Please try again.";
+        statusBox.style.display = "block";
+        return;
+      }
+
+      // 2) Honeypot check (if filled => likely bot)
+      const company = form.querySelector("#company")?.value?.trim();
+      if (company) return;
+
       statusBox.className = "status";
       statusBox.textContent = "Sending...";
       statusBox.style.display = "block";
 
       const data = new FormData(form);
+
+      // 3) Light validation (quality + anti-spam)
+      const website = (data.get("website") || "").toString().trim();
+      const message = (data.get("message") || "").toString().trim();
+
+      if (!website.startsWith("http")) {
+        statusBox.className = "status err";
+        statusBox.textContent = "Please enter a valid website URL (include https://).";
+        statusBox.style.display = "block";
+        return;
+      }
+
+      if (message.length < 20) {
+        statusBox.className = "status err";
+        statusBox.textContent = "Please provide a bit more detail (at least 20 characters).";
+        statusBox.style.display = "block";
+        return;
+      }
 
       try{
         const res = await fetch(form.action, {
@@ -728,10 +916,13 @@
 
         if(res.ok){
           form.reset();
+          formStartTime = Date.now();
+          delete form.dataset.started;
+
           statusBox.className = "status ok";
           statusBox.textContent = "Thanks! Your request was sent. I’ll reply within 24 hours.";
 
-          // GA4 event (safe)
+          // GA4 event
           if (typeof gtag === "function") {
             gtag("event", "lead_submit", {
               event_category: "form",
