@@ -10,19 +10,28 @@
   <meta name="description" content="Freelance WordPress & WooCommerce performance specialist focused on speed, Core Web Vitals, and scalable production setups." />
   <meta name="author" content="Carl Leger" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="color-scheme" content="dark">
+  <meta name="format-detection" content="telephone=no">
 
   <link rel="canonical" href="https://carlleger.github.io/" />
-  <meta name="theme-color" content="#0b1220">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-
   <link rel="alternate" hreflang="en" href="https://carlleger.github.io/" />
   <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/" />
 
+  <!-- Preload the hero image (match the actual image path) -->
   <link rel="preload" as="image" href="/avatar.png" imagesizes="190px" fetchpriority="high">
 
+  <!-- Preconnect for GA -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
 
+  <!-- Font Awesome -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -39,13 +48,14 @@
   <meta property="og:site_name" content="Carl Leger" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:image" content="https://carlleger.github.io/assets/og/og.png" />
+  <meta property="og:image:secure_url" content="https://carlleger.github.io/assets/og/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Carl Leger — WordPress & WooCommerce Performance Specialist" />
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Carl Leger — WordPress & WooCommerce Performance" />
+  <meta name="twitter:title" content="Carl Leger — WordPress & WooCommerce Performance Specialist" />
   <meta name="twitter:description" content="Speed, Core Web Vitals, WooCommerce-safe caching, and checkout troubleshooting." />
   <meta name="twitter:image" content="https://carlleger.github.io/assets/og/og.png" />
 
@@ -99,9 +109,6 @@
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <style>
     :root{
       --bg1:#0b1220;
@@ -150,6 +157,20 @@
       border-radius: 12px;
     }
 
+    /* Skip link (a11y) */
+    .skip{
+      position:absolute;
+      left:-999px;
+      top:10px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      padding:10px 12px;
+      border-radius: 12px;
+      color: var(--text);
+      z-index: 9999;
+    }
+    .skip:focus{ left: 12px; }
+
     .wrap{
       max-width: 980px;
       margin: 0 auto;
@@ -165,7 +186,7 @@
       position:relative;
     }
 
-    .topbar{
+    header.topbar{
       display:flex;
       justify-content:space-between;
       gap:12px;
@@ -188,8 +209,7 @@
     }
     .badge i{ color: var(--accent); }
 
-    /* NEW: nav pills */
-    .navrow{
+    nav.navrow{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
@@ -222,8 +242,8 @@
         text-align:center;
         padding: 22px 18px 10px;
       }
-      .topbar{ flex-direction:column; align-items:flex-start; }
-      .navrow{ width:100%; justify-content:center; }
+      header.topbar{ flex-direction:column; align-items:flex-start; }
+      nav.navrow{ width:100%; justify-content:center; }
     }
 
     .avatarWrap{ display:flex; justify-content:center; align-items:center; }
@@ -358,7 +378,6 @@
       color: rgba(168,179,214,.9);
     }
 
-    /* NEW: services section */
     .servicesWrap{ padding: 0 26px 18px; }
     @media (max-width: 900px){ .servicesWrap{ padding: 0 18px 18px; } }
 
@@ -608,7 +627,7 @@
     .status.ok{ display:block; border-color: rgba(34,197,94,.25); background: rgba(34,197,94,.10); }
     .status.err{ display:block; border-color: rgba(251,191,36,.25); background: rgba(251,191,36,.10); }
 
-    .footer{
+    footer.footer{
       display:flex;
       justify-content:space-between;
       gap:12px;
@@ -654,304 +673,306 @@
 </head>
 
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <div class="wrap">
     <div class="card">
 
-      <div class="topbar">
+      <header class="topbar">
         <div class="badge">
           <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
           Performance • Core Web Vitals • WooCommerce
         </div>
 
-        <!-- UPDATED: nav -->
-        <div class="navrow" aria-label="Primary navigation">
+        <nav class="navrow" aria-label="Primary">
           <a class="navpill" href="/services/"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services</a>
           <a class="navpill" href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
           <a class="navpill" href="#contact"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact</a>
+        </nav>
+      </header>
+
+      <main id="main">
+        <section class="hero" aria-label="Intro">
+          <div class="avatarWrap">
+            <div class="avatar" aria-label="Carl Leger portrait">
+              <img src="/avatar.png" alt="Carl Leger" width="190" height="190" loading="eager" fetchpriority="high" decoding="async" />
+            </div>
+          </div>
+
+          <div>
+            <h1 class="title">Carl Leger</h1>
+            <p class="subtitle">
+              Freelance WordPress & WooCommerce performance specialist focused on speed, Core Web Vitals,
+              and production-safe rollouts (checkout and revenue first).
+            </p>
+
+            <div class="ctaRow" aria-label="Primary actions">
+              <a class="btn primary" href="/services/woocommerce-optimization/" aria-label="View WooCommerce optimization service page">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i> WooCommerce Optimization
+              </a>
+
+              <a class="btn" href="/services/performance-audit/" aria-label="View the performance audit service page">
+                <i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Performance Audit
+              </a>
+
+              <a class="btn" href="#services" aria-label="See services">
+                <i class="fa-solid fa-list-check" aria-hidden="true"></i> Services
+              </a>
+
+              <a class="btn" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Hire me on Upwork
+              </a>
+
+              <a class="btn" href="mailto:carlleger.dev@gmail.com">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email me
+              </a>
+
+              <a class="btn" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+              </a>
+
+              <a class="btn" href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Portfolio (Notion)
+              </a>
+
+              <a class="btn" href="/resources/">
+                <i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources
+              </a>
+
+              <a class="btn" href="https://github.com/CarlLeger" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+              </a>
+            </div>
+
+            <div class="micro">
+              <i class="fa-solid fa-circle-check" style="color: var(--good);" aria-hidden="true"></i>
+              No obligation. If I’m not the right fit, I’ll tell you quickly.
+            </div>
+          </div>
+        </section>
+
+        <div class="grid">
+          <section class="section" aria-labelledby="what-i-do">
+            <h2 id="what-i-do"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> What I Do</h2>
+            <ul>
+              <li><b>WooCommerce speed optimization</b> (CWV, TTFB, caching, query reduction)</li>
+              <li><b>Checkout troubleshooting</b> (payment gateways, fragments, heavy scripts)</li>
+              <li><b>WooCommerce-safe caching</b> (Cloudflare/server cache boundaries)</li>
+              <li><b>Troubleshooting</b> (slow wp-admin, plugin conflicts, DB hotspots)</li>
+            </ul>
+            <div class="micro">Goal: faster checkout + stable deployments.</div>
+          </section>
+
+          <section class="section" aria-labelledby="tech-stack">
+            <h2 id="tech-stack"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Tech Stack</h2>
+            <div class="chips">
+              <span class="chip"><i class="fa-brands fa-wordpress" aria-hidden="true"></i> WordPress</span>
+              <span class="chip"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> WooCommerce</span>
+              <span class="chip"><i class="fa-brands fa-php" aria-hidden="true"></i> PHP</span>
+              <span class="chip"><i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript</span>
+              <span class="chip"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Cloudflare</span>
+              <span class="chip"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</span>
+              <span class="chip"><i class="fa-solid fa-terminal" aria-hidden="true"></i> WP-CLI</span>
+            </div>
+            <div class="micro">
+              Focus: measurable gains, documented changes, and production-safe rollouts.
+            </div>
+          </section>
         </div>
-      </div>
 
-      <div class="hero">
-        <div class="avatarWrap">
-          <div class="avatar" aria-label="Carl Leger portrait">
-            <img src="avatar.png" alt="Carl Leger" width="190" height="190" loading="eager" fetchpriority="high" decoding="async" />
-          </div>
+        <div class="servicesWrap" id="services">
+          <section class="services" aria-labelledby="services-title">
+            <h2 id="services-title"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services</h2>
+
+            <div class="svcGrid">
+              <article class="svc">
+                <h3><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> WooCommerce Performance Audit</h3>
+                <p>
+                  Deep audit focused on Core Web Vitals, TTFB, checkout speed, caching safety, and bottleneck mapping.
+                  You get a prioritized plan with quick wins + rollout steps.
+                </p>
+                <div class="mini">
+                  <span class="tag"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> TTFB</span>
+                  <span class="tag"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> CWV</span>
+                  <span class="tag"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout</span>
+                  <span class="tag"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Cache safety</span>
+                </div>
+                <div class="ctaRow">
+                  <a class="btn primary" href="/services/performance-audit/">
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View audit page
+                  </a>
+                  <a class="btn" href="#contact" data-preset="Performance audit (recommended)">
+                    <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request audit
+                  </a>
+                </div>
+              </article>
+
+              <article class="svc">
+                <h3><i class="fa-solid fa-bolt" aria-hidden="true"></i> WooCommerce Optimization</h3>
+                <p>
+                  Implementation phase: production-safe fixes for CWV, TTFB, and checkout performance.
+                  Staging validation + rollback plan included.
+                </p>
+                <div class="mini">
+                  <span class="tag"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Safe rollouts</span>
+                  <span class="tag"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Faster checkout</span>
+                  <span class="tag"><i class="fa-solid fa-database" aria-hidden="true"></i> DB hotspots</span>
+                  <span class="tag"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Cache boundaries</span>
+                </div>
+                <div class="ctaRow">
+                  <a class="btn primary" href="/services/woocommerce-optimization/">
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View optimization page
+                  </a>
+                  <a class="btn" href="#contact" data-preset="WordPress/WooCommerce optimization">
+                    <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request optimization
+                  </a>
+                </div>
+              </article>
+            </div>
+
+            <div class="micro">
+              Not sure which one you need? Start with the audit. If you already have strong data, we can go straight to implementation.
+            </div>
+          </section>
         </div>
 
-        <div>
-          <h1 class="title">Carl Leger</h1>
-          <p class="subtitle">
-            Freelance WordPress & WooCommerce performance specialist focused on speed, Core Web Vitals,
-            and production-safe rollouts (checkout and revenue first).
-          </p>
-
-          <div class="ctaRow">
-            <!-- UPDATED: primary CTA to money page -->
-            <a class="btn primary" href="/services/woocommerce-optimization/" aria-label="View WooCommerce optimization service page">
-              <i class="fa-solid fa-bolt" aria-hidden="true"></i> WooCommerce Optimization
-            </a>
-
-            <a class="btn" href="/services/performance-audit/" aria-label="View the performance audit service page">
-              <i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Performance Audit
-            </a>
-
-            <a class="btn" href="#services" aria-label="See services">
-              <i class="fa-solid fa-list-check" aria-hidden="true"></i> Services
-            </a>
-
-            <a class="btn" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Hire me on Upwork
-            </a>
-
-            <a class="btn" href="mailto:carlleger.dev@gmail.com">
-              <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email me
-            </a>
-
-            <a class="btn" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
-            </a>
-
-            <a class="btn" href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener noreferrer">
-              <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Portfolio (Notion)
-            </a>
-
-            <a class="btn" href="/resources/">
-              <i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources
-            </a>
-
-            <a class="btn" href="https://github.com/CarlLeger" target="_blank" rel="noopener noreferrer">
-              <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
-            </a>
-          </div>
-
-          <div class="micro">
-            <i class="fa-solid fa-circle-check" style="color: var(--good);" aria-hidden="true"></i>
-            No obligation. If I’m not the right fit, I’ll tell you quickly.
-          </div>
+        <div class="auditWrap">
+          <section id="audit" class="audit" aria-labelledby="audit-title">
+            <h2 id="audit-title"><i class="fa-solid fa-list-check" aria-hidden="true"></i> What you get</h2>
+            <div class="cols">
+              <div class="auditBox">
+                <h3><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> Audit deliverables</h3>
+                <p>
+                  A prioritized action plan, quick wins, performance bottlenecks (CWV, TTFB, long tasks),
+                  and a clear next step for implementation.
+                </p>
+              </div>
+              <div class="auditBox">
+                <h3><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> WooCommerce-safe approach</h3>
+                <p>
+                  Checkout-safe caching guidance, plugin conflict triage, database hotspots, and
+                  production-safe rollout recommendations.
+                </p>
+              </div>
+            </div>
+            <div class="micro">
+              Typical goals: faster checkout, cleaner CWV, lower TTFB, fewer regressions after updates.
+            </div>
+          </section>
         </div>
-      </div>
 
-      <div class="grid">
-        <section class="section">
-          <h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> What I Do</h2>
-          <ul>
-            <li><b>WooCommerce speed optimization</b> (CWV, TTFB, caching, query reduction)</li>
-            <li><b>Checkout troubleshooting</b> (payment gateways, fragments, heavy scripts)</li>
-            <li><b>WooCommerce-safe caching</b> (Cloudflare/server cache boundaries)</li>
-            <li><b>Troubleshooting</b> (slow wp-admin, plugin conflicts, DB hotspots)</li>
-          </ul>
-          <div class="micro">Goal: faster checkout + stable deployments.</div>
-        </section>
-
-        <section class="section">
-          <h2><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Tech Stack</h2>
-          <div class="chips">
-            <span class="chip"><i class="fa-brands fa-wordpress" aria-hidden="true"></i> WordPress</span>
-            <span class="chip"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> WooCommerce</span>
-            <span class="chip"><i class="fa-brands fa-php" aria-hidden="true"></i> PHP</span>
-            <span class="chip"><i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript</span>
-            <span class="chip"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Cloudflare</span>
-            <span class="chip"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</span>
-            <span class="chip"><i class="fa-solid fa-terminal" aria-hidden="true"></i> WP-CLI</span>
-          </div>
-          <div class="micro">
-            Focus: measurable gains, documented changes, and production-safe rollouts.
-          </div>
-        </section>
-      </div>
-
-      <!-- NEW: SERVICES SECTION -->
-      <div class="servicesWrap" id="services">
-        <section class="services" aria-labelledby="services-title">
-          <h2 id="services-title"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services</h2>
-
-          <div class="svcGrid">
-            <article class="svc">
-              <h3><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> WooCommerce Performance Audit</h3>
-              <p>
-                Deep audit focused on Core Web Vitals, TTFB, checkout speed, caching safety, and bottleneck mapping.
-                You get a prioritized plan with quick wins + rollout steps.
-              </p>
-              <div class="mini">
-                <span class="tag"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> TTFB</span>
-                <span class="tag"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> CWV</span>
-                <span class="tag"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout</span>
-                <span class="tag"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Cache safety</span>
+        <div class="contactWrap">
+          <section id="contact" class="contact" aria-labelledby="contact-title">
+            <div class="contactHeader">
+              <div>
+                <h2 id="contact-title"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request a quote</h2>
+                <p>
+                  Tell me what’s slowing your site down. I’ll reply within 24 hours with the best next step.
+                  (No spam, no fluff.)
+                </p>
               </div>
-              <div class="ctaRow">
-                <a class="btn primary" href="/services/performance-audit/">
-                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View audit page
-                </a>
-                <a class="btn" href="#contact" onclick="document.getElementById('project').value='Performance audit (recommended)';">
-                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request audit
-                </a>
+              <div class="contactHint">
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Response in 24h
               </div>
-            </article>
+            </div>
 
-            <article class="svc">
-              <h3><i class="fa-solid fa-bolt" aria-hidden="true"></i> WooCommerce Optimization</h3>
-              <p>
-                Implementation phase: production-safe fixes for CWV, TTFB, and checkout performance.
-                Staging validation + rollback plan included.
-              </p>
-              <div class="mini">
-                <span class="tag"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Safe rollouts</span>
-                <span class="tag"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Faster checkout</span>
-                <span class="tag"><i class="fa-solid fa-database" aria-hidden="true"></i> DB hotspots</span>
-                <span class="tag"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Cache boundaries</span>
+            <form id="auditForm" action="https://formspree.io/f/mwvlenpe" method="POST" novalidate>
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
               </div>
-              <div class="ctaRow">
-                <a class="btn primary" href="/services/woocommerce-optimization/">
-                  <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View optimization page
-                </a>
-                <a class="btn" href="#contact" onclick="document.getElementById('project').value='WordPress/WooCommerce optimization';">
-                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request optimization
-                </a>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
               </div>
-            </article>
-          </div>
 
-          <div class="micro">
-            Not sure which one you need? Start with the audit. If you already have strong data, we can go straight to implementation.
-          </div>
-        </section>
-      </div>
-
-      <!-- Keep your "What you get" section (still useful) -->
-      <div class="auditWrap">
-        <section id="audit" class="audit" aria-labelledby="audit-title">
-          <h2 id="audit-title"><i class="fa-solid fa-list-check" aria-hidden="true"></i> What you get</h2>
-          <div class="cols">
-            <div class="auditBox">
-              <h3><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> Audit deliverables</h3>
-              <p>
-                A prioritized action plan, quick wins, performance bottlenecks (CWV, TTFB, long tasks),
-                and a clear next step for implementation.
-              </p>
-            </div>
-            <div class="auditBox">
-              <h3><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> WooCommerce-safe approach</h3>
-              <p>
-                Checkout-safe caching guidance, plugin conflict triage, database hotspots, and
-                production-safe rollout recommendations.
-              </p>
-            </div>
-          </div>
-          <div class="micro">
-            Typical goals: faster checkout, cleaner CWV, lower TTFB, fewer regressions after updates.
-          </div>
-        </section>
-      </div>
-
-      <div class="contactWrap">
-        <section id="contact" class="contact" aria-labelledby="contact-title">
-          <div class="contactHeader">
-            <div>
-              <h2 id="contact-title"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request a quote</h2>
-              <p>
-                Tell me what’s slowing your site down. I’ll reply within 24 hours with the best next step.
-                (No spam, no fluff.)
-              </p>
-            </div>
-            <div class="contactHint">
-              <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Response in 24h
-            </div>
-          </div>
-
-          <form id="auditForm" action="https://formspree.io/f/mwvlenpe" method="POST">
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
-            </div>
-
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
-            </div>
-
-            <div class="field full">
-              <label for="site">Website URL</label>
-              <input id="site" name="website" type="url" placeholder="https://example.com" required>
-            </div>
-
-            <div class="field">
-              <label for="project">Project type</label>
-              <select id="project" name="project_type" required>
-                <option value="" selected disabled>Select one</option>
-                <option value="WordPress/WooCommerce optimization">WordPress/WooCommerce optimization</option>
-                <option value="Performance audit (recommended)">Performance audit (recommended)</option>
-                <option value="Checkout troubleshooting">Checkout troubleshooting</option>
-                <option value="SEO & analytics consulting">SEO & analytics consulting</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="timeline">Timeline</label>
-              <select id="timeline" name="timeline" required>
-                <option value="" selected disabled>Select one</option>
-                <option value="ASAP">ASAP</option>
-                <option value="This week">This week</option>
-                <option value="This month">This month</option>
-                <option value="Flexible">Flexible</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="budget">Budget (optional)</label>
-              <select id="budget" name="budget">
-                <option value="" selected>Prefer not to say</option>
-                <option value="< $1k">< $1k</option>
-                <option value="$1k–$3k">$1k–$3k</option>
-                <option value="$3k–$10k">$3k–$10k</option>
-                <option value="$10k+">$10k+</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="platform">Hosting (optional)</label>
-              <select id="platform" name="hosting">
-                <option value="" selected>Prefer not to say</option>
-                <option value="Cloudways">Cloudways</option>
-                <option value="Kinsta">Kinsta</option>
-                <option value="WP Engine">WP Engine</option>
-                <option value="SiteGround">SiteGround</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-
-            <div class="field full">
-              <label for="message">What’s the main issue?</label>
-              <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, plugin conflicts, etc." required></textarea>
-            </div>
-
-            <input type="hidden" name="_subject" value="New Lead — CarlLeger.github.io (Home)">
-            <input type="hidden" name="_template" value="table">
-
-            <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off">
-
-            <div class="sr-only">
-              <label for="company">Company</label>
-              <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
-            </div>
-
-            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
-
-            <div class="formRow">
-              <div class="note">
-                By submitting, you agree to be contacted about this request.
-                I only use your info to respond.
+              <div class="field full">
+                <label for="site">Website URL</label>
+                <input id="site" name="website" type="url" placeholder="https://example.com" required inputmode="url">
               </div>
-              <button class="submitBtn" type="submit">
-                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send request
-              </button>
-            </div>
-          </form>
-        </section>
-      </div>
 
-      <div class="footer">
+              <div class="field">
+                <label for="project">Project type</label>
+                <select id="project" name="project_type" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option value="WordPress/WooCommerce optimization">WordPress/WooCommerce optimization</option>
+                  <option value="Performance audit (recommended)">Performance audit (recommended)</option>
+                  <option value="Checkout troubleshooting">Checkout troubleshooting</option>
+                  <option value="SEO & analytics consulting">SEO & analytics consulting</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="timeline">Timeline</label>
+                <select id="timeline" name="timeline" required>
+                  <option value="" selected disabled>Select one</option>
+                  <option value="ASAP">ASAP</option>
+                  <option value="This week">This week</option>
+                  <option value="This month">This month</option>
+                  <option value="Flexible">Flexible</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="budget">Budget (optional)</label>
+                <select id="budget" name="budget">
+                  <option value="" selected>Prefer not to say</option>
+                  <option value="< $1k">< $1k</option>
+                  <option value="$1k–$3k">$1k–$3k</option>
+                  <option value="$3k–$10k">$3k–$10k</option>
+                  <option value="$10k+">$10k+</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="platform">Hosting (optional)</label>
+                <select id="platform" name="hosting">
+                  <option value="" selected>Prefer not to say</option>
+                  <option value="Cloudways">Cloudways</option>
+                  <option value="Kinsta">Kinsta</option>
+                  <option value="WP Engine">WP Engine</option>
+                  <option value="SiteGround">SiteGround</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="message">What’s the main issue?</label>
+                <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, plugin conflicts, etc." required></textarea>
+              </div>
+
+              <input type="hidden" name="_subject" value="New Lead — CarlLeger.github.io (Home)">
+              <input type="hidden" name="_template" value="table">
+
+              <!-- Honeypot -->
+              <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+              <!-- Hidden “company” trap -->
+              <div class="sr-only" aria-hidden="true">
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+
+              <div class="formRow">
+                <div class="note">
+                  By submitting, you agree to be contacted about this request.
+                  I only use your info to respond.
+                </div>
+                <button class="submitBtn" type="submit">
+                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send request
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </main>
+
+      <footer class="footer">
         <div>© <span id="year"></span> Carl Leger</div>
-        <div class="links">
+        <div class="links" aria-label="Footer links">
           <a href="/services/"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services</a>
           <a href="/services/woocommerce-optimization/"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Optimization</a>
           <a href="/services/performance-audit/"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Audit</a>
@@ -960,18 +981,28 @@
           <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
           <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
         </div>
-      </div>
+      </footer>
 
     </div>
   </div>
 
-  <script>
+  <script defer>
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Preset project type when clicking “Request …” buttons
+    document.querySelectorAll("[data-preset]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const preset = btn.getAttribute("data-preset");
+        const project = document.getElementById("project");
+        if (project && preset) project.value = preset;
+      });
+    });
 
     const form = document.getElementById("auditForm");
     const statusBox = document.getElementById("formStatus");
 
-    let formStartTime = Date.now();
+    let formStartTime = 0;
 
     form.addEventListener("focusin", () => {
       if (!form.dataset.started) {
@@ -983,7 +1014,9 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const secondsSpent = (Date.now() - formStartTime) / 1000;
+      // Basic bot timing gate (human-ish)
+      const started = Number(formStartTime || Date.now());
+      const secondsSpent = (Date.now() - started) / 1000;
       if (secondsSpent < 3) {
         statusBox.className = "status err";
         statusBox.textContent = "Submission blocked. Please try again.";
@@ -991,8 +1024,15 @@
         return;
       }
 
-      const company = form.querySelector("#company")?.value?.trim();
-      if (company) return;
+      // Honeypot checks
+      const company = (form.querySelector("#company")?.value || "").trim();
+      const gotcha = (form.querySelector("[name='_gotcha']")?.value || "").trim();
+      if (company || gotcha) {
+        statusBox.className = "status err";
+        statusBox.textContent = "Submission blocked.";
+        statusBox.style.display = "block";
+        return;
+      }
 
       statusBox.className = "status";
       statusBox.textContent = "Sending...";
@@ -1004,7 +1044,9 @@
       const message = (data.get("message") || "").toString().trim();
       const chosenType = (data.get("project_type") || "").toString();
 
-      if (!website.startsWith("http")) {
+      // Simple URL sanity check
+      const looksLikeUrl = /^https?:\/\/\S+\.\S+/i.test(website);
+      if (!looksLikeUrl) {
         statusBox.className = "status err";
         statusBox.textContent = "Please enter a valid website URL (include https://).";
         statusBox.style.display = "block";
@@ -1027,7 +1069,7 @@
 
         if(res.ok){
           form.reset();
-          formStartTime = Date.now();
+          formStartTime = 0;
           delete form.dataset.started;
 
           statusBox.className = "status ok";
