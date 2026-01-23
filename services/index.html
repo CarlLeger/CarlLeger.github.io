@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Services | WordPress & WooCommerce Performance — Carl Leger</title>
+  <meta name="description" content="Performance-focused services for WordPress & WooCommerce: audits, Core Web Vitals, TTFB reduction, checkout troubleshooting, and production-safe rollouts." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://carlleger.github.io/services/" />
+  <meta name="theme-color" content="#0b1220">
+  <meta name="language" content="en">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Services — Carl Leger" />
+  <meta property="og:description" content="WooCommerce performance audit, CWV, TTFB reduction, checkout troubleshooting, production-safe rollouts." />
+  <meta property="og:url" content="https://carlleger.github.io/services/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Carl Leger" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://carlleger.github.io/assets/og/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Services — Carl Leger" />
+  <meta name="twitter:description" content="WooCommerce performance audit, CWV, TTFB reduction, checkout troubleshooting." />
+  <meta name="twitter:image" content="https://carlleger.github.io/assets/og/og.png" />
+
+  <!-- Preconnect + GA -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3KXQFTWTBD');
+  </script>
+
+  <!-- Structured Data: Person -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "@id":"https://carlleger.github.io/#person",
+    "name":"Carl Leger",
+    "jobTitle":"WordPress & WooCommerce Performance Specialist",
+    "url":"https://carlleger.github.io/",
+    "image":"https://carlleger.github.io/avatar.png",
+    "sameAs":[
+      "https://www.linkedin.com/in/carlleger/",
+      "https://github.com/CarlLeger",
+      "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "@id":"https://carlleger.github.io/#website",
+    "name":"Carl Leger",
+    "url":"https://carlleger.github.io/",
+    "publisher": { "@id":"https://carlleger.github.io/#person" }
+  }
+  </script>
+
+  <!-- Structured Data: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "@id":"https://carlleger.github.io/services/#webpage",
+    "url":"https://carlleger.github.io/services/",
+    "name":"Services | WordPress & WooCommerce Performance — Carl Leger",
+    "description":"Performance-focused services for WordPress & WooCommerce: audits, Core Web Vitals, TTFB reduction, checkout troubleshooting, and production-safe rollouts.",
+    "isPartOf": { "@id":"https://carlleger.github.io/#website" },
+    "author": { "@id":"https://carlleger.github.io/#person" }
+  }
+  </script>
+
+  <!-- Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "@id":"https://carlleger.github.io/services/#breadcrumbs",
+    "itemListElement":[
+      { "@type":"ListItem", "position":1, "name":"Home", "item":"https://carlleger.github.io/" },
+      { "@type":"ListItem", "position":2, "name":"Services", "item":"https://carlleger.github.io/services/" }
+    ]
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Icons (Font Awesome) -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --bg1:#0b1220;
+      --bg2:#070d17;
+      --stroke:rgba(255,255,255,.10);
+      --text:#e7ecff;
+      --muted:#a8b3d6;
+      --accent:#38bdf8;
+      --accent2:#a78bfa;
+      --good:#22c55e;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{ box-sizing:border-box; }
+    html:focus-within { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce){
+      html:focus-within { scroll-behavior: auto; }
+      *{ transition: none !important; }
+    }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 15% 10%, rgba(56,189,248,.18), transparent 55%),
+        radial-gradient(900px 600px at 85% 20%, rgba(167,139,250,.16), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    :focus-visible{
+      outline: 3px solid rgba(56,189,248,.55);
+      outline-offset: 3px;
+      border-radius: 12px;
+    }
+
+    .wrap{ max-width: 980px; margin: 0 auto; padding: 44px 22px 80px; }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border: 1px solid var(--stroke);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding: 18px 18px 0;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(56,189,248,.10);
+      border: 1px solid rgba(56,189,248,.18);
+      color: #dff6ff;
+      font-size: 13px;
+      white-space:nowrap;
+    }
+    .badge i{ color: var(--accent); }
+
+    .navrow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .navpill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 9px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      font-size: 13px;
+      color: var(--text);
+    }
+    .navpill i{ color: var(--accent); }
+
+    .hero{ padding: 18px 26px 10px; }
+    @media (max-width: 900px){ .hero{ padding: 16px 18px 10px; } }
+
+    .kicker{ color: rgba(168,179,214,.95); font-size: 13px; margin: 10px 0 0; }
+    .title{ font-size: 42px; line-height: 1.06; margin: 10px 0 10px; letter-spacing: -0.02em; }
+    .subtitle{ margin: 0; color: var(--muted); font-size: 16px; line-height: 1.6; max-width: 78ch; }
+
+    .ctaRow{ display:flex; gap: 12px; flex-wrap:wrap; margin-top: 16px; }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.16);
+      text-decoration:none;
+      opacity: .98;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.85));
+      border: 1px solid rgba(255,255,255,.20);
+      color:#06101d;
+    }
+    .btn.primary i{ color:#06101d; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 16px 26px 26px;
+    }
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: 1fr; padding: 16px 18px 18px; }
+      .title{ font-size: 36px; }
+    }
+
+    .service{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .service h2{
+      margin:0 0 8px;
+      font-size: 16px;
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .service h2 i{ color: var(--accent); }
+    .service p{ margin:0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .service .mini{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      color: rgba(168,179,214,.9);
+      font-size: 13px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .tag i{ color: var(--accent2); }
+
+    .footer{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      padding: 18px 26px 22px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width:900px){ .footer{ padding: 18px 18px 20px; } }
+
+    .links{ display:flex; gap:14px; flex-wrap:wrap; }
+    .links a{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .links a i{ color: var(--accent); }
+    .links a:hover{
+      text-decoration:none;
+      border-color: rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+
+      <div class="topbar">
+        <div class="badge">
+          <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+          Services • WordPress • WooCommerce • Performance
+        </div>
+
+        <div class="navrow">
+          <a class="navpill" href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
+          <a class="navpill" href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
+          <a class="navpill" href="/#contact"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact</a>
+        </div>
+      </div>
+
+      <header class="hero">
+        <p class="kicker"><i class="fa-solid fa-circle-check" style="color: var(--good);" aria-hidden="true"></i> Practical audits and production-safe rollouts</p>
+        <h1 class="title">Services</h1>
+        <p class="subtitle">
+          Performance work for WordPress and WooCommerce with one goal: measurable results without breaking checkout, sessions, or revenue.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="/services/performance-audit/">
+            <i class="fa-solid fa-gauge-high" aria-hidden="true"></i> WooCommerce Performance Audit
+          </a>
+          <a class="btn" href="/#contact">
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request a quote
+          </a>
+        </div>
+      </header>
+
+      <div class="grid">
+
+        <!-- Service 1 -->
+        <section class="service">
+          <h2><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> WooCommerce Performance Audit</h2>
+          <p>
+            Deep audit focused on Core Web Vitals, TTFB, checkout speed, caching safety, and bottleneck mapping.
+            You get a prioritized plan with quick wins and rollout steps.
+          </p>
+          <div class="mini" aria-label="Topics">
+            <span class="tag"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> TTFB</span>
+            <span class="tag"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> CWV</span>
+            <span class="tag"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout</span>
+            <span class="tag"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Cache safety</span>
+          </div>
+          <div class="ctaRow" style="margin-top:14px;">
+            <a class="btn primary" href="/services/performance-audit/">
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View service page
+            </a>
+            <a class="btn" href="/services/performance-audit/#contact">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this audit
+            </a>
+          </div>
+        </section>
+
+        <!-- Service 2 (placeholder ready for later) -->
+        <section class="service">
+          <h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Implementation and Optimization</h2>
+          <p>
+            If you want help beyond the audit, I can implement fixes safely with staging, validation, and rollback steps.
+            Ideal for checkout speed, CWV regressions, and caching configuration.
+          </p>
+          <div class="mini" aria-label="Topics">
+            <span class="tag"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Production safe</span>
+            <span class="tag"><i class="fa-solid fa-database" aria-hidden="true"></i> DB hotspots</span>
+            <span class="tag"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Rollback</span>
+          </div>
+          <div class="ctaRow" style="margin-top:14px;">
+            <a class="btn" href="/#contact">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact me
+            </a>
+            <a class="btn" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork
+            </a>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="footer">
+        <div>© <span id="year"></span> Carl Leger</div>
+        <div class="links">
+          <a href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
+          <a href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
+          <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
