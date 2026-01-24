@@ -20,16 +20,37 @@
   <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/" />
 
   <!-- Preload hero image -->
-  <link rel="preload" as="image" href="/avatar.png" imagesizes="190px" fetchpriority="high">
+  <link
+    rel="preload"
+    as="image"
+    href="/avatar.png"
+    imagesizes="190px"
+    fetchpriority="high"
+  >
 
   <!-- Preconnect for GA -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome (non-blocking pattern + SRI) -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-Avb2QiuDEEvB4bZJYdftzH1pJwH8zj2yWlK9qkQz9JmS8mW2m7p7m0r5y7wq0o3nN4y9o9p2Qk2KQmQmQmQmQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    media="print"
+    onload="this.media='all'"
+  >
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    >
+  </noscript>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
@@ -333,7 +354,6 @@
       color: rgba(168,179,214,.9);
     }
 
-    /* NEW: Quick links (compact) */
     .quickLinks{
       margin-top: 14px;
       display:flex;
@@ -746,7 +766,6 @@
               CWV + TTFB improvements without breaking cart/checkout. Clear plan, documented changes, rollback-ready.
             </p>
 
-            <!-- Step 1: fewer CTAs -->
             <div class="ctaRow" aria-label="Primary actions">
               <a class="btn primary" href="#contact" data-preset="Performance audit (recommended)">
                 <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
@@ -759,12 +778,11 @@
               </a>
             </div>
 
-            <!-- Quick links (compact) -->
             <div class="quickLinks" aria-label="Quick links">
               <a class="qLink" href="mailto:carlleger.dev@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
-              <a class="qLink" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+              <a class="qLink" rel="me" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
               <a class="qLink" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
-              <a class="qLink" href="https://github.com/CarlLeger" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+              <a class="qLink" rel="me" href="https://github.com/CarlLeger" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
               <a class="qLink" href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Portfolio</a>
             </div>
 
