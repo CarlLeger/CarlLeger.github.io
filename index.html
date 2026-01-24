@@ -19,7 +19,7 @@
   <link rel="alternate" hreflang="en" href="https://carlleger.github.io/" />
   <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/" />
 
-  <!-- Preload the hero image (match the actual image path) -->
+  <!-- Preload hero image -->
   <link rel="preload" as="image" href="/avatar.png" imagesizes="190px" fetchpriority="high">
 
   <!-- Preconnect for GA -->
@@ -139,11 +139,11 @@
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(900px 600px at 15% 10%, rgba(56,189,248,.18), transparent 55%),
-        radial-gradient(900px 600px at 85% 20%, rgba(167,139,250,.16), transparent 55%),
+        radial-gradient(900px 600px at 15% 10%, rgba(56,189,248,.12), transparent 55%),
+        radial-gradient(900px 600px at 85% 20%, rgba(167,139,250,.10), transparent 55%),
         linear-gradient(180deg, var(--bg1), var(--bg2));
       min-height:100vh;
-      line-height: 1.55;
+      line-height: 1.62;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -157,7 +157,6 @@
       border-radius: 12px;
     }
 
-    /* Skip link (a11y) */
     .skip{
       position:absolute;
       left:-999px;
@@ -232,7 +231,7 @@
       display:grid;
       grid-template-columns: 240px 1fr;
       gap: 26px;
-      padding: 26px 26px 10px;
+      padding: 28px 26px 8px;
       align-items:center;
     }
 
@@ -240,7 +239,7 @@
       .hero{
         grid-template-columns: 1fr;
         text-align:center;
-        padding: 22px 18px 10px;
+        padding: 22px 18px 8px;
       }
       header.topbar{ flex-direction:column; align-items:flex-start; }
       nav.navrow{ width:100%; justify-content:center; }
@@ -281,8 +280,15 @@
       margin: 0;
       color: rgba(168,179,214,1);
       font-size: 16px;
-      line-height: 1.55;
+      line-height: 1.6;
       max-width: 62ch;
+    }
+
+    .leadline{
+      margin: 10px 0 0;
+      font-size: 15px;
+      color: rgba(231,236,255,.92);
+      max-width: 64ch;
     }
 
     .ctaRow{
@@ -302,7 +308,7 @@
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.06);
       color: var(--text);
-      font-weight: 650;
+      font-weight: 700;
       font-size: 14px;
       transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
     }
@@ -317,9 +323,45 @@
       background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.85));
       border: 1px solid rgba(255,255,255,.20);
       color:#06101d;
-      font-weight: 850;
+      font-weight: 900;
     }
     .btn.primary i{ color:#06101d; }
+
+    .micro{
+      margin-top: 10px;
+      font-size: 13px;
+      color: rgba(168,179,214,.9);
+    }
+
+    /* NEW: Quick links (compact) */
+    .quickLinks{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    @media (max-width:760px){ .quickLinks{ justify-content:center; } }
+
+    .qLink{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      font-size: 13px;
+      color: rgba(231,236,255,.92);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .qLink i{ color: var(--accent); }
+    .qLink:hover{
+      text-decoration:none;
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.14);
+    }
 
     .grid{
       display:grid;
@@ -349,7 +391,7 @@
     .section h2 i{ color: var(--accent); }
 
     ul{ margin: 0; padding-left: 18px; }
-    li{ margin: 10px 0; color: rgba(168,179,214,1); line-height: 1.45; }
+    li{ margin: 10px 0; color: rgba(168,179,214,1); line-height: 1.55; }
     li b{ color: var(--text); font-weight: 800; }
 
     .chips{
@@ -371,12 +413,6 @@
       font-size: 13px;
     }
     .chip i{ color: var(--accent2); }
-
-    .micro{
-      margin-top: 10px;
-      font-size: 13px;
-      color: rgba(168,179,214,.9);
-    }
 
     .servicesWrap{ padding: 0 26px 18px; }
     @media (max-width: 900px){ .servicesWrap{ padding: 0 18px 18px; } }
@@ -426,7 +462,7 @@
       margin:0;
       color: rgba(168,179,214,1);
       font-size: 13px;
-      line-height: 1.55;
+      line-height: 1.6;
     }
     .svc .mini{
       margin-top: 10px;
@@ -494,7 +530,7 @@
       margin: 0;
       color: rgba(168,179,214,1);
       font-size: 13px;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .contactWrap{ padding: 0 26px 26px; }
@@ -532,6 +568,7 @@
       color: rgba(168,179,214,1);
       max-width: 72ch;
       font-size: 14px;
+      line-height: 1.6;
     }
 
     .contactHint{
@@ -701,47 +738,34 @@
 
           <div>
             <h1 class="title">Carl Leger</h1>
+
             <p class="subtitle">
-              Freelance WordPress & WooCommerce performance specialist focused on speed, Core Web Vitals,
-              and production-safe rollouts (checkout and revenue first).
+              Faster WooCommerce stores. Safer deployments. Smoother checkout.
+            </p>
+            <p class="leadline">
+              CWV + TTFB improvements without breaking cart/checkout. Clear plan, documented changes, rollback-ready.
             </p>
 
+            <!-- Step 1: fewer CTAs -->
             <div class="ctaRow" aria-label="Primary actions">
-              <a class="btn primary" href="/services/woocommerce-optimization/" aria-label="View WooCommerce optimization service page">
-                <i class="fa-solid fa-bolt" aria-hidden="true"></i> WooCommerce Optimization
+              <a class="btn primary" href="#contact" data-preset="Performance audit (recommended)">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
               </a>
-
-              <a class="btn" href="/services/performance-audit/" aria-label="View the performance audit service page">
-                <i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Performance Audit
+              <a class="btn" href="/services/">
+                <i class="fa-solid fa-layer-group" aria-hidden="true"></i> View services
               </a>
-
-              <a class="btn" href="#services" aria-label="See services">
-                <i class="fa-solid fa-list-check" aria-hidden="true"></i> Services
-              </a>
-
-              <a class="btn" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Hire me on Upwork
-              </a>
-
-              <a class="btn" href="mailto:carlleger.dev@gmail.com">
-                <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email me
-              </a>
-
-              <a class="btn" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
-              </a>
-
-              <a class="btn" href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Portfolio (Notion)
-              </a>
-
               <a class="btn" href="/resources/">
                 <i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources
               </a>
+            </div>
 
-              <a class="btn" href="https://github.com/CarlLeger" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
-              </a>
+            <!-- Quick links (compact) -->
+            <div class="quickLinks" aria-label="Quick links">
+              <a class="qLink" href="mailto:carlleger.dev@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
+              <a class="qLink" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+              <a class="qLink" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
+              <a class="qLink" href="https://github.com/CarlLeger" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+              <a class="qLink" href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Portfolio</a>
             </div>
 
             <div class="micro">
@@ -945,10 +969,8 @@
               <input type="hidden" name="_subject" value="New Lead — CarlLeger.github.io (Home)">
               <input type="hidden" name="_template" value="table">
 
-              <!-- Honeypot -->
               <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-              <!-- Hidden “company” trap -->
               <div class="sr-only" aria-hidden="true">
                 <label for="company">Company</label>
                 <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
@@ -1014,7 +1036,6 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // Basic bot timing gate (human-ish)
       const started = Number(formStartTime || Date.now());
       const secondsSpent = (Date.now() - started) / 1000;
       if (secondsSpent < 3) {
@@ -1024,7 +1045,6 @@
         return;
       }
 
-      // Honeypot checks
       const company = (form.querySelector("#company")?.value || "").trim();
       const gotcha = (form.querySelector("[name='_gotcha']")?.value || "").trim();
       if (company || gotcha) {
@@ -1044,7 +1064,6 @@
       const message = (data.get("message") || "").toString().trim();
       const chosenType = (data.get("project_type") || "").toString();
 
-      // Simple URL sanity check
       const looksLikeUrl = /^https?:\/\/\S+\.\S+/i.test(website);
       if (!looksLikeUrl) {
         statusBox.className = "status err";
