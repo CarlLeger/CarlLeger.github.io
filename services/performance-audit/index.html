@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>WooCommerce Performance Audit | Core Web Vitals & TTFB — Carl Leger</title>
+  <title>WooCommerce Performance Audit | Core Web Vitals, TTFB & Checkout Speed — Carl Leger</title>
   <meta name="description" content="A WooCommerce-safe performance audit focused on Core Web Vitals, TTFB, checkout speed, and production-safe fixes. Get a prioritized action plan and next steps." />
   <meta name="author" content="Carl Leger" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
-  <link rel="canonical" href="https://carlleger.github.io/services/performance-audit/" />
-  <meta name="theme-color" content="#0b1220">
-  <meta name="language" content="en">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="format-detection" content="telephone=no" />
 
-  <!-- Hreflang (ready if you add FR later) -->
+  <link rel="canonical" href="https://carlleger.github.io/services/performance-audit/" />
   <link rel="alternate" hreflang="en" href="https://carlleger.github.io/services/performance-audit/" />
   <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/services/performance-audit/" />
 
@@ -34,10 +34,14 @@
   <meta name="twitter:title" content="WooCommerce Performance Audit — Carl Leger" />
   <meta name="twitter:description" content="Core Web Vitals, TTFB, checkout speed, caching safety. Prioritized fixes + rollout plan." />
   <meta name="twitter:image" content="https://carlleger.github.io/assets/og/og.png" />
+  <meta name="twitter:image:alt" content="WooCommerce Performance Audit by Carl Leger" />
 
-  <!-- Preconnect + GA -->
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <!-- Performance: preconnect -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -45,6 +49,24 @@
     gtag('js', new Date());
     gtag('config', 'G-3KXQFTWTBD');
   </script>
+
+  <!-- Font Awesome (non-blocking) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </noscript>
 
   <!-- Structured Data: Person -->
   <script type="application/ld+json">
@@ -85,13 +107,14 @@
     "name":"WooCommerce Performance Audit",
     "url":"https://carlleger.github.io/services/performance-audit/",
     "provider": { "@id":"https://carlleger.github.io/#person" },
-    "areaServed":["CA","US"],
-    "serviceType":"Performance audit",
+    "areaServed":"Worldwide",
+    "serviceType":"WooCommerce performance audit",
     "category":[
       "WooCommerce optimization",
       "Core Web Vitals",
       "TTFB reduction",
-      "Checkout speed troubleshooting"
+      "Checkout speed troubleshooting",
+      "Caching safety"
     ]
   }
   </script>
@@ -103,14 +126,16 @@
     "@type":"WebPage",
     "@id":"https://carlleger.github.io/services/performance-audit/#webpage",
     "url":"https://carlleger.github.io/services/performance-audit/",
-    "name":"WooCommerce Performance Audit | Core Web Vitals & TTFB — Carl Leger",
+    "name":"WooCommerce Performance Audit | Core Web Vitals, TTFB & Checkout Speed — Carl Leger",
     "description":"A WooCommerce-safe performance audit focused on Core Web Vitals, TTFB, checkout speed, and production-safe fixes. Get a prioritized action plan and next steps.",
     "isPartOf": { "@id":"https://carlleger.github.io/#website" },
     "about": { "@id":"https://carlleger.github.io/services/performance-audit/#service" },
     "author": { "@id":"https://carlleger.github.io/#person" },
     "primaryImageOfPage": {
       "@type":"ImageObject",
-      "url":"https://carlleger.github.io/assets/og/og.png"
+      "url":"https://carlleger.github.io/assets/og/og.png",
+      "width": 1200,
+      "height": 630
     }
   }
   </script>
@@ -122,24 +147,9 @@
     "@type":"BreadcrumbList",
     "@id":"https://carlleger.github.io/services/performance-audit/#breadcrumbs",
     "itemListElement":[
-      {
-        "@type":"ListItem",
-        "position":1,
-        "name":"Home",
-        "item":"https://carlleger.github.io/"
-      },
-      {
-        "@type":"ListItem",
-        "position":2,
-        "name":"Services",
-        "item":"https://carlleger.github.io/services/"
-      },
-      {
-        "@type":"ListItem",
-        "position":3,
-        "name":"WooCommerce Performance Audit",
-        "item":"https://carlleger.github.io/services/performance-audit/"
-      }
+      { "@type":"ListItem", "position":1, "name":"Home", "item":"https://carlleger.github.io/" },
+      { "@type":"ListItem", "position":2, "name":"Services", "item":"https://carlleger.github.io/services/" },
+      { "@type":"ListItem", "position":3, "name":"Performance Audit", "item":"https://carlleger.github.io/services/performance-audit/" }
     ]
   }
   </script>
@@ -157,7 +167,7 @@
       {
         "@type":"HowToStep",
         "name":"Send your request",
-        "text":"Submit your site URL and the main issue (checkout speed, CWV, high TTFB, etc.). You’ll get a reply within 24 hours with next steps."
+        "text":"Submit your site URL and the main issue (checkout speed, CWV, high TTFB, etc.) via the contact form on the homepage. You’ll get a reply within 24 hours with next steps."
       },
       {
         "@type":"HowToStep",
@@ -209,7 +219,7 @@
         "name":"How fast will I get a response?",
         "acceptedAnswer":{
           "@type":"Answer",
-          "text":"If you send your request, you’ll get a reply within 24 hours with the best next step."
+          "text":"Use the contact form on the homepage and you’ll get a reply within 24 hours with the best next step."
         }
       }
     ]
@@ -219,16 +229,10 @@
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 
-  <!-- Icons (Font Awesome) -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <style>
     :root{
       --bg1:#0b1220;
       --bg2:#070d17;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.04);
       --stroke:rgba(255,255,255,.10);
       --text:#e7ecff;
       --muted:#a8b3d6;
@@ -265,6 +269,19 @@
       outline-offset: 3px;
       border-radius: 12px;
     }
+    .skip{
+      position:absolute;
+      left:-999px;
+      top:10px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      padding:10px 12px;
+      border-radius: 12px;
+      color: var(--text);
+      z-index: 9999;
+    }
+    .skip:focus{ left: 12px; }
+
     .wrap{ max-width: 980px; margin: 0 auto; padding: 44px 22px 80px; }
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
@@ -329,7 +346,7 @@
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.06);
       color: var(--text);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 14px;
       transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
     }
@@ -344,6 +361,7 @@
       background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.85));
       border: 1px solid rgba(255,255,255,.20);
       color:#06101d;
+      font-weight: 900;
     }
     .btn.primary i{ color:#06101d; }
 
@@ -377,7 +395,7 @@
     }
     .section h2 i{ color: var(--accent); }
     .section p{ margin:0; color: var(--muted); font-size:14px; line-height:1.65; }
-    .list{ margin: 10px 0 0; padding-left: 18px; color: var(--text); }
+    .list{ margin: 10px 0 0; padding-left: 18px; }
     .list li{ margin: 10px 0; color: var(--muted); line-height: 1.5; }
     .list b{ color: var(--text); }
 
@@ -395,7 +413,6 @@
     }
     .chip i{ color: var(--accent2); }
 
-    /* Process steps */
     .steps{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 10px; }
     @media (max-width: 900px){ .steps{ grid-template-columns: 1fr; } }
     .step{
@@ -410,18 +427,17 @@
 
     .faqWrap{ padding: 0 26px 22px; }
     @media (max-width:900px){ .faqWrap{ padding: 0 18px 18px; } }
-
     details{
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
       border-radius: 16px;
-      padding: 14px 14px;
+      padding: 14px;
       margin-top: 12px;
     }
     summary{
       cursor:pointer;
       list-style:none;
-      font-weight: 800;
+      font-weight: 900;
       color: var(--text);
       display:flex;
       align-items:center;
@@ -429,115 +445,6 @@
     }
     summary::-webkit-details-marker{ display:none; }
     details p{ margin: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
-
-    .contactWrap{ padding: 0 26px 26px; }
-    @media (max-width: 900px){ .contactWrap{ padding: 0 18px 22px; } }
-
-    .contact{
-      border: 1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      border-radius: 24px;
-      padding: 18px;
-    }
-    .contactHeader{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom: 12px;
-    }
-    .contactHeader h2{
-      margin:0;
-      font-size: 18px;
-      color: var(--text);
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .contactHeader h2 i{ color: var(--accent); }
-    .contactHeader p{
-      margin: 6px 0 0;
-      color: var(--muted);
-      max-width: 78ch;
-      font-size: 14px;
-      line-height: 1.65;
-    }
-    .contactHint{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(34,197,94,.10);
-      border: 1px solid rgba(34,197,94,.18);
-      color: rgba(220,252,231,.95);
-      font-size: 12px;
-      white-space:nowrap;
-      height: fit-content;
-    }
-    .contactHint i{ color: var(--good); }
-
-    form{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 12px;
-    }
-    @media (max-width: 760px){ form{ grid-template-columns: 1fr; } }
-    .field{ display:flex; flex-direction:column; gap: 7px; }
-    label{ font-size: 12px; color: rgba(219,228,255,.92); letter-spacing: .02em; }
-    input, select, textarea{
-      width:100%;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(8,13,23,.55);
-      color: var(--text);
-      outline: none;
-      font-size: 14px;
-    }
-    input::placeholder, textarea::placeholder{ color: rgba(168,179,214,.65); }
-    textarea{ min-height: 110px; resize: vertical; grid-column: 1 / -1; }
-    .full{ grid-column: 1 / -1; }
-    .formRow{
-      display:flex;
-      gap: 12px;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      grid-column: 1 / -1;
-      margin-top: 2px;
-    }
-    .note{ color: rgba(168,179,214,.85); font-size: 12px; }
-    .submitBtn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.85));
-      color:#06101d;
-      font-weight: 900;
-      font-size: 14px;
-      cursor:pointer;
-      transition: transform .12s ease, opacity .12s ease;
-    }
-    .submitBtn:hover{ transform: translateY(-1px); opacity:.98; }
-
-    .status{
-      grid-column: 1 / -1;
-      display:none;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      font-size: 13px;
-    }
-    .status.ok{ display:block; border-color: rgba(34,197,94,.25); background: rgba(34,197,94,.10); }
-    .status.err{ display:block; border-color: rgba(251,191,36,.25); background: rgba(251,191,36,.10); }
 
     .footer{
       display:flex;
@@ -569,18 +476,12 @@
       background: rgba(255,255,255,.06);
       transform: translateY(-1px);
     }
-
-    .sr-only{
-      position:absolute;
-      width:1px;height:1px;
-      padding:0;margin:-1px;
-      overflow:hidden;clip:rect(0,0,0,0);
-      white-space:nowrap;border:0;
-    }
   </style>
 </head>
 
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <div class="wrap">
     <div class="card">
 
@@ -590,318 +491,182 @@
           WooCommerce Performance Audit
         </div>
 
-        <div class="navrow">
+        <nav class="navrow" aria-label="Primary">
           <a class="navpill" href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
-          <a class="navpill" href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
-          <a class="navpill" href="#contact"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request</a>
-        </div>
+          <a class="navpill" href="/services/"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services</a>
+          <a class="navpill" href="/services/checkout-speed-fix/"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout Fix</a>
+          <a class="navpill" href="/#contact"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request</a>
+        </nav>
       </div>
 
-      <header class="hero">
-        <p class="kicker"><i class="fa-solid fa-circle-check" style="color: var(--good);" aria-hidden="true"></i> CWV • TTFB • Checkout speed • WooCommerce-safe caching</p>
-        <h1 class="title">WooCommerce Performance Audit</h1>
-        <p class="subtitle">
-          A production-safe audit focused on the real bottlenecks: Core Web Vitals, high TTFB, slow checkout,
-          heavy scripts, and caching rules that break cart or sessions. You’ll get a prioritized plan with clear next steps.
-        </p>
-
-        <div class="ctaRow">
-          <a class="btn primary" href="#contact" aria-label="Request a WooCommerce performance audit">
-            <i class="fa-solid fa-bolt" aria-hidden="true"></i> Request an Audit
-          </a>
-          <a class="btn" href="#deliverables" aria-label="View audit deliverables">
-            <i class="fa-solid fa-list-check" aria-hidden="true"></i> Deliverables
-          </a>
-          <a class="btn" href="#process" aria-label="See audit process">
-            <i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Process
-          </a>
-        </div>
-
-        <div class="chips" aria-label="Topics covered">
-          <span class="chip"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> TTFB</span>
-          <span class="chip"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Core Web Vitals</span>
-          <span class="chip"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout speed</span>
-          <span class="chip"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Caching safety</span>
-          <span class="chip"><i class="fa-solid fa-database" aria-hidden="true"></i> DB hotspots</span>
-        </div>
-      </header>
-
-      <div class="grid" id="deliverables">
-        <section class="section">
-          <h2><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> What I analyze</h2>
-          <ul class="list">
-            <li><b>Core Web Vitals</b> (LCP, INP, CLS) and their root causes</li>
-            <li><b>TTFB</b> (server time, PHP, DB, cache hit rate)</li>
-            <li><b>Checkout</b> performance + cart/session safety</li>
-            <li><b>Plugins & scripts</b> long tasks, heavy third-party tags</li>
-            <li><b>WooCommerce caching rules</b> Cloudflare / server cache correctness</li>
-          </ul>
-        </section>
-
-        <section class="section">
-          <h2><i class="fa-solid fa-list-check" aria-hidden="true"></i> What you get</h2>
-          <ul class="list">
-            <li><b>Prioritized action plan</b> (quick wins first, high-impact next)</li>
-            <li><b>Bottleneck map</b> with clear “why” and “what to change”</li>
-            <li><b>WooCommerce-safe rollout steps</b> (staging, validation, rollback)</li>
-            <li><b>Next-step options</b>: implement with me or hand off to your dev team</li>
-          </ul>
-          <p style="margin-top:12px; color: rgba(220,252,231,.95);">
+      <main id="main">
+        <header class="hero">
+          <p class="kicker">
             <i class="fa-solid fa-circle-check" style="color: var(--good);" aria-hidden="true"></i>
-            No fluff. If it’s not fixable (or not worth it), I’ll tell you.
+            CWV • TTFB • Checkout speed • WooCommerce-safe caching
           </p>
-        </section>
-      </div>
 
-      <!-- PROCESS (3 steps) -->
-      <div class="grid" id="process">
-        <section class="section" style="grid-column: 1 / -1;">
-          <h2><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Process (3 steps)</h2>
-          <p>Simple, production-safe, and focused on measurable outcomes.</p>
+          <h1 class="title">WooCommerce Performance Audit</h1>
 
-          <div class="steps" aria-label="Audit steps">
-            <div class="step">
-              <h3><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> 1) Send your request</h3>
-              <p>Share your site URL + what’s slow (checkout, CWV, TTFB). You’ll get a reply within 24 hours.</p>
-            </div>
-            <div class="step">
-              <h3><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> 2) Deep analysis</h3>
-              <p>I analyze CWV, TTFB, caching, scripts, and WooCommerce risks (cart/checkout/session behavior).</p>
-            </div>
-            <div class="step">
-              <h3><i class="fa-solid fa-list-check" aria-hidden="true"></i> 3) Prioritized plan</h3>
-              <p>You get a clear action plan with quick wins, next steps, and safe rollout guidance (staging/rollback).</p>
-            </div>
-          </div>
-        </section>
-      </div>
+          <p class="subtitle">
+            A production-safe audit focused on the real bottlenecks: Core Web Vitals, high TTFB, slow checkout,
+            heavy scripts, and caching rules that break cart or sessions. You’ll get a prioritized plan with clear next steps.
+          </p>
 
-      <!-- FAQ -->
-      <div class="faqWrap" aria-label="FAQ">
-        <section class="section" style="padding:18px;">
-          <h2><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</h2>
-
-          <details>
-            <summary><i class="fa-solid fa-file-lines" aria-hidden="true"></i> What do I get after the audit?</summary>
-            <p>You get a prioritized action plan, bottlenecks (CWV, TTFB, long tasks), quick wins, and production-safe rollout steps.</p>
-          </details>
-
-          <details>
-            <summary><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Do you implement fixes too?</summary>
-            <p>Yes. The audit is the roadmap. If you want, I can implement changes safely in production using staging + validation + rollback steps.</p>
-          </details>
-
-          <details>
-            <summary><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Is it safe for cart/checkout?</summary>
-            <p>Yes. Recommendations avoid caching pitfalls that break sessions, dynamic pricing, gateways, and checkout flows.</p>
-          </details>
-
-          <details>
-            <summary><i class="fa-solid fa-clock" aria-hidden="true"></i> How fast will I get a response?</summary>
-            <p>Send a request below and you’ll get a reply within 24 hours with the best next step.</p>
-          </details>
-        </section>
-      </div>
-
-      <!-- CONTACT -->
-      <div class="contactWrap">
-        <section id="contact" class="contact" aria-labelledby="contact-title">
-          <div class="contactHeader">
-            <div>
-              <h2 id="contact-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Request a Performance Audit</h2>
-              <p>
-                Tell me what’s slowing your site down. I’ll reply within 24 hours with the best next step.
-                (No spam, no fluff.)
-              </p>
-            </div>
-            <div class="contactHint">
-              <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Response in 24h
-            </div>
+          <div class="ctaRow" aria-label="Primary actions">
+            <a class="btn primary" href="/#contact" aria-label="Request a WooCommerce performance audit">
+              <i class="fa-solid fa-bolt" aria-hidden="true"></i> Request an audit
+            </a>
+            <a class="btn" href="#deliverables">
+              <i class="fa-solid fa-list-check" aria-hidden="true"></i> Deliverables
+            </a>
+            <a class="btn" href="#process">
+              <i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Process
+            </a>
           </div>
 
-          <form id="auditForm" action="https://formspree.io/f/mwvlenpe" method="POST">
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+          <div class="chips" aria-label="Topics covered">
+            <span class="chip"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> TTFB</span>
+            <span class="chip"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Core Web Vitals</span>
+            <span class="chip"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout speed</span>
+            <span class="chip"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Caching safety</span>
+            <span class="chip"><i class="fa-solid fa-database" aria-hidden="true"></i> DB hotspots</span>
+          </div>
+        </header>
+
+        <div class="grid" id="deliverables">
+          <section class="section">
+            <h2><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> What I analyze</h2>
+            <ul class="list">
+              <li><b>Core Web Vitals</b> (LCP, INP, CLS) and their root causes</li>
+              <li><b>TTFB</b> (server time, PHP, database, cache hit rate)</li>
+              <li><b>Checkout & cart</b> performance + session safety</li>
+              <li><b>Plugins & scripts</b> long tasks, heavy third-party tags</li>
+              <li><b>WooCommerce caching rules</b> (Cloudflare / server cache correctness)</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2><i class="fa-solid fa-list-check" aria-hidden="true"></i> What you get</h2>
+            <ul class="list">
+              <li><b>Prioritized action plan</b> (quick wins first, high-impact next)</li>
+              <li><b>Bottleneck map</b> with clear “why” and “what to change”</li>
+              <li><b>WooCommerce-safe rollout steps</b> (staging, validation, rollback)</li>
+              <li><b>Next-step options</b>: implement with me or hand off to your dev team</li>
+            </ul>
+
+            <p style="margin-top:12px; color: rgba(220,252,231,.95);">
+              <i class="fa-solid fa-circle-check" style="color: var(--good);" aria-hidden="true"></i>
+              If it’s not fixable (or not worth it), I’ll tell you.
+            </p>
+
+            <div class="ctaRow" style="margin-top:14px;">
+              <a class="btn primary" href="/#contact">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request the audit
+              </a>
+              <a class="btn" href="/services/checkout-speed-fix/">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout-only? See Checkout Fix
+              </a>
             </div>
+          </section>
+        </div>
 
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
-            </div>
+        <div class="grid" id="process">
+          <section class="section" style="grid-column: 1 / -1;">
+            <h2><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Process (3 steps)</h2>
+            <p>Simple, production-safe, and focused on measurable outcomes.</p>
 
-            <div class="field full">
-              <label for="site">Website URL</label>
-              <input id="site" name="website" type="url" placeholder="https://example.com" required>
-            </div>
-
-            <div class="field">
-              <label for="project">Project type</label>
-              <select id="project" name="project_type" required>
-                <option value="" selected disabled>Select one</option>
-                <option value="Performance audit (recommended)">Performance audit (recommended)</option>
-                <option value="WordPress/WooCommerce optimization">WordPress/WooCommerce optimization</option>
-                <option value="SEO & analytics consulting">SEO & analytics consulting</option>
-                <option value="Create a website (new site or redesign)">Create a website (new site or redesign)</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="timeline">Timeline</label>
-              <select id="timeline" name="timeline" required>
-                <option value="" selected disabled>Select one</option>
-                <option value="ASAP">ASAP</option>
-                <option value="This week">This week</option>
-                <option value="This month">This month</option>
-                <option value="Flexible">Flexible</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="budget">Budget (optional)</label>
-              <select id="budget" name="budget">
-                <option value="" selected>Prefer not to say</option>
-                <option value="< $1k">< $1k</option>
-                <option value="$1k–$3k">$1k–$3k</option>
-                <option value="$3k–$10k">$3k–$10k</option>
-                <option value="$10k+">$10k+</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="platform">Hosting (optional)</label>
-              <select id="platform" name="hosting">
-                <option value="" selected>Prefer not to say</option>
-                <option value="Cloudways">Cloudways</option>
-                <option value="Kinsta">Kinsta</option>
-                <option value="WP Engine">WP Engine</option>
-                <option value="SiteGround">SiteGround</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-
-            <div class="field full">
-              <label for="message">What’s the main issue?</label>
-              <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, plugin conflicts, etc." required></textarea>
-            </div>
-
-            <input type="hidden" name="_subject" value="New Lead — Performance Audit (Service Page)">
-            <input type="hidden" name="_template" value="table">
-
-            <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off">
-
-            <div class="sr-only">
-              <label for="company">Company</label>
-              <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
-            </div>
-
-            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
-
-            <div class="formRow">
-              <div class="note">
-                By submitting, you agree to be contacted about this request. I only use your info to respond.
+            <div class="steps" aria-label="Audit steps">
+              <div class="step">
+                <h3><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> 1) Send your request</h3>
+                <p>Use the contact form on the homepage: share your URL + what’s slow (checkout, CWV, TTFB). Reply within 24 hours.</p>
               </div>
-              <button class="submitBtn" type="submit">
-                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send request
-              </button>
+              <div class="step">
+                <h3><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> 2) Deep analysis</h3>
+                <p>I analyze CWV, TTFB, caching, scripts, and WooCommerce risks (cart/checkout/session behavior).</p>
+              </div>
+              <div class="step">
+                <h3><i class="fa-solid fa-list-check" aria-hidden="true"></i> 3) Prioritized plan</h3>
+                <p>You get a clear action plan with quick wins, next steps, and safe rollout guidance (staging/rollback).</p>
+              </div>
             </div>
-          </form>
-        </section>
-      </div>
 
-      <div class="footer">
+            <div class="ctaRow" style="margin-top:14px;">
+              <a class="btn primary" href="/#contact">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i> Request an audit
+              </a>
+              <a class="btn" href="/services/checkout-speed-fix/">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout Speed Fix
+              </a>
+            </div>
+          </section>
+        </div>
+
+        <div class="faqWrap" aria-label="FAQ" id="faq">
+          <section class="section" style="padding:18px;">
+            <h2><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</h2>
+
+            <details>
+              <summary><i class="fa-solid fa-file-lines" aria-hidden="true"></i> What do I get after the audit?</summary>
+              <p>You get a prioritized action plan, bottlenecks (CWV, TTFB, long tasks), quick wins, and production-safe rollout steps.</p>
+            </details>
+
+            <details>
+              <summary><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Do you implement fixes too?</summary>
+              <p>Yes. The audit is the roadmap. If you want, I can implement changes safely in production using staging + validation + rollback steps.</p>
+            </details>
+
+            <details>
+              <summary><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Is it safe for cart/checkout?</summary>
+              <p>Yes. Recommendations avoid caching pitfalls that break sessions, dynamic pricing, gateways, and checkout flows.</p>
+            </details>
+
+            <details>
+              <summary><i class="fa-solid fa-clock" aria-hidden="true"></i> How fast will I get a response?</summary>
+              <p>Use the contact form on the homepage and you’ll get a reply within 24 hours with the best next step.</p>
+            </details>
+
+            <div class="ctaRow" style="margin-top:14px;">
+              <a class="btn primary" href="/#contact">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request the audit
+              </a>
+              <a class="btn" href="/services/">
+                <i class="fa-solid fa-layer-group" aria-hidden="true"></i> Back to services
+              </a>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="footer">
         <div>© <span id="year"></span> Carl Leger</div>
-        <div class="links">
+        <div class="links" aria-label="Footer links">
           <a href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
+          <a href="/services/"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services</a>
+          <a href="/services/checkout-speed-fix/"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout Fix</a>
           <a href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
+          <a href="mailto:carlleger.dev@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
           <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
           <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
         </div>
-      </div>
+      </footer>
 
     </div>
   </div>
 
-  <script>
+  <script defer>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    const form = document.getElementById("auditForm");
-    const statusBox = document.getElementById("formStatus");
-
-    let formStartTime = Date.now();
-
-    form.addEventListener("focusin", () => {
-      if (!form.dataset.started) {
-        form.dataset.started = "1";
-        formStartTime = Date.now();
-      }
-    });
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const secondsSpent = (Date.now() - formStartTime) / 1000;
-      if (secondsSpent < 3) {
-        statusBox.className = "status err";
-        statusBox.textContent = "Submission blocked. Please try again.";
-        statusBox.style.display = "block";
-        return;
-      }
-
-      const company = form.querySelector("#company")?.value?.trim();
-      if (company) return;
-
-      statusBox.className = "status";
-      statusBox.textContent = "Sending...";
-      statusBox.style.display = "block";
-
-      const data = new FormData(form);
-      const website = (data.get("website") || "").toString().trim();
-      const message = (data.get("message") || "").toString().trim();
-
-      if (!website.startsWith("http")) {
-        statusBox.className = "status err";
-        statusBox.textContent = "Please enter a valid website URL (include https://).";
-        statusBox.style.display = "block";
-        return;
-      }
-
-      if (message.length < 20) {
-        statusBox.className = "status err";
-        statusBox.textContent = "Please provide a bit more detail (at least 20 characters).";
-        statusBox.style.display = "block";
-        return;
-      }
-
-      try{
-        const res = await fetch(form.action, {
-          method: "POST",
-          body: data,
-          headers: { "Accept": "application/json" }
-        });
-
-        if(res.ok){
-          form.reset();
-          formStartTime = Date.now();
-          delete form.dataset.started;
-
-          statusBox.className = "status ok";
-          statusBox.textContent = "Thanks! Your request was sent. I’ll reply within 24 hours.";
-
-          if (typeof gtag === "function") {
-            gtag("event", "lead_submit", {
-              event_category: "form",
-              event_label: "performance_audit_service_page"
-            });
-          }
-        } else {
-          statusBox.className = "status err";
-          statusBox.textContent = "Something went wrong. Please email me directly: carlleger.dev@gmail.com";
+    // Optional: track CTA clicks to homepage form
+    document.querySelectorAll("a[href='/#contact']").forEach((a) => {
+      a.addEventListener("click", () => {
+        if (typeof gtag === "function") {
+          gtag("event", "cta_click", {
+            event_category: "engagement",
+            event_label: "performance_audit_to_home_contact"
+          });
         }
-      } catch(err){
-        statusBox.className = "status err";
-        statusBox.textContent = "Network error. Please email me directly: carlleger.dev@gmail.com";
-      }
+      });
     });
   </script>
 </body>
