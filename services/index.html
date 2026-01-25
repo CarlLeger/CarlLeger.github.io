@@ -45,8 +45,8 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3KXQFTWTBD');
+    gtag("js", new Date());
+    gtag("config", "G-3KXQFTWTBD");
   </script>
 
   <!-- Font Awesome (non-blocking) -->
@@ -85,6 +85,23 @@
   }
   </script>
 
+  <!-- Structured Data: Organization (helps E-E-A-T + entity clarity) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "@id":"https://carlleger.github.io/#org",
+    "name":"Carl Leger",
+    "url":"https://carlleger.github.io/",
+    "logo":"https://carlleger.github.io/assets/og/og.png",
+    "founder": { "@id":"https://carlleger.github.io/#person" },
+    "sameAs":[
+      "https://www.linkedin.com/in/carlleger/",
+      "https://github.com/CarlLeger"
+    ]
+  }
+  </script>
+
   <!-- Structured Data: WebSite -->
   <script type="application/ld+json">
   {
@@ -93,7 +110,7 @@
     "@id":"https://carlleger.github.io/#website",
     "name":"Carl Leger",
     "url":"https://carlleger.github.io/",
-    "publisher": { "@id":"https://carlleger.github.io/#person" }
+    "publisher": { "@id":"https://carlleger.github.io/#org" }
   }
   </script>
 
@@ -138,23 +155,43 @@
     "@id":"https://carlleger.github.io/services/#servicelist",
     "name":"Services",
     "itemListElement":[
+      { "@type":"ListItem", "position":1, "name":"WooCommerce Performance Audit", "url":"https://carlleger.github.io/services/performance-audit/" },
+      { "@type":"ListItem", "position":2, "name":"WooCommerce Checkout Speed Fix", "url":"https://carlleger.github.io/services/checkout-speed-fix/" },
+      { "@type":"ListItem", "position":3, "name":"WooCommerce Optimization", "url":"https://carlleger.github.io/services/woocommerce-optimization/" }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: FAQ (lightweight, good for clarity) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "@id":"https://carlleger.github.io/services/#faq",
+    "mainEntity":[
       {
-        "@type":"ListItem",
-        "position":1,
-        "name":"WooCommerce Performance Audit",
-        "url":"https://carlleger.github.io/services/performance-audit/"
+        "@type":"Question",
+        "name":"Which service should I start with?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"If you’re unsure, start with the WooCommerce Performance Audit. It maps bottlenecks and gives a prioritized plan. If the checkout is the main problem, choose Checkout Speed Fix. If you already know what needs to be done, choose Optimization."
+        }
       },
       {
-        "@type":"ListItem",
-        "position":2,
-        "name":"WooCommerce Checkout Speed Fix",
-        "url":"https://carlleger.github.io/services/checkout-speed-fix/"
+        "@type":"Question",
+        "name":"Are fixes safe for cart, checkout, and sessions?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Work is designed to be WooCommerce-safe: correct caching boundaries, validation steps, and rollback-ready deployments."
+        }
       },
       {
-        "@type":"ListItem",
-        "position":3,
-        "name":"WooCommerce Optimization",
-        "url":"https://carlleger.github.io/services/woocommerce-optimization/"
+        "@type":"Question",
+        "name":"Do you work with agencies or dev teams?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. I can deliver an actionable plan for your team to implement, or implement changes directly with staging + validation + rollback steps."
+        }
       }
     ]
   }
@@ -173,6 +210,7 @@
       --accent:#38bdf8;
       --accent2:#a78bfa;
       --good:#22c55e;
+      --warn:#fbbf24;
       --shadow: 0 20px 60px rgba(0,0,0,.35);
       --radius: 18px;
     }
@@ -307,10 +345,10 @@
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      padding: 16px 26px 26px;
+      padding: 16px 26px 14px;
     }
     @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; padding: 16px 18px 18px; }
+      .grid{ grid-template-columns: 1fr; padding: 16px 18px 10px; }
       .title{ font-size: 36px; }
     }
 
@@ -333,6 +371,18 @@
     .service h2 i{ color: var(--accent); }
     .service p{ margin:0; color: var(--muted); font-size: 14px; line-height: 1.65; }
 
+    .bestFor{
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: rgba(231,236,255,.92);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .bestFor b{ color: var(--text); }
+
     .mini{
       margin-top: 10px;
       display:flex;
@@ -351,6 +401,60 @@
       border: 1px solid rgba(255,255,255,.08);
     }
     .tag i{ color: var(--accent2); }
+
+    .work{
+      padding: 0 26px 22px;
+    }
+    @media (max-width:900px){ .work{ padding: 0 18px 18px; } }
+    .workCard{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .workTitle{
+      margin:0 0 10px;
+      font-size: 14px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #dbe4ff;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .workTitle i{ color: var(--accent); }
+    .workList{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .workList li{ margin: 10px 0; }
+    .workNote{
+      margin: 10px 0 0;
+      color: rgba(168,179,214,.90);
+      font-size: 13px;
+    }
+
+    .faqWrap{ padding: 0 26px 26px; }
+    @media (max-width:900px){ .faqWrap{ padding: 0 18px 18px; } }
+    details{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: 16px;
+      padding: 14px;
+      margin-top: 12px;
+    }
+    summary{
+      cursor:pointer;
+      list-style:none;
+      font-weight: 900;
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{ margin: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
 
     .footer{
       display:flex;
@@ -445,18 +549,24 @@
               Deep audit focused on Core Web Vitals, TTFB, checkout speed, caching safety, and bottleneck mapping.
               You get a prioritized plan with quick wins and rollout steps.
             </p>
+
+            <div class="bestFor">
+              <b>Best for:</b> you want a clear roadmap before touching production, or you’re not sure what’s causing the slowdown.
+            </div>
+
             <div class="mini" aria-label="Topics">
               <span class="tag"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> TTFB</span>
               <span class="tag"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> CWV</span>
               <span class="tag"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout</span>
               <span class="tag"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Cache safety</span>
             </div>
+
             <div class="ctaRow" style="margin-top:14px;">
               <a class="btn primary" href="/services/performance-audit/">
                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View service page
               </a>
               <a class="btn" href="/#contact">
-                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this audit
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this
               </a>
             </div>
           </section>
@@ -468,18 +578,24 @@
               Focused help for slow checkout: fragments, gateway scripts, session/cart logic, DB hotspots, and cache boundaries.
               Measurable speed improvements without breaking payments.
             </p>
+
+            <div class="bestFor">
+              <b>Best for:</b> checkout loads slow or freezes on submit, payment scripts are heavy, or cart/session logic is unstable.
+            </div>
+
             <div class="mini" aria-label="Topics">
               <span class="tag"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Checkout speed</span>
               <span class="tag"><i class="fa-solid fa-credit-card" aria-hidden="true"></i> Payment safety</span>
               <span class="tag"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Rollback-ready</span>
               <span class="tag"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Production safe</span>
             </div>
+
             <div class="ctaRow" style="margin-top:14px;">
               <a class="btn primary" href="/services/checkout-speed-fix/">
                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View service page
               </a>
               <a class="btn" href="/#contact">
-                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this service
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this
               </a>
             </div>
           </section>
@@ -491,35 +607,47 @@
               Implementation work to improve real-world speed: reduce TTFB, stabilize Core Web Vitals, optimize checkout,
               fix plugin conflicts, and harden caching rules (Cloudflare/server) without breaking cart or sessions.
             </p>
+
+            <div class="bestFor">
+              <b>Best for:</b> you already know what needs to change and want it implemented safely with validation + rollback.
+            </div>
+
             <div class="mini" aria-label="Topics">
               <span class="tag"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Speed fixes</span>
               <span class="tag"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Production safe</span>
               <span class="tag"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Rollback plan</span>
               <span class="tag"><i class="fa-solid fa-cookie-bite" aria-hidden="true"></i> Session safety</span>
             </div>
+
             <div class="ctaRow" style="margin-top:14px;">
               <a class="btn primary" href="/services/woocommerce-optimization/">
                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View service page
               </a>
               <a class="btn" href="/#contact">
-                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request a quote
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this
               </a>
             </div>
           </section>
 
-          <!-- Service 4 (optional future placeholder) -->
+          <!-- Optional add-on (kept, but framed so it doesn't dilute) -->
           <section class="service" aria-labelledby="svc-cwv">
-            <h2 id="svc-cwv"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Core Web Vitals Sprint (Optional)</h2>
+            <h2 id="svc-cwv"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Core Web Vitals Sprint (Add-on)</h2>
             <p>
-              A tight, high-impact sprint targeting LCP/INP/CLS issues: fonts, images, JS long tasks, render-blocking CSS,
-              and third-party tag cleanup. Best for sites that need fast visible wins.
+              A tight sprint targeting LCP/INP/CLS: images/fonts, render-blocking CSS, JS long tasks, and third-party tag cleanup.
+              Built for fast, visible wins.
             </p>
+
+            <div class="bestFor">
+              <b>Best for:</b> you need quick CWV improvements fast, after an audit or alongside optimization.
+            </div>
+
             <div class="mini" aria-label="Topics">
               <span class="tag"><i class="fa-solid fa-image" aria-hidden="true"></i> LCP</span>
               <span class="tag"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> INP</span>
               <span class="tag"><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i> CLS</span>
               <span class="tag"><i class="fa-solid fa-code" aria-hidden="true"></i> Long tasks</span>
             </div>
+
             <div class="ctaRow" style="margin-top:14px;">
               <a class="btn" href="/#contact">
                 <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Ask about this
@@ -528,6 +656,50 @@
           </section>
 
         </div>
+
+        <!-- How I work -->
+        <section class="work" aria-label="How I work">
+          <div class="workCard">
+            <h2 class="workTitle"><i class="fa-solid fa-compass" aria-hidden="true"></i> How I work</h2>
+            <ul class="workList">
+              <li><b>Measure real bottlenecks:</b> CWV, TTFB, long tasks, queries, cache behavior (not guesswork).</li>
+              <li><b>Fix safely:</b> WooCommerce-safe caching boundaries, checkout/session protection, no risky hacks.</li>
+              <li><b>Validate + deploy:</b> staging-first when possible, validation checklist, rollback-ready changes.</li>
+            </ul>
+            <p class="workNote">
+              Prefer a quick starting point? Start with the <a href="/services/performance-audit/">Performance Audit</a>.
+            </p>
+          </div>
+        </section>
+
+        <!-- FAQ (visible) -->
+        <section class="faqWrap" aria-label="FAQ">
+          <h2 class="sr-only">FAQ</h2>
+
+          <details>
+            <summary><i class="fa-solid fa-route" aria-hidden="true"></i> Which service should I start with?</summary>
+            <p>
+              If you’re unsure, start with the <a href="/services/performance-audit/">WooCommerce Performance Audit</a>.
+              If checkout is the main issue, choose <a href="/services/checkout-speed-fix/">Checkout Speed Fix</a>.
+              If you already have clear targets and want implementation, choose <a href="/services/woocommerce-optimization/">Optimization</a>.
+            </p>
+          </details>
+
+          <details>
+            <summary><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Is this safe for cart, checkout and sessions?</summary>
+            <p>
+              Yes. Work is designed to be WooCommerce-safe: correct caching boundaries, validation steps, and rollback-ready deployments.
+            </p>
+          </details>
+
+          <details>
+            <summary><i class="fa-solid fa-people-group" aria-hidden="true"></i> Can you work with my dev team or agency?</summary>
+            <p>
+              Yes. I can deliver an actionable plan for your team to implement, or implement changes directly with staging + validation + rollback steps.
+            </p>
+          </details>
+        </section>
+
       </main>
 
       <footer class="footer">
