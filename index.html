@@ -20,35 +20,30 @@
   <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/" />
 
   <!-- Preload hero image -->
-  <link
-    rel="preload"
-    as="image"
-    href="/avatar.png"
-    imagesizes="190px"
-    fetchpriority="high"
-  >
+  <link rel="preload" as="image" href="/avatar.png" fetchpriority="high">
 
   <!-- Preconnect for GA -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
 
+  <!-- Font Awesome (non-blocking) -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-  media="print"
-  onload="this.media='all'"
->
-<noscript>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
+    media="print"
+    onload="this.media='all'"
   >
-</noscript>
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    >
+  </noscript>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
@@ -778,10 +773,22 @@
 
             <div class="quickLinks" aria-label="Quick links">
               <a class="qLink" href="mailto:carlleger.dev@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
-              <a class="qLink" rel="me" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
-              <a class="qLink" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
-              <a class="qLink" rel="me" href="https://github.com/CarlLeger" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
-              <a class="qLink" href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Portfolio</a>
+
+              <a class="qLink" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="me noopener noreferrer">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+              </a>
+
+              <a class="qLink" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork
+              </a>
+
+              <a class="qLink" href="https://github.com/CarlLeger" target="_blank" rel="me noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+              </a>
+
+              <a class="qLink" href="https://cautious-shawl-ada.notion.site/Carl-Leger-WordPress-WooCommerce-2d243d29759c80d1a738c84e4c0d5a7b" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Portfolio
+              </a>
             </div>
 
             <div class="micro">
@@ -958,10 +965,10 @@
                 <label for="budget">Budget (optional)</label>
                 <select id="budget" name="budget">
                   <option value="" selected>Prefer not to say</option>
-                  <option value="< $1k">< $1k</option>
-                  <option value="$1k–$3k">$1k–$3k</option>
-                  <option value="$3k–$10k">$3k–$10k</option>
-                  <option value="$10k+">$10k+</option>
+                  <option value="under_1k">Under $1k</option>
+                  <option value="1k_3k">$1k–$3k</option>
+                  <option value="3k_10k">$3k–$10k</option>
+                  <option value="10k_plus">$10k+</option>
                 </select>
               </div>
 
@@ -984,6 +991,7 @@
 
               <input type="hidden" name="_subject" value="New Lead — CarlLeger.github.io (Home)">
               <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="source" value="Home">
 
               <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
 
@@ -1054,6 +1062,8 @@
 
       const started = Number(formStartTime || Date.now());
       const secondsSpent = (Date.now() - started) / 1000;
+
+      // Basic bot timing check
       if (secondsSpent < 3) {
         statusBox.className = "status err";
         statusBox.textContent = "Submission blocked. Please try again.";
@@ -1061,6 +1071,7 @@
         return;
       }
 
+      // Honeypots
       const company = (form.querySelector("#company")?.value || "").trim();
       const gotcha = (form.querySelector("[name='_gotcha']")?.value || "").trim();
       if (company || gotcha) {
