@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>WooCommerce Checkout Speed Fix — Faster & Safer Conversions | Carl Leger</title>
+
+  <meta name="description" content="Fix slow WooCommerce checkout without breaking production. Checkout speed optimization, cache-safe fixes, and rollback-ready deployments by a WooCommerce performance specialist." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://carlleger.github.io/services/checkout-speed-fix/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="WooCommerce Checkout Speed Fix" />
+  <meta property="og:description" content="Speed up slow WooCommerce checkout safely. No hacks. No broken payments. Production-safe fixes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://carlleger.github.io/services/checkout-speed-fix/" />
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"WooCommerce Checkout Speed Fix",
+    "provider":{
+      "@type":"Person",
+      "name":"Carl Leger",
+      "url":"https://carlleger.github.io/"
+    },
+    "areaServed":"Worldwide",
+    "serviceType":"WooCommerce Checkout Performance Optimization",
+    "url":"https://carlleger.github.io/services/checkout-speed-fix/"
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --text:#e7ecff;
+      --muted:#a8b3d6;
+      --card:rgba(255,255,255,.04);
+      --stroke:rgba(255,255,255,.08);
+      --stroke2:rgba(255,255,255,.12);
+      --btnText:#06101d;
+      --r:18px;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(900px 600px at 15% 10%, rgba(56,189,248,.12), transparent 55%),
+        radial-gradient(900px 600px at 85% 20%, rgba(167,139,250,.10), transparent 55%),
+        linear-gradient(180deg, #0b1220, #070d17);
+      color:var(--text);
+      line-height:1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .wrap{
+      max-width:880px;
+      margin:0 auto;
+      padding:56px 20px 80px;
+    }
+
+    a{ color:inherit; }
+
+    .back{
+      display:inline-block;
+      margin-bottom:18px;
+      color:rgba(231,236,255,.90);
+      text-decoration:none;
+      border-bottom:1px solid rgba(255,255,255,.22);
+      padding-bottom:2px;
+    }
+    .back:hover{ opacity:.95; }
+
+    h1{
+      font-size:42px;
+      line-height:1.1;
+      margin:0 0 16px;
+      letter-spacing:-0.02em;
+    }
+
+    h2{
+      margin-top:48px;
+      font-size:22px;
+      letter-spacing:-0.01em;
+      color:rgba(231,236,255,.98);
+    }
+
+    p{
+      color:var(--muted);
+      max-width:72ch;
+      margin: 12px 0;
+    }
+
+    strong{ color:var(--text); }
+
+    ul{ padding-left:18px; margin: 12px 0; }
+    li{ margin:10px 0; color:var(--muted); }
+
+    .hero{ margin-bottom:42px; }
+
+    .cta{
+      margin-top:24px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 16px;
+      border-radius:14px;
+      font-weight:800;
+      text-decoration:none;
+      background:linear-gradient(135deg,#38bdf8,#a78bfa);
+      color:var(--btnText);
+      transition: transform .12s ease, opacity .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); opacity:.98; }
+
+    .btn.secondary{
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      border:1px solid var(--stroke2);
+      font-weight:700;
+    }
+
+    .box{
+      margin-top:18px;
+      padding:18px;
+      border-radius:var(--r);
+      background:var(--card);
+      border:1px solid var(--stroke);
+    }
+
+    .box p{ margin: 10px 0; }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <a class="back" href="/">← Back to home</a>
+
+    <section class="hero">
+      <h1>WooCommerce Checkout Speed Fix</h1>
+
+      <p>
+        Slow checkout kills conversions. I fix WooCommerce checkout performance
+        <strong>without breaking payments, sessions, or cache logic</strong>.
+      </p>
+
+      <p>
+        This service targets real bottlenecks: fragments, third-party scripts,
+        cart/session logic, database hotspots, and unsafe caching.
+      </p>
+
+      <div class="cta">
+        <a class="btn" href="/#contact">Request checkout audit</a>
+        <a class="btn secondary" href="/services/woocommerce-optimization/">View optimization service</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Common WooCommerce checkout problems</h2>
+      <ul>
+        <li>Checkout loads slowly or freezes on submit</li>
+        <li>High TTFB on checkout and cart pages</li>
+        <li>Payment gateways adding heavy scripts</li>
+        <li>Cart fragments triggering excessive AJAX calls</li>
+        <li>Cache misconfiguration breaking sessions or totals</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How I fix checkout speed (safely)</h2>
+      <div class="box">
+        <p><strong>1) Diagnose</strong><br>
+          Measure real checkout flow (TTFB, long tasks, AJAX, DB queries).</p>
+
+        <p><strong>2) Fix bottlenecks</strong><br>
+          Reduce fragments, isolate scripts, optimize queries, harden cache boundaries.</p>
+
+        <p><strong>3) Validate & deploy</strong><br>
+          Test payments, sessions, taxes, coupons. Rollback-ready deployment.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>What you get</h2>
+      <ul>
+        <li>Faster checkout load and submit time</li>
+        <li>Stable payments and sessions</li>
+        <li>No risky caching hacks</li>
+        <li>Clear documentation of changes</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Who this is for</h2>
+      <ul>
+        <li>WooCommerce stores losing conversions</li>
+        <li>Agencies needing a checkout specialist</li>
+        <li>Teams afraid of breaking production</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>FAQ</h2>
+      <div class="box">
+        <p><strong>Will this break payments or plugins?</strong><br>
+          No. Changes are tested and deployed with a rollback plan.</p>
+
+        <p><strong>Do you need access to production?</strong><br>
+          Ideally staging first. If staging isn’t possible, we use safe, reversible steps.</p>
+
+        <p><strong>How fast can you improve checkout?</strong><br>
+          It depends on the bottleneck (gateway scripts, fragments, DB queries, theme, hosting). The audit identifies the highest-impact fixes.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Start with a checkout audit</h2>
+      <p>
+        If your checkout feels slow, unstable, or unpredictable, start with a focused audit.
+        I’ll tell you exactly what’s wrong, and whether it’s worth fixing.
+      </p>
+
+      <div class="cta">
+        <a class="btn" href="/#contact">Request checkout audit</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
