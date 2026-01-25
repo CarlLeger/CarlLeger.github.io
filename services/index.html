@@ -7,10 +7,14 @@
   <title>Services | WordPress & WooCommerce Performance — Carl Leger</title>
   <meta name="description" content="Performance-focused services for WordPress & WooCommerce: audits, Core Web Vitals, TTFB reduction, checkout troubleshooting, and production-safe rollouts." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="format-detection" content="telephone=no" />
+
   <link rel="canonical" href="https://carlleger.github.io/services/" />
-  <meta name="theme-color" content="#0b1220">
-  <meta name="language" content="en">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="alternate" hreflang="en" href="https://carlleger.github.io/services/" />
+  <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/services/" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Services — Carl Leger" />
@@ -22,16 +26,21 @@
   <meta property="og:image" content="https://carlleger.github.io/assets/og/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Services by Carl Leger — WordPress & WooCommerce Performance" />
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Services — Carl Leger" />
-  <meta name="twitter:description" content="WooCommerce performance audit, CWV, TTFB reduction, checkout troubleshooting." />
+  <meta name="twitter:description" content="WooCommerce performance audit, CWV, TTFB reduction, checkout troubleshooting, production-safe rollouts." />
   <meta name="twitter:image" content="https://carlleger.github.io/assets/og/og.png" />
+  <meta name="twitter:image:alt" content="Services by Carl Leger — WordPress & WooCommerce Performance" />
 
-  <!-- Preconnect + GA -->
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <!-- Performance: preconnect -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+  <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -39,6 +48,24 @@
     gtag('js', new Date());
     gtag('config', 'G-3KXQFTWTBD');
   </script>
+
+  <!-- Font Awesome (non-blocking) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </noscript>
 
   <!-- Structured Data: Person -->
   <script type="application/ld+json">
@@ -80,7 +107,13 @@
     "name":"Services | WordPress & WooCommerce Performance — Carl Leger",
     "description":"Performance-focused services for WordPress & WooCommerce: audits, Core Web Vitals, TTFB reduction, checkout troubleshooting, and production-safe rollouts.",
     "isPartOf": { "@id":"https://carlleger.github.io/#website" },
-    "author": { "@id":"https://carlleger.github.io/#person" }
+    "author": { "@id":"https://carlleger.github.io/#person" },
+    "primaryImageOfPage": {
+      "@type":"ImageObject",
+      "url":"https://carlleger.github.io/assets/og/og.png",
+      "width": 1200,
+      "height": 630
+    }
   }
   </script>
 
@@ -114,6 +147,12 @@
       {
         "@type":"ListItem",
         "position":2,
+        "name":"WooCommerce Checkout Speed Fix",
+        "url":"https://carlleger.github.io/services/checkout-speed-fix/"
+      },
+      {
+        "@type":"ListItem",
+        "position":3,
         "name":"WooCommerce Optimization",
         "url":"https://carlleger.github.io/services/woocommerce-optimization/"
       }
@@ -123,10 +162,6 @@
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-
-  <!-- Icons (Font Awesome) -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     :root{
@@ -168,6 +203,19 @@
       border-radius: 12px;
     }
 
+    .skip{
+      position:absolute;
+      left:-999px;
+      top:10px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      padding:10px 12px;
+      border-radius: 12px;
+      color: var(--text);
+      z-index: 9999;
+    }
+    .skip:focus{ left: 12px; }
+
     .wrap{ max-width: 980px; margin: 0 auto; padding: 44px 22px 80px; }
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
@@ -175,6 +223,7 @@
       border-radius: 24px;
       box-shadow: var(--shadow);
       overflow:hidden;
+      position:relative;
     }
 
     .topbar{
@@ -235,7 +284,7 @@
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.06);
       color: var(--text);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 14px;
       transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
     }
@@ -250,6 +299,7 @@
       background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.85));
       border: 1px solid rgba(255,255,255,.20);
       color:#06101d;
+      font-weight: 900;
     }
     .btn.primary i{ color:#06101d; }
 
@@ -269,6 +319,8 @@
       background: rgba(255,255,255,.04);
       border-radius: 18px;
       padding: 16px;
+      position:relative;
+      overflow:hidden;
     }
     .service h2{
       margin:0 0 8px;
@@ -280,7 +332,8 @@
     }
     .service h2 i{ color: var(--accent); }
     .service p{ margin:0; color: var(--muted); font-size: 14px; line-height: 1.65; }
-    .service .mini{
+
+    .mini{
       margin-top: 10px;
       display:flex;
       flex-wrap:wrap;
@@ -329,10 +382,20 @@
       background: rgba(255,255,255,.06);
       transform: translateY(-1px);
     }
+
+    .sr-only{
+      position:absolute;
+      width:1px;height:1px;
+      padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);
+      white-space:nowrap;border:0;
+    }
   </style>
 </head>
 
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <div class="wrap">
     <div class="card">
 
@@ -342,92 +405,141 @@
           Services • WordPress • WooCommerce • Performance
         </div>
 
-        <div class="navrow">
+        <nav class="navrow" aria-label="Primary">
           <a class="navpill" href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
           <a class="navpill" href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
           <a class="navpill" href="/#contact"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact</a>
-        </div>
+        </nav>
       </div>
 
-      <header class="hero">
-        <p class="kicker"><i class="fa-solid fa-circle-check" style="color: var(--good);" aria-hidden="true"></i> Practical audits and production-safe rollouts</p>
-        <h1 class="title">Services</h1>
-        <p class="subtitle">
-          Performance work for WordPress and WooCommerce with one goal: measurable results without breaking checkout, sessions, or revenue.
-        </p>
-
-        <div class="ctaRow">
-          <a class="btn primary" href="/#contact">
-            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request a quote
-          </a>
-          <a class="btn" href="/services/performance-audit/">
-            <i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Performance Audit
-          </a>
-          <a class="btn" href="/services/woocommerce-optimization/">
-            <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> WooCommerce Optimization
-          </a>
-        </div>
-      </header>
-
-      <div class="grid">
-
-        <!-- Service 1 -->
-        <section class="service">
-          <h2><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> WooCommerce Performance Audit</h2>
-          <p>
-            Deep audit focused on Core Web Vitals, TTFB, checkout speed, caching safety, and bottleneck mapping.
-            You get a prioritized plan with quick wins and rollout steps.
+      <main id="main">
+        <header class="hero">
+          <p class="kicker">
+            <i class="fa-solid fa-circle-check" style="color: var(--good);" aria-hidden="true"></i>
+            Practical audits and production-safe rollouts
           </p>
-          <div class="mini" aria-label="Topics">
-            <span class="tag"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> TTFB</span>
-            <span class="tag"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> CWV</span>
-            <span class="tag"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout</span>
-            <span class="tag"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Cache safety</span>
-          </div>
-          <div class="ctaRow" style="margin-top:14px;">
-            <a class="btn primary" href="/services/performance-audit/">
-              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View service page
-            </a>
-            <a class="btn" href="/services/performance-audit/#contact">
-              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this audit
-            </a>
-          </div>
-        </section>
-
-        <!-- Service 2 -->
-        <section class="service">
-          <h2><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> WooCommerce Optimization</h2>
-          <p>
-            Implementation work to improve real-world speed: reduce TTFB, stabilize Core Web Vitals, optimize checkout,
-            fix plugin conflicts, and harden caching rules (Cloudflare/server) without breaking cart or sessions.
+          <h1 class="title">Services</h1>
+          <p class="subtitle">
+            Performance work for WordPress and WooCommerce with one goal: measurable results without breaking checkout, sessions, or revenue.
           </p>
-          <div class="mini" aria-label="Topics">
-            <span class="tag"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Speed fixes</span>
-            <span class="tag"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Production safe</span>
-            <span class="tag"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Rollback plan</span>
-            <span class="tag"><i class="fa-solid fa-cookie-bite" aria-hidden="true"></i> Session safety</span>
-          </div>
-          <div class="ctaRow" style="margin-top:14px;">
-            <a class="btn primary" href="/services/woocommerce-optimization/">
-              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View service page
-            </a>
-            <a class="btn" href="/#contact">
+
+          <div class="ctaRow" aria-label="Primary actions">
+            <a class="btn primary" href="/#contact">
               <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request a quote
             </a>
+            <a class="btn" href="/services/performance-audit/">
+              <i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Performance Audit
+            </a>
+            <a class="btn" href="/services/checkout-speed-fix/">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout Speed Fix
+            </a>
           </div>
-        </section>
+        </header>
 
-      </div>
+        <div class="grid" aria-label="Services list">
 
-      <div class="footer">
+          <!-- Service 1 -->
+          <section class="service" aria-labelledby="svc-audit">
+            <h2 id="svc-audit"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> WooCommerce Performance Audit</h2>
+            <p>
+              Deep audit focused on Core Web Vitals, TTFB, checkout speed, caching safety, and bottleneck mapping.
+              You get a prioritized plan with quick wins and rollout steps.
+            </p>
+            <div class="mini" aria-label="Topics">
+              <span class="tag"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> TTFB</span>
+              <span class="tag"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> CWV</span>
+              <span class="tag"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout</span>
+              <span class="tag"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Cache safety</span>
+            </div>
+            <div class="ctaRow" style="margin-top:14px;">
+              <a class="btn primary" href="/services/performance-audit/">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View service page
+              </a>
+              <a class="btn" href="/#contact">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this audit
+              </a>
+            </div>
+          </section>
+
+          <!-- Service 2 -->
+          <section class="service" aria-labelledby="svc-checkout">
+            <h2 id="svc-checkout"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> WooCommerce Checkout Speed Fix</h2>
+            <p>
+              Focused help for slow checkout: fragments, gateway scripts, session/cart logic, DB hotspots, and cache boundaries.
+              Measurable speed improvements without breaking payments.
+            </p>
+            <div class="mini" aria-label="Topics">
+              <span class="tag"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Checkout speed</span>
+              <span class="tag"><i class="fa-solid fa-credit-card" aria-hidden="true"></i> Payment safety</span>
+              <span class="tag"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Rollback-ready</span>
+              <span class="tag"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Production safe</span>
+            </div>
+            <div class="ctaRow" style="margin-top:14px;">
+              <a class="btn primary" href="/services/checkout-speed-fix/">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View service page
+              </a>
+              <a class="btn" href="/#contact">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this service
+              </a>
+            </div>
+          </section>
+
+          <!-- Service 3 -->
+          <section class="service" aria-labelledby="svc-opt">
+            <h2 id="svc-opt"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> WooCommerce Optimization</h2>
+            <p>
+              Implementation work to improve real-world speed: reduce TTFB, stabilize Core Web Vitals, optimize checkout,
+              fix plugin conflicts, and harden caching rules (Cloudflare/server) without breaking cart or sessions.
+            </p>
+            <div class="mini" aria-label="Topics">
+              <span class="tag"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Speed fixes</span>
+              <span class="tag"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Production safe</span>
+              <span class="tag"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Rollback plan</span>
+              <span class="tag"><i class="fa-solid fa-cookie-bite" aria-hidden="true"></i> Session safety</span>
+            </div>
+            <div class="ctaRow" style="margin-top:14px;">
+              <a class="btn primary" href="/services/woocommerce-optimization/">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View service page
+              </a>
+              <a class="btn" href="/#contact">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request a quote
+              </a>
+            </div>
+          </section>
+
+          <!-- Service 4 (optional future placeholder) -->
+          <section class="service" aria-labelledby="svc-cwv">
+            <h2 id="svc-cwv"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Core Web Vitals Sprint (Optional)</h2>
+            <p>
+              A tight, high-impact sprint targeting LCP/INP/CLS issues: fonts, images, JS long tasks, render-blocking CSS,
+              and third-party tag cleanup. Best for sites that need fast visible wins.
+            </p>
+            <div class="mini" aria-label="Topics">
+              <span class="tag"><i class="fa-solid fa-image" aria-hidden="true"></i> LCP</span>
+              <span class="tag"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> INP</span>
+              <span class="tag"><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i> CLS</span>
+              <span class="tag"><i class="fa-solid fa-code" aria-hidden="true"></i> Long tasks</span>
+            </div>
+            <div class="ctaRow" style="margin-top:14px;">
+              <a class="btn" href="/#contact">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Ask about this
+              </a>
+            </div>
+          </section>
+
+        </div>
+      </main>
+
+      <footer class="footer">
         <div>© <span id="year"></span> Carl Leger</div>
-        <div class="links">
+        <div class="links" aria-label="Footer links">
           <a href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
           <a href="/resources/"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> Resources</a>
+          <a href="/#contact"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact</a>
           <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
           <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
         </div>
-      </div>
+      </footer>
 
     </div>
   </div>
