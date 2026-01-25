@@ -265,6 +265,7 @@
       background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.85));
       border: 1px solid rgba(255,255,255,.20);
       color:#06101d;
+      font-weight: 900;
     }
     .btn.primary i{ color:#06101d; }
 
@@ -387,23 +388,23 @@
     summary::-webkit-details-marker{ display:none; }
     details p{ margin: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
 
-    .contactWrap{ padding: 0 26px 26px; }
-    @media (max-width: 900px){ .contactWrap{ padding: 0 18px 22px; } }
-    .contact{
+    .ctaBlockWrap{ padding: 0 26px 26px; }
+    @media (max-width: 900px){ .ctaBlockWrap{ padding: 0 18px 22px; } }
+
+    .ctaBlock{
       border: 1px solid rgba(255,255,255,.10);
       background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
       border-radius: 24px;
       padding: 18px;
     }
-    .contactHeader{
+    .ctaHead{
       display:flex;
       justify-content:space-between;
       align-items:flex-start;
       gap:14px;
       flex-wrap:wrap;
-      margin-bottom: 12px;
     }
-    .contactHeader h2{
+    .ctaHead h2{
       margin:0;
       font-size: 18px;
       color: var(--text);
@@ -411,15 +412,15 @@
       align-items:center;
       gap:10px;
     }
-    .contactHeader h2 i{ color: var(--accent); }
-    .contactHeader p{
+    .ctaHead h2 i{ color: var(--accent); }
+    .ctaHead p{
       margin: 6px 0 0;
       color: var(--muted);
       max-width: 78ch;
       font-size: 14px;
       line-height: 1.65;
     }
-    .contactHint{
+    .hint{
       display:inline-flex;
       align-items:center;
       gap:8px;
@@ -432,79 +433,13 @@
       white-space:nowrap;
       height: fit-content;
     }
-    .contactHint i{ color: var(--good); }
+    .hint i{ color: var(--good); }
 
-    form{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 12px;
-    }
-    @media (max-width: 760px){ form{ grid-template-columns: 1fr; } }
-    .field{ display:flex; flex-direction:column; gap: 7px; }
-    label{ font-size: 12px; color: rgba(219,228,255,.92); letter-spacing: .02em; }
-    input, select, textarea{
-      width:100%;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(8,13,23,.55);
-      color: var(--text);
-      outline: none;
-      font-size: 14px;
-    }
-    input::placeholder, textarea::placeholder{ color: rgba(168,179,214,.65); }
-    textarea{
-      min-height: 110px;
-      resize: vertical;
-      grid-column: 1 / -1;
-    }
-    .full{ grid-column: 1 / -1; }
-    .formRow{
+    .ctaActions{
       display:flex;
       gap: 12px;
-      align-items:center;
-      justify-content:space-between;
       flex-wrap:wrap;
-      grid-column: 1 / -1;
-      margin-top: 2px;
-    }
-    .note{ color: rgba(168,179,214,.85); font-size: 12px; }
-    .submitBtn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.85));
-      color:#06101d;
-      font-weight: 900;
-      font-size: 14px;
-      cursor:pointer;
-      transition: transform .12s ease, opacity .12s ease;
-    }
-    .submitBtn:hover{ transform: translateY(-1px); opacity:.98; }
-
-    .status{
-      grid-column: 1 / -1;
-      display:none;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      font-size: 13px;
-    }
-    .status.ok{
-      display:block;
-      border-color: rgba(34,197,94,.25);
-      background: rgba(34,197,94,.10);
-    }
-    .status.err{
-      display:block;
-      border-color: rgba(251,191,36,.25);
-      background: rgba(251,191,36,.10);
+      margin-top: 12px;
     }
 
     .footer{
@@ -536,14 +471,6 @@
       background: rgba(255,255,255,.06);
       transform: translateY(-1px);
     }
-
-    .sr-only{
-      position:absolute;
-      width:1px;height:1px;
-      padding:0;margin:-1px;
-      overflow:hidden;clip:rect(0,0,0,0);
-      white-space:nowrap;border:0;
-    }
   </style>
 </head>
 
@@ -561,7 +488,7 @@
           <a class="navpill" href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
           <a class="navpill" href="/services/"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services</a>
           <a class="navpill" href="/services/performance-audit/"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Audit</a>
-          <a class="navpill" href="#contact"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request</a>
+          <a class="navpill" href="/contact/"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact</a>
         </div>
       </div>
 
@@ -578,7 +505,7 @@
         </p>
 
         <div class="ctaRow">
-          <a class="btn primary" href="#contact" aria-label="Request WooCommerce optimization">
+          <a class="btn primary js-contact-cta" href="/contact/" aria-label="Request WooCommerce optimization">
             <i class="fa-solid fa-bolt" aria-hidden="true"></i> Request Optimization
           </a>
           <a class="btn" href="/services/performance-audit/" aria-label="Start with a performance audit">
@@ -663,53 +590,60 @@
 
           <div class="stepGrid">
             <div class="step">
-              <h3>
-                <i class="fa-solid fa-store" aria-hidden="true"></i>
-                Scenario
-              </h3>
-              <p>
-                WooCommerce store with slow checkout, inconsistent Core Web Vitals,
-                and performance drops during peak traffic.
-              </p>
+              <h3><i class="fa-solid fa-store" aria-hidden="true"></i> Scenario</h3>
+              <p>WooCommerce store with slow checkout, inconsistent Core Web Vitals, and drops during peak traffic.</p>
             </div>
 
             <div class="step">
-              <h3>
-                <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
-                Findings
-              </h3>
-              <p>
-                Low cache hit rate, heavy checkout scripts, expensive database queries,
-                and long JavaScript tasks affecting INP.
-              </p>
+              <h3><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> Findings</h3>
+              <p>Low cache hit rate, heavy checkout scripts, expensive DB queries, long JS tasks impacting INP.</p>
             </div>
 
             <div class="step">
-              <h3>
-                <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
-                Work delivered
-              </h3>
-              <p>
-                WooCommerce-safe cache rules, checkout script optimization,
-                DB query reduction, and CWV-focused front-end fixes.
-              </p>
+              <h3><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Work delivered</h3>
+              <p>Woo-safe cache rules, checkout script optimization, DB query reduction, and CWV fixes.</p>
             </div>
 
             <div class="step">
-              <h3>
-                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-                Outcome
-              </h3>
-              <p>
-                Faster and more stable checkout flow, improved perceived speed,
-                and predictable performance under load.
-              </p>
+              <h3><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Outcome</h3>
+              <p>Faster and more stable checkout flow, improved perceived speed, predictable performance under load.</p>
             </div>
           </div>
 
           <p style="margin-top:14px; color: rgba(168,179,214,.9); font-size:13px;">
             Metrics typically targeted: <b>LCP</b>, <b>INP</b>, <b>CLS</b>, <b>TTFB</b>, and checkout submit time.
             Results depend on stack, plugins, and traffic patterns.
+          </p>
+        </section>
+      </div>
+
+      <!-- NEXT STEP (NO FORM) -->
+      <div class="ctaBlockWrap">
+        <section class="ctaBlock" aria-labelledby="next-step-title">
+          <div class="ctaHead">
+            <div>
+              <h2 id="next-step-title"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Next step</h2>
+              <p>
+                Send your URL and a short description of the issue (checkout, CWV, TTFB, plugins).
+                You’ll get a reply within 24 hours with the best next step.
+              </p>
+            </div>
+            <div class="hint">
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Response in 24h
+            </div>
+          </div>
+
+          <div class="ctaActions">
+            <a class="btn primary js-contact-cta" href="/contact/" aria-label="Go to contact page">
+              <i class="fa-solid fa-bolt" aria-hidden="true"></i> Request Optimization
+            </a>
+            <a class="btn" href="/services/performance-audit/" aria-label="Go to audit service">
+              <i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Start with an Audit
+            </a>
+          </div>
+
+          <p style="margin-top:12px; color: rgba(168,179,214,.85); font-size:12px;">
+            Prefer email? <b>carlleger.dev@gmail.com</b>
           </p>
         </section>
       </div>
@@ -745,114 +679,8 @@
 
           <details>
             <summary><i class="fa-solid fa-clock" aria-hidden="true"></i> How fast will I get a response?</summary>
-            <p>Send a request below and you’ll get a reply within 24 hours with the best next step.</p>
+            <p>Send a request and you’ll get a reply within 24 hours with the best next step.</p>
           </details>
-        </section>
-      </div>
-
-      <!-- CONTACT -->
-      <div class="contactWrap">
-        <section id="contact" class="contact" aria-labelledby="contact-title">
-          <div class="contactHeader">
-            <div>
-              <h2 id="contact-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Request Optimization</h2>
-              <p>
-                Tell me what’s slow (checkout, CWV, TTFB, plugins). I’ll reply within 24 hours with the best next step.
-                (No spam, no fluff.)
-              </p>
-            </div>
-            <div class="contactHint">
-              <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Response in 24h
-            </div>
-          </div>
-
-          <form id="auditForm" action="https://formspree.io/f/mwvlenpe" method="POST">
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
-            </div>
-
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
-            </div>
-
-            <div class="field full">
-              <label for="site">Website URL</label>
-              <input id="site" name="website" type="url" placeholder="https://example.com" required>
-            </div>
-
-            <div class="field">
-              <label for="project">Project type</label>
-              <select id="project" name="project_type" required>
-                <option value="" selected disabled>Select one</option>
-                <option value="WooCommerce optimization (recommended)">WooCommerce optimization (recommended)</option>
-                <option value="Performance audit">Performance audit</option>
-                <option value="Checkout troubleshooting">Checkout troubleshooting</option>
-                <option value="SEO & analytics consulting">SEO & analytics consulting</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="timeline">Timeline</label>
-              <select id="timeline" name="timeline" required>
-                <option value="" selected disabled>Select one</option>
-                <option value="ASAP">ASAP</option>
-                <option value="This week">This week</option>
-                <option value="This month">This month</option>
-                <option value="Flexible">Flexible</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="budget">Budget (optional)</label>
-              <select id="budget" name="budget">
-                <option value="" selected>Prefer not to say</option>
-                <option value="< $1k">< $1k</option>
-                <option value="$1k–$3k">$1k–$3k</option>
-                <option value="$3k–$10k">$3k–$10k</option>
-                <option value="$10k+">$10k+</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="platform">Hosting (optional)</label>
-              <select id="platform" name="hosting">
-                <option value="" selected>Prefer not to say</option>
-                <option value="Cloudways">Cloudways</option>
-                <option value="Kinsta">Kinsta</option>
-                <option value="WP Engine">WP Engine</option>
-                <option value="SiteGround">SiteGround</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-
-            <div class="field full">
-              <label for="message">What’s the main issue?</label>
-              <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, plugin conflicts, etc." required></textarea>
-            </div>
-
-            <input type="hidden" name="_subject" value="New Lead — WooCommerce Optimization (Service Page)">
-            <input type="hidden" name="_template" value="table">
-
-            <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off">
-
-            <div class="sr-only">
-              <label for="company">Company</label>
-              <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
-            </div>
-
-            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
-
-            <div class="formRow">
-              <div class="note">
-                By submitting, you agree to be contacted about this request. I only use your info to respond.
-              </div>
-              <button class="submitBtn" type="submit">
-                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send request
-              </button>
-            </div>
-          </form>
         </section>
       </div>
 
@@ -862,6 +690,7 @@
           <a href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
           <a href="/services/"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services</a>
           <a href="/services/performance-audit/"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Audit</a>
+          <a href="/contact/"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact</a>
           <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
           <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
         </div>
@@ -873,83 +702,16 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    const form = document.getElementById("auditForm");
-    const statusBox = document.getElementById("formStatus");
-
-    let formStartTime = Date.now();
-
-    form.addEventListener("focusin", () => {
-      if (!form.dataset.started) {
-        form.dataset.started = "1";
-        formStartTime = Date.now();
-      }
-    });
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const secondsSpent = (Date.now() - formStartTime) / 1000;
-      if (secondsSpent < 3) {
-        statusBox.className = "status err";
-        statusBox.textContent = "Submission blocked. Please try again.";
-        statusBox.style.display = "block";
-        return;
-      }
-
-      const company = form.querySelector("#company")?.value?.trim();
-      if (company) return;
-
-      statusBox.className = "status";
-      statusBox.textContent = "Sending...";
-      statusBox.style.display = "block";
-
-      const data = new FormData(form);
-      const website = (data.get("website") || "").toString().trim();
-      const message = (data.get("message") || "").toString().trim();
-
-      if (!website.startsWith("http")) {
-        statusBox.className = "status err";
-        statusBox.textContent = "Please enter a valid website URL (include https://).";
-        statusBox.style.display = "block";
-        return;
-      }
-
-      if (message.length < 20) {
-        statusBox.className = "status err";
-        statusBox.textContent = "Please provide a bit more detail (at least 20 characters).";
-        statusBox.style.display = "block";
-        return;
-      }
-
-      try{
-        const res = await fetch(form.action, {
-          method: "POST",
-          body: data,
-          headers: { "Accept": "application/json" }
-        });
-
-        if(res.ok){
-          form.reset();
-          formStartTime = Date.now();
-          delete form.dataset.started;
-
-          statusBox.className = "status ok";
-          statusBox.textContent = "Thanks! Your request was sent. I’ll reply within 24 hours.";
-
-          if (typeof gtag === "function") {
-            gtag("event", "lead_submit", {
-              event_category: "form",
-              event_label: "woocommerce_optimization_service_page"
-            });
-          }
-        } else {
-          statusBox.className = "status err";
-          statusBox.textContent = "Something went wrong. Please email me directly: carlleger.dev@gmail.com";
+    // Optional GA event for CTA clicks (no UX impact)
+    document.querySelectorAll(".js-contact-cta").forEach((a) => {
+      a.addEventListener("click", () => {
+        if (typeof gtag === "function") {
+          gtag("event", "cta_click", {
+            event_category: "cta",
+            event_label: "woocommerce_optimization_to_contact"
+          });
         }
-      } catch(err){
-        statusBox.className = "status err";
-        statusBox.textContent = "Network error. Please email me directly: carlleger.dev@gmail.com";
-      }
+      });
     });
   </script>
 </body>
