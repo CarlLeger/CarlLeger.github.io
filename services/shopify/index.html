@@ -19,6 +19,10 @@
   <meta property="og:title" content="Shopify Store Setup & Launch | Carl Leger" />
   <meta property="og:description" content="Launch a Shopify store the right way. Consultant-level guidance on setup, performance, and when Shopify actually makes sense." />
   <meta property="og:url" content="https://carlleger.github.io/services/shopify/" />
+  <meta property="og:image" content="https://carlleger.github.io/assets/og/og-shopify-consultant-1200x630.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/webp" />
 
   <!-- Disclosure -->
   <meta name="affiliate-disclosure" content="This page contains affiliate links. I may earn a commission at no extra cost to you." />
@@ -122,24 +126,9 @@
     "@type": "BreadcrumbList",
     "@id": "https://carlleger.github.io/services/shopify/#breadcrumbs",
     "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://carlleger.github.io/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Services",
-        "item": "https://carlleger.github.io/services/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Shopify",
-        "item": "https://carlleger.github.io/services/shopify/"
-      }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://carlleger.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://carlleger.github.io/services/" },
+      { "@type": "ListItem", "position": 3, "name": "Shopify", "item": "https://carlleger.github.io/services/shopify/" }
     ]
   }
   </script>
@@ -160,14 +149,8 @@
       "url": "https://carlleger.github.io/",
       "name": "Carl Leger"
     },
-    "about": {
-      "@type": "Service",
-      "@id": "https://carlleger.github.io/services/shopify/#service"
-    },
-    "author": {
-      "@type": "Person",
-      "@id": "https://carlleger.github.io/#person"
-    },
+    "about": { "@type": "Service", "@id": "https://carlleger.github.io/services/shopify/#service" },
+    "author": { "@type": "Person", "@id": "https://carlleger.github.io/#person" },
     "primaryImageOfPage": {
       "@type": "ImageObject",
       "@id": "https://carlleger.github.io/services/shopify/#primaryimage"
@@ -195,9 +178,23 @@
 
 <main class="wrap">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
+  <!-- HERO (with responsive hero images) -->
+  <section class="hero heroShopify">
+    <picture class="heroMedia" aria-hidden="true">
+      <source
+        srcset="/assets/images/hero-shopify-consultant-1200x675.webp"
+        media="(max-width: 768px)"
+        type="image/webp"
+      />
+      <img
+        src="/assets/images/hero-shopify-consultant-2400x1350.webp"
+        alt=""
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+
+    <div class="heroContent">
       <h1>Shopify Store Setup & Launch — Done Right</h1>
 
       <p class="lead">
@@ -346,7 +343,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="grid">
+  <section class="grid" id="faq">
     <article class="card">
       <h2>Shopify Setup FAQ</h2>
 
