@@ -9,13 +9,29 @@
 
   <meta name="author" content="Carl Leger" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#ffffff" />
+
   <link rel="canonical" href="https://carlleger.github.io/services/shopify/" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/styles.css" />
 
+  <!-- Preload hero (improves LCP) -->
+  <link
+    rel="preload"
+    as="image"
+    href="/assets/images/hero-shopify-consultant-2400x1350.webp"
+    imagesrcset="/assets/images/hero-shopify-consultant-1200x675.webp 1200w, /assets/images/hero-shopify-consultant-2400x1350.webp 2400w"
+    imagesizes="(max-width: 768px) 100vw, 1100px"
+    type="image/webp"
+  />
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Carl Leger" />
   <meta property="og:title" content="Shopify Store Setup & Launch | Carl Leger" />
   <meta property="og:description" content="Launch a Shopify store the right way. Consultant-level guidance on setup, performance, and when Shopify actually makes sense." />
   <meta property="og:url" content="https://carlleger.github.io/services/shopify/" />
@@ -24,14 +40,27 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/webp" />
 
+  <!-- Twitter (recommended) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shopify Store Setup & Launch | Carl Leger" />
+  <meta name="twitter:description" content="Launch a Shopify store the right way. Consultant-level guidance on setup, performance, and when Shopify actually makes sense." />
+  <meta name="twitter:image" content="https://carlleger.github.io/assets/og/og-shopify-consultant-1200x630.webp" />
+
   <!-- Disclosure -->
   <meta name="affiliate-disclosure" content="This page contains affiliate links. I may earn a commission at no extra cost to you." />
 
-  <!-- Structured data (Person + Service) -->
+  <!-- Structured data (Person + Service + WebSite) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://carlleger.github.io/#website",
+        "url": "https://carlleger.github.io/",
+        "name": "Carl Leger",
+        "inLanguage": "en-US"
+      },
       {
         "@type": "Person",
         "@id": "https://carlleger.github.io/#person",
@@ -71,6 +100,25 @@
           "Shopify launch strategy"
         ],
         "url": "https://carlleger.github.io/services/shopify/"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://carlleger.github.io/services/shopify/#primaryimage",
+        "url": "https://carlleger.github.io/assets/og/og-shopify-consultant-1200x630.webp",
+        "width": 1200,
+        "height": 630
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://carlleger.github.io/services/shopify/#webpage",
+        "url": "https://carlleger.github.io/services/shopify/",
+        "name": "Shopify Consultant for Store Setup & Launch | Carl Leger",
+        "description": "Shopify consultant helping businesses launch fast, clean, and scalable Shopify stores. Clear setup, platform comparison, and performance-first decisions.",
+        "inLanguage": "en-US",
+        "isPartOf": { "@id": "https://carlleger.github.io/#website" },
+        "about": { "@id": "https://carlleger.github.io/services/shopify/#service" },
+        "author": { "@id": "https://carlleger.github.io/#person" },
+        "primaryImageOfPage": { "@id": "https://carlleger.github.io/services/shopify/#primaryimage" }
       }
     ]
   }
@@ -132,34 +180,11 @@
     ]
   }
   </script>
-
-  <!-- Structured data (WebPage) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://carlleger.github.io/services/shopify/#webpage",
-    "url": "https://carlleger.github.io/services/shopify/",
-    "name": "Shopify Consultant for Store Setup & Launch | Carl Leger",
-    "description": "Shopify consultant helping businesses launch fast, clean, and scalable Shopify stores. Clear setup, platform comparison, and performance-first decisions.",
-    "inLanguage": "en-US",
-    "isPartOf": {
-      "@type": "WebSite",
-      "@id": "https://carlleger.github.io/#website",
-      "url": "https://carlleger.github.io/",
-      "name": "Carl Leger"
-    },
-    "about": { "@type": "Service", "@id": "https://carlleger.github.io/services/shopify/#service" },
-    "author": { "@type": "Person", "@id": "https://carlleger.github.io/#person" },
-    "primaryImageOfPage": {
-      "@type": "ImageObject",
-      "@id": "https://carlleger.github.io/services/shopify/#primaryimage"
-    }
-  }
-  </script>
 </head>
 
 <body>
+
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="wrap header">
   <div class="brand">
@@ -169,17 +194,26 @@
     </a>
   </div>
 
-  <nav class="nav">
+  <nav class="nav" aria-label="Primary">
     <a href="/services/">Services</a>
     <a href="/resources/">Resources</a>
     <a href="/about/">About</a>
   </nav>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="main">
+
+  <!-- Optional breadcrumb (UX + internal SEO) -->
+  <nav class="muted" aria-label="Breadcrumb" style="font-size:13px;margin:16px 0 0;">
+    <a href="/" class="muted" style="text-decoration:none;">Home</a>
+    <span aria-hidden="true"> / </span>
+    <a href="/services/" class="muted" style="text-decoration:none;">Services</a>
+    <span aria-hidden="true"> / </span>
+    <span>Shopify</span>
+  </nav>
 
   <!-- HERO (with responsive hero images) -->
-  <section class="hero heroShopify">
+  <section class="hero heroShopify" aria-label="Shopify service overview">
     <picture class="heroMedia" aria-hidden="true">
       <source
         srcset="/assets/images/hero-shopify-consultant-1200x675.webp"
@@ -189,8 +223,11 @@
       <img
         src="/assets/images/hero-shopify-consultant-2400x1350.webp"
         alt=""
+        width="2400"
+        height="1350"
         loading="eager"
         decoding="async"
+        fetchpriority="high"
       />
     </picture>
 
@@ -226,7 +263,7 @@
   </section>
 
   <!-- WHAT I ACTUALLY DO -->
-  <section class="grid">
+  <section class="grid one" id="what" aria-label="What a Shopify consultant does">
     <article class="card">
       <h2>What a Shopify Consultant Actually Does</h2>
       <p>
@@ -243,7 +280,7 @@
   </section>
 
   <!-- PROCESS (EEAT + conversion) -->
-  <section class="grid">
+  <section class="grid one" id="process" aria-label="Shopify setup process">
     <article class="card">
       <h2>My Shopify Setup Process</h2>
       <p class="muted">
@@ -262,7 +299,7 @@
   </section>
 
   <!-- WHEN SHOPIFY MAKES SENSE -->
-  <section class="grid">
+  <section class="grid two" id="fit" aria-label="When Shopify fits">
     <article class="card">
       <h2>When Shopify Is a Strong Choice</h2>
       <ul>
@@ -285,7 +322,7 @@
   </section>
 
   <!-- SHOPIFY VS WOOCOMMERCE -->
-  <section class="grid">
+  <section class="grid one" id="comparison" aria-label="Shopify vs WooCommerce">
     <article class="card">
       <h2>Shopify vs WooCommerce — Honest Comparison</h2>
       <p>
@@ -301,7 +338,7 @@
   </section>
 
   <!-- PERFORMANCE & SEO -->
-  <section class="grid">
+  <section class="grid one" id="seo" aria-label="Performance and SEO">
     <article class="card">
       <h2>Shopify, Performance & SEO Reality</h2>
       <p>
@@ -318,7 +355,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="grid">
+  <section class="grid one" aria-label="Shopify CTA">
     <article class="card topPick">
       <h2>Start Shopify Without Locking Yourself In</h2>
       <p class="muted">
@@ -343,7 +380,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="grid" id="faq">
+  <section class="grid one" id="faq" aria-label="FAQ">
     <article class="card">
       <h2>Shopify Setup FAQ</h2>
 
