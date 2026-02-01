@@ -1,502 +1,311 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Resources & Recommended Tools | Carl Leger Consulting</title>
-  <meta name="description" content="Resources and recommended WordPress & WooCommerce tools for performance, technical SEO, and conversion optimization." />
+  <title>Resources | WooCommerce Performance & Checkout Reliability — Carl Leger</title>
+  <meta name="description" content="Practical resources for WooCommerce performance and checkout reliability: Core Web Vitals, TTFB, caching safety, and production-safe rollouts." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta name="theme-color" content="#0b1220" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
+  <meta name="format-detection" content="telephone=no" />
 
   <link rel="canonical" href="https://carlleger.github.io/resources/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Resources & Recommended Tools | Carl Leger Consulting" />
-  <meta property="og:description" content="Resources and recommended WordPress & WooCommerce tools for performance, technical SEO, and conversion optimization." />
+  <meta property="og:title" content="Resources — Carl Leger" />
+  <meta property="og:description" content="WooCommerce performance & checkout reliability resources: CWV, TTFB, caching safety, production rollouts." />
   <meta property="og:url" content="https://carlleger.github.io/resources/" />
   <meta property="og:type" content="website" />
-  <!-- TODO: set a real OG image -->
-  <meta property="og:image" content="https://carlleger.github.io/resources/images/og-resources.png" />
+  <meta property="og:site_name" content="Carl Leger" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://carlleger.github.io/assets/og/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Resources & Recommended Tools | Carl Leger Consulting" />
-  <meta name="twitter:description" content="Resources and recommended WordPress & WooCommerce tools for performance, technical SEO, and conversion optimization." />
-  <meta name="twitter:image" content="https://carlleger.github.io/resources/images/og-resources.png" />
+  <meta name="twitter:title" content="Resources — Carl Leger" />
+  <meta name="twitter:description" content="Practical WooCommerce performance resources: CWV, TTFB, checkout reliability, caching safety." />
+  <meta name="twitter:image" content="https://carlleger.github.io/assets/og/og.png" />
 
-  <!-- Google tag (gtag.js) -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/resources.css" />
+
+  <!-- GA4 (optional: keep consistent) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3KXQFTWTBD', { anonymize_ip: true });
+    gtag("js", new Date());
+    gtag("config", "G-3KXQFTWTBD");
   </script>
 
-  <!-- Structured data -->
+  <!-- Structured Data: Person -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"CollectionPage",
-    "name":"Resources & Recommended Tools",
-    "description":"Resources and recommended WordPress & WooCommerce tools for performance, technical SEO, and conversion optimization.",
-    "url":"https://carlleger.github.io/resources/",
-    "publisher":{
-      "@type":"Person",
-      "name":"Carl Leger",
-      "url":"https://carlleger.github.io/"
-    }
+    "@type":"Person",
+    "@id":"https://carlleger.github.io/#person",
+    "name":"Carl Leger",
+    "jobTitle":"WordPress & WooCommerce Performance Specialist",
+    "url":"https://carlleger.github.io/",
+    "sameAs":[
+      "https://www.linkedin.com/in/carlleger/",
+      "https://github.com/CarlLeger",
+      "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
+    ]
   }
   </script>
 
-  <style>
-    :root{
-      --bg1:#0b1220;
-      --bg2:#070d17;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.04);
-      --stroke:rgba(255,255,255,.12);
-      --text:#e7ecff;
-      --muted:#a8b0d6;
-      --accent:#6ea8ff;
-      --good:#2ee59d;
-      --shadow: 0 18px 60px rgba(0,0,0,.35);
-      --radius: 18px;
-    }
+  <!-- Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "@id":"https://carlleger.github.io/resources/#breadcrumbs",
+    "itemListElement":[
+      { "@type":"ListItem", "position":1, "name":"Home", "item":"https://carlleger.github.io/" },
+      { "@type":"ListItem", "position":2, "name":"Resources", "item":"https://carlleger.github.io/resources/" }
+    ]
+  }
+  </script>
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      color:var(--text);
-      background:
-        radial-gradient(900px 600px at 18% 18%, rgba(110,168,255,.16), transparent 60%),
-        radial-gradient(900px 600px at 82% 22%, rgba(46,229,157,.10), transparent 55%),
-        linear-gradient(180deg,var(--bg2),var(--bg1));
-    }
-
-    a{color:inherit}
-
-    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 70px}
-
-    /* Skip link (a11y) */
-    .skip{
-      position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;
-    }
-    .skip:focus{
-      left:18px;top:18px;width:auto;height:auto;
-      padding:10px 12px;border-radius:12px;
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(0,0,0,.45);
-      z-index:9999;
-    }
-
-    .sitebar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:10px 12px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      border-radius:14px;
-      box-shadow:0 16px 50px rgba(0,0,0,.25);
-      margin-bottom:18px;
-    }
-    .brand{
-      font-weight:800;
-      letter-spacing:.2px;
-      text-decoration:none;
-      white-space:nowrap;
-    }
-    .nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .nav a{
-      text-decoration:none;
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.02);
-      opacity:.9;
-      font-size:13px;
-    }
-    .nav a:hover{opacity:1;border-color:rgba(110,168,255,.30)}
-
-    h1{font-size:clamp(28px,3vw,38px);margin:0 0 10px;letter-spacing:.2px}
-    p{color:var(--muted);line-height:1.65;margin:0}
-
-    .seo-intro{
-      margin-top:8px;
-      max-width:760px;
-      font-size:15px;
-    }
-
-    .topbar{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:18px;
-      flex-wrap:wrap;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.04);
-      color:rgba(231,236,255,.92);
-      font-size:12px;
-      white-space:nowrap;
-    }
-    .pill .dot{width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.25)}
-    .pill.good{border-color:rgba(46,229,157,.35);background:rgba(46,229,157,.10)}
-    .pill.good .dot{background:var(--good)}
-
-    .section{
-      margin-top:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:linear-gradient(180deg,var(--panel),rgba(255,255,255,.03));
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:var(--shadow);
-    }
-
-    .section h2{
-      margin:0 0 10px;
-      font-size:16px;
-      letter-spacing:.2px;
-    }
-    .section .hint{
-      margin:0 0 14px;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:14px;
-    }
-
-    .card{
-      display:block;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.05);
-      border-radius:16px;
-      padding:16px;
-      text-decoration:none;
-      color:var(--text);
-      transition:transform .12s ease, border-color .12s ease, background .12s ease;
-      min-height:140px;
-    }
-    .card:hover{
-      transform:translateY(-1px);
-      border-color:rgba(110,168,255,.35);
-      background:rgba(110,168,255,.07);
-      text-decoration:none;
-    }
-
-    .thumb{
-      width:100%;
-      aspect-ratio:16/9;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      display:block;
-      object-fit:cover;
-      margin:0 0 12px;
-    }
-
-    .card h3{margin:0 0 6px;font-size:18px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-
-    .tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:999px;
-      padding:5px 10px;
-      color:rgba(231,236,255,.82);
-      font-size:12px;
-      background:rgba(255,255,255,.03);
-    }
-    .tag .mini-dot{width:7px;height:7px;border-radius:999px;background:rgba(255,255,255,.25)}
-
-    .tag.featured{
-      border-color:rgba(46,229,157,.35);
-      background:rgba(46,229,157,.10);
-    }
-    .tag.featured .mini-dot{background:var(--good)}
-
-    .tag svg{
-      width:14px;
-      height:14px;
-      flex:0 0 14px;
-      opacity:.92;
-      display:block;
-    }
-    .tag.featured svg{ opacity:1; }
-
-    .row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-top:14px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid rgba(110,168,255,.35);
-      background:rgba(110,168,255,.16);
-      color:var(--text);
-      text-decoration:none;
-      font-weight:700;
-      white-space:nowrap;
-    }
-    .btn:hover{background:rgba(110,168,255,.22);text-decoration:none}
-    .btn.secondary{
-      border-color:rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      color:rgba(231,236,255,.92);
-    }
-    .btn.secondary:hover{background:rgba(255,255,255,.09)}
-
-    footer{
-      margin-top:22px;
-      border-top:1px solid rgba(255,255,255,.10);
-      padding-top:14px;
-      font-size:13px;
-      color:var(--muted);
-    }
-
-    code{color:#cfe1ff}
-
-    .featured{
-      border-color:rgba(46,229,157,.28);
-      background:linear-gradient(180deg, rgba(46,229,157,.12), rgba(255,255,255,.03));
-    }
-    .featured:hover{
-      border-color:rgba(46,229,157,.45);
-      background:linear-gradient(180deg, rgba(46,229,157,.16), rgba(255,255,255,.04));
-    }
-  </style>
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 </head>
 
 <body>
-  <a class="skip" href="#content">Skip to content</a>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <div class="wrap">
-    <div class="sitebar">
-      <a class="brand" href="/">Carl Leger</a>
+  <header class="siteHeader">
+    <div class="wrap headerInner">
+      <a class="brand" href="/" aria-label="Home">
+        <span class="brandDot" aria-hidden="true"></span>
+        <span class="brandText">
+          <span class="brandName">Carl Leger</span>
+          <span class="brandTag">WooCommerce Performance</span>
+        </span>
+      </a>
+
       <nav class="nav" aria-label="Primary">
-        <a href="/#services">Services</a>
-        <a href="/#work">Work</a>
-        <a href="/resources/" aria-current="page">Resources</a>
+        <a href="/services/">Services</a>
+        <a class="active" href="/resources/" aria-current="page">Resources</a>
         <a href="/#contact">Contact</a>
       </nav>
     </div>
+  </header>
 
-    <main id="content">
-      <div class="topbar">
+  <main id="main" class="wrap">
+
+    <section class="hero">
+      <div class="heroGrid">
         <div>
-          <h1>Resources & Recommended Tools</h1>
-          <p>Guides + tools I recommend for WordPress & WooCommerce performance, technical SEO, and conversion optimization.</p>
-
-          <p class="seo-intro">
-            This resource hub brings together my most trusted WordPress and WooCommerce guides,
-            in-depth comparisons, and carefully selected tools.
-            Each resource is built to help site owners, developers, and marketers improve
-            performance, Core Web Vitals, technical SEO, and conversion rates without guesswork.
+          <p class="eyebrow">Library • Practical • Production-safe</p>
+          <h1>Resources</h1>
+          <p class="lead">
+            Clear guides and checklists for <strong>WooCommerce performance</strong> and
+            <strong>checkout reliability</strong>. No fluff. No risky hacks.
           </p>
-          <p class="seo-intro">
-            You’ll find practical checklists, real-world recommendations, and platform comparisons
-            based on hands-on experience with high-traffic WordPress and WooCommerce sites.
-            No fluff, no generic advice, only strategies and tools I genuinely use and trust.
+
+          <div class="pillRow" aria-label="Topics">
+            <span class="pill">Core Web Vitals</span>
+            <span class="pill">TTFB</span>
+            <span class="pill">Caching safety</span>
+            <span class="pill">Checkout speed</span>
+            <span class="pill">Rollbacks</span>
+          </div>
+
+          <div class="ctaRow" aria-label="Primary actions">
+            <a class="btn primary" href="/#contact">Request an audit →</a>
+            <a class="btn" href="/services/">See services</a>
+          </div>
+
+          <p class="fine">
+            Prefer “done-for-you”? Most projects start with the <a class="inlineLink" href="/services/performance-audit/">Performance Audit</a>.
           </p>
         </div>
 
-        <div class="pill good" title="Newest guide">
-          <span class="dot"></span>
-          Updated: WooCommerce cache guide
-        </div>
+        <aside class="searchCard" aria-label="Filter resources">
+          <h2 class="sr-only">Filter resources</h2>
+
+          <label class="label" for="q">Search</label>
+          <input id="q" class="input" type="search" placeholder="Search: CWV, TTFB, cache, checkout…" autocomplete="off" />
+
+          <div class="filters">
+            <button class="chip active" type="button" data-filter="all">All</button>
+            <button class="chip" type="button" data-filter="guides">Guides</button>
+            <button class="chip" type="button" data-filter="checklists">Checklists</button>
+            <button class="chip" type="button" data-filter="cwv">CWV</button>
+            <button class="chip" type="button" data-filter="checkout">Checkout</button>
+            <button class="chip" type="button" data-filter="caching">Caching</button>
+          </div>
+
+          <p class="fine">
+            Tip: keep Resources light for reading. Home/Services can stay dark for the “premium” vibe.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Featured -->
+    <section class="section">
+      <div class="sectionHead">
+        <h2>Featured</h2>
+        <p class="muted">Start here if you want quick wins without breaking checkout.</p>
       </div>
 
-      <!-- Guides -->
-      <section class="section" aria-labelledby="latest-guides">
-        <h2 id="latest-guides">Latest Guides</h2>
-        <p class="hint">Practical, Woo-safe checklists and fixes.</p>
+      <div class="grid three">
+        <article class="cardItem" data-tags="guides cwv">
+          <h3><a href="/resources/core-web-vitals-woocommerce/">Core Web Vitals for WooCommerce</a></h3>
+          <p>Where CWV fails in real stores, what to measure, and fixes that survive production.</p>
+          <div class="metaRow">
+            <span class="badge">Guide</span><span class="badge">CWV</span>
+          </div>
+        </article>
 
-        <div class="grid">
-          <a class="card featured" href="/resources/woocommerce-cache-mistakes/">
-            <img
-              class="thumb"
-              src="/resources/images/woocommerce-cache-mistakes.webp"
-              alt="WooCommerce cache mistakes and performance issues"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3>WooCommerce Cache Mistakes (and how to fix them)</h3>
-            <p>What NOT to cache, the exclusions you must set, and a Woo-safe checklist to keep cart/checkout stable.</p>
-            <div class="tags">
-              <span class="tag featured"><span class="mini-dot"></span>Featured</span>
-              <span class="tag"><span class="mini-dot"></span>WooCommerce</span>
+        <article class="cardItem" data-tags="guides caching">
+          <h3><a href="/resources/woocommerce-caching-safety/">Caching Safety (Cart/Checkout)</a></h3>
+          <p>Rules that prevent cache disasters: cookies, fragments, sessions, and bypass boundaries.</p>
+          <div class="metaRow">
+            <span class="badge">Guide</span><span class="badge">Caching</span>
+          </div>
+        </article>
 
-              <span class="tag">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill="currentColor" d="M12 2a10 10 0 1 0 10 10c0-.6-.05-1.2-.16-1.77a3.5 3.5 0 0 1-4.4-4.4C16.86 5.05 16.26 5 15.66 5A3.5 3.5 0 0 1 12 2Z"/>
-                  <circle cx="9" cy="10" r="1.2" fill="#0b1220"/>
-                  <circle cx="14.5" cy="12.5" r="1.2" fill="#0b1220"/>
-                  <circle cx="12" cy="16" r="1.2" fill="#0b1220"/>
-                  <circle cx="16.5" cy="8.5" r="1.0" fill="#0b1220"/>
-                </svg>
-                Cache
-              </span>
+        <article class="cardItem" data-tags="checklists checkout">
+          <h3><a href="/resources/checkout-speed-checklist/">Checkout Speed Checklist</a></h3>
+          <p>A step-by-step list to isolate bottlenecks: scripts, gateway, DB, and front-end tasks.</p>
+          <div class="metaRow">
+            <span class="badge">Checklist</span><span class="badge">Checkout</span>
+          </div>
+        </article>
+      </div>
+    </section>
 
-              <span class="tag"><span class="mini-dot"></span>Checkout</span>
-            </div>
-          </a>
+    <!-- All resources -->
+    <section class="section">
+      <div class="sectionHead">
+        <h2>All resources</h2>
+        <p class="muted">A growing library. Add pages when you publish, this layout scales.</p>
+      </div>
 
-          <a class="card featured" href="/resources/best-online-learning/">
-            <img
-              class="thumb"
-              src="/resources/images/best-online-learning-platforms.webp"
-              alt="Best online learning platforms comparison"
-              loading="lazy"
-              decoding="async"
-            />
-            <h3>Best Online Learning Platforms (2026)</h3>
-            <p>A curated comparison of the best online learning platforms for tech, business, and professional skills.</p>
-            <div class="tags">
-              <span class="tag featured"><span class="mini-dot"></span>New</span>
+      <div class="grid two" id="list">
 
-              <span class="tag">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill="currentColor" d="M12 3 1.5 8.3 12 13.6 22.5 8.3 12 3Z"/>
-                  <path fill="currentColor" d="M4.5 10.2V15c0 2.2 3.4 4 7.5 4s7.5-1.8 7.5-4v-4.8l-7.5 4.1-7.5-4.1Z" opacity=".9"/>
-                  <path fill="currentColor" d="M22.5 8.3V14.2c0 .4-.3.8-.7.9l-1.3.5V9.1l2-.8Z"/>
-                </svg>
-                Online Learning
-              </span>
+        <article class="cardItem" data-tags="guides cwv">
+          <h3><a href="/resources/ttfb-woocommerce/">TTFB on WooCommerce: What Actually Moves It</a></h3>
+          <p>Server, PHP, queries, object cache, and CDN. A practical breakdown with safe priorities.</p>
+          <div class="metaRow"><span class="badge">Guide</span><span class="badge">TTFB</span></div>
+        </article>
 
-              <span class="tag"><span class="mini-dot"></span>Courses</span>
-              <span class="tag"><span class="mini-dot"></span>Comparison</span>
-            </div>
-          </a>
+        <article class="cardItem" data-tags="guides checkout">
+          <h3><a href="/resources/payment-gateway-performance/">Payment Gateways & Performance</a></h3>
+          <p>How gateway scripts affect INP and checkout reliability, and what to optimize safely.</p>
+          <div class="metaRow"><span class="badge">Guide</span><span class="badge">Checkout</span></div>
+        </article>
 
-          <a class="card" href="/" aria-label="Back to homepage">
-            <h3>Homepage</h3>
-            <p>Back to my main services and contact.</p>
-            <div class="tags">
-              <span class="tag"><span class="mini-dot"></span>Services</span>
-              <span class="tag"><span class="mini-dot"></span>Contact</span>
-            </div>
-          </a>
+        <article class="cardItem" data-tags="checklists cwv">
+          <h3><a href="/resources/cwv-launch-checklist/">CWV Launch Checklist</a></h3>
+          <p>Pre-launch steps: image/fonts, critical CSS, third-party tags, and regression checks.</p>
+          <div class="metaRow"><span class="badge">Checklist</span><span class="badge">CWV</span></div>
+        </article>
+
+        <article class="cardItem" data-tags="guides caching">
+          <h3><a href="/resources/cloudflare-woocommerce-rules/">Cloudflare Rules for WooCommerce</a></h3>
+          <p>Cache rules that keep performance high without caching cart/checkout/session pages.</p>
+          <div class="metaRow"><span class="badge">Guide</span><span class="badge">Caching</span></div>
+        </article>
+
+        <article class="cardItem" data-tags="guides checkout">
+          <h3><a href="/resources/checkout-regressions/">Checkout Regressions: Debugging Playbook</a></h3>
+          <p>How to isolate conflicts, JS long tasks, and backend hotspots without “random disabling”.</p>
+          <div class="metaRow"><span class="badge">Guide</span><span class="badge">Checkout</span></div>
+        </article>
+
+        <article class="cardItem" data-tags="checklists caching">
+          <h3><a href="/resources/cache-bypass-checklist/">Cache Bypass Checklist</a></h3>
+          <p>Cookies, headers, query strings, and page rules that prevent “logged-in cache” issues.</p>
+          <div class="metaRow"><span class="badge">Checklist</span><span class="badge">Caching</span></div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Trust CTA -->
+    <section class="section">
+      <div class="callout">
+        <div>
+          <h2>Want me to do this for you?</h2>
+          <p class="muted">
+            If you’re dealing with slow checkout, shaky CWV, or risky caching, start with a plan.
+            I’ll tell you quickly if I’m not the right fit.
+          </p>
         </div>
-
-        <div class="row">
-          <a class="btn secondary" href="/">Back to main site</a>
+        <div class="calloutCtas">
+          <a class="btn primary" href="/#contact">Request an audit →</a>
+          <a class="btn" href="/services/performance-audit/">See the audit scope</a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Tool buckets -->
-      <section class="section" aria-labelledby="recommended-tools">
-        <h2 id="recommended-tools">Recommended Tools</h2>
-        <p class="hint">Tool collections (affiliate links may be used inside these pages).</p>
+  </main>
 
-        <div class="grid">
-          <!-- /go/ pages: keep sponsored/nofollow because these are affiliate-routing hubs -->
-          <a class="card" href="/go/performance/" rel="nofollow sponsored" data-bucket="performance">
-            <h3>Performance & Core Web Vitals</h3>
-            <p>Caching, image optimization, CDN, and speed diagnostics.</p>
-            <div class="tags">
-              <span class="tag"><span class="mini-dot"></span>Speed</span>
-              <span class="tag"><span class="mini-dot"></span>CWV</span>
-              <span class="tag"><span class="mini-dot"></span>CDN</span>
-            </div>
-          </a>
+  <footer class="siteFooter">
+    <div class="wrap footerInner">
+      <div class="footLeft">
+        <div class="footBrand">Carl Leger</div>
+        <div class="footMuted">WooCommerce performance and checkout reliability.</div>
+      </div>
 
-          <a class="card" href="/resources/best/managed-cloud-hosting/">
-            <h3>Hosting & Cloud</h3>
-            <p>Managed cloud hosting for WordPress & WooCommerce: speed, scaling, uptime, and server-level control.</p>
-            <div class="tags">
-              <span class="tag featured"><span class="mini-dot"></span>$150 Bonus (Jan)</span>
-              <span class="tag"><span class="mini-dot"></span>Cloudways</span>
-              <span class="tag"><span class="mini-dot"></span>Hosting</span>
-              <span class="tag"><span class="mini-dot"></span>WooCommerce</span>
-            </div>
-          </a>
+      <div class="footLinks" aria-label="Footer links">
+        <a href="/services/">Services</a>
+        <a href="/resources/">Resources</a>
+        <a href="/about/">About</a>
+        <a href="/#contact">Contact</a>
+      </div>
 
-          <a class="card" href="/go/seo/" rel="nofollow sponsored" data-bucket="seo">
-            <h3>SEO & Analytics</h3>
-            <p>Technical SEO tools, audits, and tracking.</p>
-            <div class="tags">
-              <span class="tag"><span class="mini-dot"></span>SEO</span>
-              <span class="tag"><span class="mini-dot"></span>Audits</span>
-              <span class="tag"><span class="mini-dot"></span>Tracking</span>
-            </div>
-          </a>
-
-          <a class="card" href="/go/email/" rel="nofollow sponsored" data-bucket="email">
-            <h3>Email & Lead Capture</h3>
-            <p>Email marketing, newsletters, and forms.</p>
-            <div class="tags">
-              <span class="tag"><span class="mini-dot"></span>Email</span>
-              <span class="tag"><span class="mini-dot"></span>Leads</span>
-              <span class="tag"><span class="mini-dot"></span>Automation</span>
-            </div>
-          </a>
-
-          <a class="card" href="/go/cro/" rel="nofollow sponsored" data-bucket="cro">
-            <h3>WooCommerce Conversion</h3>
-            <p>Checkout, upsells, reviews, and CRO.</p>
-            <div class="tags">
-              <span class="tag"><span class="mini-dot"></span>CRO</span>
-              <span class="tag"><span class="mini-dot"></span>Revenue</span>
-              <span class="tag"><span class="mini-dot"></span>Checkout</span>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <footer>
-        <strong>Affiliate disclosure:</strong> Some links on this site may be affiliate links. I may earn a commission at no extra cost to you. I only recommend tools I genuinely trust.
-      </footer>
-    </main>
-  </div>
+      <div class="footRight">
+        <div class="fine">© <span id="y"></span> Carl Leger</div>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    // Track bucket clicks (GA4), useful proof for future affiliate approvals
-    document.addEventListener("click", (e) => {
-      const a = e.target.closest("a[data-bucket]");
-      if (!a) return;
+    // Year
+    document.getElementById("y").textContent = new Date().getFullYear();
 
-      const bucket = a.getAttribute("data-bucket") || "unknown";
-      if (typeof gtag === "function") {
-        gtag("event", "resource_bucket_click", {
-          bucket: bucket,
-          link_url: a.href,
-          page_path: location.pathname
-        });
-      }
+    // Simple client-side filter (no build tools)
+    const q = document.getElementById("q");
+    const chips = document.querySelectorAll(".chip");
+    const cards = document.querySelectorAll(".cardItem");
+
+    let active = "all";
+
+    function applyFilters(){
+      const term = (q.value || "").trim().toLowerCase();
+
+      cards.forEach(card => {
+        const tags = (card.getAttribute("data-tags") || "").toLowerCase();
+        const text = card.innerText.toLowerCase();
+
+        const matchTag = (active === "all") ? true : tags.includes(active);
+        const matchText = term ? text.includes(term) : true;
+
+        card.style.display = (matchTag && matchText) ? "" : "none";
+      });
+    }
+
+    chips.forEach(btn => {
+      btn.addEventListener("click", () => {
+        chips.forEach(c => c.classList.remove("active"));
+        btn.classList.add("active");
+        active = btn.getAttribute("data-filter");
+        applyFilters();
+      });
     });
+
+    q.addEventListener("input", applyFilters);
   </script>
 </body>
 </html>
