@@ -46,6 +46,12 @@ small,.fine{font-size:13px;color:var(--muted)}
   padding:0 20px;
 }
 
+/* Reduce overly wide text lines for readability */
+.article .content,
+.hero-content{
+  max-width: 72ch;
+}
+
 .skip,.sr-only{
   position:absolute;
   left:-9999px;
@@ -63,7 +69,9 @@ small,.fine{font-size:13px;color:var(--muted)}
   z-index:9999;
 }
 
-/* Header / Nav */
+/* ----------------
+   Header / Nav
+   ---------------- */
 .header, .site-header{
   position:sticky;
   top:0;
@@ -72,13 +80,47 @@ small,.fine{font-size:13px;color:var(--muted)}
   border-bottom:1px solid var(--line);
   z-index:1000;
 }
-.header .brand a, .site-header .brand{
+
+/* For the Shopify page HTML: .header-inner exists */
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+  min-height:64px;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+}
+
+.header .brand a{
   display:flex;
   gap:10px;
   align-items:center;
   text-decoration:none;
   padding:14px 0;
 }
+
+/* For the Shopify page HTML: .site-header .brand is the link */
+.site-header .brand{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  text-decoration:none;
+  padding:14px 0;
+}
+
+/* Optional brand mark if used */
+.brand-mark{
+  width:12px;height:12px;border-radius:999px;
+  background:var(--green);
+  box-shadow:0 0 0 6px rgba(22,163,74,.10);
+}
+
 .brandIcon{
   border-radius:10px;
   box-shadow:var(--shadow2);
@@ -105,14 +147,15 @@ small,.fine{font-size:13px;color:var(--muted)}
   color:var(--text);
 }
 
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:18px;
-}
+/* ----------------
+   Main wrappers
+   ---------------- */
+.main{padding:0}
+.section{padding:12px 0 60px}
 
-/* Hero */
+/* ----------------
+   Hero
+   ---------------- */
 .hero, .hero-article{
   display:grid;
   grid-template-columns:1.2fr .8fr;
@@ -120,11 +163,19 @@ small,.fine{font-size:13px;color:var(--muted)}
   padding:34px 0 18px;
   align-items:center;
 }
+
+/* For the Shopify article hero markup */
+.hero-inner{
+  padding: 0;
+}
+.hero-content .eyebrow{margin-top:0}
+
 .heroMedia img{
   border-radius:var(--radius2);
   box-shadow:var(--shadow);
   border:1px solid var(--line);
 }
+
 .lead{font-size:1.08rem}
 
 .trustRow{
@@ -153,6 +204,7 @@ small,.fine{font-size:13px;color:var(--muted)}
 
 .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0 12px}
 
+/* Buttons */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -166,6 +218,7 @@ small,.fine{font-size:13px;color:var(--muted)}
   font-weight:750;
   color:var(--text);
   box-shadow:var(--shadow2);
+  transition:transform .12s ease, filter .12s ease;
 }
 .btn:hover{transform:translateY(-1px)}
 .btn.primary{
@@ -173,9 +226,28 @@ small,.fine{font-size:13px;color:var(--muted)}
   border-color:rgba(22,163,74,.25);
   color:#fff;
 }
+.btn.primary:hover{filter:brightness(.98)}
 .btn.full{width:100%}
 
-/* Cards / grids */
+/* For simple CTA links that aren't using .btn */
+a.cta, a.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 16px;
+  border-radius:14px;
+  background:var(--green);
+  color:#fff;
+  font-weight:800;
+  text-decoration:none;
+  border:1px solid rgba(22,163,74,.25);
+  box-shadow:var(--shadow2);
+}
+a.cta:hover, a.button:hover{transform:translateY(-1px)}
+
+/* ----------------
+   Cards / grids
+   ---------------- */
 .grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0,1fr));
@@ -190,6 +262,7 @@ small,.fine{font-size:13px;color:var(--muted)}
   box-shadow:var(--shadow2);
 }
 .card h3{margin-top:0}
+
 .link{
   font-weight:750;
   text-decoration:none;
@@ -202,18 +275,26 @@ small,.fine{font-size:13px;color:var(--muted)}
   background:linear-gradient(180deg, rgba(34,197,94,.08), rgba(248,250,252,.9));
 }
 
-/* Article layout (toc + content) */
-.section{padding:12px 0 60px}
+/* Make 2-up cards look like your Shopify screenshot */
+.cards-2{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:18px;
+  margin:26px 0 40px;
+}
+
+/* ----------------
+   Article layout (toc + content)
+   ---------------- */
 .content-grid{
   display:grid;
   grid-template-columns:280px minmax(0,1fr);
   gap:26px;
   align-items:start;
 }
-.toc-wrap{
-  position:sticky;
-  top:88px;
-}
+
+.toc-wrap{position:sticky; top:88px}
+
 .toc{
   border:1px solid var(--line);
   border-radius:var(--radius);
@@ -234,6 +315,7 @@ small,.fine{font-size:13px;color:var(--muted)}
 }
 .toc a:hover{color:var(--text);text-decoration:underline}
 
+/* Article box */
 .article .content{
   border:1px solid var(--line);
   background:var(--panel);
@@ -241,6 +323,8 @@ small,.fine{font-size:13px;color:var(--muted)}
   padding:22px;
   box-shadow:var(--shadow2);
 }
+
+/* Callouts */
 .callout{
   margin:18px 0;
   padding:16px;
@@ -248,6 +332,13 @@ small,.fine{font-size:13px;color:var(--muted)}
   background:rgba(34,197,94,.06);
   border-radius:var(--radius);
 }
+
+/* Article typography niceties */
+.article .content ul{margin-left:18px}
+.article .content a{color:var(--green); font-weight:700; text-decoration:none}
+.article .content a:hover{text-decoration:underline}
+
+/* Article header bits */
 .eyebrow{
   font-weight:800;
   color:var(--muted);
@@ -265,7 +356,9 @@ small,.fine{font-size:13px;color:var(--muted)}
   background:var(--panel2);
 }
 
-/* Footer */
+/* ----------------
+   Footer
+   ---------------- */
 .footer, .site-footer{
   border-top:1px solid var(--line);
   margin-top:40px;
@@ -273,96 +366,62 @@ small,.fine{font-size:13px;color:var(--muted)}
   color:var(--muted);
   font-size:14px;
 }
-.footerLinks, .footer-links{
+
+.footer-inner{padding:0}
+.footer-bottom{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.footer-cols{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:18px;
+}
+
+.footerLinks{
   display:flex;
   gap:14px;
   flex-wrap:wrap;
 }
-.footerLinks a, .footer-links a{
+.footerLinks a{
   color:var(--muted);
   text-decoration:none;
   font-weight:650;
 }
-.footerLinks a:hover, .footer-links a:hover{color:var(--text)}
+.footerLinks a:hover{color:var(--text)}
 
-/* Responsive */
+.footer-title{
+  font-weight:800;
+  margin:0 0 10px;
+  color:var(--text);
+}
+.footer-links{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.footer-links a{
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:650;
+}
+.footer-links a:hover{color:var(--text)}
+.footer-brand{
+  font-weight:850;
+  color:var(--text);
+  margin:0 0 8px;
+}
+.footer-muted{margin:0;color:var(--muted)}
+
+/* ----------------
+   Responsive
+   ---------------- */
 @media (max-width: 980px){
   .hero, .hero-article{grid-template-columns:1fr; padding-top:22px}
   .grid{grid-template-columns:1fr}
+  .cards-2{grid-template-columns:1fr}
   .content-grid{grid-template-columns:1fr}
   .toc-wrap{position:relative; top:auto}
-}
-
-/* =========================
-   Dark mode (Discord-ish)
-   Active by: <body class="dark">
-   ========================= */
-body.dark{
-  --bg:#0b0f17;              /* base */
-  --panel:#111827;           /* cards */
-  --panel2:#0f172a;          /* soft panels */
-  --text:#e5e7eb;            /* main text */
-  --muted:#a7b0c0;           /* secondary */
-  --line:rgba(148,163,184,.16);
-
-  --green:#22c55e;           /* accent */
-  --green2:#34d399;
-
-  --shadow:0 18px 40px rgba(0,0,0,.35);
-  --shadow2:0 10px 26px rgba(0,0,0,.28);
-}
-
-body.dark{
-  background:radial-gradient(1200px 800px at 20% -10%, rgba(34,197,94,.10), transparent 55%),
-             radial-gradient(900px 700px at 85% 0%, rgba(59,130,246,.08), transparent 60%),
-             var(--bg);
-}
-
-/* Header */
-body.dark .header,
-body.dark .site-header{
-  background:rgba(11,15,23,.78);
-  border-bottom:1px solid var(--line);
-}
-
-/* Links */
-body.dark a{color:inherit}
-body.dark .link{color:var(--green)}
-body.dark .nav a:hover{background:rgba(255,255,255,.06)}
-
-/* Cards */
-body.dark .card,
-body.dark .toc,
-body.dark .article .content{
-  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-  border:1px solid var(--line);
-}
-
-/* Buttons */
-body.dark .btn{
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow2);
-}
-body.dark .btn.primary{
-  background:linear-gradient(180deg, rgba(34,197,94,.95), rgba(34,197,94,.75));
-  border-color:rgba(34,197,94,.35);
-  color:#05130a;
-}
-
-/* Hero image frame */
-body.dark .heroMedia img{
-  border:1px solid rgba(148,163,184,.18);
-}
-
-/* Callout */
-body.dark .callout{
-  background:rgba(34,197,94,.08);
-  border:1px solid rgba(34,197,94,.25);
-}
-
-/* Footer */
-body.dark .footer,
-body.dark .site-footer{
-  border-top:1px solid var(--line);
+  .footer-cols{grid-template-columns:1fr}
+  .header-inner{align-items:flex-start}
 }
