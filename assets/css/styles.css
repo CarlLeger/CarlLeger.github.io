@@ -154,7 +154,7 @@ small,.fine{font-size:13px;color:var(--muted)}
 .section{padding:12px 0 60px}
 
 /* ----------------
-   Hero
+   Hero (default grid hero)
    ---------------- */
 .hero, .hero-article{
   display:grid;
@@ -165,9 +165,7 @@ small,.fine{font-size:13px;color:var(--muted)}
 }
 
 /* For the Shopify article hero markup */
-.hero-inner{
-  padding: 0;
-}
+.hero-inner{padding:0}
 .hero-content .eyebrow{margin-top:0}
 
 .heroMedia img{
@@ -246,7 +244,7 @@ a.cta, a.button{
 a.cta:hover, a.button:hover{transform:translateY(-1px)}
 
 /* ----------------
-   Shopify Hero (image + overlay)
+   Shopify Hero (full-bleed bg image + overlay)
    ---------------- */
 .hero.heroShopify{
   position: relative;
@@ -257,6 +255,7 @@ a.cta:hover, a.button:hover{transform:translateY(-1px)}
   padding: 0;                 /* override existing .hero padding */
   margin: 20px 0 34px;
   min-height: 420px;
+  display:block;              /* override grid hero behavior */
 }
 
 /* Make the hero image fill the whole section */
@@ -271,12 +270,12 @@ a.cta:hover, a.button:hover{transform:translateY(-1px)}
   height: 100%;
   object-fit: cover;
   display: block;
-  border: 0;                 /* override .heroMedia img border */
-  border-radius: 0;          /* override .heroMedia img radius */
-  box-shadow: none;          /* override .heroMedia img shadow */
+  border: 0;                  /* override .heroMedia img border */
+  border-radius: 0;           /* override .heroMedia img radius */
+  box-shadow: none;           /* override .heroMedia img shadow */
 }
 
-/* Premium “consultant overlay” for readability */
+/* Premium overlay for readability */
 .hero.heroShopify::after{
   content: "";
   position: absolute;
@@ -300,9 +299,7 @@ a.cta:hover, a.button:hover{transform:translateY(-1px)}
 }
 
 /* Keep your CTA row spacing tidy in hero */
-.hero.heroShopify .ctaRow{
-  margin-top: 14px;
-}
+.hero.heroShopify .ctaRow{margin-top:14px}
 
 /* ----------------
    Cards / grids
@@ -313,6 +310,16 @@ a.cta:hover, a.button:hover{transform:translateY(-1px)}
   gap:18px;
   margin:26px 0 40px;
 }
+
+/* Grid helpers (best practice) */
+.grid.one{grid-template-columns:1fr}
+.grid.two{grid-template-columns:repeat(2, minmax(0,1fr))}
+
+/* Auto-fix: if a grid has only one card, let it span full width */
+.grid:has(> .card:only-child){
+  grid-template-columns:1fr;
+}
+
 .card{
   border:1px solid var(--line);
   background:var(--panel);
