@@ -5,143 +5,294 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>SEO Case Study: HomeEspressoLab (Canada) | Carl Leger</title>
-  <meta name="description" content="SEO case study for HomeEspressoLab (Canada): commercial-intent content strategy, technical SEO, GA4 tracking, and early-stage validation." />
+  <meta name="description" content="SEO case study for HomeEspressoLab (Canada): commercial-intent content strategy, technical SEO, and GA4 instrumentation validating outbound affiliate click intent." />
   <meta name="robots" content="index,follow" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0b0d14" />
+
+  <!-- Canonical -->
   <link rel="canonical" href="https://carlleger.github.io/case-studies/homeespressolab/" />
 
-  <style>
-    :root{color-scheme:dark light}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55;margin:0}
-    main{max-width:900px;margin:0 auto;padding:28px}
-    h1{margin:0 0 8px}
-    h2{margin-top:32px}
-    h3{margin-top:22px}
-    ul{padding-left:18px}
-    .meta{opacity:.8;margin:0 0 22px}
-    .card{border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:16px;margin:18px 0}
-    .k{font-weight:700}
-    figure{margin:22px 0}
-    figcaption{font-size:.9rem;opacity:.75;margin-top:6px}
-    img{width:100%;height:auto;border-radius:12px}
-    .note{opacity:.85}
-  </style>
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_CA" />
+  <meta property="og:site_name" content="Carl Leger" />
+  <meta property="og:title" content="SEO Case Study: HomeEspressoLab (Canada)" />
+  <meta property="og:description" content="Commercial-intent SEO + GA4 instrumentation: content architecture, UX decisions, and outbound click validation." />
+  <meta property="og:url" content="https://carlleger.github.io/case-studies/homeespressolab/" />
+  <meta property="og:image" content="https://carlleger.github.io/assets/images/case-studies/homeespressolab/homeespressolab-homepage-hero-1600.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SEO Case Study: HomeEspressoLab (Canada)" />
+  <meta name="twitter:description" content="Commercial-intent SEO + GA4 instrumentation: content architecture, UX decisions, and outbound click validation." />
+  <meta name="twitter:image" content="https://carlleger.github.io/assets/images/case-studies/homeespressolab/homeespressolab-homepage-hero-1600.webp" />
+
+  <!-- CSS (moved to /assets) -->
+  <link rel="stylesheet" href="/assets/css/case-study-homeespressolab.css" />
+
+  <!-- JSON-LD (Article) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"SEO Case Study: HomeEspressoLab (Canada)",
+    "description":"Commercial-intent SEO + GA4 instrumentation: content architecture, UX decisions, and outbound click validation.",
+    "author":{"@type":"Person","name":"Carl Leger"},
+    "publisher":{"@type":"Organization","name":"Carl Leger"},
+    "image":"https://carlleger.github.io/assets/images/case-studies/homeespressolab/homeespressolab-homepage-hero-1600.webp",
+    "mainEntityOfPage":"https://carlleger.github.io/case-studies/homeespressolab/"
+  }
+  </script>
 </head>
 
 <body>
 <main>
-  <h1>SEO Case Study: HomeEspressoLab (Canada)</h1>
-  <p class="meta">
-    <span class="k">Role:</span> SEO & Content Operator (end-to-end) ·
-    <span class="k">Market:</span> Canada ·
-    <span class="k">Model:</span> Editorial SEO + affiliate conversion
-  </p>
 
-  <div class="card">
-    <h2>Overview</h2>
-    <ul>
-      <li><span class="k">Project:</span> HomeEspressoLab</li>
-      <li><span class="k">Focus:</span> High-intent commercial queries (“best”, “under $500”, “for beginners”)</li>
-      <li><span class="k">Measurement:</span> GA4 event tracking + affiliate outbound clicks</li>
-    </ul>
-    <p class="note">
-      <span class="k">Note:</span> Early traction was achieved <span class="k">before sitemap submission</span> and
-      <span class="k">before active Google Search Console usage</span>, then formalized afterward for monitoring.
+  <header>
+    <h1>SEO Case Study: HomeEspressoLab (Canada)</h1>
+
+    <p class="meta">
+      <span class="k">Role:</span> SEO &amp; Content Operator (end-to-end) &middot;
+      <span class="k">Market:</span> Canada &middot;
+      <span class="k">Model:</span> Editorial SEO + affiliate conversion
     </p>
-  </div>
 
-  <h2>Context & Objectives</h2>
-  <ul>
-    <li>Build a scalable SEO asset from scratch in a competitive niche.</li>
-    <li>Target decision-stage searches and optimize content for conversion paths.</li>
-    <li>Validate performance using real user behavior data.</li>
-  </ul>
+    <!-- Best backlink setup -->
+    <div class="cta-row">
+      <a class="cta"
+         href="https://homeespressolab.github.io/"
+         target="_blank"
+         rel="noopener noreferrer">
+        View HomeEspressoLab (Live)
+      </a>
 
-  <h2>Strategy & Execution</h2>
+      <a class="cta cta--ghost"
+         href="https://homeespressolab.github.io/"
+         target="_blank"
+         rel="noopener noreferrer">
+        https://homeespressolab.github.io/
+      </a>
+    </div>
 
-  <h3>1) Keyword research (commercial intent)</h3>
-  <p>
-    Focused on intent clarity rather than raw search volume, prioritizing buying-stage queries
-    aligned with monetization potential.
-  </p>
+    <div class="pills">
+      <span class="pill">Commercial-intent SEO</span>
+      <span class="pill">Information architecture</span>
+      <span class="pill">GA4 event instrumentation</span>
+      <span class="pill">Outbound click validation</span>
+      <span class="pill">Static site (GitHub Pages)</span>
+    </div>
 
-  <h3>2) Content architecture</h3>
-  <p>
-    Pillar pages organized by intent cluster, supported by internal linking to reinforce topical relevance
-    and crawl efficiency.
-  </p>
+    <div class="hero">
+      <img
+        src="/assets/images/case-studies/homeespressolab/homeespressolab-homepage-hero-1600.webp"
+        alt="HomeEspressoLab homepage hero image."
+        loading="eager"
+        width="1600" />
+    </div>
 
-  <h3>3) CTR & UX optimization</h3>
-  <ul>
-    <li>Comparison tables and “Quick picks” positioned above the fold</li>
-    <li>Neutral editorial tone (no aggressive sales language)</li>
-    <li>Layouts optimized for scannability and decision-making</li>
-  </ul>
+    <p class="small" style="margin-top:10px">
+      This case study is framed as a <span class="k">controlled validation sprint</span>:
+      proving intent alignment and measurement quality early, then scaling once signals are confirmed.
+    </p>
+  </header>
 
-  <h3>4) Technical SEO & performance</h3>
-  <ul>
-    <li>Core Web Vitals optimization (LCP, CLS, TTFB)</li>
-    <li>Image optimization and lazy loading</li>
-    <li>Caching strategy aligned with UX and conversion paths</li>
-  </ul>
+  <section class="card">
+    <h2>Executive Summary</h2>
 
-  <h3>5) Analytics & early validation</h3>
-  <ul>
-    <li>GA4 implemented with custom event tracking (engagement + affiliate_click)</li>
-    <li>
-      <span class="k">
-        Initial traction achieved before sitemap submission and before active Google Search Console usage
-      </span>
-    </li>
-    <li>Sitemap and Search Console introduced post-validation to formalize indexing and monitoring</li>
-  </ul>
+    <div class="grid grid-2">
+      <div>
+        <ul>
+          <li><span class="k">Goal:</span> Build and validate a scalable SEO system targeting decision-stage queries.</li>
+          <li><span class="k">Approach:</span> Intent-first content + UX-first layout + technical hygiene.</li>
+          <li><span class="k">Proof:</span> GA4 event model capturing engagement and outbound affiliate clicks.</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><span class="k">Deliverables:</span> Pillar pages, internal linking, event tracking, and reporting snapshots.</li>
+          <li><span class="k">Success criteria:</span> Measurable outbound click behavior from high-intent content.</li>
+          <li><span class="k">Stage:</span> Early validation (small sample) with clean instrumentation.</li>
+        </ul>
+      </div>
+    </div>
 
-  <h2>Results (early-stage)</h2>
-  <ul>
-    <li>Core commercial pages indexed and beginning to rank.</li>
-    <li><span class="k">1,613 GA4 events</span> recorded over the first 7 days.</li>
-    <li><span class="k">51 affiliate outbound clicks</span> validating purchase intent.</li>
-    <li>
-      Early performance achieved
-      <span class="k">prior to sitemap submission and Search Console-driven optimization</span>,
-      indicating strong content-to-intent alignment.
-    </li>
-  </ul>
+    <div class="callout" style="margin-top:10px">
+      <span class="k">Why this matters:</span> Even before scaling traffic, I validate whether the content architecture produces
+      decision-stage behavior (outbound clicks) and whether tracking is reliable enough to guide iteration.
+    </div>
+  </section>
 
-  <h2>GA4 Validation (Screenshots)</h2>
+  <section>
+    <h2>Context &amp; Objectives</h2>
+    <ul>
+      <li>Build a scalable SEO asset from scratch in a competitive niche.</li>
+      <li>Prioritize decision-stage intent (e.g., “best”, “under $500”, “for beginners”).</li>
+      <li>Design pages to reduce friction: fast scan, clear comparisons, neutral editorial tone.</li>
+      <li>Instrument GA4 to capture meaningful actions, not just pageviews.</li>
+    </ul>
+  </section>
 
-  <figure>
-    <img
-      src="/assets/images/case-studies/homeespressolab/ga4-events-table-homeespressolab-last-7-days-1600.webp"
-      alt="GA4 events table for HomeEspressoLab showing page_view, user_engagement, scroll and affiliate_click events over the last 7 days."
-      loading="lazy"
-      width="1600">
-    <figcaption>
-      GA4 Events table (last 7 days): 1,613 total events and 51 affiliate_click events recorded.
-    </figcaption>
-  </figure>
+  <section>
+    <h2>Hypotheses</h2>
+    <ul>
+      <li><span class="k">H1:</span> Clear intent alignment will generate engagement and outbound clicks even at low initial traffic.</li>
+      <li><span class="k">H2:</span> Above-the-fold “Quick picks” + comparison tables will increase decision behavior.</li>
+      <li><span class="k">H3:</span> Technical cleanliness (fast load, optimized images) will help early indexing and reduce bounce.</li>
+    </ul>
+  </section>
 
-  <figure>
-    <img
-      src="/assets/images/case-studies/homeespressolab/ga4-events-trend-homeespressolab-last-7-days-1600.webp"
-      alt="GA4 events trend for HomeEspressoLab over the last 7 days."
-      loading="lazy"
-      width="1600">
-    <figcaption>
-      GA4 event growth trend over time (last 7 days).
-    </figcaption>
-  </figure>
+  <section>
+    <h2>Strategy &amp; Execution</h2>
 
-  <h2>Stack</h2>
-  <ul>
-    <li>Static site (GitHub Pages) · GA4 · Google Search Console (introduced post-validation)</li>
-    <li>Intent-based content architecture and internal linking strategy</li>
-  </ul>
+    <h3>1) Keyword research (commercial intent)</h3>
+    <p>
+      Focused on intent clarity rather than raw volume: queries that imply decision-making and product comparison.
+      The intent cluster determines page format (quick picks, trade-offs, tables) and internal linking strategy.
+    </p>
 
-  <h2>Contact</h2>
-  <p>
-    Want the full breakdown or additional case studies?
-    <a href="mailto:carlleger.dev@gmail.com">carlleger.dev@gmail.com</a>
-  </p>
+    <h3>2) Information architecture</h3>
+    <p>
+      Built pillar pages by intent cluster, then connected them with internal links to improve crawl paths and topical clarity.
+      Navigation and page structure are designed for both scanning users and predictable indexing.
+    </p>
+
+    <h3>3) CTR &amp; UX decisions</h3>
+    <ul>
+      <li>Quick picks and comparison table near the top to reduce time-to-decision</li>
+      <li>Neutral editorial voice (trust-building, avoids aggressive sales language)</li>
+      <li>Scannable layouts: short sections, clear headings, consistent components</li>
+    </ul>
+
+    <h3>4) Technical SEO &amp; performance</h3>
+    <ul>
+      <li>Optimized images (WebP) + lazy loading for non-critical media</li>
+      <li>Static-first delivery to keep TTFB low</li>
+      <li>Clean metadata: canonical, robots, social previews</li>
+    </ul>
+
+    <h3>5) Measurement (GA4 instrumentation)</h3>
+    <ul>
+      <li>GA4 configured to capture: <span class="k">page_view</span>, <span class="k">user_engagement</span>, <span class="k">scroll</span>, <span class="k">affiliate_click</span></li>
+      <li><span class="k">affiliate_click</span> used as the early indicator of decision-stage behavior</li>
+      <li>Validation performed prior to scaling content production</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>KPI Snapshot (Last 7 Days)</h2>
+
+    <table class="table" aria-label="KPI snapshot table">
+      <tr>
+        <th scope="row">Project URL</th>
+        <td>
+          <a href="https://homeespressolab.github.io/" target="_blank" rel="noopener noreferrer">
+            https://homeespressolab.github.io/
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Total GA4 events</th>
+        <td><span class="k">1,613</span></td>
+      </tr>
+      <tr>
+        <th scope="row">Affiliate outbound clicks (affiliate_click)</th>
+        <td><span class="k">51</span></td>
+      </tr>
+      <tr>
+        <th scope="row">Event mix (high level)</th>
+        <td>page_view (1005) &middot; user_engagement (384) &middot; scroll (102) &middot; affiliate_click (51)</td>
+      </tr>
+      <tr>
+        <th scope="row">Sample note</th>
+        <td class="small">
+          Early validation window with a small number of users. The value here is <span class="k">instrumentation quality</span>
+          + confirmation that high-intent UX produces outbound click behavior.
+        </td>
+      </tr>
+    </table>
+
+    <p class="small" style="margin-top:10px">
+      Interpretation: The site is already producing measurable decision-stage signals (outbound clicks), which justifies scaling content
+      and expanding the intent clusters with confidence.
+    </p>
+  </section>
+
+  <section>
+    <h2>Strategic Insights</h2>
+    <ul>
+      <li>
+        <span class="k">Intent alignment shows up early:</span>
+        Decision-stage pages generated outbound click behavior without requiring heavy indexing “push.”
+      </li>
+      <li>
+        <span class="k">UX drives conversion signals:</span>
+        Quick picks + tables reduce friction and make “comparison” the default user path.
+      </li>
+      <li>
+        <span class="k">Tracking-first is a force multiplier:</span>
+        Clean GA4 events enable faster iteration, better content prioritization, and clearer reporting.
+      </li>
+    </ul>
+
+    <div class="callout">
+      <span class="k">Transferable to B2B/SaaS:</span> The same approach maps to longer sales cycles by replacing
+      affiliate_click with demo_request, contact_submit, pricing_view, and key micro-conversions.
+    </div>
+  </section>
+
+  <section>
+    <h2>GA4 Validation (Screenshots)</h2>
+
+    <figure>
+      <img
+        src="/assets/images/case-studies/homeespressolab/ga4-events-trend-homeespressolab-last-7-days.png-1600.webp"
+        alt="GA4 events trend chart for HomeEspressoLab over the last 7 days."
+        loading="lazy"
+        width="1600" />
+      <figcaption>GA4 event trend over time (last 7 days).</figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="/assets/images/case-studies/homeespressolab/ga4-events-table-homeespressolab-last-7-days-1600.webp"
+        alt="GA4 events table for HomeEspressoLab showing event counts including affiliate_click over the last 7 days."
+        loading="lazy"
+        width="1600" />
+      <figcaption>GA4 Events table (last 7 days): 1,613 total events and 51 affiliate_click events recorded.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>What I’d Do Next (Scale Plan)</h2>
+    <ul>
+      <li><span class="k">Expand clusters:</span> build supporting pages (how-to, comparisons, troubleshooting) to strengthen topical authority.</li>
+      <li><span class="k">Add deeper conversion events:</span> segment affiliate clicks by module and track “best pick” CTAs separately.</li>
+      <li><span class="k">Content QA loop:</span> improve pages with strong engagement but weaker outbound clicks (UX + offers + clarity).</li>
+      <li><span class="k">Search Console iteration:</span> refine titles/H1s and internal links once impressions accumulate.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Stack</h2>
+    <ul>
+      <li>GitHub Pages (static) &middot; GA4 &middot; Search Console (post-validation) &middot; WebP image pipeline</li>
+      <li>Intent-based content architecture + internal linking</li>
+      <li>Event tracking focused on meaningful actions (affiliate_click)</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Contact</h2>
+    <p class="small">
+      Want the full breakdown (event schema, page map, internal linking logic, reporting template) or additional case studies?
+    </p>
+    <p style="margin-top:12px">
+      <a class="cta" href="mailto:carlleger.dev@gmail.com">carlleger.dev@gmail.com</a>
+    </p>
+  </section>
+
 </main>
 </body>
 </html>
