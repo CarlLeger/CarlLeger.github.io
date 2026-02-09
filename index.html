@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,11 +19,17 @@
   <!-- CANONICAL -->
   <link rel="canonical" href="https://carlleger.github.io/" />
 
-  <!-- HREFLANG (US-EN + CA-EN + CA-FR ready) -->
+  <!-- HREFLANG (US-EN + CA-EN + CA-FR ready)
+       NOTE: Best practice long-term = unique URLs per locale (ex: /us/, /ca/, /fr-ca/).
+       For now, these are "ready" without breaking anything. -->
   <link rel="alternate" hreflang="en-US" href="https://carlleger.github.io/" />
   <link rel="alternate" hreflang="en-CA" href="https://carlleger.github.io/" />
   <link rel="alternate" hreflang="fr-CA" href="https://carlleger.github.io/fr/" />
   <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/" />
+
+  <!-- Preload critical images (CWV) -->
+  <link rel="preload" as="image" href="/avatar.png" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/og/og-carl-leger-ecommerce-performance.png" />
 
   <!-- OPEN GRAPH -->
   <meta property="og:type" content="website" />
@@ -60,7 +66,7 @@
   </noscript>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/home.css?v=steam-usca-1" />
+  <link rel="stylesheet" href="/assets/css/home.css?v=steam-usca-2" />
 
   <!-- GA4 -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
@@ -109,9 +115,10 @@
     "@context":"https://schema.org",
     "@type":"ProfessionalService",
     "@id":"https://carlleger.github.io/#service",
-    "name":"Carl Leger — WooCommerce Performance & SEO",
+    "name":"Carl Leger — WooCommerce Performance & Technical SEO",
     "url":"https://carlleger.github.io/",
     "areaServed":["United States","Canada"],
+    "availableLanguage":["en","fr"],
     "description":"WooCommerce performance optimization, Core Web Vitals, TTFB reduction, checkout reliability, product page SEO, and GA4 measurement for revenue-focused eCommerce stores.",
     "knowsAbout":[
       "WooCommerce performance",
@@ -121,7 +128,56 @@
       "Technical SEO",
       "Product page optimization",
       "GA4 measurement",
-      "Cloudflare caching"
+      "Cloudflare caching",
+      "WordPress performance"
+    ],
+    "sameAs":[
+      "https://www.linkedin.com/in/carlleger/",
+      "https://github.com/CarlLeger",
+      "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
+    ]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA: FAQ (long-tail traffic + rich results potential) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "@id":"https://carlleger.github.io/#faq",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"What’s the fastest way to improve WooCommerce speed?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Start with a performance audit focused on TTFB, Core Web Vitals, and checkout bottlenecks. Then implement staged, rollback-ready fixes: caching boundaries, database hotspots, script payload reduction, and template-level optimizations."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Do performance changes break checkout or personalization?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"They can if caching boundaries are wrong. A checkout-safe approach isolates cart/checkout, handles fragments carefully, and validates changes in staging with a rollback plan before production."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can you optimize product pages for SEO and conversion?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Product page optimization includes titles/meta, internal linking, image strategy, structured data (Product/FAQ where relevant), copy improvements, and performance fixes on product templates to improve rankings and conversion."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Do you work with US and Canadian stores?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. I support US and Canadian WooCommerce stores and tailor measurement, performance priorities, and SEO implementation to your market and stack."
+        }
+      }
     ]
   }
   </script>
@@ -136,103 +192,245 @@
   <div class="wrap">
     <div class="card">
 
-      <!-- HEADER -->
-      <header class="topbar">
+      <!-- HEADER (Steam-like + Mobile Drawer hooks) -->
+      <header class="topbar" data-header>
         <div class="brand">
-          <a class="badge" href="/">
-            <i class="fa-solid fa-gauge-high"></i>
+          <a class="badge" href="/" aria-label="Home">
+            <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
             WooCommerce • Performance • SEO
           </a>
         </div>
 
-        <nav class="navrow navrow--desktop">
-          <a class="navpill" href="/services/">Services</a>
-          <a class="navpill" href="/resources/">Resources</a>
-          <a class="navpill navpill--cta" href="#contact">Contact</a>
+        <!-- Desktop nav -->
+        <nav class="navrow navrow--desktop" aria-label="Primary navigation">
+          <a class="navpill" href="#services"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services</a>
+          <a class="navpill" href="#process"><i class="fa-solid fa-list-check" aria-hidden="true"></i> Process</a>
+          <a class="navpill" href="#faq"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</a>
+          <a class="navpill navpill--cta" href="#contact"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact</a>
         </nav>
+
+        <!-- Locale links (simple + SEO-friendly) -->
+        <div class="localeRow" aria-label="Language">
+          <a class="localeLink" href="/" aria-current="page">EN</a>
+          <a class="localeLink" href="/fr/" lang="fr-CA" hreflang="fr-CA">FR</a>
+        </div>
+
+        <!-- Mobile button -->
+        <button class="navToggle" type="button"
+                aria-label="Open menu"
+                aria-controls="mobileNav"
+                aria-expanded="false"
+                data-nav-toggle>
+          <span class="navToggle__bar"></span>
+          <span class="navToggle__bar"></span>
+          <span class="navToggle__bar"></span>
+        </button>
       </header>
+
+      <!-- Mobile overlay + drawer -->
+      <div class="navOverlay" data-nav-overlay hidden></div>
+
+      <aside id="mobileNav" class="navDrawer" data-nav-drawer hidden aria-label="Mobile menu">
+        <div class="navDrawer__top">
+          <div class="navDrawer__title">Menu</div>
+          <button class="navClose" type="button" aria-label="Close menu" data-nav-close>
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <nav class="navDrawer__links" aria-label="Mobile navigation">
+          <a class="navDrawer__link" href="#services">Services</a>
+          <a class="navDrawer__link" href="#process">Process</a>
+          <a class="navDrawer__link" href="#faq">FAQ</a>
+          <a class="navDrawer__link navDrawer__link--cta" href="#contact">Contact</a>
+        </nav>
+
+        <div class="navDrawer__meta">
+          <div class="navDrawer__hint">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            Reply within 24h • No spam • No fluff
+          </div>
+          <div class="navDrawer__langs" aria-label="Language">
+            <a class="navDrawer__lang" href="/" aria-current="page">EN</a>
+            <a class="navDrawer__lang" href="/fr/" lang="fr-CA" hreflang="fr-CA">FR</a>
+          </div>
+        </div>
+      </aside>
 
       <!-- MAIN -->
       <main id="main">
 
         <!-- HERO -->
-        <section class="hero">
+        <section class="hero" aria-label="Intro">
           <div class="avatarWrap">
-            <div class="avatar">
-              <img src="/avatar.png" alt="Carl Leger WooCommerce performance specialist" width="190" height="190" loading="eager" />
+            <div class="avatar" aria-label="Carl Leger portrait">
+              <img src="/avatar.png" alt="Carl Leger — WooCommerce performance & technical SEO specialist" width="190" height="190" loading="eager" decoding="async" />
             </div>
           </div>
 
           <div class="heroContent">
-            <h1>Carl Leger</h1>
+            <h1 class="title">Carl Leger</h1>
 
             <p class="subtitle">
-              WooCommerce performance, technical SEO, and checkout reliability.
+              WooCommerce performance, technical SEO, and checkout reliability for US & Canada.
             </p>
 
             <p class="leadline">
-              I help US & Canadian WooCommerce stores improve Core Web Vitals, reduce TTFB,
-              optimize product pages, and stabilize checkout — with production-safe deployments.
+              I help revenue-focused WooCommerce stores improve Core Web Vitals, reduce TTFB, optimize product pages,
+              and stabilize checkout with production-safe deployments and GA4-measured impact.
             </p>
 
-            <div class="heroProof">
-              <span>✔ Checkout-safe changes</span>
-              <span>✔ GA4-measured impact</span>
-              <span>✔ Staging + rollback</span>
+            <div class="heroProof" aria-label="Trust points">
+              <span class="proofPill"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Checkout-safe changes</span>
+              <span class="proofPill"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> GA4-measured impact</span>
+              <span class="proofPill"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Staging + rollback</span>
+              <span class="proofPill"><i class="fa-solid fa-bolt" aria-hidden="true"></i> CWV + TTFB focus</span>
             </div>
 
-            <div class="ctaRow">
+            <div class="ctaRow" aria-label="Primary actions">
               <a class="btn primary" href="#contact" data-preset="Performance audit (recommended)">
-                Request a performance audit
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
               </a>
               <a class="btn" href="#services">
-                View services
+                <i class="fa-solid fa-layer-group" aria-hidden="true"></i> See services
               </a>
             </div>
+
+            <div class="quickLinks" aria-label="Quick links">
+              <a href="mailto:carlleger.dev@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
+              <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="me noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+              <a href="https://github.com/CarlLeger" target="_blank" rel="me noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+              <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
+            </div>
+
+            <p class="micro">
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+              No obligation. If I’m not the right fit, I’ll tell you quickly.
+            </p>
           </div>
         </section>
 
-        <!-- SERVICES -->
-        <section class="services" id="services">
+        <!-- SERVICES (add indexable copy + internal linking to future service pages) -->
+        <section class="services" id="services" aria-label="Services">
           <h2>Services</h2>
           <p class="servicesIntro">
-            Start with an audit. Move to implementation. Every decision is documented and measured.
+            Choose the fastest path: start with an audit, then implementation. Every change is documented, measured, and safe to roll out.
           </p>
 
           <div class="servicesGrid">
-            <!-- (tes cartes services restent identiques, déjà excellentes SEO-wise) -->
+            <!-- Keep your existing service cards here (your full version).
+                 Tip: link each card to a dedicated page like:
+                 /services/performance-audit/ , /services/checkout-reliability/ , /services/product-page-seo/ etc. -->
+          </div>
+
+          <div class="servicesNote">
+            Want maximum ROI? Start with the audit. It prevents random fixes and gives you a clean, prioritized roadmap.
+          </div>
+        </section>
+
+        <!-- PROCESS (more keywords + clarity = better rankings & conversion) -->
+        <section class="process" id="process" aria-label="Process">
+          <h2>How I work</h2>
+          <p class="servicesIntro">
+            A simple, production-safe system that helps you ship improvements without breaking checkout.
+          </p>
+
+          <div class="servicesGrid">
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> 1) Audit & measurement</h3>
+              <p>Baseline CWV/TTFB, identify bottlenecks, verify tracking, and isolate checkout risks.</p>
+            </article>
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-list-check" aria-hidden="true"></i> 2) Prioritized plan</h3>
+              <p>Quick wins + high-impact fixes, ordered for safe rollouts and measurable results.</p>
+            </article>
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-code-branch" aria-hidden="true"></i> 3) Staging implementation</h3>
+              <p>Apply fixes in staging, validate checkout, confirm cache boundaries, and prep rollback.</p>
+            </article>
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-rocket" aria-hidden="true"></i> 4) Production deploy</h3>
+              <p>Ship changes safely, monitor impact, and iterate with confidence.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- FAQ (indexable + schema already in head) -->
+        <section class="faq" id="faq" aria-label="FAQ">
+          <h2>FAQ</h2>
+
+          <div class="servicesGrid">
+            <article class="serviceCard">
+              <h3>What problems do you fix most often?</h3>
+              <p>High TTFB, poor CWV, slow cart/checkout, heavy scripts, plugin conflicts, and low-performing product templates.</p>
+            </article>
+            <article class="serviceCard">
+              <h3>Can you help with SEO + conversion?</h3>
+              <p>Yes. Product page SEO + conversion work includes structured data, internal links, copy improvements, and speed fixes that support rankings and revenue.</p>
+            </article>
+            <article class="serviceCard">
+              <h3>Do you support US & Canada?</h3>
+              <p>Yes. I work with US and Canadian stores and adapt priorities to your market, stack, and analytics maturity.</p>
+            </article>
+            <article class="serviceCard">
+              <h3>How fast do you reply?</h3>
+              <p>Within 24 hours. If it’s not a fit, you’ll know quickly (no endless back-and-forth).</p>
+            </article>
           </div>
         </section>
 
         <!-- CONTACT -->
-        <section class="contact" id="contact">
+        <section class="contact" id="contact" aria-label="Contact form">
           <h2>Request a quote</h2>
           <p class="contactIntro">
-            Tell me about your store. I’ll reply within 24 hours with clear next steps.
+            Tell me what’s slowing your store down. I’ll reply within 24 hours with clear next steps.
           </p>
 
-          <form id="contactForm" action="https://formspree.io/f/mwvlenpe" method="POST">
-            <input type="text" name="name" placeholder="Your name" required />
-            <input type="email" name="email" placeholder="you@company.com" required />
-            <input type="url" name="website" placeholder="https://example.com" required />
-            <textarea name="message" placeholder="What’s the main issue?" required></textarea>
+          <form id="contactForm" action="https://formspree.io/f/mwvlenpe" method="POST" novalidate>
+            <div class="field">
+              <label class="sr-only" for="name">Name</label>
+              <input id="name" type="text" name="name" placeholder="Your name" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label class="sr-only" for="email">Email</label>
+              <input id="email" type="email" name="email" placeholder="you@company.com" autocomplete="email" required />
+            </div>
+
+            <div class="field full">
+              <label class="sr-only" for="site">Website URL</label>
+              <input id="site" type="url" name="website" placeholder="https://example.com" inputmode="url" required />
+            </div>
+
+            <div class="field full">
+              <label class="sr-only" for="message">What’s the main issue?</label>
+              <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, low product page performance, tracking issues, etc." required></textarea>
+            </div>
 
             <input type="hidden" name="_subject" value="New lead — US/CA site" />
-            <input type="text" name="_gotcha" style="display:none" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="source" value="Home" />
 
-            <button type="submit" class="btn primary">Send request</button>
-            <div id="formStatus" class="status"></div>
+            <!-- Honeypot -->
+            <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <button type="submit" class="btn primary">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send request
+            </button>
+
+            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
           </form>
         </section>
 
       </main>
 
       <!-- FOOTER -->
-      <footer class="footer">
+      <footer class="footer" aria-label="Footer">
         <div>© <span id="year"></span> Carl Leger</div>
-        <div class="footerLinks">
-          <a href="/services/">Services</a>
-          <a href="/resources/">Resources</a>
+        <div class="footerLinks" aria-label="Footer links">
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#faq">FAQ</a>
           <a href="mailto:carlleger.dev@gmail.com">Email</a>
         </div>
       </footer>
@@ -240,6 +438,7 @@
     </div>
   </div>
 
-  <script src="/assets/js/home.js?v=steam-usca-1" defer></script>
+  <!-- JS -->
+  <script src="/assets/js/home.js?v=steam-usca-2" defer></script>
 </body>
 </html>
