@@ -1,104 +1,362 @@
-// Year
-document.getElementById("year").textContent = new Date().getFullYear();
+/* =====================================
+   home.css — CarlLeger.github.io
+   ===================================== */
 
-// Preset project type when clicking “Request …” buttons
-document.querySelectorAll("[data-preset]").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const preset = btn.getAttribute("data-preset");
-    const project = document.getElementById("project");
-    if (project && preset) project.value = preset;
-  });
-});
+/* ---------- Design Tokens ---------- */
+:root{
+  --bg-1:#0b1220;
+  --bg-2:#070d17;
 
-const form = document.getElementById("auditForm");
-const statusBox = document.getElementById("formStatus");
+  --panel-1:rgba(255,255,255,.07);
+  --panel-2:rgba(255,255,255,.04);
+  --stroke:rgba(255,255,255,.10);
 
-let formStartTime = 0;
+  --text:#e7ecff;
+  --muted:#a8b3d6;
 
-form.addEventListener("focusin", () => {
-  if (!form.dataset.started) {
-    form.dataset.started = "1";
-    formStartTime = Date.now();
+  --accent:#38bdf8;
+  --accent-2:#a78bfa;
+
+  --success:#22c55e;
+  --error:#fb7185;
+  --warning:#fbbf24;
+
+  --shadow:0 20px 60px rgba(0,0,0,.35);
+  --radius-sm:12px;
+  --radius-md:16px;
+  --radius-lg:22px;
+  --radius-xl:28px;
+
+  --max:1020px;
+}
+
+/* ---------- Reset & Base ---------- */
+*{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 600px at 15% 10%, rgba(56,189,248,.12), transparent 55%),
+    radial-gradient(900px 600px at 85% 20%, rgba(167,139,250,.10), transparent 55%),
+    linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{ color:inherit; text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+:focus-visible{
+  outline:3px solid rgba(56,189,248,.55);
+  outline-offset:3px;
+  border-radius:10px;
+}
+
+/* ---------- Skip ---------- */
+.skip{
+  position:absolute;
+  left:-999px;
+  top:12px;
+  background:rgba(255,255,255,.12);
+  padding:10px 14px;
+  border-radius:12px;
+  z-index:999;
+}
+.skip:focus{ left:12px; }
+
+/* ---------- Layout ---------- */
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:56px 22px 120px;
+}
+
+.card{
+  position:relative;
+  background:linear-gradient(180deg,var(--panel-1),var(--panel-2));
+  border:1px solid var(--stroke);
+  border-radius:var(--radius-xl);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-2px -2px auto -2px;
+  height:180px;
+  background:
+    radial-gradient(700px 220px at 20% 0%, rgba(56,189,248,.20), transparent 60%),
+    radial-gradient(700px 220px at 80% 0%, rgba(167,139,250,.16), transparent 60%);
+  pointer-events:none;
+}
+
+/* ---------- Header ---------- */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  padding:20px 22px 10px;
+  flex-wrap:wrap;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  font-size:13px;
+  border-radius:999px;
+  background:rgba(56,189,248,.12);
+  border:1px solid rgba(56,189,248,.25);
+}
+
+.navrow{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.navpill{
+  padding:8px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  font-size:13px;
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:28px;
+  padding:32px 26px 20px;
+  align-items:center;
+}
+
+@media(max-width:760px){
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
   }
-});
+}
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+.avatar{
+  width:190px;
+  height:190px;
+  margin:0 auto;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid rgba(56,189,248,.35);
+  box-shadow:
+    0 0 0 8px rgba(56,189,248,.08),
+    0 24px 60px rgba(0,0,0,.45);
+}
 
-  const started = Number(formStartTime || Date.now());
-  const secondsSpent = (Date.now() - started) / 1000;
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 
-  // Basic bot timing check (a bit more forgiving for fast humans)
-  if (secondsSpent < 2) {
-    statusBox.className = "status err";
-    statusBox.textContent = "Submission blocked. Please try again.";
-    statusBox.style.display = "block";
-    return;
-  }
+.title{
+  margin:0 0 10px;
+  font-size:44px;
+  letter-spacing:-0.02em;
+  line-height:1.05;
+}
 
-  // Honeypots
-  const company = (form.querySelector("#company")?.value || "").trim();
-  const gotcha = (form.querySelector("[name='_gotcha']")?.value || "").trim();
-  if (company || gotcha) {
-    statusBox.className = "status err";
-    statusBox.textContent = "Submission blocked.";
-    statusBox.style.display = "block";
-    return;
-  }
+.subtitle{
+  margin:0;
+  font-size:17px;
+  color:var(--muted);
+  max-width:60ch;
+}
 
-  statusBox.className = "status";
-  statusBox.textContent = "Sending...";
-  statusBox.style.display = "block";
+.leadline{
+  margin:10px 0 0;
+  font-size:15px;
+  max-width:64ch;
+}
 
-  const data = new FormData(form);
+/* ---------- CTA ---------- */
+.ctaRow{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
 
-  const website = (data.get("website") || "").toString().trim();
-  const message = (data.get("message") || "").toString().trim();
-  const chosenType = (data.get("project_type") || "").toString();
+@media(max-width:760px){
+  .ctaRow{ justify-content:center; }
+}
 
-  // More reliable URL validation than regex
-  try { new URL(website); }
-  catch {
-    statusBox.className = "status err";
-    statusBox.textContent = "Please enter a valid website URL (include https://).";
-    statusBox.style.display = "block";
-    return;
-  }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 16px;
+  border-radius:14px;
+  font-size:14px;
+  font-weight:700;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  transition:transform .12s ease,background .12s ease;
+}
 
-  if (message.length < 20) {
-    statusBox.className = "status err";
-    statusBox.textContent = "Please provide a bit more detail (at least 20 characters).";
-    statusBox.style.display = "block";
-    return;
-  }
+.btn:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.10);
+  text-decoration:none;
+}
 
-  try{
-    const res = await fetch(form.action, {
-      method: "POST",
-      body: data,
-      headers: { "Accept": "application/json" }
-    });
+.btn.primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#06101d;
+  font-weight:900;
+}
 
-    if(res.ok){
-      form.reset();
-      formStartTime = 0;
-      delete form.dataset.started;
+/* ---------- Quick Links ---------- */
+.quickLinks{
+  margin-top:14px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
 
-      statusBox.className = "status ok";
-      statusBox.textContent = "Thanks! Your request was sent. I’ll reply within 24 hours.";
+.quickLinks a{
+  font-size:13px;
+  padding:8px 10px;
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+}
 
-      if (typeof gtag === "function") {
-        gtag("event", "lead_submit", {
-          event_category: "form",
-          event_label: chosenType || "home"
-        });
-      }
-    } else {
-      statusBox.className = "status err";
-      statusBox.textContent = "Something went wrong. Please email me directly: carlleger.dev@gmail.com";
-    }
-  } catch(err){
-    statusBox.className = "status err";
-    statusBox.textContent = "Network error. Please email me directly: carlleger.dev@gmail.com";
-  }
-});
+/* ---------- Sections ---------- */
+section{
+  padding:26px;
+}
+
+section h2{
+  margin:0 0 12px;
+  font-size:18px;
+}
+
+/* ---------- Services ---------- */
+.servicesGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+@media(max-width:900px){
+  .servicesGrid{ grid-template-columns:1fr; }
+}
+
+.serviceCard{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:var(--radius-lg);
+  padding:18px;
+}
+
+.serviceCard h3{
+  margin:0 0 8px;
+  font-size:16px;
+}
+
+.serviceCard p{
+  margin:0 0 14px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* ---------- Contact / Form ---------- */
+.contactIntro{
+  max-width:70ch;
+  color:var(--muted);
+  margin-bottom:16px;
+}
+
+form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+@media(max-width:760px){
+  form{ grid-template-columns:1fr; }
+}
+
+input,select,textarea{
+  width:100%;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(8,13,23,.55);
+  color:var(--text);
+  font-size:14px;
+}
+
+textarea{
+  grid-column:1/-1;
+  min-height:110px;
+  resize:vertical;
+}
+
+button[type="submit"]{
+  grid-column:1/-1;
+  justify-content:center;
+}
+
+/* ---------- Status Messages ---------- */
+.status{
+  grid-column:1/-1;
+  display:none;
+  padding:12px 14px;
+  border-radius:14px;
+  font-size:13px;
+}
+
+.status.ok{
+  display:block;
+  background:rgba(34,197,94,.12);
+  border:1px solid rgba(34,197,94,.30);
+}
+
+.status.err{
+  display:block;
+  background:rgba(251,113,133,.12);
+  border:1px solid rgba(251,113,133,.30);
+}
+
+/* ---------- Footer ---------- */
+.footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:20px 26px;
+  border-top:1px solid rgba(255,255,255,.10);
+  font-size:13px;
+  color:var(--muted);
+}
+
+.footerLinks{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.footerLinks a{
+  padding:8px 10px;
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+}
