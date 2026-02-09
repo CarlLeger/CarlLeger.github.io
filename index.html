@@ -25,6 +25,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://carlleger.github.io/" />
   <meta property="og:image" content="https://carlleger.github.io/assets/og/og-carl-leger-ecommerce-performance.png" />
+  <meta property="og:image:alt" content="Carl Leger — WooCommerce Performance & Checkout Reliability" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -32,25 +33,37 @@
   <meta name="twitter:description" content="Performance-first WooCommerce optimization. Checkout-safe, measurable, documented." />
   <meta name="twitter:image" content="https://carlleger.github.io/assets/og/og-carl-leger-ecommerce-performance.png" />
 
-  <!-- Fonts / Icons -->
+  <!-- Icons -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
+    media="print"
+    onload="this.media='all'"
   />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </noscript>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/home.css?v=1.0" />
+  <link rel="stylesheet" href="/assets/css/home.css?v=steam1" />
 
   <!-- GA4 -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-3KXQFTWTBD');
+    gtag('config', 'G-3KXQFTWTBD', { 'send_page_view': true });
   </script>
 
   <!-- Structured Data: Person -->
@@ -80,14 +93,21 @@
     "name":"Carl Leger",
     "url":"https://carlleger.github.io/",
     "areaServed":"Worldwide",
-    "description":"WooCommerce performance optimization, checkout reliability, Core Web Vitals, TTFB reduction, and GA4 measurement.",
+    "description":"WooCommerce performance optimization, checkout reliability, Core Web Vitals, TTFB reduction, GA4 measurement, and technical SEO support.",
     "knowsAbout":[
       "WooCommerce performance",
       "Checkout optimization",
       "Core Web Vitals",
       "TTFB",
       "GA4",
-      "Technical SEO"
+      "Technical SEO",
+      "Caching strategy",
+      "Cloudflare"
+    ],
+    "sameAs":[
+      "https://www.linkedin.com/in/carlleger/",
+      "https://github.com/CarlLeger",
+      "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
     ]
   }
   </script>
@@ -96,34 +116,72 @@
 </head>
 
 <body>
-
   <a class="skip" href="#main">Skip to content</a>
 
   <div class="wrap">
     <div class="card">
 
-      <!-- HEADER -->
-      <header class="topbar">
-        <div class="badge">
-          <i class="fa-solid fa-gauge-high"></i>
-          WooCommerce • Performance • Checkout
+      <!-- HEADER (Steam-like + Mobile Drawer hooks) -->
+      <header class="topbar" data-header>
+        <div class="brand">
+          <a class="badge" href="/" aria-label="Home">
+            <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
+            WooCommerce • Performance • Checkout
+          </a>
         </div>
 
-        <nav class="navrow" aria-label="Primary navigation">
+        <!-- Desktop nav -->
+        <nav class="navrow navrow--desktop" aria-label="Primary navigation">
           <a class="navpill" href="/services/">Services</a>
           <a class="navpill" href="/resources/">Resources</a>
-          <a class="navpill" href="#contact">Contact</a>
+          <a class="navpill navpill--cta" href="#contact">Contact</a>
         </nav>
+
+        <!-- Mobile button -->
+        <button class="navToggle" type="button"
+                aria-label="Open menu"
+                aria-controls="mobileNav"
+                aria-expanded="false"
+                data-nav-toggle>
+          <span class="navToggle__bar"></span>
+          <span class="navToggle__bar"></span>
+          <span class="navToggle__bar"></span>
+        </button>
       </header>
+
+      <!-- Mobile overlay + drawer -->
+      <div class="navOverlay" data-nav-overlay hidden></div>
+
+      <aside id="mobileNav" class="navDrawer" data-nav-drawer hidden aria-label="Mobile menu">
+        <div class="navDrawer__top">
+          <div class="navDrawer__title">Menu</div>
+          <button class="navClose" type="button" aria-label="Close menu" data-nav-close>
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <nav class="navDrawer__links" aria-label="Mobile navigation">
+          <a class="navDrawer__link" href="/services/">Services</a>
+          <a class="navDrawer__link" href="/resources/">Resources</a>
+          <a class="navDrawer__link navDrawer__link--cta" href="#contact">Contact</a>
+        </nav>
+
+        <div class="navDrawer__meta">
+          <div class="navDrawer__hint">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            Reply within 24h • No spam
+          </div>
+        </div>
+      </aside>
 
       <!-- MAIN -->
       <main id="main">
 
         <!-- HERO -->
-        <section class="hero">
+        <section class="hero" aria-label="Intro">
           <div class="avatarWrap">
-            <div class="avatar">
-              <img src="/avatar.png" alt="Carl Leger portrait" width="190" height="190" loading="eager" />
+            <div class="avatar" aria-label="Carl Leger portrait">
+              <img src="/avatar.png" alt="Carl Leger portrait" width="190" height="190" loading="eager" decoding="async" />
             </div>
           </div>
 
@@ -131,42 +189,48 @@
             <h1 class="title">Carl Leger</h1>
 
             <p class="subtitle">
-              WooCommerce performance & checkout reliability.
+              WooCommerce performance, SEO support, and checkout reliability.
             </p>
 
             <p class="leadline">
-              I help revenue-focused stores improve Core Web Vitals, reduce TTFB,
-              and stabilize checkout — without risky changes.
+              I help revenue-focused stores improve Core Web Vitals, reduce TTFB, and stabilize checkout
+              with production-safe deployments and GA4-backed decisions.
             </p>
 
-            <div class="ctaRow">
+            <div class="ctaRow" aria-label="Primary actions">
               <a class="btn primary" href="#contact" data-preset="Performance audit (recommended)">
-                <i class="fa-solid fa-paper-plane"></i> Request an audit
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
               </a>
               <a class="btn" href="/services/">
                 View services
               </a>
             </div>
 
-            <div class="quickLinks">
-              <a href="mailto:carlleger.dev@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-              <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener">LinkedIn</a>
-              <a href="https://github.com/CarlLeger" target="_blank" rel="noopener">GitHub</a>
-              <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener">Upwork</a>
+            <div class="quickLinks" aria-label="Quick links">
+              <a href="mailto:carlleger.dev@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
+              <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+              </a>
+              <a href="https://github.com/CarlLeger" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+              </a>
+              <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork
+              </a>
             </div>
           </div>
         </section>
 
         <!-- SERVICES -->
-        <section class="services" id="services">
+        <section class="services" id="services" aria-label="Services">
           <h2>Services</h2>
 
           <div class="servicesGrid">
             <article class="serviceCard">
               <h3>WooCommerce Performance Audit</h3>
               <p>
-                Deep audit focused on Core Web Vitals, TTFB, checkout speed,
-                caching safety, and bottleneck mapping.
+                Deep audit focused on Core Web Vitals, TTFB, checkout speed, caching safety,
+                measurement clarity, and bottleneck mapping.
               </p>
               <a class="btn primary" href="#contact" data-preset="Performance audit (recommended)">
                 Request audit
@@ -176,8 +240,8 @@
             <article class="serviceCard">
               <h3>WooCommerce Optimization</h3>
               <p>
-                Production-safe implementation: CWV fixes, checkout optimization,
-                database hotspots, and rollback-ready deployments.
+                Production-safe implementation: CWV fixes, checkout optimization, database hotspots,
+                caching boundaries, and rollback-ready deployments.
               </p>
               <a class="btn" href="#contact" data-preset="WooCommerce optimization">
                 Request optimization
@@ -187,45 +251,47 @@
         </section>
 
         <!-- CONTACT -->
-        <section class="contact" id="contact">
+        <section class="contact" id="contact" aria-label="Contact form">
           <h2>Request a quote</h2>
           <p class="contactIntro">
-            Tell me what’s slowing your store down. I’ll reply within 24 hours with
-            the best next step.
+            Tell me what’s slowing your store down. I’ll reply within 24 hours with the best next step.
           </p>
 
-          <form id="contactForm" action="https://formspree.io/f/mwvlenpe" method="POST">
-            <input type="text" name="name" placeholder="Your name" required />
-            <input type="email" name="email" placeholder="you@company.com" required />
-            <input type="url" name="website" placeholder="https://example.com" required />
+          <form id="contactForm" action="https://formspree.io/f/mwvlenpe" method="POST" novalidate>
+            <input id="name" type="text" name="name" placeholder="Your name" autocomplete="name" required />
+            <input type="email" name="email" placeholder="you@company.com" autocomplete="email" required />
+            <input type="url" name="website" placeholder="https://example.com" inputmode="url" required />
 
-            <select name="project_type" id="project">
+            <select name="project_type" id="project" required>
               <option value="" disabled selected>Project type</option>
-              <option>Performance audit (recommended)</option>
-              <option>WooCommerce optimization</option>
-              <option>Checkout troubleshooting</option>
-              <option>SEO & analytics consulting</option>
+              <option value="Performance audit (recommended)">Performance audit (recommended)</option>
+              <option value="WooCommerce optimization">WooCommerce optimization</option>
+              <option value="Checkout troubleshooting">Checkout troubleshooting</option>
+              <option value="SEO & analytics consulting">SEO & analytics consulting</option>
             </select>
 
-            <textarea name="message" placeholder="What’s the main issue?" required></textarea>
+            <textarea name="message" placeholder="What’s the main issue? (checkout, CWV, SEO, analytics, etc.)" required></textarea>
 
             <input type="hidden" name="_subject" value="New lead — carlleger.github.io" />
-            <input type="text" name="_gotcha" style="display:none" />
+            <input type="hidden" name="source" value="Home" />
+
+            <input id="company" type="text" name="company" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
             <button type="submit" class="btn primary">
-              <i class="fa-solid fa-paper-plane"></i> Send request
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send request
             </button>
 
-            <div id="formStatus" class="formStatus" aria-live="polite"></div>
+            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
           </form>
         </section>
 
       </main>
 
       <!-- FOOTER -->
-      <footer class="footer">
+      <footer class="footer" aria-label="Footer">
         <div>© <span id="year"></span> Carl Leger</div>
-        <div class="footerLinks">
+        <div class="footerLinks" aria-label="Footer links">
           <a href="/services/">Services</a>
           <a href="/resources/">Resources</a>
           <a href="mailto:carlleger.dev@gmail.com">Email</a>
@@ -236,7 +302,6 @@
   </div>
 
   <!-- JS -->
-  <script src="/assets/js/home.js?v=1.0" defer></script>
-
+  <script src="/assets/js/home.js?v=steam1" defer></script>
 </body>
 </html>
