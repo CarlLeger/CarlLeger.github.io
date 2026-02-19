@@ -71,7 +71,7 @@
   </noscript>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/home.css?v=steam-enca-1" />
+  <link rel="stylesheet" href="/assets/css/home.css?v=steam-enca-2" />
 
   <!-- GA4 -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
@@ -191,79 +191,79 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
+  <!-- FULL-WIDTH HEADER -->
+  <header class="siteHeader" data-header>
+    <div class="siteHeader__inner">
+      <a class="brandMark" href="/" aria-label="Home">
+        <img
+          src="/assets/images/brand/logo-cl-1024.png"
+          alt="CL"
+          width="64"
+          height="64"
+          decoding="async"
+          loading="eager"
+          class="brandLogo"
+        />
+        <span class="brandText">WooCommerce • Performance • SEO</span>
+      </a>
+
+      <nav class="siteNav siteNav--desktop" aria-label="Primary navigation">
+        <a class="siteNav__link" href="#services">Services</a>
+        <a class="siteNav__link" href="#process">Process</a>
+        <a class="siteNav__link" href="#faq">FAQ</a>
+        <a class="siteNav__cta" href="#contact">Contact</a>
+      </nav>
+
+      <div class="siteLocale" aria-label="Language">
+        <a class="siteLocale__link" href="/" aria-current="page">EN</a>
+        <a class="siteLocale__link" href="/fr/" lang="fr-CA" hreflang="fr-CA">FR</a>
+      </div>
+
+      <button class="navToggle" type="button"
+              aria-label="Open menu"
+              aria-controls="mobileNav"
+              aria-expanded="false"
+              data-nav-toggle>
+        <span class="navToggle__bar"></span>
+        <span class="navToggle__bar"></span>
+        <span class="navToggle__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile overlay + drawer -->
+  <div class="navOverlay" data-nav-overlay hidden></div>
+
+  <aside id="mobileNav" class="navDrawer" data-nav-drawer hidden aria-label="Mobile menu">
+    <div class="navDrawer__top">
+      <div class="navDrawer__title">Menu</div>
+      <button class="navClose" type="button" aria-label="Close menu" data-nav-close>
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav class="navDrawer__links" aria-label="Mobile navigation">
+      <a class="navDrawer__link" href="#services">Services</a>
+      <a class="navDrawer__link" href="#process">Process</a>
+      <a class="navDrawer__link" href="#faq">FAQ</a>
+      <a class="navDrawer__link navDrawer__link--cta" href="#contact">Contact</a>
+    </nav>
+
+    <div class="navDrawer__meta">
+      <div class="navDrawer__hint">
+        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+        Reply within 24h • No spam • No fluff
+      </div>
+      <div class="navDrawer__langs" aria-label="Language">
+        <a class="navDrawer__lang" href="/" aria-current="page">EN</a>
+        <a class="navDrawer__lang" href="/fr/" lang="fr-CA" hreflang="fr-CA">FR</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CENTER CONTENT -->
   <div class="wrap">
     <div class="card">
-
-      <!-- HEADER -->
-      <header class="topbar" data-header>
-        <div class="brand">
-          <a class="badge" href="/" aria-label="Home">
-            <img
-              src="/assets/images/brand/logo-cl-1024.png"
-              alt="CL"
-              width="64"
-              height="64"
-              decoding="async"
-              loading="eager"
-              class="brandLogo"
-            />
-            <span class="badgeText">
-              WooCommerce • Performance • SEO
-            </span>
-          </a>
-        </div>
-
-        <nav class="navrow navrow--desktop" aria-label="Primary navigation">
-          <a class="navpill" href="#services"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services</a>
-          <a class="navpill" href="#process"><i class="fa-solid fa-list-check" aria-hidden="true"></i> Process</a>
-          <a class="navpill" href="#faq"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</a>
-          <a class="navpill navpill--cta" href="#contact"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact</a>
-        </nav>
-
-        <div class="localeRow" aria-label="Language">
-          <a class="localeLink" href="/" aria-current="page">EN</a>
-          <a class="localeLink" href="/fr/" lang="fr-CA" hreflang="fr-CA">FR</a>
-        </div>
-
-        <button class="navToggle" type="button"
-                aria-label="Open menu"
-                aria-controls="mobileNav"
-                aria-expanded="false"
-                data-nav-toggle>
-          <span class="navToggle__bar"></span>
-          <span class="navToggle__bar"></span>
-          <span class="navToggle__bar"></span>
-        </button>
-      </header>
-
-      <div class="navOverlay" data-nav-overlay hidden></div>
-
-      <aside id="mobileNav" class="navDrawer" data-nav-drawer hidden aria-label="Mobile menu">
-        <div class="navDrawer__top">
-          <div class="navDrawer__title">Menu</div>
-          <button class="navClose" type="button" aria-label="Close menu" data-nav-close>
-            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-          </button>
-        </div>
-
-        <nav class="navDrawer__links" aria-label="Mobile navigation">
-          <a class="navDrawer__link" href="#services">Services</a>
-          <a class="navDrawer__link" href="#process">Process</a>
-          <a class="navDrawer__link" href="#faq">FAQ</a>
-          <a class="navDrawer__link navDrawer__link--cta" href="#contact">Contact</a>
-        </nav>
-
-        <div class="navDrawer__meta">
-          <div class="navDrawer__hint">
-            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-            Reply within 24h • No spam • No fluff
-          </div>
-          <div class="navDrawer__langs" aria-label="Language">
-            <a class="navDrawer__lang" href="/" aria-current="page">EN</a>
-            <a class="navDrawer__lang" href="/fr/" lang="fr-CA" hreflang="fr-CA">FR</a>
-          </div>
-        </div>
-      </aside>
 
       <main id="main">
         <section class="hero" aria-label="Intro">
@@ -418,8 +418,24 @@
         </section>
       </main>
 
-      <footer class="footer" aria-label="Footer">
-        <div class="footerBrand">
+    </div>
+  </div>
+
+  <!-- FULL-WIDTH FOOTER -->
+  <footer class="footer footer--full" aria-label="Footer">
+    <div class="footerInner">
+      <div class="footerLeft">
+        <img
+          class="footerAvatar"
+          src="/avatar.png"
+          alt="Carl Leger"
+          width="56"
+          height="56"
+          loading="lazy"
+          decoding="async"
+        />
+
+        <div class="footerMeta">
           <img
             src="/assets/images/brand/logo-carl-leger-500x120.png"
             alt="Carl Leger"
@@ -429,27 +445,19 @@
             decoding="async"
             class="footerLogo"
           />
-          <div>© <span id="year"></span> Carl Leger</div>
+          <div class="footerCopy">© <span id="year"></span> Carl Leger</div>
         </div>
+      </div>
 
-        <div class="footerLinks" aria-label="Footer links">
-          <a href="#services">Services</a>
-          <a href="#process">Process</a>
-          <a href="#faq">FAQ</a>
-          <a href="mailto:carlleger.dev@gmail.com">Email</a>
-        </div>
-      </footer>
-
+      <nav class="footerLinks" aria-label="Footer links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="mailto:carlleger.dev@gmail.com">Email</a>
+      </nav>
     </div>
-  </div>
+  </footer>
 
-  <script src="/assets/js/home.js?v=steam-enca-1" defer></script>
-
-  <style>
-    .brandLogo{height:48px;width:auto;display:inline-block;vertical-align:middle}
-    .badgeText{margin-left:10px}
-    .footerLogo{height:34px;width:auto;display:block;margin:0 auto 10px}
-    .footerBrand{text-align:center}
-  </style>
+  <script src="/assets/js/home.js?v=steam-enca-2" defer></script>
 </body>
 </html>
