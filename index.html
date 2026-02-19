@@ -19,9 +19,7 @@
   <!-- CANONICAL -->
   <link rel="canonical" href="https://carlleger.github.io/" />
 
-  <!-- HREFLANG (US-EN + CA-EN + CA-FR ready)
-       NOTE: Best practice long-term = unique URLs per locale (ex: /us/, /ca/, /fr-ca/).
-       For now, these are "ready" without breaking anything. -->
+  <!-- HREFLANG (US-EN + CA-EN + CA-FR ready) -->
   <link rel="alternate" hreflang="en-US" href="https://carlleger.github.io/" />
   <link rel="alternate" hreflang="en-CA" href="https://carlleger.github.io/" />
   <link rel="alternate" hreflang="fr-CA" href="https://carlleger.github.io/fr/" />
@@ -50,6 +48,13 @@
   <meta name="twitter:title" content="Carl Leger — WooCommerce Performance & SEO" />
   <meta name="twitter:description" content="Core Web Vitals, checkout reliability, product page SEO, and GA4 measurement for revenue-focused WooCommerce stores." />
   <meta name="twitter:image" content="https://carlleger.github.io/assets/og/og-carl-leger-ecommerce-performance.png" />
+
+  <!-- FAVICONS (root) -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- ICONS -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
@@ -139,7 +144,7 @@
   }
   </script>
 
-  <!-- STRUCTURED DATA: FAQ (long-tail traffic + rich results potential) -->
+  <!-- STRUCTURED DATA: FAQ -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -181,9 +186,6 @@
     ]
   }
   </script>
-
-  <!-- FAVICON -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 
 <body>
@@ -192,12 +194,23 @@
   <div class="wrap">
     <div class="card">
 
-      <!-- HEADER (Steam-like + Mobile Drawer hooks) -->
+      <!-- HEADER -->
       <header class="topbar" data-header>
         <div class="brand">
           <a class="badge" href="/" aria-label="Home">
-            <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
-            WooCommerce • Performance • SEO
+            <!-- Logo CL -->
+            <img
+              src="/assets/images/brand/logo-cl-1024.png"
+              alt="CL"
+              width="64"
+              height="64"
+              decoding="async"
+              loading="eager"
+              class="brandLogo"
+            />
+            <span class="badgeText">
+              WooCommerce • Performance • SEO
+            </span>
           </a>
         </div>
 
@@ -209,7 +222,7 @@
           <a class="navpill navpill--cta" href="#contact"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact</a>
         </nav>
 
-        <!-- Locale links (simple + SEO-friendly) -->
+        <!-- Locale links -->
         <div class="localeRow" aria-label="Language">
           <a class="localeLink" href="/" aria-current="page">EN</a>
           <a class="localeLink" href="/fr/" lang="fr-CA" hreflang="fr-CA">FR</a>
@@ -259,7 +272,6 @@
 
       <!-- MAIN -->
       <main id="main">
-
         <!-- HERO -->
         <section class="hero" aria-label="Intro">
           <div class="avatarWrap">
@@ -310,25 +322,21 @@
           </div>
         </section>
 
-        <!-- SERVICES (add indexable copy + internal linking to future service pages) -->
+        <!-- SERVICES -->
         <section class="services" id="services" aria-label="Services">
           <h2>Services</h2>
           <p class="servicesIntro">
             Choose the fastest path: start with an audit, then implementation. Every change is documented, measured, and safe to roll out.
           </p>
 
-          <div class="servicesGrid">
-            <!-- Keep your existing service cards here (your full version).
-                 Tip: link each card to a dedicated page like:
-                 /services/performance-audit/ , /services/checkout-reliability/ , /services/product-page-seo/ etc. -->
-          </div>
+          <div class="servicesGrid"></div>
 
           <div class="servicesNote">
             Want maximum ROI? Start with the audit. It prevents random fixes and gives you a clean, prioritized roadmap.
           </div>
         </section>
 
-        <!-- PROCESS (more keywords + clarity = better rankings & conversion) -->
+        <!-- PROCESS -->
         <section class="process" id="process" aria-label="Process">
           <h2>How I work</h2>
           <p class="servicesIntro">
@@ -355,7 +363,7 @@
           </div>
         </section>
 
-        <!-- FAQ (indexable + schema already in head) -->
+        <!-- FAQ -->
         <section class="faq" id="faq" aria-label="FAQ">
           <h2>FAQ</h2>
 
@@ -410,8 +418,6 @@
             <input type="hidden" name="_subject" value="New lead — US/CA site" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="source" value="Home" />
-
-            <!-- Honeypot -->
             <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
             <button type="submit" class="btn primary">
@@ -421,12 +427,23 @@
             <div id="formStatus" class="status" role="status" aria-live="polite"></div>
           </form>
         </section>
-
       </main>
 
       <!-- FOOTER -->
       <footer class="footer" aria-label="Footer">
-        <div>© <span id="year"></span> Carl Leger</div>
+        <div class="footerBrand">
+          <img
+            src="/assets/images/brand/logo-carl-leger-500x120.png"
+            alt="Carl Leger"
+            width="500"
+            height="120"
+            loading="lazy"
+            decoding="async"
+            class="footerLogo"
+          />
+          <div>© <span id="year"></span> Carl Leger</div>
+        </div>
+
         <div class="footerLinks" aria-label="Footer links">
           <a href="#services">Services</a>
           <a href="#process">Process</a>
@@ -440,5 +457,13 @@
 
   <!-- JS -->
   <script src="/assets/js/home.js?v=steam-usca-2" defer></script>
+
+  <!-- Tiny inline style safety (optional): keeps logos nicely sized if CSS not updated yet -->
+  <style>
+    .brandLogo{height:48px;width:auto;display:inline-block;vertical-align:middle}
+    .badgeText{margin-left:10px}
+    .footerLogo{height:34px;width:auto;display:block;margin:0 auto 10px}
+    .footerBrand{text-align:center}
+  </style>
 </body>
 </html>
