@@ -225,7 +225,12 @@ a:hover{ text-decoration:underline; }
   font-size:44px;
   line-height:1.05;
   letter-spacing:-0.02em;
+
+  /* PATCH: prevent title clipping on narrow containers */
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
+
 @media (max-width: 760px){
   .title{ font-size:38px; }
 }
@@ -633,7 +638,6 @@ body{
 }
 
 .btn.primary{
-  /* Keep green as "enroll" energy, add premium depth */
   background:
     linear-gradient(180deg, rgba(183,243,74,.96), rgba(120,180,0,.90));
   border-color: rgba(255,255,255,.22);
@@ -674,4 +678,29 @@ input, select, textarea{
 a:hover{ text-decoration: none; }
 .navpill:hover, .footerLinks a:hover, .quickLinks a:hover{
   text-decoration: none;
+}
+
+/* =========================================================
+   PATCH: HERO IMAGE (no cropping) + image container polish
+   Add class="heroMedia" to the hero image wrapper in HTML
+   ========================================================= */
+
+.heroMedia{
+  margin-top: 14px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+}
+
+.heroMedia picture,
+.heroMedia img{
+  display:block;
+  width:100%;
+  height:auto !important;
+}
+
+.heroMedia img{
+  object-fit: contain !important; /* critical: prevents cropping */
+  max-height: none !important;
 }
