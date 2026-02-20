@@ -390,10 +390,16 @@ button[type="submit"]{
   min-width:0;
 }
 
+/* UPDATED: header logo sizing */
 .brandMark .brandLogo{
-  height:42px;
+  height:36px;
   width:auto;
+  max-width:220px;
   display:block;
+}
+
+@media (max-width: 640px){
+  .brandMark .brandLogo{ height:32px; }
 }
 
 .brandText{
@@ -513,11 +519,9 @@ button[type="submit"]{
   gap:6px;
 }
 
+/* UPDATED: hide horizontal logo in footer (CL mark is used instead) */
 .footerLogo{
-  height:26px;
-  width:auto;
-  display:block;
-  opacity:.95;
+  display:none;
 }
 
 .footerCopy{
@@ -533,4 +537,28 @@ button[type="submit"]{
 @media (max-width:820px){
   .footerInner{flex-direction:column;text-align:center;}
   .footerLinks{justify-content:center;}
+}
+
+/* ---------- Footer CL mark (NEW) ---------- */
+.footerMark{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  text-decoration:none;
+}
+
+.footerMark:hover{
+  background:rgba(255,255,255,.08);
+  text-decoration:none;
+}
+
+.footerMark__img{
+  display:block;
+  width:22px;
+  height:22px;
 }
