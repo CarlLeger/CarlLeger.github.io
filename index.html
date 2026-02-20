@@ -124,7 +124,7 @@
     "provider": { "@id":"https://carlleger.github.io/#person" },
     "areaServed":["Canada"],
     "availableLanguage":["en-CA","fr-CA"],
-    "description":"Canada-first WooCommerce performance optimization: Core Web Vitals, TTFB reduction, checkout reliability, product page SEO, and GA4 measurement for revenue-focused eCommerce stores.",
+    "description":"Canada-first WooCommerce performance optimization: Core Web Vitals, TTFB reduction, checkout reliability, product page SEO, and GA4 measurement for revenue-focused eCommerce stores. I also build fast, SEO-first landing pages and GitHub Pages sites for small businesses and affiliate projects.",
     "knowsAbout":[
       "WooCommerce performance",
       "Checkout optimization",
@@ -134,7 +134,10 @@
       "Product page optimization",
       "GA4 measurement",
       "Cloudflare caching",
-      "WordPress performance"
+      "WordPress performance",
+      "Shopify technical SEO",
+      "GitHub Pages",
+      "Static site performance"
     ],
     "contactPoint":[
       {
@@ -185,6 +188,14 @@
       },
       {
         "@type":"Question",
+        "name":"Do you build websites and landing pages too?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. I build fast, SEO-first websites and landing pages (including GitHub Pages/static sites). The goal is simple: clean UX, fast load, and clear conversion tracking."
+        }
+      },
+      {
+        "@type":"Question",
         "name":"Do you work with Canadian stores?",
         "acceptedAnswer":{
           "@type":"Answer",
@@ -217,6 +228,7 @@
 
       <nav class="siteNav siteNav--desktop" aria-label="Primary navigation">
         <a class="siteNav__link" href="#services">Services</a>
+        <a class="siteNav__link" href="#websites">Websites</a>
         <a class="siteNav__link" href="#process">Process</a>
         <a class="siteNav__link" href="#faq">FAQ</a>
         <a class="siteNav__cta" href="#contact">Contact</a>
@@ -252,6 +264,7 @@
 
     <nav class="navDrawer__links" aria-label="Mobile navigation">
       <a class="navDrawer__link" href="#services">Services</a>
+      <a class="navDrawer__link" href="#websites">Websites</a>
       <a class="navDrawer__link" href="#process">Process</a>
       <a class="navDrawer__link" href="#faq">FAQ</a>
       <a class="navDrawer__link navDrawer__link--cta" href="#contact">Contact</a>
@@ -354,6 +367,30 @@
           </div>
         </section>
 
+        <!-- NEW: Secondary offer (segmented, clean) -->
+        <section class="services" id="websites" aria-label="Websites & landing pages">
+          <h2>Websites & landing pages (fast + SEO-first)</h2>
+          <p class="servicesIntro">
+            For small businesses, local services, and affiliate projects. Lightweight builds, clean UX, and tracking-ready setups.
+          </p>
+
+          <div class="servicesGrid">
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-file-lines" aria-hidden="true"></i> High-conversion 1-page website</h3>
+              <p>Simple, premium one-page site: clear offer, strong CTA, fast load, and basic SEO. Ideal for local businesses.</p>
+            </article>
+
+            <article class="serviceCard">
+              <h3><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub Pages site (affiliate / content)</h3>
+              <p>Static site build on GitHub Pages: fast performance, clean structure, and SEO-first templates for content + affiliate links.</p>
+            </article>
+          </div>
+
+          <div class="servicesNote">
+            If you’re an eCommerce store, start with the audit above. If you’re a small business, these builds are the fastest path to a clean online presence.
+          </div>
+        </section>
+
         <section class="process" id="process" aria-label="Process">
           <h2>How I work</h2>
           <p class="servicesIntro">
@@ -393,8 +430,8 @@
               <p>Yes. Product page SEO + conversion work includes structured data, internal links, copy improvements, and speed fixes that support rankings and revenue.</p>
             </article>
             <article class="serviceCard">
-              <h3>Do you support Canada?</h3>
-              <p>Yes. I focus on Canadian WooCommerce stores and tailor priorities to your market and analytics maturity.</p>
+              <h3>Do you build websites too?</h3>
+              <p>Yes. Fast one-page sites and SEO-first landing pages, including GitHub Pages/static builds for affiliate/content projects.</p>
             </article>
             <article class="serviceCard">
               <h3>How fast do you reply?</h3>
@@ -430,7 +467,9 @@
               <select id="platform" name="platform" required>
                 <option value="" selected disabled>Platform</option>
                 <option>WooCommerce</option>
+                <option>Shopify</option>
                 <option>WordPress (not WooCommerce)</option>
+                <option>GitHub Pages (static)</option>
                 <option>Other</option>
               </select>
             </div>
@@ -448,7 +487,7 @@
 
             <div class="field full">
               <label class="sr-only" for="message">What’s the main issue?</label>
-              <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, low product page performance, tracking issues, etc." required minlength="20"></textarea>
+              <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, low product page performance, tracking issues, need a fast landing page, etc." required minlength="20"></textarea>
             </div>
 
             <input type="hidden" name="_subject" value="New lead — Canada-focused site" />
@@ -499,9 +538,10 @@
         </div>
       </div>
 
-      <!-- UPDATED: footer nav includes About + Resources -->
+      <!-- UPDATED: footer nav includes Websites -->
       <nav class="footerLinks" aria-label="Footer links">
         <a href="#services">Services</a>
+        <a href="#websites">Websites</a>
         <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
         <a href="/about/">About</a>
