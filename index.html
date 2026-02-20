@@ -13,16 +13,15 @@
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet=-1,max-video-preview=-1" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#0b1220" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="color-scheme" content="dark light" />
   <meta name="format-detection" content="telephone=no" />
 
   <!-- CANONICAL -->
   <link rel="canonical" href="https://carlleger.github.io/" />
 
-  <!-- HREFLANG (EN-CA primary + FR-CA, optional EN-US) -->
+  <!-- HREFLANG (EN-CA primary + FR-CA) -->
   <link rel="alternate" hreflang="en-CA" href="https://carlleger.github.io/" />
   <link rel="alternate" hreflang="fr-CA" href="https://carlleger.github.io/fr/" />
-  <link rel="alternate" hreflang="en-US" href="https://carlleger.github.io/" />
   <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/" />
 
   <!-- Preload critical images (CWV) -->
@@ -37,7 +36,6 @@
   <meta property="og:site_name" content="Carl Leger" />
   <meta property="og:locale" content="en_CA" />
   <meta property="og:locale:alternate" content="fr_CA" />
-  <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:image" content="https://carlleger.github.io/assets/og/og-carl-leger-ecommerce-performance.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -110,7 +108,8 @@
     "@id":"https://carlleger.github.io/#website",
     "name":"Carl Leger",
     "url":"https://carlleger.github.io/",
-    "publisher": { "@id":"https://carlleger.github.io/#person" }
+    "publisher": { "@id":"https://carlleger.github.io/#person" },
+    "inLanguage":["en-CA","fr-CA"]
   }
   </script>
 
@@ -122,8 +121,9 @@
     "@id":"https://carlleger.github.io/#service",
     "name":"Carl Leger — WooCommerce Performance & Technical SEO (Canada)",
     "url":"https://carlleger.github.io/",
+    "provider": { "@id":"https://carlleger.github.io/#person" },
     "areaServed":["Canada","United States"],
-    "availableLanguage":["en-CA","fr-CA","en-US"],
+    "availableLanguage":["en-CA","fr-CA"],
     "description":"Canada-first WooCommerce performance optimization: Core Web Vitals, TTFB reduction, checkout reliability, product page SEO, and GA4 measurement for revenue-focused eCommerce stores.",
     "knowsAbout":[
       "WooCommerce performance",
@@ -135,6 +135,14 @@
       "GA4 measurement",
       "Cloudflare caching",
       "WordPress performance"
+    ],
+    "contactPoint":[
+      {
+        "@type":"ContactPoint",
+        "contactType":"sales",
+        "email":"carlleger.dev@gmail.com",
+        "availableLanguage":["en-CA","fr-CA"]
+      }
     ],
     "sameAs":[
       "https://www.linkedin.com/in/carlleger/",
@@ -321,7 +329,22 @@
             Choose the fastest path: start with an audit, then implementation. Every change is documented, measured, and safe to roll out.
           </p>
 
-          <div class="servicesGrid"></div>
+          <div class="servicesGrid">
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Performance Audit (Best start)</h3>
+              <p>TTFB + Core Web Vitals baseline, bottlenecks, plugin/theme payload review, and a prioritized roadmap that’s safe for checkout.</p>
+            </article>
+
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout Reliability</h3>
+              <p>Checkout-safe caching boundaries, fragment strategy, conflict isolation, and staged rollouts with rollback-ready deployment.</p>
+            </article>
+
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-tags" aria-hidden="true"></i> Product Page SEO + Speed</h3>
+              <p>Template speed improvements + SEO fundamentals: internal linking, structured data where relevant, images, and revenue-focused copy upgrades.</p>
+            </article>
+          </div>
 
           <div class="servicesNote">
             Want maximum ROI? Start with the audit. It prevents random fixes and gives you a clean, prioritized roadmap.
@@ -378,7 +401,7 @@
         </section>
 
         <section class="contact" id="contact" aria-label="Contact form">
-          <h2>Request a quote</h2>
+          <h2>Request an audit</h2>
           <p class="contactIntro">
             Tell me what’s slowing your store down. I’ll reply within 24 hours with clear next steps.
           </p>
@@ -386,7 +409,7 @@
           <form id="contactForm" action="https://formspree.io/f/mwvlenpe" method="POST" novalidate>
             <div class="field">
               <label class="sr-only" for="name">Name</label>
-              <input id="name" type="text" name="name" placeholder="Your name" autocomplete="name" required />
+              <input id="name" type="text" name="name" placeholder="Your name" autocomplete="name" required minlength="2" />
             </div>
 
             <div class="field">
@@ -401,7 +424,7 @@
 
             <div class="field full">
               <label class="sr-only" for="message">What’s the main issue?</label>
-              <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, low product page performance, tracking issues, etc." required></textarea>
+              <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, low product page performance, tracking issues, etc." required minlength="20"></textarea>
             </div>
 
             <input type="hidden" name="_subject" value="New lead — Canada-focused site" />
