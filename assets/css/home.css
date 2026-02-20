@@ -1,5 +1,6 @@
 /* =====================================
    home.css — CarlLeger.github.io
+   UPDATED: header + footer inner width aligned to "green lines"
    ===================================== */
 
 /* ---------- Design Tokens ---------- */
@@ -27,7 +28,11 @@
   --radius-lg:22px;
   --radius-xl:28px;
 
+  /* Main page/card container */
   --max:1020px;
+
+  /* Header + Footer inner container (matches your green lines) */
+  --shell:1180px;
 }
 
 /* ---------- Reset & Base ---------- */
@@ -432,8 +437,9 @@ button[type="submit"]{
   border-bottom:1px solid rgba(255,255,255,.10);
 }
 
+/* UPDATED: header inner uses --shell (green lines width) */
 .siteHeader__inner{
-  max-width:var(--max);
+  max-width:var(--shell);
   margin:0 auto;
   padding:12px 22px;
   display:flex;
@@ -443,7 +449,7 @@ button[type="submit"]{
 
 /* Wider inner for Steam feel (only if class present) */
 .siteHeader__inner--steam{
-  max-width:1180px;
+  max-width:var(--shell);
 }
 
 /* Brand */
@@ -605,13 +611,13 @@ button[type="submit"]{
 
 /* Mobile behavior */
 @media (max-width:980px){
-  .siteNav--desktop{ display:none; } /* your desktop nav hidden */
-  .steamNav{ display:none; }        /* steam nav hidden */
+  .siteNav--desktop{ display:none; }
+  .steamNav{ display:none; }
   .steamSearch input{ min-width:180px; }
 }
 
 @media (max-width:520px){
-  .steamSearch{ display:none; } /* optional: hide search on very small screens */
+  .steamSearch{ display:none; }
 }
 
 /* =====================================
@@ -625,8 +631,9 @@ button[type="submit"]{
   color:var(--muted);
 }
 
+/* UPDATED: footer inner uses --shell */
 .footerInner{
-  max-width:var(--max);
+  max-width:var(--shell);
   margin:0 auto;
   padding:22px 22px;
   display:flex;
@@ -720,8 +727,9 @@ button[type="submit"]{
   color:var(--muted);
 }
 
+/* UPDATED: footer pro inner uses --shell */
 .footerPro__inner{
-  max-width:var(--max);
+  max-width:var(--shell);
   margin:0 auto;
   padding:26px 22px 18px;
 }
