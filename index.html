@@ -211,7 +211,7 @@
   <a class="skip" href="#main">Skip to content</a>
 
   <!-- FULL-WIDTH HEADER -->
-  <header class="siteHeader" data-header>
+  <header class="siteHeader" data-header id="top">
     <div class="siteHeader__inner">
       <a class="brandMark" href="/" aria-label="Home">
         <img
@@ -367,7 +367,6 @@
           </div>
         </section>
 
-        <!-- NEW: Secondary offer (segmented, clean) -->
         <section class="services" id="websites" aria-label="Websites & landing pages">
           <h2>Websites & landing pages (fast + SEO-first)</h2>
           <p class="servicesIntro">
@@ -507,22 +506,90 @@
     </div>
   </div>
 
-  <!-- FULL-WIDTH FOOTER -->
-  <footer class="footer footer--full" aria-label="Footer">
-    <div class="footerInner">
-      <div class="footerLeft">
-        <img
-          class="footerAvatar"
-          src="/avatar.png"
-          alt="Carl Leger"
-          width="56"
-          height="56"
-          loading="lazy"
-          decoding="async"
-        />
+  <!-- FOOTER PRO (PREMIUM) -->
+  <footer class="footerPro" aria-label="Footer">
+    <div class="footerPro__inner">
 
-        <div class="footerMeta">
-          <a class="footerMark" href="/" aria-label="Home">
+      <div class="footerPro__top">
+        <!-- Brand / identity -->
+        <div class="footerBrand">
+          <img
+            class="footerBrand__avatar"
+            src="/avatar.png"
+            alt="Carl Leger"
+            width="64"
+            height="64"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <div class="footerBrand__meta">
+            <div class="footerBrand__name">Carl Leger</div>
+            <div class="footerBrand__tag">WooCommerce • Performance • Technical SEO (Canada)</div>
+
+            <div class="footerBadges" aria-label="Trust points">
+              <span class="footerBadge"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Checkout-safe</span>
+              <span class="footerBadge"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> GA4-measured</span>
+              <span class="footerBadge"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Staging + rollback</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="footerCta">
+          <div class="footerCta__title">Ready to speed up your store?</div>
+          <div class="footerCta__note">Clear plan, production-safe changes, measurable impact.</div>
+
+          <div class="footerCta__row">
+            <a class="footerBtn footerBtn--primary" href="#contact">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
+            </a>
+            <a class="footerBtn" href="#services">
+              <i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services
+            </a>
+          </div>
+        </div>
+
+        <!-- Link columns -->
+        <div class="footerCols" aria-label="Footer navigation">
+          <div class="footerCol">
+            <div class="footerCol__title">Services</div>
+            <a class="footerLink" href="#services">Performance audit</a>
+            <a class="footerLink" href="#services">Checkout reliability</a>
+            <a class="footerLink" href="#services">Product page SEO + speed</a>
+            <a class="footerLink" href="#websites">Websites & landing pages</a>
+          </div>
+
+          <div class="footerCol">
+            <div class="footerCol__title">Pages</div>
+            <a class="footerLink" href="#process">Process</a>
+            <a class="footerLink" href="#faq">FAQ</a>
+            <a class="footerLink" href="/about/">About</a>
+            <a class="footerLink" href="/resources/">Resources</a>
+          </div>
+
+          <div class="footerCol">
+            <div class="footerCol__title">Contact</div>
+            <a class="footerLink" href="mailto:carlleger.dev@gmail.com">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email
+            </a>
+            <a class="footerLink" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener">
+              <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+            </a>
+            <a class="footerLink" href="https://github.com/CarlLeger" target="_blank" rel="noopener">
+              <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+            </a>
+            <a class="footerLink" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener">
+              <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footerPro__bottom">
+        <div class="footerBottom__left">
+          <a class="footerMarkPro" href="/" aria-label="Home">
             <img
               src="/assets/images/brand/logo-cl-1024.png"
               alt="CL"
@@ -530,24 +597,27 @@
               height="44"
               loading="lazy"
               decoding="async"
-              class="footerMark__img"
+              class="footerMarkPro__img"
             />
           </a>
 
-          <div class="footerCopy">© <span id="year"></span> Carl Leger</div>
+          <div class="footerCopyPro">
+            © <span id="year"></span> Carl Leger • Canada-first
+          </div>
+        </div>
+
+        <div class="footerBottom__right">
+          <div class="footerLang" aria-label="Language">
+            <a class="footerLang__link" href="/" aria-current="page">EN</a>
+            <a class="footerLang__link" href="/fr/" lang="fr-CA" hreflang="fr-CA">FR</a>
+          </div>
+
+          <a class="footerTop" href="#top">
+            Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+          </a>
         </div>
       </div>
 
-      <!-- UPDATED: footer nav includes Websites -->
-      <nav class="footerLinks" aria-label="Footer links">
-        <a href="#services">Services</a>
-        <a href="#websites">Websites</a>
-        <a href="#process">Process</a>
-        <a href="#faq">FAQ</a>
-        <a href="/about/">About</a>
-        <a href="/resources/">Resources</a>
-        <a href="mailto:carlleger.dev@gmail.com">Email</a>
-      </nav>
     </div>
   </footer>
 
