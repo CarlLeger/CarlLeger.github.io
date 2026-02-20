@@ -202,7 +202,6 @@
   <!-- FULL-WIDTH HEADER -->
   <header class="siteHeader" data-header>
     <div class="siteHeader__inner">
-      <!-- UPDATED: horizontal logo in header -->
       <a class="brandMark" href="/" aria-label="Home">
         <img
           src="/assets/images/brand/logo-carl-leger-500x120.png"
@@ -275,52 +274,63 @@
     <div class="card">
 
       <main id="main">
+        <!-- UPDATED HERO: avatar removed + deliverables card added -->
         <section class="hero" aria-label="Intro">
-          <div class="avatarWrap">
-            <div class="avatar" aria-label="Carl Leger portrait">
-              <img src="/avatar.png" alt="Carl Leger — WooCommerce performance & technical SEO specialist" width="190" height="190" loading="eager" decoding="async" />
+          <div class="heroGrid">
+            <div class="heroContent">
+              <h1 class="title">Carl Leger</h1>
+
+              <p class="subtitle">
+                WooCommerce performance, technical SEO, and checkout reliability for Canada.
+              </p>
+
+              <p class="leadline">
+                I help revenue-focused WooCommerce stores improve Core Web Vitals, reduce TTFB, optimize product pages,
+                and stabilize checkout with production-safe deployments and GA4-measured impact.
+              </p>
+
+              <div class="heroProof" aria-label="Trust points">
+                <span class="proofPill"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Checkout-safe changes</span>
+                <span class="proofPill"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> GA4-measured impact</span>
+                <span class="proofPill"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Staging + rollback</span>
+                <span class="proofPill"><i class="fa-solid fa-bolt" aria-hidden="true"></i> CWV + TTFB focus</span>
+              </div>
+
+              <div class="ctaRow" aria-label="Primary actions">
+                <a class="btn primary" href="#contact" data-preset="Performance audit (recommended)">
+                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
+                </a>
+                <a class="btn" href="#services">
+                  <i class="fa-solid fa-layer-group" aria-hidden="true"></i> See services
+                </a>
+              </div>
+
+              <div class="quickLinks" aria-label="Quick links">
+                <a href="mailto:carlleger.dev@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
+                <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="me noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+                <a href="https://github.com/CarlLeger" target="_blank" rel="me noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+                <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
+              </div>
+
+              <p class="micro">
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                Reply within 24 hours. If it’s not a fit, I’ll tell you quickly.
+              </p>
             </div>
-          </div>
 
-          <div class="heroContent">
-            <h1 class="title">Carl Leger</h1>
-
-            <p class="subtitle">
-              WooCommerce performance, technical SEO, and checkout reliability for Canada.
-            </p>
-
-            <p class="leadline">
-              I help revenue-focused WooCommerce stores improve Core Web Vitals, reduce TTFB, optimize product pages,
-              and stabilize checkout with production-safe deployments and GA4-measured impact.
-            </p>
-
-            <div class="heroProof" aria-label="Trust points">
-              <span class="proofPill"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Checkout-safe changes</span>
-              <span class="proofPill"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> GA4-measured impact</span>
-              <span class="proofPill"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Staging + rollback</span>
-              <span class="proofPill"><i class="fa-solid fa-bolt" aria-hidden="true"></i> CWV + TTFB focus</span>
-            </div>
-
-            <div class="ctaRow" aria-label="Primary actions">
-              <a class="btn primary" href="#contact" data-preset="Performance audit (recommended)">
-                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
-              </a>
-              <a class="btn" href="#services">
-                <i class="fa-solid fa-layer-group" aria-hidden="true"></i> See services
-              </a>
-            </div>
-
-            <div class="quickLinks" aria-label="Quick links">
-              <a href="mailto:carlleger.dev@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
-              <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="me noopener noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
-              <a href="https://github.com/CarlLeger" target="_blank" rel="me noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
-              <a href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork</a>
-            </div>
-
-            <p class="micro">
-              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-              No obligation. If I’m not the right fit, I’ll tell you quickly.
-            </p>
+            <aside class="heroCard" aria-label="What you get">
+              <div class="heroCard__title">What you get (audit)</div>
+              <ul class="heroCard__list">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> CWV + TTFB baseline + bottleneck map</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Checkout risk checklist (cache boundaries)</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Prioritized fix plan (quick wins → big wins)</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Measurement plan (GA4 events + KPIs)</li>
+              </ul>
+              <div class="heroCard__meta">
+                <span class="metaPill"><i class="fa-solid fa-clock" aria-hidden="true"></i> Typical: 3–7 days</span>
+                <span class="metaPill"><i class="fa-solid fa-map-pin" aria-hidden="true"></i> Canada-first</span>
+              </div>
+            </aside>
           </div>
         </section>
 
@@ -460,7 +470,6 @@
         />
 
         <div class="footerMeta">
-          <!-- UPDATED: CL mark in footer -->
           <a class="footerMark" href="/" aria-label="Home">
             <img
               src="/assets/images/brand/logo-cl-1024.png"
