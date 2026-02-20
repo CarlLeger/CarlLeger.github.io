@@ -72,7 +72,7 @@ a:hover{ text-decoration:underline; }
 .wrap{
   max-width:var(--max);
   margin:0 auto;
-  padding:32px 22px 120px; /* moins haut, le header full width est déjà au-dessus */
+  padding:32px 22px 120px;
 }
 
 .card{
@@ -135,7 +135,6 @@ a:hover{ text-decoration:underline; }
   padding:32px 26px 24px;
 }
 
-/* New hero layout (content + deliverables card) */
 .heroGrid{
   display:grid;
   grid-template-columns: 1.25fr .75fr;
@@ -147,7 +146,6 @@ a:hover{ text-decoration:underline; }
   .heroGrid{ grid-template-columns:1fr; }
 }
 
-/* Keep your old avatar styling in case reused elsewhere */
 .avatar{
   width:190px;
   height:190px;
@@ -393,7 +391,7 @@ button[type="submit"]{
   border:1px solid rgba(251,113,133,.30);
 }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer (base) ---------- */
 .footer{
   display:flex;
   justify-content:space-between;
@@ -419,27 +417,36 @@ button[type="submit"]{
   border:1px solid rgba(255,255,255,.10);
 }
 
-/* ---------- Full-width Header (new) ---------- */
+/* =====================================
+   Full-width Header (Steam-like)
+   ===================================== */
+
 .siteHeader{
   position:sticky;
   top:0;
   z-index:1000;
   width:100%;
-  background:rgba(0,0,0,.72);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
+  background: linear-gradient(180deg, rgba(12,18,30,.92), rgba(10,16,26,.78));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom:1px solid rgba(255,255,255,.10);
 }
 
 .siteHeader__inner{
   max-width:var(--max);
   margin:0 auto;
-  padding:14px 22px;
+  padding:12px 22px;
   display:flex;
   align-items:center;
   gap:14px;
 }
 
+/* Wider inner for Steam feel (only if class present) */
+.siteHeader__inner--steam{
+  max-width:1180px;
+}
+
+/* Brand */
 .brandMark{
   display:flex;
   align-items:center;
@@ -448,11 +455,11 @@ button[type="submit"]{
   min-width:0;
 }
 
-/* UPDATED: header logo sizing */
+/* Slightly tighter logo like Steam */
 .brandMark .brandLogo{
-  height:36px;
+  height:34px;
   width:auto;
-  max-width:220px;
+  max-width:210px;
   display:block;
 }
 
@@ -471,44 +478,107 @@ button[type="submit"]{
   max-width:42ch;
 }
 
-/* Desktop nav */
-.siteNav{
+/* Right cluster (search + locale + burger) */
+.steamRight{
   margin-left:auto;
   display:flex;
   align-items:center;
   gap:10px;
+}
+
+/* Steam-like nav tabs (desktop) */
+.steamNav{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-left:10px;
   flex-wrap:wrap;
 }
 
-.siteNav__link{
-  padding:8px 12px;
-  border-radius:12px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.10);
+.steamNav__link{
+  position:relative;
+  padding:10px 10px;
+  border-radius:10px;
   font-size:13px;
-  color:var(--text);
+  font-weight:800;
+  letter-spacing:.2px;
+  color: rgba(231,236,255,.92);
+  text-decoration:none;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background .12s ease, border-color .12s ease;
+}
+
+.steamNav__link:hover{
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.10);
   text-decoration:none;
 }
 
-.siteNav__link:hover{
-  background:rgba(255,255,255,.08);
-  text-decoration:none;
+/* Add class="is-active" to a nav link for underline */
+.steamNav__link.is-active::after{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:6px;
+  height:2px;
+  border-radius:999px;
+  background: rgba(56,189,248,.85);
 }
 
-.siteNav__cta{
-  padding:9px 12px;
-  border-radius:12px;
-  font-size:13px;
-  font-weight:900;
-  color:#06101d;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+.steamNav__cta{
+  padding:10px 12px;
+  border-radius:10px;
+  background: rgba(56,189,248,.12);
+  border: 1px solid rgba(56,189,248,.22);
+}
+
+.steamNav__cta:hover{
+  background: rgba(56,189,248,.16);
+  border-color: rgba(56,189,248,.26);
+}
+
+/* Steam-like search */
+.steamSearch{
+  display:flex;
+  align-items:center;
+  gap:0;
+  height:36px;
+  border-radius:10px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.28);
+}
+
+.steamSearch input{
+  height:36px;
   border:0;
-  text-decoration:none;
+  background: transparent;
+  padding:0 12px;
+  min-width: 240px;
+  color: var(--text);
+  outline: none;
 }
 
-.siteNav__cta:hover{
-  filter:brightness(1.03);
-  text-decoration:none;
+.steamSearch input::placeholder{
+  color: rgba(168,179,214,.80);
+}
+
+.steamSearch button{
+  height:36px;
+  width:42px;
+  border:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(255,255,255,.06);
+  color: rgba(231,236,255,.92);
+  cursor:pointer;
+}
+
+.steamSearch button:hover{
+  background: rgba(255,255,255,.10);
 }
 
 /* Locale */
@@ -521,7 +591,7 @@ button[type="submit"]{
 .siteLocale__link{
   font-size:13px;
   padding:8px 10px;
-  border-radius:12px;
+  border-radius:10px;
   background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.10);
   color:var(--text);
@@ -533,13 +603,21 @@ button[type="submit"]{
   border-color:rgba(56,189,248,.25);
 }
 
-/* Mobile: hide desktop nav + locale (your drawer will handle it) */
-@media (max-width:920px){
-  .siteNav--desktop{display:none;}
-  .siteLocale{display:none;}
+/* Mobile behavior */
+@media (max-width:980px){
+  .siteNav--desktop{ display:none; } /* your desktop nav hidden */
+  .steamNav{ display:none; }        /* steam nav hidden */
+  .steamSearch input{ min-width:180px; }
 }
 
-/* ---------- Full-width Footer (new) ---------- */
+@media (max-width:520px){
+  .steamSearch{ display:none; } /* optional: hide search on very small screens */
+}
+
+/* =====================================
+   Full-width Footer (new)
+   ===================================== */
+
 .footer--full{
   width:100%;
   background:#000;
@@ -577,7 +655,6 @@ button[type="submit"]{
   gap:6px;
 }
 
-/* Hide horizontal logo in footer (CL mark is used instead) */
 .footerLogo{
   display:none;
 }
@@ -587,7 +664,6 @@ button[type="submit"]{
   color:var(--muted);
 }
 
-/* Reuse your existing .footerLinks styling, but make it work nicely on black */
 .footer--full .footerLinks a{
   background:rgba(255,255,255,.03);
 }
@@ -597,7 +673,7 @@ button[type="submit"]{
   .footerLinks{justify-content:center;}
 }
 
-/* ---------- Footer CL mark ---------- */
+/* Footer CL mark */
 .footerMark{
   display:inline-flex;
   align-items:center;
@@ -621,7 +697,7 @@ button[type="submit"]{
   height:22px;
 }
 
-/* ---------- Micro line (you use .micro in HTML) ---------- */
+/* Micro line */
 .micro{
   margin:12px 0 0;
   color:var(--muted);
