@@ -72,7 +72,7 @@ a:hover{ text-decoration:underline; }
 .wrap{
   max-width:var(--max);
   margin:0 auto;
-  padding:56px 22px 120px;
+  padding:32px 22px 120px; /* moins haut, le header full width est déjà au-dessus */
 }
 
 .card{
@@ -359,4 +359,178 @@ button[type="submit"]{
   border-radius:12px;
   background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.10);
+}
+
+/* ---------- Full-width Header (new) ---------- */
+.siteHeader{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  width:100%;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.siteHeader__inner{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:14px 22px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.brandMark{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  min-width:0;
+}
+
+.brandMark .brandLogo{
+  height:42px;
+  width:auto;
+  display:block;
+}
+
+.brandText{
+  font-size:13px;
+  font-weight:700;
+  color:var(--text);
+  letter-spacing:.2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:42ch;
+}
+
+/* Desktop nav */
+.siteNav{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.siteNav__link{
+  padding:8px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  font-size:13px;
+  color:var(--text);
+  text-decoration:none;
+}
+
+.siteNav__link:hover{
+  background:rgba(255,255,255,.08);
+  text-decoration:none;
+}
+
+.siteNav__cta{
+  padding:9px 12px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:900;
+  color:#06101d;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  border:0;
+  text-decoration:none;
+}
+
+.siteNav__cta:hover{
+  filter:brightness(1.03);
+  text-decoration:none;
+}
+
+/* Locale */
+.siteLocale{
+  display:flex;
+  gap:8px;
+  margin-left:6px;
+}
+
+.siteLocale__link{
+  font-size:13px;
+  padding:8px 10px;
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+  color:var(--text);
+  text-decoration:none;
+}
+
+.siteLocale__link[aria-current="page"]{
+  background:rgba(56,189,248,.12);
+  border-color:rgba(56,189,248,.25);
+}
+
+/* Mobile: hide desktop nav + locale (your drawer will handle it) */
+@media (max-width:920px){
+  .siteNav--desktop{display:none;}
+  .siteLocale{display:none;}
+}
+
+/* ---------- Full-width Footer (new) ---------- */
+.footer--full{
+  width:100%;
+  background:#000;
+  border-top:1px solid rgba(255,255,255,.10);
+  color:var(--muted);
+}
+
+.footerInner{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:22px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.footerLeft{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.footerAvatar{
+  width:56px;
+  height:56px;
+  border-radius:999px;
+  object-fit:cover;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 24px 60px rgba(0,0,0,.45);
+}
+
+.footerMeta{
+  display:grid;
+  gap:6px;
+}
+
+.footerLogo{
+  height:26px;
+  width:auto;
+  display:block;
+  opacity:.95;
+}
+
+.footerCopy{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* Reuse your existing .footerLinks styling, but make it work nicely on black */
+.footer--full .footerLinks a{
+  background:rgba(255,255,255,.03);
+}
+
+@media (max-width:820px){
+  .footerInner{flex-direction:column;text-align:center;}
+  .footerLinks{justify-content:center;}
 }
