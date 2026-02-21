@@ -1262,60 +1262,51 @@ body.nav-open .navDrawer{
 }
 
 /* =====================================
-   Rotating pale-blue ring on Contact CTA (menu)
-   Targets: .siteNav__cta (desktop) + .navDrawer__link--cta (mobile optional)
-   UPDATED: paler Steam-like blue + stronger visibility + smoother spin
+   Contact CTA ring (RING-ONLY, no re-styling)
+   Works with your existing .siteNav__cta button styles
    ===================================== */
 
-@keyframes contactRingSpin{
-  to{ transform: rotate(360deg); }
-}
+@keyframes contactRingSpin{ to{ transform: rotate(360deg); } }
 
-/* Desktop "Contact" CTA ring */
+/* Only add stacking context + clipping for the ring */
 .siteNav__cta{
-  position:relative;
   isolation:isolate;
   overflow:hidden;
-  z-index:1; /* keeps it above header background */
 }
 
 /* rotating ring */
 .siteNav__cta::before{
   content:"";
   position:absolute;
-  inset:-2px;              /* reach outside the border a bit */
+  inset:-2px;
   border-radius:inherit;
-  padding:2px;             /* ring thickness */
+  padding:2px;
 
-  /* ✅ Paler “Steam-like” blue ring */
-  background:
-    conic-gradient(
-      from 0deg,
-      transparent 0%,
-      rgba(199,236,255,.78) 10%,
-      rgba(56,189,248,.35) 18%,
-      transparent 32%,
-      transparent 58%,
-      rgba(199,236,255,.66) 70%,
-      rgba(56,189,248,.25) 80%,
-      transparent 100%
-    );
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(199,236,255,.78) 10%,
+    rgba(56,189,248,.35) 18%,
+    transparent 32%,
+    transparent 58%,
+    rgba(199,236,255,.66) 70%,
+    rgba(56,189,248,.25) 80%,
+    transparent 100%
+  );
 
-  filter: blur(0.6px);
   opacity:.92;
-  z-index:0;               /* visible */
+  filter: blur(.6px);
+  z-index:0;
   pointer-events:none;
 
-  /* Cut center to make it a ring */
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
 
-  /* ✅ smoother */
-  will-change: transform;
-  animation: contactRingSpin 2.15s linear infinite;
+  will-change:transform;
+  animation:contactRingSpin 2.15s linear infinite;
 }
 
 /* glow behind */
@@ -1328,26 +1319,22 @@ body.nav-open .navDrawer{
     radial-gradient(160px 90px at 50% 50%, rgba(199,236,255,.16), transparent 66%),
     radial-gradient(160px 90px at 50% 50%, rgba(56,189,248,.18), transparent 72%);
   opacity:.62;
-  z-index:-1;              /* behind ring, still inside button stacking context */
+  z-index:-1;
   filter: blur(12px);
   pointer-events:none;
 }
 
-/* ensure label/icon sits above ring */
-.siteNav__cta > *{
-  position:relative;
-  z-index:1;
-}
+/* ensure label/icon above ring */
+.siteNav__cta > *{ position:relative; z-index:1; }
 
 .siteNav__cta:hover::before{ opacity:1; }
 .siteNav__cta:hover::after{ opacity:.78; }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce){
   .siteNav__cta::before{ animation:none; }
 }
 
-/* Mobile CTA ring (optional, drawer) */
+/* Mobile drawer CTA ring */
 .navDrawer__link--cta{
   position:relative;
   isolation:isolate;
@@ -1361,30 +1348,26 @@ body.nav-open .navDrawer{
   border-radius:inherit;
   padding:2px;
 
-  background:
-    conic-gradient(
-      from 0deg,
-      transparent 0%,
-      rgba(199,236,255,.78) 14%,
-      rgba(56,189,248,.32) 24%,
-      transparent 40%,
-      transparent 100%
-    );
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(199,236,255,.78) 14%,
+    rgba(56,189,248,.32) 24%,
+    transparent 40%,
+    transparent 100%
+  );
 
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
 
-  will-change: transform;
-  animation: contactRingSpin 2.15s linear infinite;
   opacity:.92;
   z-index:0;
   pointer-events:none;
+  will-change:transform;
+  animation:contactRingSpin 2.15s linear infinite;
 }
 
-.navDrawer__link--cta > *{
-  position:relative;
-  z-index:1;
-}
+.navDrawer__link--cta > *{ position:relative; z-index:1; }
