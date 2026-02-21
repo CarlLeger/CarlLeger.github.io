@@ -19,9 +19,8 @@
   <!-- CANONICAL -->
   <link rel="canonical" href="https://carlleger.github.io/" />
 
-  <!-- HREFLANG (EN-CA primary + FR-CA) -->
+  <!-- HREFLANG (EN-CA primary) -->
   <link rel="alternate" hreflang="en-CA" href="https://carlleger.github.io/" />
-  <link rel="alternate" hreflang="fr-CA" href="https://carlleger.github.io/fr/" />
   <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/" />
 
   <!-- Preload critical images (CWV) -->
@@ -36,7 +35,6 @@
   <meta property="og:url" content="https://carlleger.github.io/" />
   <meta property="og:site_name" content="Carl Leger" />
   <meta property="og:locale" content="en_CA" />
-  <meta property="og:locale:alternate" content="fr_CA" />
   <meta property="og:image" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
   <meta property="og:image:secure_url" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
   <meta property="og:image:type" content="image/webp" />
@@ -86,6 +84,34 @@
     gtag('config', 'G-3KXQFTWTBD', { send_page_view: true });
   </script>
 
+  <!-- GA4: CTA + form tracking -->
+  <script>
+    function track(eventName, params){
+      try{
+        if(typeof gtag === "function"){
+          gtag("event", eventName, params || {});
+        }
+      }catch(e){}
+    }
+
+    document.addEventListener("click", function(e){
+      const a = e.target.closest("a");
+      if(!a) return;
+
+      // Track key CTAs
+      if(a.matches(".btn.primary, .footerBtn--primary")){
+        track("cta_click", { cta: (a.textContent || "").trim(), location: "home" });
+      }
+    });
+
+    document.addEventListener("submit", function(e){
+      const form = e.target;
+      if(form && form.id === "contactForm"){
+        track("lead_submit", { form: "home_contact" });
+      }
+    });
+  </script>
+
   <!-- STRUCTURED DATA: PERSON -->
   <script type="application/ld+json">
   {
@@ -113,7 +139,7 @@
     "name":"Carl Leger",
     "url":"https://carlleger.github.io/",
     "publisher": { "@id":"https://carlleger.github.io/#person" },
-    "inLanguage":["en-CA","fr-CA"]
+    "inLanguage":["en-CA"]
   }
   </script>
 
@@ -127,7 +153,7 @@
     "url":"https://carlleger.github.io/",
     "provider": { "@id":"https://carlleger.github.io/#person" },
     "areaServed":["Canada"],
-    "availableLanguage":["en-CA","fr-CA"],
+    "availableLanguage":["en-CA"],
     "description":"Canada-first WooCommerce performance optimization: Core Web Vitals, TTFB reduction, checkout reliability, product page SEO, and GA4 measurement for revenue-focused eCommerce stores. I also build fast, SEO-first landing pages and GitHub Pages sites for small businesses and affiliate projects.",
     "knowsAbout":[
       "WooCommerce performance",
@@ -148,7 +174,7 @@
         "@type":"ContactPoint",
         "contactType":"sales",
         "email":"carlleger.dev@gmail.com",
-        "availableLanguage":["en-CA","fr-CA"]
+        "availableLanguage":["en-CA"]
       }
     ],
     "sameAs":[
@@ -234,14 +260,10 @@
         <a class="siteNav__link" href="#services">Services</a>
         <a class="siteNav__link" href="#websites">Websites</a>
         <a class="siteNav__link" href="#process">Process</a>
+        <a class="siteNav__link" href="#case-studies">Case studies</a>
         <a class="siteNav__link" href="#faq">FAQ</a>
         <a class="siteNav__cta" href="#contact">Contact</a>
       </nav>
-
-      <div class="siteLocale" aria-label="Language">
-        <a class="siteLocale__link" href="/" aria-current="page">EN</a>
-        <a class="siteLocale__link" href="/fr/" lang="fr-CA" hreflang="fr-CA">FR</a>
-      </div>
 
       <button class="navToggle" type="button"
               aria-label="Open menu"
@@ -270,6 +292,7 @@
       <a class="navDrawer__link" href="#services">Services</a>
       <a class="navDrawer__link" href="#websites">Websites</a>
       <a class="navDrawer__link" href="#process">Process</a>
+      <a class="navDrawer__link" href="#case-studies">Case studies</a>
       <a class="navDrawer__link" href="#faq">FAQ</a>
       <a class="navDrawer__link navDrawer__link--cta" href="#contact">Contact</a>
     </nav>
@@ -278,10 +301,6 @@
       <div class="navDrawer__hint">
         <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
         Reply within 24h • No spam • No fluff
-      </div>
-      <div class="navDrawer__langs" aria-label="Language">
-        <a class="navDrawer__lang" href="/" aria-current="page">EN</a>
-        <a class="navDrawer__lang" href="/fr/" lang="fr-CA" hreflang="fr-CA">FR</a>
       </div>
     </div>
   </aside>
@@ -340,6 +359,47 @@
                 <span class="metaPill"><i class="fa-solid fa-map-pin" aria-hidden="true"></i> Canada-first</span>
               </div>
             </aside>
+          </div>
+        </section>
+
+        <!-- PROOF (new) -->
+        <section class="proof" aria-label="Proof and outcomes">
+          <h2 class="sr-only">Proof</h2>
+
+          <div class="servicesGrid">
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> Speed outcomes</h3>
+              <p>
+                Typical wins: lower TTFB, improved LCP/INP, and fewer checkout regressions by isolating cache boundaries.
+              </p>
+              <p class="micro">
+                Focus: bottlenecks first, then safe rollout.
+              </p>
+            </article>
+
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Checkout-safe process</h3>
+              <p>
+                Staging-first changes with a rollback plan. Cart/checkout stays dynamic while the rest gets faster.
+              </p>
+              <p class="micro">
+                No “random plugin installs”. Documented changes only.
+              </p>
+            </article>
+
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Measured impact</h3>
+              <p>
+                GA4 events + KPIs set up to validate improvements (add-to-cart, begin_checkout, purchase funnel drop-offs).
+              </p>
+              <p class="micro">
+                Decisions based on data, not vibes.
+              </p>
+            </article>
+          </div>
+
+          <div class="servicesNote">
+            Want numbers? I can share anonymized before/after snapshots during the audit.
           </div>
         </section>
 
@@ -420,6 +480,46 @@
           </div>
         </section>
 
+        <!-- CASE STUDIES (new) -->
+        <section class="caseStudies" id="case-studies" aria-label="Case studies">
+          <h2>Case studies</h2>
+          <p class="servicesIntro">
+            Short, practical examples of what I build and improve (performance, SEO structure, tracking).
+          </p>
+
+          <div class="servicesGrid">
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> HomeEspressoLab</h3>
+              <p>
+                SEO-first content site built for Canada-focused intent + performance-friendly pages and measurement setup.
+              </p>
+              <p class="micro">
+                Deliverables: page templates, CWV-friendly assets, tracking-ready structure.
+              </p>
+              <p>
+                <a class="btn" href="https://github.com/CarlLeger" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i> View work
+                </a>
+              </p>
+            </article>
+
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> WooCommerce performance playbook</h3>
+              <p>
+                A repeatable audit-to-deploy workflow: baseline → bottlenecks → staging fixes → safe production rollout.
+              </p>
+              <p class="micro">
+                Focus: TTFB, CWV, scripts, DB hotspots, checkout reliability.
+              </p>
+              <p>
+                <a class="btn" href="#contact" data-preset="Performance audit (case study request)">
+                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Ask for examples
+                </a>
+              </p>
+            </article>
+          </div>
+        </section>
+
         <section class="faq" id="faq" aria-label="FAQ">
           <h2>FAQ</h2>
 
@@ -493,7 +593,7 @@
               <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, low product page performance, tracking issues, need a fast landing page, etc." required minlength="20"></textarea>
             </div>
 
-            <input type="hidden" name="_subject" value="New lead — Canada-focused site" />
+            <input type="hidden" name="_subject" value="New lead — CarlLeger.github.io (Home)" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="source" value="Home" />
             <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
@@ -510,7 +610,7 @@
     </div>
   </div>
 
-  <!-- FOOTER PRO (PREMIUM) — UPDATED: removed "Services" column -->
+  <!-- FOOTER PRO (PREMIUM) -->
   <footer class="footerPro" aria-label="Footer">
     <div class="footerPro__inner">
 
@@ -561,9 +661,8 @@
             <a class="footerLink" href="#services">Services</a>
             <a class="footerLink" href="#websites">Websites</a>
             <a class="footerLink" href="#process">Process</a>
+            <a class="footerLink" href="#case-studies">Case studies</a>
             <a class="footerLink" href="#faq">FAQ</a>
-            <a class="footerLink" href="/about/">About</a>
-            <a class="footerLink" href="/resources/">Resources</a>
           </div>
 
           <div class="footerCol">
@@ -605,11 +704,6 @@
         </div>
 
         <div class="footerBottom__right">
-          <div class="footerLang" aria-label="Language">
-            <a class="footerLang__link" href="/" aria-current="page">EN</a>
-            <a class="footerLang__link" href="/fr/" lang="fr-CA" hreflang="fr-CA">FR</a>
-          </div>
-
           <a class="footerTop" href="#top">
             Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
           </a>
