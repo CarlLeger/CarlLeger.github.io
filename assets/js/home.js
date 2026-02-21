@@ -23,16 +23,16 @@
 
   onReady(() => {
     // ---------- Elements ----------
-    const toggle = $("[data-nav-toggle]");
+    const toggle  = $("[data-nav-toggle]");
     const overlay = $("[data-nav-overlay]");
-    const drawer = $("[data-nav-drawer]");
+    const drawer  = $("[data-nav-drawer]");
     const closeBtn = $("[data-nav-close]");
 
     // Optional: match your CSS breakpoint (set to 900px or 980px etc.)
     const DESKTOP_MEDIA = "(min-width: 900px)";
 
-    // Optional: what to inert while drawer open
-    const MAIN_SELECTOR = "main, #main, .wrap";
+    // Inert background targets (keep drawer + header interactive)
+    const INERT_TARGETS = ["main", "#main", ".wrap"].join(",");
 
     // Back-to-top selector (supports class or data-attr)
     const backToTopEl = $(".footerTop, [data-back-to-top]");
@@ -119,6 +119,7 @@
     const lockBodyScroll = () => {
       const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
 
+      document.body.dataset.scrollY = String(scrollY);
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
       document.body.style.left = "0";
@@ -126,35 +127,38 @@
       document.body.style.width = "100%";
 
       return () => {
-        const y = Math.abs(parseInt(document.body.style.top || "0", 10)) || 0;
+        const y = parseInt(document.body.dataset.scrollY || "0", 10) || 0;
+        delete document.body.dataset.scrollY;
+
         document.body.style.position = "";
         document.body.style.top = "";
         document.body.style.left = "";
         document.body.style.right = "";
         document.body.style.width = "";
+
         window.scrollTo(0, y);
       };
     };
 
     // ---------- Inert background ----------
     const applyInertToBackground = (open) => {
-      const main = document.querySelector(MAIN_SELECTOR);
-      if (!main) return () => {};
+      const targets = $$(INERT_TARGETS).filter(Boolean);
+      if (!targets.length) return () => {};
 
       const supportsInert = "inert" in HTMLElement.prototype;
 
-      if (open) {
-        if (supportsInert) main.inert = true;
-        else main.setAttribute("aria-hidden", "true");
-      } else {
-        if (supportsInert) main.inert = false;
-        else main.removeAttribute("aria-hidden");
-      }
-
-      return () => {
-        if (supportsInert) main.inert = false;
-        else main.removeAttribute("aria-hidden");
+      const set = (el, state) => {
+        if (supportsInert) el.inert = state;
+        else {
+          if (state) el.setAttribute("aria-hidden", "true");
+          else el.removeAttribute("aria-hidden");
+        }
       };
+
+      if (open) targets.forEach((el) => set(el, true));
+      else targets.forEach((el) => set(el, false));
+
+      return () => targets.forEach((el) => set(el, false));
     };
 
     // ---------- Nav open/close ----------
@@ -187,11 +191,13 @@
         removeInert?.();
         removeInert = applyInertToBackground(true);
 
+        // Start open transition
         requestAnimationFrame(() => drawer.classList.add("is-open"));
 
         removeTrap?.();
         removeTrap = trapFocus(drawer);
       } else {
+        // Start close transition
         drawer.classList.remove("is-open");
 
         removeTrap?.();
@@ -204,12 +210,22 @@
         removeInert = null;
         applyInertToBackground(false);
 
-        // restore focus
-        setTimeout(() => {
-          if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
-          else toggle?.focus?.();
+        // Hide after transition (prevents flicker)
+        const finishClose = () => {
+          // Only hide if still closed
+          if (isOpen()) return;
+          drawer.hidden = true;
+          overlay.hidden = true;
+
+          // restore focus
+          if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus({ preventScroll: true });
+          else toggle?.focus?.({ preventScroll: true });
           lastFocus = null;
-        }, 50);
+        };
+
+        // If no transition, still works
+        const TRANSITION_MS = 220;
+        setTimeout(finishClose, TRANSITION_MS);
       }
     };
 
@@ -239,7 +255,7 @@
         { passive: true }
       );
 
-      // Safety: if overlay behavior changes, still close on outside click
+      // Close on ANY outside click (reliable)
       document.addEventListener("click", (e) => {
         if (!isOpen()) return;
         const target = e.target;
@@ -248,7 +264,7 @@
         const clickedInsideDrawer = drawer.contains(target);
         const clickedToggle = toggle.contains(target);
         if (!clickedInsideDrawer && !clickedToggle) {
-          if (overlay.contains(target) || target === overlay) setNavOpen(false);
+          setNavOpen(false);
         }
       });
 
@@ -258,7 +274,6 @@
       overlay.setAttribute("aria-hidden", "true");
       overlay.style.pointerEvents = "none";
 
-      // Ensure hidden matches aria on load
       overlay.hidden = true;
       drawer.hidden = true;
     }
@@ -271,7 +286,7 @@
       // Smooth scroll
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 
-      // Keep URL clean
+      // Keep URL clean (remove #top)
       if (history.replaceState) {
         history.replaceState(null, "", window.location.pathname + window.location.search);
       }
