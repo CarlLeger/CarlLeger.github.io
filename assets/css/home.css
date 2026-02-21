@@ -565,14 +565,14 @@ button[type="submit"]{ grid-column:1/-1; }
 }
 
 .siteHeader__inner{
-  width:100%;
-  max-width:var(--steam-max);
-  margin:0 auto;
-  padding:0 var(--gutter);
-  display:flex;
-  align-items:center;
-  gap:14px;
-  min-height:var(--header-h);
+  /* aligne EXACTEMENT sur la largeur du contenu (.wrap) */
+  width: min(100% - (var(--gutter) * 2), var(--max));
+  margin: 0 auto;
+
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 /* Brand */
