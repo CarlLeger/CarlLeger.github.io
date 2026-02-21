@@ -58,8 +58,226 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   </noscript>
 
-  <!-- Site CSS -->
-  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <!-- Site CSS (base) -->
+  <link rel="stylesheet" href="/assets/css/styles.css?v=about-1" />
+
+  <!-- About overrides: fixes layout + nav spacing + readable card -->
+  <style>
+    :root{
+      --bg-1:#0b1220;
+      --bg-2:#070d17;
+      --panel-1:rgba(255,255,255,.07);
+      --panel-2:rgba(255,255,255,.04);
+      --stroke:rgba(255,255,255,.10);
+      --text:#e7ecff;
+      --muted:#a8b3d6;
+      --accent:#38bdf8;
+      --accent-2:#a78bfa;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius-md:16px;
+      --radius-lg:22px;
+      --max:1020px;
+    }
+
+    body{
+      margin:0;
+      background: radial-gradient(900px 420px at 18% 12%, rgba(56,189,248,.22), transparent 60%),
+                  radial-gradient(900px 420px at 82% 10%, rgba(167,139,250,.20), transparent 60%),
+                  linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.6;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; text-underline-offset:3px; }
+
+    .skip{
+      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip:focus{
+      left:16px; top:16px; width:auto; height:auto; padding:10px 12px;
+      background:rgba(0,0,0,.6); border:1px solid var(--stroke); border-radius:12px;
+      z-index:9999;
+    }
+
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 18px;
+    }
+
+    /* Top bar */
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:saturate(140%) blur(14px);
+      background:linear-gradient(180deg, rgba(11,18,32,.72), rgba(7,13,23,.35));
+      border-bottom:1px solid var(--stroke);
+    }
+    .header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      min-width:220px;
+    }
+    .name{
+      font-weight:800;
+      letter-spacing:.2px;
+      font-size:16px;
+      line-height:1.2;
+    }
+    .tag{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.2;
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+      align-items:center;
+    }
+    .nav a{
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .nav a:hover{
+      background:rgba(255,255,255,.04);
+      border-color:var(--stroke);
+      color:var(--text);
+      text-decoration:none;
+    }
+    .nav a[aria-current="page"]{
+      background:rgba(255,255,255,.06);
+      border-color:var(--stroke);
+      color:var(--text);
+    }
+    .nav a:last-child{
+      background:linear-gradient(135deg, rgba(56,189,248,.20), rgba(167,139,250,.18));
+      border-color:rgba(255,255,255,.14);
+      color:var(--text);
+    }
+
+    /* Main card */
+    .section{
+      padding:28px 0 44px;
+    }
+    .pageCard{
+      background:linear-gradient(180deg, var(--panel-1), var(--panel-2));
+      border:1px solid var(--stroke);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+      padding:26px 22px;
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:42px;
+      line-height:1.1;
+      letter-spacing:-.02em;
+    }
+    h2{
+      margin:26px 0 10px;
+      font-size:22px;
+      letter-spacing:-.01em;
+    }
+    p{ margin:10px 0; }
+    .lead{
+      font-size:18px;
+      color:var(--text);
+      max-width:78ch;
+    }
+    .muted{ color:var(--muted); }
+
+    ul{
+      margin:10px 0 0;
+      padding-left:18px;
+      color:var(--text);
+    }
+    li{ margin:6px 0; }
+
+    .callout{
+      margin:16px 0;
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+    }
+
+    .ctaRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:650;
+      text-decoration:none;
+    }
+    .btn:hover{
+      text-decoration:none;
+      background:rgba(255,255,255,.09);
+      border-color:rgba(255,255,255,.18);
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(56,189,248,.22), rgba(167,139,250,.20));
+      border-color:rgba(255,255,255,.18);
+    }
+
+    /* Footer */
+    .site-footer{
+      border-top:1px solid var(--stroke);
+      background:rgba(7,13,23,.35);
+      padding:18px 0;
+      margin-top:28px;
+    }
+    .footerLinks{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      justify-content:center;
+    }
+    .footerLinks a{
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:12px;
+    }
+    .footerLinks a:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.04);
+      text-decoration:none;
+    }
+
+    @media (max-width: 780px){
+      .header{ flex-direction:column; align-items:flex-start; }
+      .nav{ justify-content:flex-start; }
+      h1{ font-size:34px; }
+      .pageCard{ padding:20px 16px; }
+    }
+  </style>
 
   <!-- GA4 -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
@@ -173,89 +391,91 @@
 </header>
 
 <main id="main" class="section container">
-  <h1>About</h1>
+  <div class="pageCard">
+    <h1>About</h1>
 
-  <p class="lead">
-    I help Canada-first WooCommerce stores make practical performance and SEO decisions
-    without breaking checkout or shipping risky changes.
-  </p>
+    <p class="lead">
+      I help Canada-first WooCommerce stores make practical performance and SEO decisions
+      without breaking checkout or shipping risky changes.
+    </p>
 
-  <p>
-    I’m an independent consultant focused on <strong>Core Web Vitals, TTFB, checkout reliability</strong>,
-    and <strong>GA4-measured impact</strong>. My work is intentionally production-safe:
-    baseline first, then staged fixes with clear rollback options.
-  </p>
-
-  <div class="callout">
     <p>
-      <strong>My default:</strong> measure → prioritize → stage → validate checkout → deploy → monitor.
+      I’m an independent consultant focused on <strong>Core Web Vitals, TTFB, checkout reliability</strong>,
+      and <strong>GA4-measured impact</strong>. My work is intentionally production-safe:
+      baseline first, then staged fixes with clear rollback options.
     </p>
-    <p class="muted">
-      No hype. No “magic plugins”. No surprises in production.
-    </p>
-  </div>
 
-  <h2>What I focus on</h2>
-  <ul>
-    <li><strong>TTFB + server bottlenecks:</strong> caching boundaries, hosting constraints, database hotspots</li>
-    <li><strong>Core Web Vitals:</strong> LCP/INP/CLS improvements with real-world impact in mind</li>
-    <li><strong>Checkout reliability:</strong> preventing regressions from caching, scripts, or plugin conflicts</li>
-    <li><strong>Product page SEO + speed:</strong> template-level performance + SEO fundamentals that support revenue</li>
-    <li><strong>Measurement:</strong> GA4 events and KPIs to validate what actually moved</li>
-  </ul>
+    <div class="callout">
+      <p>
+        <strong>My default:</strong> measure → prioritize → stage → validate checkout → deploy → monitor.
+      </p>
+      <p class="muted">
+        No hype. No “magic plugins”. No surprises in production.
+      </p>
+    </div>
 
-  <h2>How I work</h2>
-  <p>
-    Most projects start with an audit. It prevents random fixes and gives you a clean roadmap:
-    quick wins first, then higher-impact work that’s safe to ship.
-  </p>
-
-  <div class="callout">
-    <p><strong>Audit deliverables (typical):</strong></p>
+    <h2>What I focus on</h2>
     <ul>
-      <li>Baseline CWV/TTFB + bottleneck map</li>
-      <li>Checkout risk checklist (cache boundaries + fragments)</li>
-      <li>Prioritized fix plan (quick wins → big wins)</li>
-      <li>Tracking/measurement plan (GA4 events + KPIs)</li>
+      <li><strong>TTFB + server bottlenecks:</strong> caching boundaries, hosting constraints, database hotspots</li>
+      <li><strong>Core Web Vitals:</strong> LCP/INP/CLS improvements with real-world impact in mind</li>
+      <li><strong>Checkout reliability:</strong> preventing regressions from caching, scripts, or plugin conflicts</li>
+      <li><strong>Product page SEO + speed:</strong> template-level performance + SEO fundamentals that support revenue</li>
+      <li><strong>Measurement:</strong> GA4 events and KPIs to validate what actually moved</li>
     </ul>
-  </div>
 
-  <h2>Who I work with</h2>
-  <ul>
-    <li>WooCommerce store owners who need speed without breaking revenue flows</li>
-    <li>Teams dealing with slow product templates or plugin conflicts</li>
-    <li>Operators who want clear priorities instead of endless “optimization”</li>
-    <li>Founders who value documentation and measurable outcomes</li>
-  </ul>
-
-  <h2>What I don’t do</h2>
-  <ul>
-    <li>No fear-based marketing</li>
-    <li>No “guaranteed results” claims</li>
-    <li>No platform evangelism (tradeoffs first)</li>
-    <li>No unnecessary complexity or unsafe production changes</li>
-  </ul>
-
-  <h2>Transparency</h2>
-  <p>
-    Some pages may contain affiliate links. When they do, it’s because the tool is relevant to the topic
-    and I’d recommend it regardless of commission.
-  </p>
-
-  <div class="callout">
+    <h2>How I work</h2>
     <p>
-      <strong>Important:</strong> I don’t collect phone numbers, and I don’t run aggressive funnels.
-      If you sign up through an affiliate link, I may earn a commission at no extra cost to you.
+      Most projects start with an audit. It prevents random fixes and gives you a clean roadmap:
+      quick wins first, then higher-impact work that’s safe to ship.
     </p>
-  </div>
 
-  <div class="ctaRow">
-    <a class="btn primary" href="/#contact">
-      <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
-    </a>
-    <a class="btn" href="/#services">
-      <i class="fa-solid fa-layer-group" aria-hidden="true"></i> View services
-    </a>
+    <div class="callout">
+      <p><strong>Audit deliverables (typical):</strong></p>
+      <ul>
+        <li>Baseline CWV/TTFB + bottleneck map</li>
+        <li>Checkout risk checklist (cache boundaries + fragments)</li>
+        <li>Prioritized fix plan (quick wins → big wins)</li>
+        <li>Tracking/measurement plan (GA4 events + KPIs)</li>
+      </ul>
+    </div>
+
+    <h2>Who I work with</h2>
+    <ul>
+      <li>WooCommerce store owners who need speed without breaking revenue flows</li>
+      <li>Teams dealing with slow product templates or plugin conflicts</li>
+      <li>Operators who want clear priorities instead of endless “optimization”</li>
+      <li>Founders who value documentation and measurable outcomes</li>
+    </ul>
+
+    <h2>What I don’t do</h2>
+    <ul>
+      <li>No fear-based marketing</li>
+      <li>No “guaranteed results” claims</li>
+      <li>No platform evangelism (tradeoffs first)</li>
+      <li>No unnecessary complexity or unsafe production changes</li>
+    </ul>
+
+    <h2>Transparency</h2>
+    <p>
+      Some pages may contain affiliate links. When they do, it’s because the tool is relevant to the topic
+      and I’d recommend it regardless of commission.
+    </p>
+
+    <div class="callout">
+      <p>
+        <strong>Important:</strong> I don’t collect phone numbers, and I don’t run aggressive funnels.
+        If you sign up through an affiliate link, I may earn a commission at no extra cost to you.
+      </p>
+    </div>
+
+    <div class="ctaRow">
+      <a class="btn primary" href="/#contact">
+        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
+      </a>
+      <a class="btn" href="/#services">
+        <i class="fa-solid fa-layer-group" aria-hidden="true"></i> View services
+      </a>
+    </div>
   </div>
 </main>
 
