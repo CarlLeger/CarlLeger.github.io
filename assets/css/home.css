@@ -601,20 +601,10 @@ button[type="submit"]{ grid-column:1/-1; }
   flex:0 0 auto;
 }
 
-.brandText{
-  font-size:12.5px;
-  font-weight:900;
-  letter-spacing:.24px;
-  color:rgba(231,236,255,.92);
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  max-width:34ch;
-  opacity:.9;
-}
+/* ✅ UPDATE: remove WooCommerce • Performance • SEO line in header */
+.brandText{ display:none !important; }
 
 @media (max-width: 840px){
-  .brandText{ display:none; }
   .brandMark .brandLogo{
     height:44px;            /* ✅ BIGGER than before */
     max-width:320px;
@@ -626,7 +616,7 @@ button[type="submit"]{ grid-column:1/-1; }
   display:flex;
   align-items:center;
   gap:6px;
-  margin-left:8px;
+  margin-left:auto; /* ✅ UPDATE: pushes menu to the right */
   flex-wrap:nowrap;
   min-width:0;
 }
