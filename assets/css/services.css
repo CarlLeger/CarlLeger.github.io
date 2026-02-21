@@ -1,0 +1,338 @@
+/* =====================================
+   services.css — CarlLeger.github.io
+   Depends on: /assets/css/home.css
+   Scope: .page-services (recommended)
+   ===================================== */
+
+/* Safety background */
+html{ background: var(--bg-2, #070d17); }
+
+/* ✅ Critical: remove the fake header offset that created the “empty space” */
+.page-services body,
+body.page-services{
+  padding-top: 0 !important;
+  background:
+    radial-gradient(900px 600px at 15% 10%, rgba(56,189,248,.16), transparent 55%),
+    radial-gradient(900px 600px at 85% 20%, rgba(167,139,250,.14), transparent 55%),
+    linear-gradient(180deg, var(--bg-1, #0b1220), var(--bg-2, #070d17));
+}
+
+/* Keep content aligned with home */
+.page-services .wrap{
+  max-width: var(--max, 1020px);
+  margin: 0 auto;
+  padding: 32px var(--gutter, 22px) 90px;
+}
+
+/* Optional: slightly tighter top on services */
+.page-services .card{
+  overflow: hidden;
+}
+
+/* -------------------------------------
+   Services hero (unique vs home)
+   ------------------------------------- */
+.page-services .hero{
+  padding: 28px 26px 18px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px){
+  .page-services .hero{ padding: 22px 18px 16px; }
+}
+
+.page-services .kicker{
+  margin: 0;
+  font-size: 13px;
+  color: rgba(168,179,214,.95);
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.page-services .title{
+  margin: 10px 0 10px;
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 900px){
+  .page-services .title{ font-size: 36px; }
+}
+
+.page-services .subtitle{
+  margin: 0;
+  max-width: 78ch;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--muted, #a8b3d6);
+}
+
+/* CTA row in hero */
+.page-services .ctaRow{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top: 16px;
+}
+
+@media (max-width: 760px){
+  .page-services .ctaRow{ justify-content: flex-start; }
+}
+
+/* -------------------------------------
+   Quick nav chips (optional anchors)
+   If you add a chip row like in screenshot
+   ------------------------------------- */
+.page-services .chipRow{
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.page-services .chip{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  color: rgba(231,236,255,.92);
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+
+.page-services .chip i{ color: rgba(56,189,248,.95); }
+
+.page-services .chip:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.16);
+  text-decoration: none;
+}
+
+/* -------------------------------------
+   Services grid (cards)
+   ------------------------------------- */
+.page-services .grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 14px 26px 18px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px){
+  .page-services .grid{
+    grid-template-columns: 1fr;
+    padding: 12px 18px 16px;
+  }
+}
+
+.page-services .service{
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  border-radius: var(--radius-lg, 22px);
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 22px 60px rgba(0,0,0,.18);
+}
+
+.page-services .service::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    radial-gradient(420px 180px at 10% 0%, rgba(56,189,248,.14), transparent 60%),
+    radial-gradient(420px 180px at 90% 0%, rgba(167,139,250,.12), transparent 60%);
+  opacity: .55;
+  pointer-events: none;
+}
+
+.page-services .service > *{ position:relative; z-index: 1; }
+
+.page-services .service h2{
+  margin: 0 0 10px;
+  font-size: 16px;
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  letter-spacing: .1px;
+}
+
+.page-services .service h2 i{
+  color: rgba(56,189,248,.95);
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
+}
+
+.page-services .service p{
+  margin: 0;
+  color: var(--muted, #a8b3d6);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Best-for callout */
+.page-services .bestFor{
+  margin-top: 12px;
+  padding: 12px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.14);
+  color: rgba(231,236,255,.92);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.page-services .bestFor b{ color: rgba(231,236,255,.98); }
+
+/* Tags */
+.page-services .mini{
+  margin-top: 12px;
+  display:flex;
+  flex-wrap:wrap;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(168,179,214,.92);
+}
+
+.page-services .tag{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+}
+
+.page-services .tag i{ color: rgba(167,139,250,.95); }
+
+/* CTA row inside each service card */
+.page-services .service .ctaRow{
+  margin-top: 14px;
+}
+
+/* -------------------------------------
+   “How I work” block
+   ------------------------------------- */
+.page-services .work{
+  padding: 0 26px 18px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px){
+  .page-services .work{ padding: 0 18px 16px; }
+}
+
+.page-services .workCard{
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  border-radius: var(--radius-xl, 28px);
+  padding: 18px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.22);
+}
+
+.page-services .workTitle{
+  margin: 0 0 12px;
+  font-size: 13px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: rgba(231,236,255,.95);
+  display:flex;
+  gap: 10px;
+  align-items:center;
+}
+
+.page-services .workTitle i{ color: rgba(56,189,248,.95); }
+
+.page-services .workList{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted, #a8b3d6);
+}
+
+.page-services .workList li{ margin: 10px 0; line-height: 1.65; }
+
+.page-services .workNote{
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: rgba(168,179,214,.92);
+}
+
+/* -------------------------------------
+   FAQ accordion
+   ------------------------------------- */
+.page-services .faqWrap{
+  padding: 0 26px 28px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px){
+  .page-services .faqWrap{ padding: 0 18px 18px; }
+}
+
+.page-services details{
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  border-radius: 18px;
+  padding: 14px 14px;
+  margin-top: 12px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.18);
+}
+
+.page-services summary{
+  cursor:pointer;
+  list-style:none;
+  font-weight: 950;
+  color: rgba(231,236,255,.96);
+  display:flex;
+  gap: 10px;
+  align-items:center;
+}
+
+.page-services summary::-webkit-details-marker{ display:none; }
+
+.page-services details[open]{
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.04);
+}
+
+.page-services details p{
+  margin: 10px 0 0;
+  color: var(--muted, #a8b3d6);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* -------------------------------------
+   A11y helper
+   ------------------------------------- */
+.page-services .sr-only{
+  position:absolute !important;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+/* -------------------------------------
+   Reduced motion respect
+   ------------------------------------- */
+@media (prefers-reduced-motion: reduce){
+  .page-services *{ transition:none !important; }
+}
