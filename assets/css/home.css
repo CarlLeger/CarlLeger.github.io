@@ -39,8 +39,8 @@
   /* Spacing */
   --gutter:22px;
 
-  /* Header sizing */
-  --header-h:64px;
+  /* Header sizing (UPDATED: bigger for logo) */
+  --header-h:78px;
   --header-blur:10px;
 
   /* Accessibility / focus ring */
@@ -570,7 +570,6 @@ button[type="submit"]{ grid-column:1/-1; }
 }
 
 .siteHeader__inner{
-  /* Aligne EXACTEMENT sur .wrap (max-width: --max + mêmes gutters) */
   width: 100%;
   max-width: var(--max);
   margin: 0 auto;
@@ -593,12 +592,12 @@ button[type="submit"]{ grid-column:1/-1; }
 }
 
 .brandMark .brandLogo{
-  height:46px;
+  height:54px;              /* ✅ BIGGER */
   width:auto;
-  max-width:360px;
+  max-width:420px;          /* ✅ BIGGER */
   display:block;
-  filter: drop-shadow(0 10px 24px rgba(0,0,0,.35));
-  opacity:.95;
+  filter: drop-shadow(0 12px 30px rgba(0,0,0,.40));
+  opacity:.98;
   flex:0 0 auto;
 }
 
@@ -617,8 +616,8 @@ button[type="submit"]{ grid-column:1/-1; }
 @media (max-width: 840px){
   .brandText{ display:none; }
   .brandMark .brandLogo{
-    height:40px;
-    max-width:280px;
+    height:44px;            /* ✅ BIGGER than before */
+    max-width:320px;
   }
 }
 
@@ -873,8 +872,8 @@ button[type="submit"]{ grid-column:1/-1; }
 
 @media (max-width: 520px){
   .brandMark .brandLogo{
-    height:38px;
-    max-width:240px;
+    height:40px;           /* ✅ updated */
+    max-width:260px;       /* ✅ updated */
   }
 }
 
@@ -1122,18 +1121,18 @@ button[type="submit"]{ grid-column:1/-1; }
 .footerBottom__left{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:14px; /* ✅ a bit more space for bigger logo */
 }
 
 .footerMarkPro{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:44px;
-  height:44px;
-  border-radius:14px;
+  width:64px;            /* ✅ BIGGER */
+  height:64px;           /* ✅ BIGGER */
+  border-radius:18px;    /* ✅ more premium */
   background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.14);
   text-decoration:none;
   transition:background .12s ease, border-color .12s ease, transform .12s ease;
 }
@@ -1146,9 +1145,11 @@ button[type="submit"]{ grid-column:1/-1; }
 }
 
 .footerMarkPro__img{
-  width:22px;
-  height:22px;
+  width:36px;            /* ✅ BIGGER */
+  height:36px;
   display:block;
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,.35));
+  opacity:.95;
 }
 
 .footerCopyPro{
