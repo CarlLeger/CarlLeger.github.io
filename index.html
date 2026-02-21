@@ -10,7 +10,7 @@
   <!-- CORE SEO -->
   <meta name="description" content="Canada-first WooCommerce performance engineering: Core Web Vitals, TTFB reduction, checkout reliability, product SEO, and GA4 measurement. Staging-first, rollback-ready, documented implementation." />
   <meta name="author" content="Carl Leger" />
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet=-1,max-video-preview=-1" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet=-1,max-video-preview=-1,max-video-preview=-1" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#0b1220" />
   <meta name="color-scheme" content="dark light" />
@@ -286,10 +286,10 @@
     <div class="siteHeader__inner">
       <a class="brandMark" href="/" aria-label="Home">
         <img
-          src="/assets/images/brand/logo-carl-leger-500x120.png"
+          src="/assets/images/brand/carl-leger-logo-horizontal-silver.png"
           alt="Carl Leger"
-          width="220"
-          height="52"
+          width="1200"
+          height="400"
           decoding="async"
           loading="eager"
           class="brandLogo"
@@ -696,10 +696,10 @@
         <div class="footerBottom__left">
           <a class="footerMarkPro" href="/" aria-label="Home">
             <img
-              src="/assets/images/brand/logo-cl-1024.png"
+              src="/assets/images/brand/carl-leger-monogram-cl-silver.png"
               alt="CL"
-              width="44"
-              height="44"
+              width="1024"
+              height="1024"
               loading="lazy"
               decoding="async"
               class="footerMarkPro__img"
@@ -739,7 +739,6 @@
         var msg = document.getElementById("message");
         if(msg && preset){
           msg.value = preset + "\n\n" + (msg.value || "");
-          // move user to contact section and focus message (nice UX)
           setTimeout(function(){ try{ msg.focus({preventScroll:false}); }catch(_e){} }, 120);
         }
       }, { passive:true });
