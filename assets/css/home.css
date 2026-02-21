@@ -1253,81 +1253,72 @@ body.nav-open .navDrawer{
 }
 
 @media (max-width: 980px){
-  .footerPro__top{ grid-template-columns: 1fr; }
-  .footerCols{ grid-template-columns: 1fr; }
+  .footerPro__top{
+    grid-template-columns: 1fr;
+  }
+  .footerCols{
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =====================================
-   Contact CTA ring (ALWAYS-VISIBLE + SPIN)
-   Works reliably in Chrome (no mask-composite)
+   Contact CTA ring (RING-ONLY, no re-styling)
+   Works with your existing .siteNav__cta button styles
    ===================================== */
 
-@keyframes contactRingSpin { to { transform: rotate(360deg); } }
+@keyframes contactRingSpin{ to{ transform: rotate(360deg); } }
 
-/* Desktop CTA */
+/* Only add stacking context + clipping for the ring */
 .siteNav__cta{
-  position:relative;
   isolation:isolate;
   overflow:hidden;
 }
 
-/* ring layer */
+/* rotating ring */
 .siteNav__cta::before{
   content:"";
   position:absolute;
-  inset:-3px;                 /* a bit wider so you SEE it */
+  inset:-2px;
   border-radius:inherit;
+  padding:2px;
 
-  background:
-    /* ✅ base ring always visible */
-    conic-gradient(
-      from 0deg,
-      rgba(199,236,255,.22) 0%,
-      rgba(199,236,255,.22) 100%
-    ),
-    /* ✅ moving highlight */
-    conic-gradient(
-      from 0deg,
-      transparent 0%,
-      rgba(199,236,255,.88) 10%,
-      rgba(56,189,248,.40) 20%,
-      transparent 34%,
-      transparent 58%,
-      rgba(199,236,255,.72) 70%,
-      rgba(56,189,248,.28) 82%,
-      transparent 100%
-    );
-
-  /* ✅ cut-out center to make it a ring */
-  -webkit-mask: radial-gradient(
-    farthest-side,
-    transparent calc(100% - 2px),
-    #000 calc(100% - 2px)
-  );
-  mask: radial-gradient(
-    farthest-side,
-    transparent calc(100% - 2px),
-    #000 calc(100% - 2px)
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(199,236,255,.78) 10%,
+    rgba(56,189,248,.35) 18%,
+    transparent 32%,
+    transparent 58%,
+    rgba(199,236,255,.66) 70%,
+    rgba(56,189,248,.25) 80%,
+    transparent 100%
   );
 
-  opacity:1;
-  filter: blur(.35px);
+  opacity:.92;
+  filter: blur(.6px);
   z-index:0;
   pointer-events:none;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+
   will-change:transform;
-  animation: contactRingSpin 2.1s linear infinite;
+  animation:contactRingSpin 2.15s linear infinite;
 }
 
-/* glow behind (kept subtle) */
+/* glow behind */
 .siteNav__cta::after{
   content:"";
   position:absolute;
-  inset:-14px;
+  inset:-12px;
   border-radius:inherit;
   background:
-    radial-gradient(180px 100px at 50% 50%, rgba(199,236,255,.18), transparent 66%),
-    radial-gradient(180px 100px at 50% 50%, rgba(56,189,248,.18), transparent 72%);
-  opacity:.75;
+    radial-gradient(160px 90px at 50% 50%, rgba(199,236,255,.16), transparent 66%),
+    radial-gradient(160px 90px at 50% 50%, rgba(56,189,248,.18), transparent 72%);
+  opacity:.62;
   z-index:-1;
   filter: blur(12px);
   pointer-events:none;
@@ -1337,13 +1328,13 @@ body.nav-open .navDrawer{
 .siteNav__cta > *{ position:relative; z-index:1; }
 
 .siteNav__cta:hover::before{ opacity:1; }
-.siteNav__cta:hover::after{ opacity:.85; }
+.siteNav__cta:hover::after{ opacity:.78; }
 
 @media (prefers-reduced-motion: reduce){
   .siteNav__cta::before{ animation:none; }
 }
 
-/* Mobile drawer CTA */
+/* Mobile drawer CTA ring */
 .navDrawer__link--cta{
   position:relative;
   isolation:isolate;
@@ -1353,41 +1344,30 @@ body.nav-open .navDrawer{
 .navDrawer__link--cta::before{
   content:"";
   position:absolute;
-  inset:-3px;
+  inset:-2px;
   border-radius:inherit;
+  padding:2px;
 
-  background:
-    conic-gradient(
-      from 0deg,
-      rgba(199,236,255,.20) 0%,
-      rgba(199,236,255,.20) 100%
-    ),
-    conic-gradient(
-      from 0deg,
-      transparent 0%,
-      rgba(199,236,255,.88) 14%,
-      rgba(56,189,248,.34) 26%,
-      transparent 42%,
-      transparent 100%
-    );
-
-  -webkit-mask: radial-gradient(
-    farthest-side,
-    transparent calc(100% - 2px),
-    #000 calc(100% - 2px)
-  );
-  mask: radial-gradient(
-    farthest-side,
-    transparent calc(100% - 2px),
-    #000 calc(100% - 2px)
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(199,236,255,.78) 14%,
+    rgba(56,189,248,.32) 24%,
+    transparent 40%,
+    transparent 100%
   );
 
-  opacity:1;
-  filter: blur(.35px);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+
+  opacity:.92;
   z-index:0;
   pointer-events:none;
   will-change:transform;
-  animation: contactRingSpin 2.1s linear infinite;
+  animation:contactRingSpin 2.15s linear infinite;
 }
 
 .navDrawer__link--cta > *{ position:relative; z-index:1; }
