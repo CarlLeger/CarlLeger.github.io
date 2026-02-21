@@ -2,7 +2,11 @@
 // Mobile drawer menu — ULTRA COMPLETE (A11Y + focus trap + scroll lock + inert + restore + iOS-safe)
 // Requires: a `$` helper that returns `document.querySelector(...)`
 // Uses your existing data-attrs: [data-nav-toggle], [data-nav-overlay], [data-nav-drawer], [data-nav-close]
+// PLUS: Back to top reliable (anchor or button) + closes drawer safely
 // =====================================================
+
+// If you don't already have it elsewhere, uncomment this helper:
+// const $ = (sel) => document.querySelector(sel);
 
 const toggle = $("[data-nav-toggle]");
 const overlay = $("[data-nav-overlay]");
@@ -31,9 +35,14 @@ const getFocusable = (root) => {
   ).filter((el) => {
     if (el.hasAttribute("disabled")) return false;
     if (el.getAttribute("aria-hidden") === "true") return false;
+
     // Hide elements that are not actually visible (prevents trapping to hidden nodes)
     const style = window.getComputedStyle(el);
     if (style.visibility === "hidden" || style.display === "none") return false;
+
+    // Also ignore if element is not in layout (rare but can happen)
+    if (el.offsetParent === null && style.position !== "fixed") return false;
+
     return true;
   });
 };
@@ -106,18 +115,15 @@ const lockBodyScroll = () => {
 
 // Make background "non-interactive" while drawer is open (best practice)
 const applyInertToBackground = (open) => {
-  // Choose a main/root container to inert
   const main = document.querySelector(MAIN_SELECTOR);
   if (!main) return () => {};
 
-  // If browser supports inert, use it; otherwise use aria-hidden (fallback)
   const supportsInert = "inert" in HTMLElement.prototype;
 
   if (open) {
     if (supportsInert) {
       main.inert = true;
     } else {
-      // Fallback: hide from screen readers (not perfect but helpful)
       main.setAttribute("aria-hidden", "true");
     }
   } else {
@@ -137,62 +143,50 @@ const applyInertToBackground = (open) => {
 const setNavOpen = (open) => {
   if (!toggle || !overlay || !drawer) return;
 
-  // If already in desired state, no-op
   if (open === isOpen()) return;
 
   toggle.setAttribute("aria-expanded", open ? "true" : "false");
   document.body.classList.toggle("nav-open", open);
 
-  // show/hide
   overlay.hidden = !open;
   drawer.hidden = !open;
 
-  // A11Y semantics for drawer
   drawer.setAttribute("role", "dialog");
   drawer.setAttribute("aria-modal", "true");
   drawer.setAttribute("aria-hidden", open ? "false" : "true");
   overlay.setAttribute("aria-hidden", open ? "false" : "true");
 
-  // Optional: prevent background click events (overlay already does most of this)
   overlay.style.pointerEvents = open ? "auto" : "none";
 
   if (open) {
     lastFocus = document.activeElement;
 
-    // lock background scroll
     unlockScroll?.();
     unlockScroll = lockBodyScroll();
 
-    // inert background (optional but premium)
     removeInert?.();
     removeInert = applyInertToBackground(true);
 
-    // animate drawer
     requestAnimationFrame(() => drawer.classList.add("is-open"));
 
-    // trap focus inside drawer
     removeTrap?.();
     removeTrap = trapFocus(drawer);
   } else {
     drawer.classList.remove("is-open");
 
-    // cleanup focus trap
     removeTrap?.();
     removeTrap = null;
 
-    // unlock scroll
     unlockScroll?.();
     unlockScroll = null;
 
-    // restore background interactivity
     removeInert?.();
     removeInert = null;
     applyInertToBackground(false);
 
-    // return focus (prefer the element that was focused before open)
     setTimeout(() => {
       if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
-      else toggle.focus();
+      else toggle?.focus?.();
       lastFocus = null;
     }, 50);
   }
@@ -227,7 +221,7 @@ if (toggle && overlay && drawer) {
     { passive: true }
   );
 
-  // Optional: close if user clicks anywhere outside drawer (extra safety, works even if overlay styling changes)
+  // Optional: close if user clicks anywhere outside drawer
   document.addEventListener("click", (e) => {
     if (!isOpen()) return;
     const target = e.target;
@@ -236,8 +230,6 @@ if (toggle && overlay && drawer) {
     const clickedInsideDrawer = drawer.contains(target);
     const clickedToggle = toggle.contains(target);
     if (!clickedInsideDrawer && !clickedToggle) {
-      // overlay usually catches this, but this is a belt + suspenders approach
-      // only close if click was on overlay area or outside interactive region
       if (overlay.contains(target) || target === overlay) setNavOpen(false);
     }
   });
@@ -247,4 +239,38 @@ if (toggle && overlay && drawer) {
   drawer.setAttribute("aria-hidden", "true");
   overlay.setAttribute("aria-hidden", "true");
   overlay.style.pointerEvents = "none";
+}
+
+/* =====================================================
+   Back to top — reliable (anchor or button)
+   Works with:
+   - <a class="footerTop" href="#top">Back to top</a>
+   - <button class="footerTop" type="button">Back to top</button>
+   Or use: data-back-to-top on any element
+   ===================================================== */
+
+const backToTopEl = document.querySelector(".footerTop, [data-back-to-top]");
+
+const scrollToTop = () => {
+  // If drawer is open, close it first to avoid fixed-body/anchor weirdness
+  try {
+    if (isOpen()) setNavOpen(false);
+  } catch (e) {}
+
+  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+
+  // Optional: keep URL clean (remove #top if it appears)
+  if (history.replaceState) {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+};
+
+if (backToTopEl) {
+  backToTopEl.addEventListener("click", (e) => {
+    // If it's a link, prevent default anchor jump and use reliable scroll
+    if (backToTopEl.tagName && backToTopEl.tagName.toLowerCase() === "a") {
+      e.preventDefault();
+    }
+    scrollToTop();
+  });
 }
