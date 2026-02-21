@@ -3,6 +3,7 @@
 // Mobile drawer menu (A11Y + focus trap + scroll lock + inert + restore + iOS-safe)
 // Uses data-attrs: [data-nav-toggle], [data-nav-overlay], [data-nav-drawer], [data-nav-close]
 // PLUS: Back to top reliable (anchor or button) + closes drawer safely
+// UPDATED: breakpoint aligned to CSS (981px), transitionend close, pagehide cleanup
 // =====================================================
 
 (() => {
@@ -12,7 +13,6 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  // If script is loaded without defer, this guarantees DOM exists
   const onReady = (fn) => {
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", fn, { once: true });
@@ -23,13 +23,13 @@
 
   onReady(() => {
     // ---------- Elements ----------
-    const toggle  = $("[data-nav-toggle]");
-    const overlay = $("[data-nav-overlay]");
-    const drawer  = $("[data-nav-drawer]");
+    const toggle   = $("[data-nav-toggle]");
+    const overlay  = $("[data-nav-overlay]");
+    const drawer   = $("[data-nav-drawer]");
     const closeBtn = $("[data-nav-close]");
 
-    // Optional: match your CSS breakpoint (set to 900px or 980px etc.)
-    const DESKTOP_MEDIA = "(min-width: 900px)";
+    // ✅ Match CSS: @media (max-width: 980px) => desktop starts at 981px
+    const DESKTOP_MEDIA = "(min-width: 981px)";
 
     // Inert background targets (keep drawer + header interactive)
     const INERT_TARGETS = ["main", "#main", ".wrap"].join(",");
@@ -42,6 +42,9 @@
     let removeTrap = null;
     let unlockScroll = null;
     let removeInert = null;
+
+    // Prevent double-close jitter
+    let isClosing = false;
 
     const isOpen = () => document.body.classList.contains("nav-open");
 
@@ -86,7 +89,7 @@
         if (!items.length) return;
 
         const first = items[0];
-        const last = items[items.length - 1];
+        const last  = items[items.length - 1];
 
         // If focus escapes, pull it back
         if (!container.contains(document.activeElement)) {
@@ -108,14 +111,12 @@
       };
 
       container.addEventListener("keydown", onKeyDown);
-      // Small delay so drawer transition can start, then focus
       setTimeout(focusFirst, 40);
 
       return () => container.removeEventListener("keydown", onKeyDown);
     };
 
     // ---------- Scroll lock (no jump) ----------
-    // Stores scroll position while body is fixed (iOS-friendly)
     const lockBodyScroll = () => {
       const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
 
@@ -155,34 +156,87 @@
         }
       };
 
-      if (open) targets.forEach((el) => set(el, true));
-      else targets.forEach((el) => set(el, false));
-
+      targets.forEach((el) => set(el, !!open));
       return () => targets.forEach((el) => set(el, false));
+    };
+
+    // ---------- Setup A11Y once ----------
+    const setupA11Y = () => {
+      if (!toggle || !overlay || !drawer) return;
+
+      toggle.setAttribute("aria-expanded", "false");
+
+      drawer.setAttribute("role", "dialog");
+      drawer.setAttribute("aria-modal", "true");
+      drawer.setAttribute("aria-hidden", "true");
+
+      overlay.setAttribute("aria-hidden", "true");
+      overlay.style.pointerEvents = "none";
+
+      overlay.hidden = true;
+      drawer.hidden  = true;
+    };
+
+    // ---------- Close helper (transitionend + fallback) ----------
+    const hideAfterClose = () => {
+      if (!toggle || !overlay || !drawer) return;
+
+      // Only hide if still closed
+      if (isOpen()) return;
+
+      drawer.hidden = true;
+      overlay.hidden = true;
+      overlay.style.pointerEvents = "none";
+      isClosing = false;
+
+      // restore focus
+      if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus({ preventScroll: true });
+      else toggle?.focus?.({ preventScroll: true });
+      lastFocus = null;
+    };
+
+    const closeWithTransition = () => {
+      if (!drawer) return hideAfterClose();
+
+      isClosing = true;
+
+      let done = false;
+      const finish = () => {
+        if (done) return;
+        done = true;
+        drawer.removeEventListener("transitionend", onEnd);
+        hideAfterClose();
+      };
+
+      const onEnd = (e) => {
+        // only react to drawer's own transition (opacity/transform etc.)
+        if (e && e.target !== drawer) return;
+        finish();
+      };
+
+      // If CSS has transitions, we'll catch it. If not, fallback.
+      drawer.addEventListener("transitionend", onEnd);
+      setTimeout(finish, 260);
     };
 
     // ---------- Nav open/close ----------
     const setNavOpen = (open) => {
       if (!toggle || !overlay || !drawer) return;
       if (open === isOpen()) return;
+      if (!open && isClosing) return;
 
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
       document.body.classList.toggle("nav-open", open);
 
-      // show/hide
+      // show/hide immediately on open
       overlay.hidden = !open;
-      drawer.hidden = !open;
+      drawer.hidden  = !open;
 
-      // A11Y semantics
-      drawer.setAttribute("role", "dialog");
-      drawer.setAttribute("aria-modal", "true");
       drawer.setAttribute("aria-hidden", open ? "false" : "true");
       overlay.setAttribute("aria-hidden", open ? "false" : "true");
 
-      // allow overlay interaction only when open
-      overlay.style.pointerEvents = open ? "auto" : "none";
-
       if (open) {
+        overlay.style.pointerEvents = "auto";
         lastFocus = document.activeElement;
 
         unlockScroll?.();
@@ -211,26 +265,14 @@
         applyInertToBackground(false);
 
         // Hide after transition (prevents flicker)
-        const finishClose = () => {
-          // Only hide if still closed
-          if (isOpen()) return;
-          drawer.hidden = true;
-          overlay.hidden = true;
-
-          // restore focus
-          if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus({ preventScroll: true });
-          else toggle?.focus?.({ preventScroll: true });
-          lastFocus = null;
-        };
-
-        // If no transition, still works
-        const TRANSITION_MS = 220;
-        setTimeout(finishClose, TRANSITION_MS);
+        closeWithTransition();
       }
     };
 
     // ---------- Wire nav events ----------
     if (toggle && overlay && drawer) {
+      setupA11Y();
+
       toggle.addEventListener("click", () => setNavOpen(!isOpen()));
       overlay.addEventListener("click", () => setNavOpen(false));
       closeBtn?.addEventListener("click", () => setNavOpen(false));
@@ -255,7 +297,7 @@
         { passive: true }
       );
 
-      // Close on ANY outside click (reliable)
+      // Close on outside click (belt + suspenders)
       document.addEventListener("click", (e) => {
         if (!isOpen()) return;
         const target = e.target;
@@ -263,30 +305,43 @@
 
         const clickedInsideDrawer = drawer.contains(target);
         const clickedToggle = toggle.contains(target);
-        if (!clickedInsideDrawer && !clickedToggle) {
-          setNavOpen(false);
-        }
+        if (!clickedInsideDrawer && !clickedToggle) setNavOpen(false);
       });
 
-      // Initial state
-      toggle.setAttribute("aria-expanded", "false");
-      drawer.setAttribute("aria-hidden", "true");
-      overlay.setAttribute("aria-hidden", "true");
-      overlay.style.pointerEvents = "none";
+      // ✅ Safety cleanup: prevents inert/aria-hidden stuck state on navigation away
+      window.addEventListener("pagehide", () => {
+        try {
+          document.body.classList.remove("nav-open");
+          drawer.classList.remove("is-open");
 
-      overlay.hidden = true;
-      drawer.hidden = true;
+          overlay.hidden = true;
+          drawer.hidden = true;
+          overlay.style.pointerEvents = "none";
+
+          // unlock scroll if any
+          unlockScroll?.();
+          unlockScroll = null;
+
+          // remove inert/aria-hidden from targets
+          removeInert?.();
+          removeInert = null;
+
+          // normalize aria
+          toggle.setAttribute("aria-expanded", "false");
+          drawer.setAttribute("aria-hidden", "true");
+          overlay.setAttribute("aria-hidden", "true");
+
+          isClosing = false;
+          lastFocus = null;
+        } catch (_e) {}
+      });
     }
 
     // ---------- Back to top (reliable) ----------
     const scrollToTop = () => {
-      // Close drawer first to avoid fixed-body scroll weirdness
       if (isOpen()) setNavOpen(false);
-
-      // Smooth scroll
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 
-      // Keep URL clean (remove #top)
       if (history.replaceState) {
         history.replaceState(null, "", window.location.pathname + window.location.search);
       }
@@ -294,7 +349,6 @@
 
     if (backToTopEl) {
       backToTopEl.addEventListener("click", (e) => {
-        // If it's a link, prevent default anchor jump and use reliable scroll
         if (backToTopEl.tagName?.toLowerCase() === "a") e.preventDefault();
         scrollToTop();
       });
