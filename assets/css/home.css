@@ -7,6 +7,7 @@
 
 /* ---------- Design Tokens ---------- */
 :root{
+  /* Core palette */
   --bg-1:#0b1220;
   --bg-2:#070d17;
 
@@ -24,23 +25,26 @@
   --error:#fb7185;
   --warning:#fbbf24;
 
+  /* Elevation + radius */
   --shadow:0 20px 60px rgba(0,0,0,.35);
   --radius-sm:12px;
   --radius-md:16px;
   --radius-lg:22px;
   --radius-xl:28px;
 
-  /* Content card width */
-  --max:1020px;
+  /* Layout widths */
+  --max:1020px;       /* ✅ content + card + header inner alignment */
+  --steam-max:1180px; /* option si tu veux header/footer plus wide */
 
-  /* Steam-like container width for HEADER + FOOTER */
-  --steam-max:1180px;
-
-  /* Common paddings */
+  /* Spacing */
   --gutter:22px;
 
   /* Header sizing */
   --header-h:64px;
+  --header-blur:10px;
+
+  /* Accessibility / focus ring */
+  --ring: rgba(56,189,248,.55);
 
   /* Hero image (NEW) */
   --hero-img:url("/assets/images/hero/woocommerce-performance-ga4-technical-seo-canada-1600x900.webp");
@@ -48,8 +52,8 @@
   /* =====================================
      BUTTON GLOW SYSTEM (premium)
      ===================================== */
-  --glow-a: rgba(56,189,248,.52);  /* teal glow (stronger) */
-  --glow-b: rgba(167,139,250,.44); /* violet glow (stronger) */
+  --glow-a: rgba(56,189,248,.52);
+  --glow-b: rgba(167,139,250,.44);
 
   --btn-stroke: rgba(255,255,255,.14);
   --btn-stroke-hover: rgba(255,255,255,.24);
@@ -73,6 +77,7 @@ body{
     linear-gradient(180deg,var(--bg-1),var(--bg-2));
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 
 img{ max-width:100%; height:auto; display:block; }
@@ -81,7 +86,7 @@ a{ color:inherit; text-decoration:none; }
 a:hover{ text-decoration:underline; }
 
 :focus-visible{
-  outline:3px solid rgba(56,189,248,.55);
+  outline:3px solid var(--ring);
   outline-offset:3px;
   border-radius:10px;
 }
@@ -565,11 +570,13 @@ button[type="submit"]{ grid-column:1/-1; }
 }
 
 .siteHeader__inner{
-  /* aligne EXACTEMENT sur la largeur du contenu (.wrap) */
-  width: min(100% - (var(--gutter) * 2), var(--max));
+  /* Aligne EXACTEMENT sur .wrap (max-width: --max + mêmes gutters) */
+  width: 100%;
+  max-width: var(--max);
   margin: 0 auto;
+  padding: 0 var(--gutter);
 
-  height: var(--header-h);
+  min-height: var(--header-h);
   display: flex;
   align-items: center;
   gap: 14px;
