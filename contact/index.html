@@ -4,16 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Contact | Carl Leger — WooCommerce Performance & Technical SEO (Canada)</title>
-  <meta name="description" content="Contact Carl Leger. Canada-first WooCommerce performance and technical SEO consultant. Clear scope, production-safe fixes, GA4-measured impact." />
+  <title>Contact | Carl Leger — WooCommerce Performance Engineering (Canada)</title>
+  <meta name="description" content="Contact Carl Leger. Canada-first WooCommerce performance engineering, technical SEO, and checkout reliability. Clear scope, staging-first fixes, GA4-measured impact." />
 
   <meta name="author" content="Carl Leger" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="color-scheme" content="dark light" />
   <meta name="theme-color" content="#0b1220" />
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet=-1,max-video-preview=-1" />
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://carlleger.github.io/contact/" />
 
   <!-- Favicons (root) -->
@@ -26,8 +25,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Carl Leger" />
-  <meta property="og:title" content="Contact | Carl Leger — WooCommerce Performance & Technical SEO (Canada)" />
-  <meta property="og:description" content="Canada-first WooCommerce performance and technical SEO. Clear scope, production-safe fixes, measurable impact." />
+  <meta property="og:title" content="Contact | Carl Leger — WooCommerce Performance Engineering (Canada)" />
+  <meta property="og:description" content="Canada-first WooCommerce performance engineering and technical SEO. Clear scope, staging-first fixes, measurable impact." />
   <meta property="og:url" content="https://carlleger.github.io/contact/" />
   <meta property="og:locale" content="en_CA" />
   <meta property="og:image" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
@@ -35,14 +34,14 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/webp" />
-  <meta property="og:image:alt" content="WooCommerce performance and GA4 technical SEO consultant in Canada." />
+  <meta property="og:image:alt" content="WooCommerce performance engineering and GA4 technical SEO consultant in Canada." />
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contact | Carl Leger — WooCommerce Performance & Technical SEO (Canada)" />
-  <meta name="twitter:description" content="Canada-first WooCommerce performance and technical SEO. Clear scope, production-safe fixes, measurable impact." />
+  <meta name="twitter:title" content="Contact | Carl Leger — WooCommerce Performance Engineering (Canada)" />
+  <meta name="twitter:description" content="Canada-first WooCommerce performance engineering and technical SEO. Clear scope, staging-first fixes, measurable impact." />
   <meta name="twitter:image" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
-  <meta name="twitter:image:alt" content="WooCommerce performance and GA4 technical SEO consultant in Canada." />
+  <meta name="twitter:image:alt" content="WooCommerce performance engineering and GA4 technical SEO consultant in Canada." />
 
   <!-- ICONS -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
@@ -58,268 +57,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   </noscript>
 
-  <!-- Site CSS (base) -->
-  <link rel="stylesheet" href="/assets/css/styles.css?v=contact-1" />
-
-  <!-- Contact overrides: fixes layout + nav spacing + readable card -->
-  <style>
-    :root{
-      --bg-1:#0b1220;
-      --bg-2:#070d17;
-      --panel-1:rgba(255,255,255,.07);
-      --panel-2:rgba(255,255,255,.04);
-      --stroke:rgba(255,255,255,.10);
-      --text:#e7ecff;
-      --muted:#a8b3d6;
-      --accent:#38bdf8;
-      --accent-2:#a78bfa;
-      --shadow:0 20px 60px rgba(0,0,0,.35);
-      --radius-md:16px;
-      --radius-lg:22px;
-      --max:1020px;
-    }
-
-    body{
-      margin:0;
-      background: radial-gradient(900px 420px at 18% 12%, rgba(56,189,248,.22), transparent 60%),
-                  radial-gradient(900px 420px at 82% 10%, rgba(167,139,250,.20), transparent 60%),
-                  linear-gradient(180deg, var(--bg-1), var(--bg-2));
-      color:var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      line-height:1.6;
-    }
-
-    a{ color:inherit; text-decoration:none; }
-    a:hover{ text-decoration:underline; text-underline-offset:3px; }
-
-    .skip{
-      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
-    }
-    .skip:focus{
-      left:16px; top:16px; width:auto; height:auto; padding:10px 12px;
-      background:rgba(0,0,0,.6); border:1px solid var(--stroke); border-radius:12px;
-      z-index:9999;
-    }
-
-    .container{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:0 18px;
-    }
-
-    /* Top bar */
-    .site-header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter:saturate(140%) blur(14px);
-      background:linear-gradient(180deg, rgba(11,18,32,.72), rgba(7,13,23,.35));
-      border-bottom:1px solid var(--stroke);
-    }
-    .header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:14px 0;
-    }
-    .brand{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-      min-width:220px;
-    }
-    .name{
-      font-weight:800;
-      letter-spacing:.2px;
-      font-size:16px;
-      line-height:1.2;
-    }
-    .tag{
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.2;
-    }
-
-    .nav{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      justify-content:flex-end;
-      align-items:center;
-    }
-    .nav a{
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid transparent;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .nav a:hover{
-      background:rgba(255,255,255,.04);
-      border-color:var(--stroke);
-      color:var(--text);
-      text-decoration:none;
-    }
-    .nav a[aria-current="page"]{
-      background:rgba(255,255,255,.06);
-      border-color:var(--stroke);
-      color:var(--text);
-    }
-    .nav a.navCta{
-      background:linear-gradient(135deg, rgba(56,189,248,.20), rgba(167,139,250,.18));
-      border-color:rgba(255,255,255,.14);
-      color:var(--text);
-      font-weight:700;
-    }
-
-    /* Main card */
-    .section{
-      padding:28px 0 44px;
-    }
-    .pageCard{
-      background:linear-gradient(180deg, var(--panel-1), var(--panel-2));
-      border:1px solid var(--stroke);
-      border-radius:var(--radius-lg);
-      box-shadow:var(--shadow);
-      padding:26px 22px;
-    }
-
-    h1{
-      margin:0 0 10px;
-      font-size:42px;
-      line-height:1.1;
-      letter-spacing:-.02em;
-    }
-    h2{
-      margin:26px 0 10px;
-      font-size:22px;
-      letter-spacing:-.01em;
-    }
-    p{ margin:10px 0; }
-    .lead{
-      font-size:18px;
-      color:var(--text);
-      max-width:78ch;
-    }
-    .muted{ color:var(--muted); }
-
-    .callout{
-      margin:16px 0;
-      padding:14px 14px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.05);
-    }
-
-    /* Form */
-    .contactGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top:14px;
-    }
-    .field{ display:flex; flex-direction:column; gap:6px; }
-    label{ font-weight:650; color:var(--text); }
-    input, select, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(8,14,26,.65);
-      color:var(--text);
-      outline:none;
-    }
-    textarea{ resize:vertical; min-height:120px; }
-    input::placeholder, textarea::placeholder{ color: rgba(168,179,214,.75); }
-    input:focus, select:focus, textarea:focus{
-      border-color: rgba(56,189,248,.55);
-      box-shadow: 0 0 0 4px rgba(56,189,248,.12);
-    }
-    .full{ grid-column: 1 / -1; }
-
-    .ctaRow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:14px;
-      align-items:center;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:12px 14px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      font-weight:700;
-      text-decoration:none;
-      cursor:pointer;
-    }
-    .btn:hover{
-      text-decoration:none;
-      background:rgba(255,255,255,.09);
-      border-color:rgba(255,255,255,.18);
-    }
-    .btn.primary{
-      background:linear-gradient(135deg, rgba(56,189,248,.22), rgba(167,139,250,.20));
-      border-color:rgba(255,255,255,.18);
-    }
-
-    .metaRow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:12px;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .metaPill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
-    }
-
-    /* Footer */
-    .site-footer{
-      border-top:1px solid var(--stroke);
-      background:rgba(7,13,23,.35);
-      padding:18px 0;
-      margin-top:28px;
-    }
-    .footerLinks{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      align-items:center;
-      justify-content:center;
-    }
-    .footerLinks a{
-      color:var(--muted);
-      padding:8px 10px;
-      border-radius:12px;
-    }
-    .footerLinks a:hover{
-      color:var(--text);
-      background:rgba(255,255,255,.04);
-      text-decoration:none;
-    }
-
-    @media (max-width: 780px){
-      .header{ flex-direction:column; align-items:flex-start; }
-      .nav{ justify-content:flex-start; }
-      h1{ font-size:34px; }
-      .pageCard{ padding:20px 16px; }
-      .contactGrid{ grid-template-columns: 1fr; }
-    }
-  </style>
+  <!-- CSS (separé) -->
+  <link rel="stylesheet" href="/assets/css/contact.css?v=contact-3" />
 
   <!-- GA4 -->
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
@@ -345,14 +84,13 @@
     "about":{"@id":"https://carlleger.github.io/#person"}
   }
   </script>
-
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"Person",
     "@id":"https://carlleger.github.io/#person",
     "name":"Carl Leger",
-    "jobTitle":"WooCommerce Performance & Technical SEO Consultant",
+    "jobTitle":"WooCommerce Performance Engineer & Technical SEO Consultant",
     "url":"https://carlleger.github.io/",
     "image":"https://carlleger.github.io/avatar.png",
     "sameAs":[
@@ -362,7 +100,6 @@
     ]
   }
   </script>
-
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -374,13 +111,12 @@
     "inLanguage":["en-CA"]
   }
   </script>
-
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"ProfessionalService",
     "@id":"https://carlleger.github.io/#service",
-    "name":"Carl Leger — WooCommerce Performance & Technical SEO Consulting (Canada)",
+    "name":"Carl Leger — WooCommerce Performance Engineering (Canada)",
     "url":"https://carlleger.github.io/",
     "provider":{"@id":"https://carlleger.github.io/#person"},
     "areaServed":["Canada"],
@@ -398,142 +134,159 @@
 </head>
 
 <body>
-<a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main">Skip to content</a>
 
-<header class="site-header">
-  <div class="container header">
-    <div class="brand">
-      <span class="name">Carl Leger</span>
-      <span class="tag">WooCommerce • Performance • Technical SEO (Canada)</span>
+  <header class="siteHeader" id="top">
+    <div class="container headerInner">
+      <a class="brand" href="/" aria-label="Home">
+        <span class="brandMark" aria-hidden="true">
+          <img src="/assets/images/brand/logo-cl-1024.png" alt="" width="22" height="22" decoding="async" />
+        </span>
+        <span class="brandMeta">
+          <span class="brandName">Carl Leger</span>
+          <span class="brandTag">WooCommerce • Performance • Technical SEO (Canada)</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="/services/">Services</a>
+        <a href="/case-studies/">Case studies</a>
+        <a href="/resources/">Resources</a>
+        <a href="/about/">About</a>
+        <a class="navCta" href="/contact/" aria-current="page">Contact</a>
+      </nav>
     </div>
-    <nav class="nav" aria-label="Primary">
-      <a href="/services/">Services</a>
-      <a href="/case-studies/">Case studies</a>
-      <a href="/resources/">Resources</a>
-      <a href="/about/">About</a>
-      <a class="navCta" href="/contact/" aria-current="page">Contact</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
-<main id="main" class="section container">
-  <div class="pageCard">
-    <h1>Contact</h1>
+  <main id="main" class="container section">
+    <section class="heroCard" aria-label="Contact">
+      <div class="heroGrid">
+        <div class="heroCopy">
+          <h1>Request an audit</h1>
+          <p class="lead">
+            Tell me what’s slowing your store down. I’ll reply within <strong>24 hours</strong> with clear next steps.
+          </p>
 
-    <p class="lead">
-      Tell me what’s slowing your store down. I’ll reply within 24 hours with clear next steps.
-    </p>
+          <div class="pills" aria-label="Trust points">
+            <span class="pill"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Reply within 24h</span>
+            <span class="pill"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Checkout-safe approach</span>
+            <span class="pill"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> GA4-measured impact</span>
+            <span class="pill"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Staging + rollback</span>
+          </div>
 
-    <div class="metaRow" aria-label="Trust points">
-      <span class="metaPill"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Reply within 24h</span>
-      <span class="metaPill"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Checkout-safe approach</span>
-      <span class="metaPill"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> GA4-measured impact</span>
-    </div>
+          <div class="callout">
+            <div class="calloutTitle">What to include (fast)</div>
+            <ul class="calloutList">
+              <li>Your store URL</li>
+              <li>Main issue (TTFB, CWV, checkout, product templates, tracking)</li>
+              <li>Any deadlines or launch dates</li>
+            </ul>
+            <p class="calloutNote">
+              No phone numbers. No spam. If it’s not a fit, I’ll tell you quickly.
+            </p>
+          </div>
 
-    <div class="callout">
-      <p><strong>What to include (quick):</strong></p>
-      <ul>
-        <li>Your store URL</li>
-        <li>Main issue (TTFB, CWV, checkout, product pages, tracking)</li>
-        <li>Any deadlines or launch dates</li>
-      </ul>
-      <p class="muted" style="margin-top:10px;">
-        No phone numbers. No spam. If it’s not a fit, I’ll tell you quickly.
-      </p>
-    </div>
-
-    <!-- FORM: reuses your Formspree endpoint from Home -->
-    <form id="contactForm" action="https://formspree.io/f/mwvlenpe" method="POST" novalidate>
-      <div class="contactGrid">
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" type="text" name="name" placeholder="Your name" autocomplete="name" required minlength="2" />
+          <div class="microRow" aria-label="Secondary contact options">
+            <a class="microLink" href="mailto:carlleger.dev@gmail.com">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email
+            </a>
+            <a class="microLink" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener">
+              <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+            </a>
+            <a class="microLink" href="https://github.com/CarlLeger" target="_blank" rel="noopener">
+              <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+            </a>
+          </div>
         </div>
 
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" type="email" name="email" placeholder="you@company.com" autocomplete="email" required />
-        </div>
+        <div class="formCard" aria-label="Contact form">
+          <div class="formHeader">
+            <div class="formTitle">Quick intake</div>
+            <div class="formSub">2 minutes. The goal: scope + next steps.</div>
+          </div>
 
-        <div class="field full">
-          <label for="site">Website URL</label>
-          <input id="site" type="url" name="website" placeholder="https://example.com" inputmode="url" required />
-        </div>
+          <form id="contactForm" action="https://formspree.io/f/mwvlenpe" method="POST" novalidate>
+            <div class="grid">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" type="text" name="name" autocomplete="name" required minlength="2" placeholder="Your name" />
+              </div>
 
-        <div class="field">
-          <label for="platform">Platform</label>
-          <select id="platform" name="platform" required>
-            <option value="" selected disabled>Choose one</option>
-            <option>WooCommerce</option>
-            <option>Shopify</option>
-            <option>WordPress (not WooCommerce)</option>
-            <option>GitHub Pages (static)</option>
-            <option>Other</option>
-          </select>
-        </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" autocomplete="email" required placeholder="you@company.com" />
+              </div>
 
-        <div class="field">
-          <label for="budget">Budget range</label>
-          <select id="budget" name="budget" required>
-            <option value="" selected disabled>Choose one</option>
-            <option>Under $1,000</option>
-            <option>$1,000–$3,000</option>
-            <option>$3,000–$7,500</option>
-            <option>$7,500+</option>
-          </select>
-        </div>
+              <div class="field full">
+                <label for="site">Website URL</label>
+                <input id="site" type="url" name="website" inputmode="url" required placeholder="https://example.com" />
+              </div>
 
-        <div class="field full">
-          <label for="message">What’s the main issue?</label>
-          <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, low product template performance, tracking issues, etc." required minlength="20"></textarea>
+              <div class="field">
+                <label for="platform">Platform</label>
+                <select id="platform" name="platform" required>
+                  <option value="" selected disabled>Choose one</option>
+                  <option>WooCommerce</option>
+                  <option>Shopify</option>
+                  <option>WordPress (not WooCommerce)</option>
+                  <option>GitHub Pages (static)</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="budget">Budget range</label>
+                <select id="budget" name="budget" required>
+                  <option value="" selected disabled>Choose one</option>
+                  <option>Under $1,000</option>
+                  <option>$1,000–$3,000</option>
+                  <option>$3,000–$7,500</option>
+                  <option>$7,500+</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="message">What’s the main issue?</label>
+                <textarea id="message" name="message" required minlength="20"
+                  placeholder="Slow checkout, poor CWV, high TTFB, plugin conflicts, low product template performance, tracking issues, etc."></textarea>
+              </div>
+            </div>
+
+            <input type="hidden" name="_subject" value="New lead — CarlLeger.github.io (Contact)" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="source" value="Contact" />
+            <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <div class="actions">
+              <button type="submit" class="btnPrimary">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send request
+              </button>
+              <a class="btnGhost" href="mailto:carlleger.dev@gmail.com">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email instead
+              </a>
+            </div>
+
+            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+
+            <div class="fineprint">
+              Prefer LinkedIn? <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener">Message me there</a>.
+            </div>
+          </form>
         </div>
       </div>
+    </section>
+  </main>
 
-      <input type="hidden" name="_subject" value="New lead — CarlLeger.github.io (Contact)" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="source" value="Contact" />
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-      <div class="ctaRow">
-        <button type="submit" class="btn primary">
-          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send request
-        </button>
-        <a class="btn" href="mailto:carlleger.dev@gmail.com">
-          <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email instead
-        </a>
+  <footer class="siteFooter">
+    <div class="container footerInner">
+      <div class="footerLeft">
+        <span class="footerDot" aria-hidden="true"></span>
+        <span>© <span id="year"></span> Carl Leger • Canada-first</span>
       </div>
+      <a class="footerTop" href="#top">Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+    </div>
+  </footer>
 
-      <p class="muted" style="margin-top:10px;">
-        Prefer LinkedIn? <a href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener">Message me there</a>.
-      </p>
-
-      <div id="formStatus" class="muted" role="status" aria-live="polite" style="margin-top:10px;"></div>
-    </form>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container footerLinks">
-    <a href="/services/">Services</a>
-    <a href="/case-studies/">Case studies</a>
-    <a href="/resources/">Resources</a>
-    <a href="/about/">About</a>
-    <a href="/contact/" aria-current="page">Contact</a>
-  </div>
-</footer>
-
-<!-- Minimal UX: show a success message without breaking Formspree -->
-<script>
-  (function(){
-    const form = document.getElementById("contactForm");
-    const status = document.getElementById("formStatus");
-    if(!form || !status) return;
-
-    form.addEventListener("submit", function(){
-      status.textContent = "Sending…";
-    });
-  })();
-</script>
-
+  <script src="/assets/js/contact.js?v=contact-3" defer></script>
 </body>
 </html>
