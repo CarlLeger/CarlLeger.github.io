@@ -31,14 +31,14 @@
   /* Content card width */
   --max:1020px;
 
-  /* Steam-like container width for HEADER + FOOTER (this is your green-line width) */
+  /* Steam-like container width for HEADER + FOOTER */
   --steam-max:1180px;
 
   /* Common paddings */
   --gutter:22px;
 
   /* Header sizing */
-  --header-h:60px;
+  --header-h:64px;
 }
 
 /* ---------- Reset & Base ---------- */
@@ -110,11 +110,7 @@ a:hover{ text-decoration:underline; }
 
 /* ---------- Sections ---------- */
 section{ padding:26px; }
-
-section h2{
-  margin:0 0 12px;
-  font-size:18px;
-}
+section h2{ margin:0 0 12px; font-size:18px; }
 
 /* ---------- Hero ---------- */
 .hero{ padding:32px 26px 24px; }
@@ -393,8 +389,6 @@ button[type="submit"]{ grid-column:1/-1; }
 
 /* =====================================
    STEAM-LIKE HEADER (full width + inner container)
-   Matches your HTML:
-   <header class="siteHeader"><div class="siteHeader__inner">...
    ===================================== */
 
 .siteHeader{
@@ -417,7 +411,7 @@ button[type="submit"]{ grid-column:1/-1; }
 
 .siteHeader__inner{
   width:100%;
-  max-width:var(--steam-max); /* <- THIS is the Steam-like width */
+  max-width:var(--steam-max);
   margin:0 auto;
   padding:0 var(--gutter);
   display:flex;
@@ -433,15 +427,17 @@ button[type="submit"]{ grid-column:1/-1; }
   gap:12px;
   text-decoration:none;
   min-width:0;
+  flex:0 0 auto;
 }
 
 .brandMark .brandLogo{
-  height:30px;
+  height:46px;        /* bigger logo */
   width:auto;
-  max-width:210px;
+  max-width:360px;    /* allow larger wordmark */
   display:block;
   filter: drop-shadow(0 10px 24px rgba(0,0,0,.35));
   opacity:.95;
+  flex:0 0 auto;
 }
 
 .brandText{
@@ -458,15 +454,20 @@ button[type="submit"]{ grid-column:1/-1; }
 
 @media (max-width: 840px){
   .brandText{ display:none; }
+  .brandMark .brandLogo{
+    height:40px;
+    max-width:280px;
+  }
 }
 
-/* Desktop nav (your HTML uses .siteNav__link / .siteNav__cta) */
+/* Desktop nav */
 .siteNav{
   display:flex;
   align-items:center;
   gap:6px;
   margin-left:8px;
   flex-wrap:nowrap;
+  min-width:0;
 }
 
 .siteNav__link,
@@ -511,6 +512,7 @@ button[type="submit"]{ grid-column:1/-1; }
   display:flex;
   gap:8px;
   align-items:center;
+  flex:0 0 auto;
 }
 
 .siteLocale__link{
@@ -545,7 +547,7 @@ button[type="submit"]{ grid-column:1/-1; }
   border-radius:12px;
   border:1px solid rgba(255,255,255,.12);
   background:rgba(255,255,255,.05);
-  display:none; /* shown on mobile */
+  display:none;
   align-items:center;
   justify-content:center;
   gap:5px;
@@ -567,7 +569,7 @@ button[type="submit"]{ grid-column:1/-1; }
   display:block;
 }
 
-/* Mobile overlay + drawer (your HTML has these) */
+/* Mobile overlay + drawer */
 .navOverlay{
   position:fixed;
   inset:0;
@@ -618,6 +620,7 @@ button[type="submit"]{ grid-column:1/-1; }
   cursor:pointer;
   transition: background .12s ease, border-color .12s ease, transform .12s ease;
 }
+
 .navClose:hover{
   background:rgba(255,255,255,.08);
   border-color:rgba(255,255,255,.18);
@@ -687,6 +690,7 @@ button[type="submit"]{ grid-column:1/-1; }
   text-decoration:none;
   color:rgba(231,236,255,.95);
 }
+
 .navDrawer__lang[aria-current="page"]{
   background:rgba(56,189,248,.12);
   border-color:rgba(56,189,248,.25);
@@ -698,10 +702,16 @@ button[type="submit"]{ grid-column:1/-1; }
   .navToggle{ display:inline-flex; }
 }
 
+@media (max-width: 520px){
+  .brandMark .brandLogo{
+    height:38px;
+    max-width:240px;
+  }
+}
+
 /* =====================================
    FOOTER PRO (premium)
-   Matches: <footer class="footerPro"><div class="footerPro__inner">...
-   And uses the SAME Steam-like width as header.
+   Same width as header: --steam-max
    ===================================== */
 
 .footerPro{
@@ -716,7 +726,7 @@ button[type="submit"]{ grid-column:1/-1; }
 }
 
 .footerPro__inner{
-  max-width:var(--steam-max); /* <- SAME as header width */
+  max-width:var(--steam-max);
   margin:0 auto;
   padding:26px var(--gutter) 18px;
 }
