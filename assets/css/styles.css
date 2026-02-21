@@ -704,3 +704,68 @@ a:hover{ text-decoration: none; }
   object-fit: contain !important; /* critical: prevents cropping */
   max-height: none !important;
 }
+
+/* =========================================================
+   PATCH — Bigger logo (Header + Footer) for new layout
+   Works with:
+   - .brandMark .brandLogo (header)
+   - .footerMarkPro__img + optional horizontal logo in footer
+   ========================================================= */
+
+/* ---------- Header logo bigger ---------- */
+.brandMark{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.brandLogo{
+  /* Bigger, premium, still sharp */
+  width: 280px;
+  height: auto;
+  display:block;
+}
+
+/* Ensure header has enough height so logo doesn't feel squeezed */
+.siteHeader__inner{
+  align-items:center;
+  min-height: 92px;
+}
+
+/* Brand text doesn't wrap weird */
+.brandText{
+  white-space: nowrap;
+  color: rgba(159,179,204,.95);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+/* Responsive: reduce logo size on smaller screens */
+@media (max-width: 900px){
+  .brandLogo{ width: 220px; }
+  .siteHeader__inner{ min-height: 84px; }
+}
+@media (max-width: 520px){
+  .brandLogo{ width: 190px; }
+  .brandText{ display:none; } /* optional: cleaner mobile header */
+}
+
+/* ---------- Footer monogram bigger ---------- */
+.footerMarkPro__img{
+  width: 64px;   /* was ~44px */
+  height: auto;
+  display:block;
+}
+
+/* Footer spacing so bigger logo looks intentional */
+.footerBottom__left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+/* Optional: if you want the footer top area to feel more premium */
+.footerPro__top{
+  padding-top: 28px;
+  padding-bottom: 22px;
+}
