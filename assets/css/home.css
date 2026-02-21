@@ -1253,47 +1253,52 @@ body.nav-open .navDrawer{
 }
 
 @media (max-width: 980px){
-  .footerPro__top{
-    grid-template-columns: 1fr;
-  }
-  .footerCols{
-    grid-template-columns: 1fr;
-  }
+  .footerPro__top{ grid-template-columns: 1fr; }
+  .footerCols{ grid-template-columns: 1fr; }
 }
 
 /* =====================================
-   Contact CTA ring (SAFE VERSION)
-   No mask-composite (more reliable in Chrome)
+   Contact CTA ring (ALWAYS-VISIBLE + SPIN)
+   Works reliably in Chrome (no mask-composite)
    ===================================== */
 
 @keyframes contactRingSpin { to { transform: rotate(360deg); } }
 
 /* Desktop CTA */
 .siteNav__cta{
-  position:relative;      /* force anchor point */
+  position:relative;
   isolation:isolate;
   overflow:hidden;
 }
 
+/* ring layer */
 .siteNav__cta::before{
   content:"";
   position:absolute;
-  inset:-3px;             /* a bit wider so you SEE it */
+  inset:-3px;                 /* a bit wider so you SEE it */
   border-radius:inherit;
 
-  background: conic-gradient(
-    from 0deg,
-    transparent 0%,
-    rgba(199,236,255,.85) 12%,
-    rgba(56,189,248,.38) 22%,
-    transparent 36%,
-    transparent 60%,
-    rgba(199,236,255,.72) 72%,
-    rgba(56,189,248,.28) 82%,
-    transparent 100%
-  );
+  background:
+    /* ✅ base ring always visible */
+    conic-gradient(
+      from 0deg,
+      rgba(199,236,255,.22) 0%,
+      rgba(199,236,255,.22) 100%
+    ),
+    /* ✅ moving highlight */
+    conic-gradient(
+      from 0deg,
+      transparent 0%,
+      rgba(199,236,255,.88) 10%,
+      rgba(56,189,248,.40) 20%,
+      transparent 34%,
+      transparent 58%,
+      rgba(199,236,255,.72) 70%,
+      rgba(56,189,248,.28) 82%,
+      transparent 100%
+    );
 
-  /* ✅ ring cut-out, no composite */
+  /* ✅ cut-out center to make it a ring */
   -webkit-mask: radial-gradient(
     farthest-side,
     transparent calc(100% - 2px),
@@ -1305,14 +1310,15 @@ body.nav-open .navDrawer{
     #000 calc(100% - 2px)
   );
 
-  opacity:.95;
-  filter: blur(.4px);
+  opacity:1;
+  filter: blur(.35px);
   z-index:0;
   pointer-events:none;
   will-change:transform;
   animation: contactRingSpin 2.1s linear infinite;
 }
 
+/* glow behind (kept subtle) */
 .siteNav__cta::after{
   content:"";
   position:absolute;
@@ -1321,15 +1327,17 @@ body.nav-open .navDrawer{
   background:
     radial-gradient(180px 100px at 50% 50%, rgba(199,236,255,.18), transparent 66%),
     radial-gradient(180px 100px at 50% 50%, rgba(56,189,248,.18), transparent 72%);
-  opacity:.65;
+  opacity:.75;
   z-index:-1;
   filter: blur(12px);
   pointer-events:none;
 }
 
+/* ensure label/icon above ring */
 .siteNav__cta > *{ position:relative; z-index:1; }
+
 .siteNav__cta:hover::before{ opacity:1; }
-.siteNav__cta:hover::after{ opacity:.8; }
+.siteNav__cta:hover::after{ opacity:.85; }
 
 @media (prefers-reduced-motion: reduce){
   .siteNav__cta::before{ animation:none; }
@@ -1348,14 +1356,20 @@ body.nav-open .navDrawer{
   inset:-3px;
   border-radius:inherit;
 
-  background: conic-gradient(
-    from 0deg,
-    transparent 0%,
-    rgba(199,236,255,.85) 16%,
-    rgba(56,189,248,.34) 26%,
-    transparent 42%,
-    transparent 100%
-  );
+  background:
+    conic-gradient(
+      from 0deg,
+      rgba(199,236,255,.20) 0%,
+      rgba(199,236,255,.20) 100%
+    ),
+    conic-gradient(
+      from 0deg,
+      transparent 0%,
+      rgba(199,236,255,.88) 14%,
+      rgba(56,189,248,.34) 26%,
+      transparent 42%,
+      transparent 100%
+    );
 
   -webkit-mask: radial-gradient(
     farthest-side,
@@ -1368,8 +1382,8 @@ body.nav-open .navDrawer{
     #000 calc(100% - 2px)
   );
 
-  opacity:.95;
-  filter: blur(.4px);
+  opacity:1;
+  filter: blur(.35px);
   z-index:0;
   pointer-events:none;
   will-change:transform;
