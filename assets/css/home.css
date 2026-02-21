@@ -1,6 +1,7 @@
 /* =====================================
    home.css — CarlLeger.github.io
    Steam-like header + premium footer width aligned
+   UPDATED: hero visual uses new /assets/images/hero/… webp
    ===================================== */
 
 /* ---------- Design Tokens ---------- */
@@ -39,6 +40,9 @@
 
   /* Header sizing */
   --header-h:64px;
+
+  /* Hero image (NEW) */
+  --hero-img:url("/assets/images/hero/woocommerce-performance-ga4-technical-seo-canada-1600x900.webp");
 }
 
 /* ---------- Reset & Base ---------- */
@@ -97,6 +101,7 @@ a:hover{ text-decoration:underline; }
   overflow:hidden;
 }
 
+/* Top glow */
 .card::before{
   content:"";
   position:absolute;
@@ -108,8 +113,43 @@ a:hover{ text-decoration:underline; }
   pointer-events:none;
 }
 
+/* Hero photo layer (NEW) */
+.card::after{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  width:min(520px, 54%);
+  height:320px;
+  background-image:
+    radial-gradient(520px 240px at 20% 20%, rgba(56,189,248,.18), transparent 60%),
+    radial-gradient(520px 240px at 80% 20%, rgba(167,139,250,.14), transparent 60%),
+    var(--hero-img);
+  background-size:cover;
+  background-position: 70% 35%;
+  border-bottom-left-radius: calc(var(--radius-xl) + 2px);
+  opacity:.22;
+  filter:saturate(1.05) contrast(1.05);
+  pointer-events:none;
+
+  /* fade so text stays readable */
+  -webkit-mask-image: linear-gradient(270deg, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(270deg, rgba(0,0,0,1) 45%, rgba(0,0,0,0) 100%);
+}
+
+@media (max-width: 900px){
+  .card::after{
+    width:100%;
+    height:220px;
+    opacity:.18;
+    background-position: 65% 35%;
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(180deg, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+  }
+}
+
 /* ---------- Sections ---------- */
-section{ padding:26px; }
+section{ padding:26px; position:relative; z-index:1; }
 section h2{ margin:0 0 12px; font-size:18px; }
 
 /* ---------- Hero ---------- */
@@ -431,9 +471,9 @@ button[type="submit"]{ grid-column:1/-1; }
 }
 
 .brandMark .brandLogo{
-  height:46px;        /* bigger logo */
+  height:46px;
   width:auto;
-  max-width:360px;    /* allow larger wordmark */
+  max-width:360px;
   display:block;
   filter: drop-shadow(0 10px 24px rgba(0,0,0,.35));
   opacity:.95;
@@ -863,10 +903,10 @@ button[type="submit"]{ grid-column:1/-1; }
 
 .footerBtn--primary:hover{ filter:brightness(1.02); }
 
-/* Link columns */
+/* Link columns (UPDATED: match your HTML = 2 columns) */
 .footerCols{
   display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap:14px;
 }
 
@@ -1005,4 +1045,9 @@ button[type="submit"]{ grid-column:1/-1; }
   border-color:rgba(255,255,255,.16);
   transform: translateY(-1px);
   text-decoration:none;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; scroll-behavior:auto !important; }
 }
