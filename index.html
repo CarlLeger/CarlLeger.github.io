@@ -10,7 +10,7 @@
   <!-- CORE SEO -->
   <meta name="description" content="Canada-first WooCommerce performance engineering: Core Web Vitals, TTFB reduction, checkout reliability, product SEO, and GA4 measurement. Staging-first, rollback-ready, documented implementation." />
   <meta name="author" content="Carl Leger" />
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet=-1,max-video-preview=-1,max-video-preview=-1" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet=-1,max-video-preview:-1" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#0b1220" />
   <meta name="color-scheme" content="dark light" />
@@ -39,18 +39,24 @@
   <meta property="og:url" content="https://carlleger.github.io/" />
   <meta property="og:site_name" content="Carl Leger" />
   <meta property="og:locale" content="en_CA" />
-  <meta property="og:image" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
-  <meta property="og:image:secure_url" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
-  <meta property="og:image:type" content="image/webp" />
+
+  <!-- OG IMAGE (JPG primary + WEBP fallback) -->
+  <meta property="og:image" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.jpg" />
+  <meta property="og:image:secure_url" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="WooCommerce performance engineering and GA4 technical SEO consultant in Canada." />
+
+  <meta property="og:image" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
+  <meta property="og:image:secure_url" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
+  <meta property="og:image:type" content="image/webp" />
 
   <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Carl Leger — WooCommerce Performance Engineering (Canada)" />
   <meta name="twitter:description" content="Core Web Vitals + checkout reliability + technical SEO for WooCommerce. Staging-first, rollback-ready, measured in GA4." />
-  <meta name="twitter:image" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
+  <meta name="twitter:image" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.jpg" />
   <meta name="twitter:image:alt" content="WooCommerce performance engineering and GA4 technical SEO consultant in Canada." />
 
   <!-- FAVICONS (root) -->
@@ -297,13 +303,12 @@
         <span class="brandText">WooCommerce • Performance • SEO</span>
       </a>
 
+      <!-- ✅ MENU DESKTOP = PAGES -->
       <nav class="siteNav siteNav--desktop" aria-label="Primary navigation">
-        <a class="siteNav__link" href="#services">Services</a>
-        <a class="siteNav__link" href="#agency">Agency Partners</a>
-        <a class="siteNav__link" href="#process">Process</a>
-        <a class="siteNav__link" href="#case-studies">Case studies</a>
-        <a class="siteNav__link" href="#faq">FAQ</a>
-        <a class="siteNav__cta" href="#contact">Contact</a>
+        <a class="siteNav__link" href="/services/">Services</a>
+        <a class="siteNav__link" href="/resources/">Resources</a>
+        <a class="siteNav__link" href="/about/">About</a>
+        <a class="siteNav__cta" href="/contact/">Contact</a>
       </nav>
 
       <button class="navToggle" type="button"
@@ -329,13 +334,12 @@
       </button>
     </div>
 
+    <!-- ✅ MENU MOBILE = PAGES -->
     <nav class="navDrawer__links" aria-label="Mobile navigation">
-      <a class="navDrawer__link" href="#services">Services</a>
-      <a class="navDrawer__link" href="#agency">Agency Partners</a>
-      <a class="navDrawer__link" href="#process">Process</a>
-      <a class="navDrawer__link" href="#case-studies">Case studies</a>
-      <a class="navDrawer__link" href="#faq">FAQ</a>
-      <a class="navDrawer__link navDrawer__link--cta" href="#contact">Contact</a>
+      <a class="navDrawer__link" href="/services/">Services</a>
+      <a class="navDrawer__link" href="/resources/">Resources</a>
+      <a class="navDrawer__link" href="/about/">About</a>
+      <a class="navDrawer__link navDrawer__link--cta" href="/contact/">Contact</a>
     </nav>
 
     <div class="navDrawer__meta">
@@ -374,10 +378,12 @@
               </div>
 
               <div class="ctaRow" aria-label="Primary actions">
-                <a class="btn primary" href="#contact" data-preset="Performance audit (recommended): CWV + TTFB + checkout risks + GA4 measurement plan">
+                <!-- ✅ CTA vers page Contact -->
+                <a class="btn primary" href="/contact/" data-preset="Performance audit (recommended): CWV + TTFB + checkout risks + GA4 measurement plan">
                   <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
                 </a>
-                <a class="btn" href="#services">
+                <!-- ✅ CTA vers page Services -->
+                <a class="btn" href="/services/">
                   <i class="fa-solid fa-layer-group" aria-hidden="true"></i> See services
                 </a>
               </div>
@@ -523,7 +529,7 @@
               <p>Repeatable process: baseline → bottlenecks → staged fixes → safe production rollout with measurement validation.</p>
               <p class="micro">Focus: TTFB, CWV, scripts, DB hotspots, checkout reliability.</p>
               <p>
-                <a class="btn" href="#contact" data-preset="Agency partnership: show me examples (anonymized) for WooCommerce performance + checkout-safe caching">
+                <a class="btn" href="/contact/" data-preset="Agency partnership: show me examples (anonymized) for WooCommerce performance + checkout-safe caching">
                   <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Ask for examples
                 </a>
               </p>
@@ -555,7 +561,7 @@
           </div>
         </section>
 
-        <!-- CONTACT -->
+        <!-- CONTACT (tu le gardes sur la home si tu veux) -->
         <section class="contact" id="contact" aria-label="Contact form">
           <h2>Request an audit</h2>
           <p class="contactIntro">
@@ -655,10 +661,10 @@
           <div class="footerCta__note">Clear plan, production-safe changes, measurable impact.</div>
 
           <div class="footerCta__row">
-            <a class="footerBtn footerBtn--primary" href="#contact" data-preset="Performance audit request: please send next steps + required access (staging / GA4 / hosting)">
+            <a class="footerBtn footerBtn--primary" href="/contact/" data-preset="Performance audit request: please send next steps + required access (staging / GA4 / hosting)">
               <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
             </a>
-            <a class="footerBtn" href="#services">
+            <a class="footerBtn" href="/services/">
               <i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services
             </a>
           </div>
@@ -667,11 +673,10 @@
         <div class="footerCols" aria-label="Footer navigation">
           <div class="footerCol">
             <div class="footerCol__title">Pages</div>
-            <a class="footerLink" href="#services">Services</a>
-            <a class="footerLink" href="#agency">Agency Partners</a>
-            <a class="footerLink" href="#process">Process</a>
-            <a class="footerLink" href="#case-studies">Case studies</a>
-            <a class="footerLink" href="#faq">FAQ</a>
+            <a class="footerLink" href="/services/">Services</a>
+            <a class="footerLink" href="/resources/">Resources</a>
+            <a class="footerLink" href="/about/">About</a>
+            <a class="footerLink" href="/contact/">Contact</a>
           </div>
 
           <div class="footerCol">
