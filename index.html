@@ -23,10 +23,14 @@
   <link rel="alternate" hreflang="en-CA" href="https://carlleger.github.io/" />
   <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/" />
 
-  <!-- Preload critical images (CWV) -->
-  <link rel="preload" as="image" href="/assets/images/hero/woocommerce-performance-ga4-technical-seo-canada-1600x900.webp" fetchpriority="high" type="image/webp" />
-  <link rel="preload" as="image" href="/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" type="image/webp" />
-  <link rel="preload" as="image" href="/avatar.png" fetchpriority="high" />
+  <!-- Preload critical image (CWV / likely LCP) -->
+  <link
+    rel="preload"
+    as="image"
+    href="/assets/images/hero/woocommerce-performance-ga4-technical-seo-canada-1600x900.webp"
+    fetchpriority="high"
+    type="image/webp"
+  />
 
   <!-- OPEN GRAPH -->
   <meta property="og:type" content="website" />
@@ -84,7 +88,7 @@
     gtag('config', 'G-3KXQFTWTBD', { send_page_view: true });
   </script>
 
-  <!-- GA4: CTA + form tracking -->
+  <!-- GA4: CTA + form tracking (audit-ready params) -->
   <script>
     function track(eventName, params){
       try{
@@ -94,21 +98,46 @@
       }catch(e){}
     }
 
+    function getSectionLocation(el){
+      const section = el.closest("section[id]");
+      if(section && section.id) return section.id;
+
+      if(el.closest("header")) return "header";
+      if(el.closest("footer")) return "footer";
+      if(el.closest("aside"))  return "drawer";
+      return "body";
+    }
+
     document.addEventListener("click", function(e){
       const a = e.target.closest("a");
       if(!a) return;
 
-      if(a.matches(".btn.primary, .footerBtn--primary, .siteNav__cta, .navDrawer__link--cta")){
-        track("cta_click", { cta: (a.textContent || "").trim(), location: "home" });
-      }
-    });
+      const isCta =
+        a.matches(".btn.primary, .footerBtn--primary, .siteNav__cta, .navDrawer__link--cta") ||
+        a.hasAttribute("data-preset");
+
+      if(!isCta) return;
+
+      const ctaText = (a.textContent || "").trim().replace(/\s+/g, " ").slice(0, 80);
+      const href = a.getAttribute("href") || "";
+      const location = getSectionLocation(a);
+
+      track("cta_click", {
+        cta: ctaText,
+        href: href,
+        location: location
+      });
+    }, { passive:true });
 
     document.addEventListener("submit", function(e){
       const form = e.target;
       if(form && form.id === "contactForm"){
-        track("lead_submit", { form: "home_contact" });
+        track("lead_submit", {
+          form: "home_contact",
+          location: "contact"
+        });
       }
-    });
+    }, { passive:true });
   </script>
 
   <!-- STRUCTURED DATA: PERSON -->
@@ -152,6 +181,7 @@
     "name":"Carl Leger — WooCommerce Performance Engineer (Canada)",
     "isPartOf":{"@id":"https://carlleger.github.io/#website"},
     "about":{"@id":"https://carlleger.github.io/#person"},
+    "mainEntity":{"@id":"https://carlleger.github.io/#service"},
     "inLanguage":"en-CA"
   }
   </script>
@@ -269,7 +299,7 @@
 
       <nav class="siteNav siteNav--desktop" aria-label="Primary navigation">
         <a class="siteNav__link" href="#services">Services</a>
-        <a class="siteNav__link" href="#agency">Agencies</a>
+        <a class="siteNav__link" href="#agency">Agency Partners</a>
         <a class="siteNav__link" href="#process">Process</a>
         <a class="siteNav__link" href="#case-studies">Case studies</a>
         <a class="siteNav__link" href="#faq">FAQ</a>
@@ -301,7 +331,7 @@
 
     <nav class="navDrawer__links" aria-label="Mobile navigation">
       <a class="navDrawer__link" href="#services">Services</a>
-      <a class="navDrawer__link" href="#agency">Agencies</a>
+      <a class="navDrawer__link" href="#agency">Agency Partners</a>
       <a class="navDrawer__link" href="#process">Process</a>
       <a class="navDrawer__link" href="#case-studies">Case studies</a>
       <a class="navDrawer__link" href="#faq">FAQ</a>
@@ -638,7 +668,7 @@
           <div class="footerCol">
             <div class="footerCol__title">Pages</div>
             <a class="footerLink" href="#services">Services</a>
-            <a class="footerLink" href="#agency">Agencies</a>
+            <a class="footerLink" href="#agency">Agency Partners</a>
             <a class="footerLink" href="#process">Process</a>
             <a class="footerLink" href="#case-studies">Case studies</a>
             <a class="footerLink" href="#faq">FAQ</a>
@@ -708,7 +738,7 @@
         var preset = a.getAttribute("data-preset") || "";
         var msg = document.getElementById("message");
         if(msg && preset){
-          msg.value = preset + "\\n\\n" + (msg.value || "");
+          msg.value = preset + "\n\n" + (msg.value || "");
           // move user to contact section and focus message (nice UX)
           setTimeout(function(){ try{ msg.focus({preventScroll:false}); }catch(_e){} }, 120);
         }
