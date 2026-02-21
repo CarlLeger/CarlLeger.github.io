@@ -3,6 +3,7 @@
    Steam-like header + premium footer width aligned
    UPDATED: hero visual uses new /assets/images/hero/… webp
    UPDATED: premium button glow system (CTA/nav/footer)
+   UPDATED: drawer animation merged safely (no duplicate .navOverlay/.navDrawer blocks that overwrite layout)
    ===================================== */
 
 /* ---------- Design Tokens ---------- */
@@ -727,7 +728,7 @@ button[type="submit"]{ grid-column:1/-1; }
   display:block;
 }
 
-/* Mobile overlay + drawer */
+/* Mobile overlay + drawer (layout + animation merged) */
 .navOverlay{
   position:fixed;
   inset:0;
@@ -735,7 +736,13 @@ button[type="submit"]{ grid-column:1/-1; }
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   z-index:1100;
+
+  /* animation */
+  opacity:0;
+  transition: opacity .22s ease;
+  will-change: opacity;
 }
+body.nav-open .navOverlay{ opacity:1; }
 
 .navDrawer{
   position:fixed;
@@ -751,6 +758,20 @@ button[type="submit"]{ grid-column:1/-1; }
   box-shadow: -30px 0 80px rgba(0,0,0,.55);
   z-index:1200;
   padding:16px;
+
+  /* animation */
+  transform: translateX(14px);
+  opacity:0;
+  transition: transform .22s ease, opacity .22s ease;
+  will-change: transform, opacity;
+}
+.navDrawer.is-open{
+  transform: translateX(0);
+  opacity:1;
+}
+/* optional: slightly richer shadow while open */
+body.nav-open .navDrawer{
+  box-shadow: -34px 0 90px rgba(0,0,0,.62);
 }
 
 .navDrawer__top{
