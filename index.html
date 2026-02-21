@@ -10,7 +10,7 @@
   <!-- CORE SEO -->
   <meta name="description" content="Canada-first WooCommerce performance engineering: Core Web Vitals, TTFB reduction, checkout reliability, product SEO, and GA4 measurement. Staging-first, rollback-ready, documented implementation." />
   <meta name="author" content="Carl Leger" />
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet=-1,max-video-preview:-1" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet=-1,max-video-preview=-1,max-video-preview=-1" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#0b1220" />
   <meta name="color-scheme" content="dark light" />
@@ -140,9 +140,142 @@
     }, { passive:true });
   </script>
 
-  <!-- STRUCTURED DATA blocks unchanged... -->
-  <!-- (je laisse tes JSON-LD tels quels) -->
-  <!-- ... -->
+  <!-- STRUCTURED DATA: PERSON -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "@id":"https://carlleger.github.io/#person",
+    "name":"Carl Leger",
+    "jobTitle":"WooCommerce Performance Engineer & Technical SEO Consultant",
+    "url":"https://carlleger.github.io/",
+    "image":"https://carlleger.github.io/avatar.png",
+    "sameAs":[
+      "https://www.linkedin.com/in/carlleger/",
+      "https://github.com/CarlLeger",
+      "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
+    ]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA: WEBSITE -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "@id":"https://carlleger.github.io/#website",
+    "name":"Carl Leger",
+    "url":"https://carlleger.github.io/",
+    "publisher": { "@id":"https://carlleger.github.io/#person" },
+    "inLanguage":["en-CA"]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA: WEBPAGE -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "@id":"https://carlleger.github.io/#webpage",
+    "url":"https://carlleger.github.io/",
+    "name":"Carl Leger — WooCommerce Performance Engineer (Canada)",
+    "isPartOf":{"@id":"https://carlleger.github.io/#website"},
+    "about":{"@id":"https://carlleger.github.io/#person"},
+    "mainEntity":{"@id":"https://carlleger.github.io/#service"},
+    "inLanguage":"en-CA"
+  }
+  </script>
+
+  <!-- STRUCTURED DATA: PROFESSIONAL SERVICE -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "@id":"https://carlleger.github.io/#service",
+    "name":"Carl Leger — WooCommerce Performance Engineering & Technical SEO (Canada)",
+    "url":"https://carlleger.github.io/",
+    "provider": { "@id":"https://carlleger.github.io/#person" },
+    "areaServed":["Canada"],
+    "availableLanguage":["en-CA"],
+    "serviceType":[
+      "WooCommerce performance engineering",
+      "Checkout reliability & caching boundaries",
+      "Technical SEO implementation",
+      "GA4 measurement planning"
+    ],
+    "description":"Canada-first WooCommerce performance engineering: Core Web Vitals, TTFB reduction, checkout reliability, product page SEO, and GA4 measurement. Staging-first changes with rollback plans and documented implementation that agencies can ship confidently.",
+    "knowsAbout":[
+      "WooCommerce performance",
+      "Checkout optimization",
+      "Core Web Vitals",
+      "TTFB",
+      "INP",
+      "LCP",
+      "Technical SEO",
+      "Product template optimization",
+      "GA4 measurement",
+      "Cloudflare caching",
+      "WordPress performance",
+      "Static site performance"
+    ],
+    "contactPoint":[
+      {
+        "@type":"ContactPoint",
+        "contactType":"sales",
+        "email":"carlleger.dev@gmail.com",
+        "availableLanguage":["en-CA"]
+      }
+    ],
+    "sameAs":[
+      "https://www.linkedin.com/in/carlleger/",
+      "https://github.com/CarlLeger",
+      "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
+    ]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "@id":"https://carlleger.github.io/#faq",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"What’s the fastest way to improve WooCommerce speed without breaking checkout?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Start with a checkout-safe audit focused on TTFB and Core Web Vitals, then ship staged, rollback-ready fixes. The key is correct caching boundaries for cart/checkout, and verifying changes with a measurement plan in GA4."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Do performance changes break checkout or personalization?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"They can if caching boundaries are wrong. A safe approach isolates cart/checkout, validates fragments, tests critical paths in staging, and deploys with a rollback plan."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can you optimize product pages for SEO and conversion?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Product template work includes technical SEO fundamentals (titles/meta, internal links, structured data where relevant, image strategy) plus performance and UX improvements that support conversion."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Do you work with agencies?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. I can work white-label or as a technical partner: documented changes, clear tickets, QA notes, and staged deployments that your team can approve confidently."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -161,16 +294,16 @@
           loading="eager"
           class="brandLogo"
         />
-        <!-- ✅ Plus clean: on retire le tagline du header -->
-        <!-- <span class="brandText">WooCommerce • Performance • SEO</span> -->
+        <span class="brandText">WooCommerce • Performance • SEO</span>
       </a>
 
-      <!-- ✅ MENU DESKTOP = pages -->
       <nav class="siteNav siteNav--desktop" aria-label="Primary navigation">
-        <a class="siteNav__link" href="/services/">Services</a>
-        <a class="siteNav__link" href="/resources/">Resources</a>
-        <a class="siteNav__link" href="/about/">About</a>
-        <a class="siteNav__cta" href="/contact/">Contact</a>
+        <a class="siteNav__link" href="#services">Services</a>
+        <a class="siteNav__link" href="#agency">Agency Partners</a>
+        <a class="siteNav__link" href="#process">Process</a>
+        <a class="siteNav__link" href="#case-studies">Case studies</a>
+        <a class="siteNav__link" href="#faq">FAQ</a>
+        <a class="siteNav__cta" href="#contact">Contact</a>
       </nav>
 
       <button class="navToggle" type="button"
@@ -196,12 +329,13 @@
       </button>
     </div>
 
-    <!-- ✅ MENU MOBILE = pages -->
     <nav class="navDrawer__links" aria-label="Mobile navigation">
-      <a class="navDrawer__link" href="/services/">Services</a>
-      <a class="navDrawer__link" href="/resources/">Resources</a>
-      <a class="navDrawer__link" href="/about/">About</a>
-      <a class="navDrawer__link navDrawer__link--cta" href="/contact/">Contact</a>
+      <a class="navDrawer__link" href="#services">Services</a>
+      <a class="navDrawer__link" href="#agency">Agency Partners</a>
+      <a class="navDrawer__link" href="#process">Process</a>
+      <a class="navDrawer__link" href="#case-studies">Case studies</a>
+      <a class="navDrawer__link" href="#faq">FAQ</a>
+      <a class="navDrawer__link navDrawer__link--cta" href="#contact">Contact</a>
     </nav>
 
     <div class="navDrawer__meta">
@@ -215,27 +349,329 @@
   <!-- CENTER CONTENT -->
   <div class="wrap">
     <div class="card">
+
       <main id="main">
-        <!-- ton contenu landing (sections #services, etc.) peut rester -->
-        <!-- MAIS: si tu passes en pages, idéalement tu gardes Home short + CTA -->
-        <!-- ... -->
+        <!-- HERO -->
+        <section class="hero" aria-label="Intro">
+          <div class="heroGrid">
+            <div class="heroContent">
+              <h1 class="title">Carl Leger</h1>
+
+              <p class="subtitle">
+                WooCommerce performance engineering + technical SEO, built for <strong>checkout safety</strong> and <strong>measurable results</strong> in Canada.
+              </p>
+
+              <p class="leadline">
+                I help revenue-focused stores reduce Core Web Vitals friction, cut server + front-end bottlenecks,
+                and stabilize checkout with staging-first deployments, rollback plans, and GA4 measurement that proves what changed.
+              </p>
+
+              <div class="heroProof" aria-label="Trust points">
+                <span class="proofPill"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Checkout-safe boundaries</span>
+                <span class="proofPill"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Staging + rollback</span>
+                <span class="proofPill"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> GA4-verified impact</span>
+                <span class="proofPill"><i class="fa-solid fa-bolt" aria-hidden="true"></i> CWV + TTFB focus</span>
+              </div>
+
+              <div class="ctaRow" aria-label="Primary actions">
+                <a class="btn primary" href="#contact" data-preset="Performance audit (recommended): CWV + TTFB + checkout risks + GA4 measurement plan">
+                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
+                </a>
+                <a class="btn" href="#services">
+                  <i class="fa-solid fa-layer-group" aria-hidden="true"></i> See services
+                </a>
+              </div>
+
+              <p class="micro">
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                I reply within 24 hours with a short plan and next steps.
+              </p>
+            </div>
+
+            <aside class="heroCard" aria-label="What you get">
+              <div class="heroCard__title">What you get (audit)</div>
+              <ul class="heroCard__list">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> CWV + TTFB baseline + bottleneck map</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Checkout risk checklist (cache boundaries)</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Prioritized plan (quick wins → big wins)</li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Measurement plan (GA4 events + KPIs)</li>
+              </ul>
+              <div class="heroCard__meta">
+                <span class="metaPill"><i class="fa-solid fa-clock" aria-hidden="true"></i> Typical: 3–7 days</span>
+                <span class="metaPill"><i class="fa-solid fa-map-pin" aria-hidden="true"></i> Canada-first</span>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="services" id="services" aria-label="Services">
+          <h2>Services</h2>
+          <p class="servicesIntro">
+            Pick the fastest path: start with an audit, then ship fixes safely. Every change is documented, measured, and checkout-aware.
+          </p>
+
+          <div class="servicesGrid">
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Performance Audit (Best start)</h3>
+              <p>TTFB + Core Web Vitals baseline, bottlenecks, script payload review, and a prioritized roadmap that protects checkout.</p>
+            </article>
+
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout Reliability</h3>
+              <p>Checkout-safe caching boundaries, fragment strategy, conflict isolation, and staged rollouts with rollback-ready deployment.</p>
+            </article>
+
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-tags" aria-hidden="true"></i> Product Page SEO + Speed</h3>
+              <p>Template performance + technical SEO: internal links, structured data where relevant, image strategy, and conversion-aware UX fixes.</p>
+            </article>
+
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-chart-simple" aria-hidden="true"></i> GA4 Measurement Setup</h3>
+              <p>Clean event plan and QA: add_to_cart, begin_checkout, purchase funnel drop-offs, and impact validation post-deploy.</p>
+            </article>
+          </div>
+
+          <div class="servicesNote">
+            If you want “no surprises” in production: audit first, then staged implementation.
+          </div>
+        </section>
+
+        <!-- AGENCY MODE -->
+        <section class="services" id="agency" aria-label="Agency partnership">
+          <h2>For agencies: ship faster without checkout risk</h2>
+          <p class="servicesIntro">
+            If you’re an agency, you don’t need vibes. You need a technical partner who delivers clean, reviewable work your team can ship confidently.
+          </p>
+
+          <div class="servicesGrid">
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-ticket" aria-hidden="true"></i> Clean tickets + PR-ready changes</h3>
+              <p>Every fix comes with a short summary, what changed, why it changed, and how to validate it. No mystery edits.</p>
+            </article>
+
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Checkout boundaries, explicitly defined</h3>
+              <p>Cart/checkout remain dynamic. Everything else gets faster. No accidental caching of sessions, fragments, or personalization.</p>
+            </article>
+
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> QA notes that your PMs love</h3>
+              <p>Staging checklist, critical paths, and “what to test” steps. Your team knows exactly what success looks like.</p>
+            </article>
+
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Measured outcomes</h3>
+              <p>GA4 measurement plan and post-deploy validation so your client sees impact in a way that’s hard to argue with.</p>
+            </article>
+          </div>
+
+          <div class="servicesNote">
+            If you want a white-label “performance engineer” who makes your agency look unstoppable: use the contact form and tell me your stack.
+          </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section class="process" id="process" aria-label="Process">
+          <h2>How I work</h2>
+          <p class="servicesIntro">
+            A production-safe system: baseline → bottlenecks → staging fixes → measured deploy.
+          </p>
+
+          <div class="servicesGrid">
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> 1) Audit & measurement</h3>
+              <p>Baseline CWV/TTFB, identify bottlenecks, verify tracking, and isolate checkout risks.</p>
+            </article>
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-list-check" aria-hidden="true"></i> 2) Prioritized plan</h3>
+              <p>Quick wins + high-impact fixes, ordered for safe rollouts and measurable results.</p>
+            </article>
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-code-branch" aria-hidden="true"></i> 3) Staging implementation</h3>
+              <p>Apply fixes in staging, validate checkout, confirm caching boundaries, and prep rollback.</p>
+            </article>
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-rocket" aria-hidden="true"></i> 4) Production deploy</h3>
+              <p>Ship changes safely, monitor impact, and iterate with confidence.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- CASE STUDIES -->
+        <section class="caseStudies" id="case-studies" aria-label="Case studies">
+          <h2>Case studies</h2>
+          <p class="servicesIntro">
+            Practical examples of performance + SEO structure + measurement work (no fluff).
+          </p>
+
+          <div class="servicesGrid">
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> HomeEspressoLab</h3>
+              <p>SEO-first content site built for Canada-focused intent with performance-friendly templates and tracking-ready structure.</p>
+              <p class="micro">Deliverables: fast page templates, CWV-friendly assets, measurement scaffolding.</p>
+              <p>
+                <a class="btn" href="https://github.com/CarlLeger" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i> View work
+                </a>
+              </p>
+            </article>
+
+            <article class="serviceCard">
+              <h3><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> WooCommerce audit-to-deploy workflow</h3>
+              <p>Repeatable process: baseline → bottlenecks → staged fixes → safe production rollout with measurement validation.</p>
+              <p class="micro">Focus: TTFB, CWV, scripts, DB hotspots, checkout reliability.</p>
+              <p>
+                <a class="btn" href="#contact" data-preset="Agency partnership: show me examples (anonymized) for WooCommerce performance + checkout-safe caching">
+                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Ask for examples
+                </a>
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq" id="faq" aria-label="FAQ">
+          <h2>FAQ</h2>
+
+          <div class="servicesGrid">
+            <article class="serviceCard">
+              <h3>What do you fix most often?</h3>
+              <p>High TTFB, poor CWV, slow cart/checkout, heavy scripts, plugin conflicts, and underperforming product templates.</p>
+            </article>
+            <article class="serviceCard">
+              <h3>Can you help with SEO + conversion?</h3>
+              <p>Yes. Technical SEO + UX + speed improvements that support rankings and revenue, validated with GA4.</p>
+            </article>
+            <article class="serviceCard">
+              <h3>Do you work with agencies?</h3>
+              <p>Yes. White-label or direct. Documented changes, clear QA notes, staging proof, and rollout safety.</p>
+            </article>
+            <article class="serviceCard">
+              <h3>How fast do you reply?</h3>
+              <p>Within 24 hours. If it’s not a fit, I’ll tell you quickly (no endless loops).</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact" id="contact" aria-label="Contact form">
+          <h2>Request an audit</h2>
+          <p class="contactIntro">
+            Tell me what’s slowing your store down. I’ll reply within 24 hours with clear next steps.
+          </p>
+
+          <form id="contactForm" action="https://formspree.io/f/mwvlenpe" method="POST" novalidate>
+            <div class="field">
+              <label class="sr-only" for="name">Name</label>
+              <input id="name" type="text" name="name" placeholder="Your name" autocomplete="name" required minlength="2" />
+            </div>
+
+            <div class="field">
+              <label class="sr-only" for="email">Email</label>
+              <input id="email" type="email" name="email" placeholder="you@company.com" autocomplete="email" required />
+            </div>
+
+            <div class="field full">
+              <label class="sr-only" for="site">Website URL</label>
+              <input id="site" type="url" name="website" placeholder="https://example.com" inputmode="url" required />
+            </div>
+
+            <div class="field">
+              <label class="sr-only" for="platform">Platform</label>
+              <select id="platform" name="platform" required>
+                <option value="" selected disabled>Platform</option>
+                <option>WooCommerce</option>
+                <option>Shopify</option>
+                <option>WordPress (not WooCommerce)</option>
+                <option>GitHub Pages (static)</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="sr-only" for="budget">Budget range</label>
+              <select id="budget" name="budget" required>
+                <option value="" selected disabled>Budget range</option>
+                <option>Under $1,000</option>
+                <option>$1,000–$3,000</option>
+                <option>$3,000–$7,500</option>
+                <option>$7,500+</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label class="sr-only" for="message">What’s the main issue?</label>
+              <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, tracking issues, need a safe rollout plan, etc." required minlength="20"></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="New lead — CarlLeger.github.io (Home)" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="source" value="Home" />
+            <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <button type="submit" class="btn primary">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send request
+            </button>
+
+            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+          </form>
+        </section>
       </main>
+
     </div>
   </div>
 
-  <!-- FOOTER PRO -->
+  <!-- FOOTER PRO (PREMIUM) -->
   <footer class="footerPro" aria-label="Footer">
     <div class="footerPro__inner">
+
       <div class="footerPro__top">
-        <!-- ... ton bloc brand + CTA inchangé ... -->
+        <div class="footerBrand">
+          <img
+            class="footerBrand__avatar"
+            src="/avatar.png"
+            alt="Carl Leger"
+            width="64"
+            height="64"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="footerBrand__meta">
+            <div class="footerBrand__name">Carl Leger</div>
+            <div class="footerBrand__tag">WooCommerce • Performance • Technical SEO (Canada)</div>
+
+            <div class="footerBadges" aria-label="Trust points">
+              <span class="footerBadge"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Checkout-safe</span>
+              <span class="footerBadge"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> GA4-measured</span>
+              <span class="footerBadge"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Staging + rollback</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footerCta">
+          <div class="footerCta__title">Ready to speed up your store?</div>
+          <div class="footerCta__note">Clear plan, production-safe changes, measurable impact.</div>
+
+          <div class="footerCta__row">
+            <a class="footerBtn footerBtn--primary" href="#contact" data-preset="Performance audit request: please send next steps + required access (staging / GA4 / hosting)">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
+            </a>
+            <a class="footerBtn" href="#services">
+              <i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services
+            </a>
+          </div>
+        </div>
 
         <div class="footerCols" aria-label="Footer navigation">
           <div class="footerCol">
             <div class="footerCol__title">Pages</div>
-            <a class="footerLink" href="/services/">Services</a>
-            <a class="footerLink" href="/resources/">Resources</a>
-            <a class="footerLink" href="/about/">About</a>
-            <a class="footerLink" href="/contact/">Contact</a>
+            <a class="footerLink" href="#services">Services</a>
+            <a class="footerLink" href="#agency">Agency Partners</a>
+            <a class="footerLink" href="#process">Process</a>
+            <a class="footerLink" href="#case-studies">Case studies</a>
+            <a class="footerLink" href="#faq">FAQ</a>
           </div>
 
           <div class="footerCol">
@@ -269,6 +705,7 @@
               class="footerMarkPro__img"
             />
           </a>
+
           <div class="footerCopyPro">
             © <span id="year"></span> Carl Leger • Canada-first
           </div>
@@ -280,16 +717,20 @@
           </a>
         </div>
       </div>
+
     </div>
   </footer>
 
   <script src="/assets/js/home.js?v=steam-enca-3" defer></script>
 
+  <!-- Tiny enhancements: year + preset-to-message -->
   <script>
     (function(){
+      // Year
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
 
+      // Preset fill for message (click CTA with data-preset)
       document.addEventListener("click", function(e){
         var a = e.target.closest("[data-preset]");
         if(!a) return;
