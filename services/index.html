@@ -21,8 +21,11 @@
   <link rel="alternate" hreflang="en-CA" href="https://carlleger.github.io/services/" />
   <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/services/" />
 
-  <!-- Preload OG image (optional but helps perceived performance) -->
-  <link rel="preload" as="image" href="/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.jpg" fetchpriority="low" />
+  <!-- ✅ Preload OG image (WebP) -->
+  <link rel="preload" as="image"
+        href="/assets/images/og/carl-leger-services-woocommerce-performance-ga4-technical-seo-canada-1200x630.webp"
+        fetchpriority="low"
+        type="image/webp" />
 
   <!-- OPEN GRAPH -->
   <meta property="og:type" content="website" />
@@ -31,9 +34,11 @@
   <meta property="og:url" content="https://carlleger.github.io/services/" />
   <meta property="og:site_name" content="Carl Leger" />
   <meta property="og:locale" content="en_CA" />
-  <meta property="og:image" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.jpg" />
-  <meta property="og:image:secure_url" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.jpg" />
-  <meta property="og:image:type" content="image/jpeg" />
+
+  <!-- ✅ OG IMAGE (WebP) -->
+  <meta property="og:image" content="https://carlleger.github.io/assets/images/og/carl-leger-services-woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
+  <meta property="og:image:secure_url" content="https://carlleger.github.io/assets/images/og/carl-leger-services-woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
+  <meta property="og:image:type" content="image/webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Carl Leger services: WooCommerce performance engineering and technical SEO in Canada." />
@@ -42,7 +47,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="WooCommerce Performance Services (Canada) — Carl Leger" />
   <meta name="twitter:description" content="CWV + TTFB, checkout reliability, GA4 measurement, staging-first rollouts. Canada-first." />
-  <meta name="twitter:image" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.jpg" />
+  <meta name="twitter:image" content="https://carlleger.github.io/assets/images/og/carl-leger-services-woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
   <meta name="twitter:image:alt" content="Carl Leger services: WooCommerce performance engineering and technical SEO in Canada." />
 
   <!-- Performance: preconnect -->
@@ -81,6 +86,165 @@
   <link rel="stylesheet" href="/assets/css/home.css?v=steam-enca-3" />
   <!-- ✅ Services page CSS (page-scoped, no conflicts) -->
   <link rel="stylesheet" href="/assets/css/services.css?v=1" />
+
+  <!-- STRUCTURED DATA: Person -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "@id":"https://carlleger.github.io/#person",
+    "name":"Carl Leger",
+    "jobTitle":"WooCommerce Performance Engineer & Technical SEO Consultant",
+    "url":"https://carlleger.github.io/",
+    "image":"https://carlleger.github.io/avatar.png",
+    "sameAs":[
+      "https://www.linkedin.com/in/carlleger/",
+      "https://github.com/CarlLeger",
+      "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
+    ]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "@id":"https://carlleger.github.io/#website",
+    "name":"Carl Leger",
+    "url":"https://carlleger.github.io/",
+    "publisher": { "@id":"https://carlleger.github.io/#person" },
+    "inLanguage":["en-CA"]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "@id":"https://carlleger.github.io/services/#webpage",
+    "url":"https://carlleger.github.io/services/",
+    "name":"WooCommerce Performance & Technical SEO Services in Canada | Carl Leger",
+    "description":"Canada-first services: WooCommerce performance audits, Core Web Vitals + TTFB fixes, checkout reliability, GA4 measurement, local business websites, and ecommerce/affiliate builds. Staging-first, rollback-ready, documented.",
+    "isPartOf": { "@id":"https://carlleger.github.io/#website" },
+    "about": { "@id":"https://carlleger.github.io/#person" },
+    "inLanguage":"en-CA",
+    "primaryImageOfPage":{
+      "@type":"ImageObject",
+      "url":"https://carlleger.github.io/assets/images/og/carl-leger-services-woocommerce-performance-ga4-technical-seo-canada-1200x630.webp",
+      "width":1200,
+      "height":630
+    }
+  }
+  </script>
+
+  <!-- STRUCTURED DATA: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "@id":"https://carlleger.github.io/services/#breadcrumbs",
+    "itemListElement":[
+      { "@type":"ListItem", "position":1, "name":"Home", "item":"https://carlleger.github.io/" },
+      { "@type":"ListItem", "position":2, "name":"Services", "item":"https://carlleger.github.io/services/" }
+    ]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA: ProfessionalService -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "@id":"https://carlleger.github.io/services/#service",
+    "name":"Carl Leger — Services (Canada)",
+    "url":"https://carlleger.github.io/services/",
+    "provider": { "@id":"https://carlleger.github.io/#person" },
+    "areaServed":["Canada"],
+    "availableLanguage":["en-CA"],
+    "serviceType":[
+      "WooCommerce performance audit",
+      "Core Web Vitals and TTFB optimization",
+      "Checkout reliability and caching boundaries",
+      "GA4 measurement planning",
+      "Local business website creation",
+      "Ecommerce store setup",
+      "Affiliate site setup"
+    ],
+    "description":"Canada-first services for WooCommerce performance engineering and technical SEO: staging-first work, rollback-ready changes, and GA4-measured impact."
+  }
+  </script>
+
+  <!-- STRUCTURED DATA: ItemList of Services -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "@id":"https://carlleger.github.io/services/#servicelist",
+    "name":"Services",
+    "itemListElement":[
+      { "@type":"ListItem", "position":1, "name":"WooCommerce Performance Audit", "url":"https://carlleger.github.io/services/performance-audit/" },
+      { "@type":"ListItem", "position":2, "name":"WooCommerce Checkout Speed Fix", "url":"https://carlleger.github.io/services/checkout-speed-fix/" },
+      { "@type":"ListItem", "position":3, "name":"WooCommerce Optimization", "url":"https://carlleger.github.io/services/woocommerce-optimization/" },
+      { "@type":"ListItem", "position":4, "name":"Core Web Vitals Sprint (Add-on)", "url":"https://carlleger.github.io/services/#svc-cwv" },
+      { "@type":"ListItem", "position":5, "name":"Local Business Website (Fast launch)", "url":"https://carlleger.github.io/services/#svc-local" },
+      { "@type":"ListItem", "position":6, "name":"Ecommerce Store Build (WooCommerce)", "url":"https://carlleger.github.io/services/#svc-ecom-build" },
+      { "@type":"ListItem", "position":7, "name":"Affiliate / Dropshipping Site Setup (Performance-first)", "url":"https://carlleger.github.io/services/#svc-growth" }
+    ]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "@id":"https://carlleger.github.io/services/#faq",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Which service should I start with?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"If you’re unsure, start with the WooCommerce Performance Audit. It maps bottlenecks and gives a prioritized plan. If checkout is the main problem, choose Checkout Speed Fix. If you already know what needs to be done, choose Optimization."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Are fixes safe for cart, checkout, sessions, and personalization?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Work is designed to be WooCommerce-safe: correct caching boundaries, validation steps, staging-first changes when possible, and rollback-ready deployments."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Do you work with agencies or in-house dev teams?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. I can deliver an actionable plan for your team to implement, or implement changes directly with clear documentation, QA notes, and measured outcomes."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can you build a local business website focused on visibility?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Local websites include clear service positioning, trust elements, local SEO structure, fast pages, and lead tracking (calls/forms) so you can measure results."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can you help with ecommerce or affiliate site foundations?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. I build performance-first foundations with clean templates, SEO structure, and analytics so affiliate clicks or ecommerce funnels can be measured and improved over time."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="page-services">
@@ -149,7 +313,7 @@
     <div class="card">
 
       <main id="main">
-        <!-- HERO: stronger topical relevance (Canada + WooCommerce + outcomes) -->
+        <!-- HERO -->
         <header class="hero">
           <p class="kicker">
             <i class="fa-solid fa-circle-check" style="color: var(--success, #22c55e);" aria-hidden="true"></i>
@@ -176,7 +340,6 @@
             </a>
           </div>
 
-          <!-- Quick topical navigation -->
           <nav class="toc" aria-label="Service topics">
             <a href="#ecommerce"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> WooCommerce</a>
             <a href="#local"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Local business</a>
@@ -187,211 +350,172 @@
 
         <!-- SERVICES GRID -->
         <section id="services-list" class="sr-only" aria-hidden="true">Services list</section>
-
-        <!-- Ecommerce-focused services -->
         <section id="ecommerce" class="sr-only" aria-hidden="true">WooCommerce services</section>
 
         <div class="grid" aria-label="Services list">
 
-          <!-- Service 1 -->
           <section class="service" id="svc-audit" aria-labelledby="svc-audit-title">
             <h2 id="svc-audit-title"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> WooCommerce Performance Audit</h2>
             <p>
               Deep audit focused on Core Web Vitals, TTFB, checkout risks, caching boundaries, and bottleneck mapping.
               You get a prioritized plan (quick wins → high-impact fixes) with validation steps.
             </p>
-
             <div class="bestFor">
               <b>Best for:</b> you want a clear roadmap before touching production, or you’re not sure what’s causing the slowdown.
             </div>
-
             <div class="mini" aria-label="Topics">
               <span class="tag"><i class="fa-solid fa-stopwatch" aria-hidden="true"></i> TTFB</span>
               <span class="tag"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> CWV</span>
               <span class="tag"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout</span>
               <span class="tag"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Cache safety</span>
             </div>
-
             <div class="ctaRow" style="margin-top:14px;">
               <a class="btn primary" href="/services/performance-audit/">
                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View service page
               </a>
-              <a class="btn"
-                 href="/contact/?preset=Performance%20Audit%20request%3A%0AStore%20URL%3A%20%0AHosting%2FCDN%3A%20%0ATop%203%20issues%3A%20%0A">
+              <a class="btn" href="/contact/?preset=Performance%20Audit%20request%3A%0AStore%20URL%3A%20%0AHosting%2FCDN%3A%20%0ATop%203%20issues%3A%20%0A">
                 <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this
               </a>
             </div>
           </section>
 
-          <!-- Service 2 -->
           <section class="service" id="svc-checkout" aria-labelledby="svc-checkout-title">
             <h2 id="svc-checkout-title"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> WooCommerce Checkout Speed Fix</h2>
             <p>
               Focused help for slow checkout: fragments, gateway scripts, session/cart logic, DB hotspots, and cache boundaries.
               Measurable improvements without breaking payments.
             </p>
-
             <div class="bestFor">
               <b>Best for:</b> checkout loads slow, freezes on submit, payment scripts are heavy, or cart/session logic is unstable.
             </div>
-
             <div class="mini" aria-label="Topics">
               <span class="tag"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Checkout speed</span>
               <span class="tag"><i class="fa-solid fa-credit-card" aria-hidden="true"></i> Payment safety</span>
               <span class="tag"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Rollback-ready</span>
               <span class="tag"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Production safe</span>
             </div>
-
             <div class="ctaRow" style="margin-top:14px;">
               <a class="btn primary" href="/services/checkout-speed-fix/">
                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View service page
               </a>
-              <a class="btn"
-                 href="/contact/?preset=Checkout%20Speed%20Fix%20request%3A%0AStore%20URL%3A%20%0APayment%20gateway(s)%3A%20%0AWhat%20breaks%20or%20is%20slow%3A%20%0A">
+              <a class="btn" href="/contact/?preset=Checkout%20Speed%20Fix%20request%3A%0AStore%20URL%3A%20%0APayment%20gateway(s)%3A%20%0AWhat%20breaks%20or%20is%20slow%3A%20%0A">
                 <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this
               </a>
             </div>
           </section>
 
-          <!-- Service 3 -->
           <section class="service" id="svc-opt" aria-labelledby="svc-opt-title">
             <h2 id="svc-opt-title"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> WooCommerce Optimization</h2>
             <p>
               Implementation work to improve real-world speed: reduce TTFB, stabilize Core Web Vitals, optimize checkout,
               fix plugin conflicts, and harden caching rules (Cloudflare/server) without breaking cart or sessions.
             </p>
-
             <div class="bestFor">
               <b>Best for:</b> you already know what needs to change and want it implemented safely with validation + rollback.
             </div>
-
             <div class="mini" aria-label="Topics">
               <span class="tag"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Speed fixes</span>
               <span class="tag"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Production safe</span>
               <span class="tag"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Rollback plan</span>
               <span class="tag"><i class="fa-solid fa-cookie-bite" aria-hidden="true"></i> Session safety</span>
             </div>
-
             <div class="ctaRow" style="margin-top:14px;">
               <a class="btn primary" href="/services/woocommerce-optimization/">
                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View service page
               </a>
-              <a class="btn"
-                 href="/contact/?preset=Optimization%20request%3A%0AStore%20URL%3A%20%0AWhat%20to%20implement%3A%20%0ADeadline%3A%20%0A">
+              <a class="btn" href="/contact/?preset=Optimization%20request%3A%0AStore%20URL%3A%20%0AWhat%20to%20implement%3A%20%0ADeadline%3A%20%0A">
                 <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this
               </a>
             </div>
           </section>
 
-          <!-- Add-on -->
           <section class="service" id="svc-cwv" aria-labelledby="svc-cwv-title">
             <h2 id="svc-cwv-title"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Core Web Vitals Sprint (Add-on)</h2>
             <p>
               A tight sprint targeting LCP/INP/CLS: images/fonts, render-blocking CSS, JS long tasks, and third-party tag cleanup.
               Built for fast, visible wins.
             </p>
-
             <div class="bestFor">
               <b>Best for:</b> you need quick CWV improvements after an audit or alongside optimization.
             </div>
-
             <div class="mini" aria-label="Topics">
               <span class="tag"><i class="fa-solid fa-image" aria-hidden="true"></i> LCP</span>
               <span class="tag"><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> INP</span>
               <span class="tag"><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i> CLS</span>
               <span class="tag"><i class="fa-solid fa-code" aria-hidden="true"></i> Long tasks</span>
             </div>
-
             <div class="ctaRow" style="margin-top:14px;">
-              <a class="btn"
-                 href="/contact/?preset=Core%20Web%20Vitals%20Sprint%20request%3A%0AURL%3A%20%0ATop%20CWV%20issues%3A%20%0A">
+              <a class="btn" href="/contact/?preset=Core%20Web%20Vitals%20Sprint%20request%3A%0AURL%3A%20%0ATop%20CWV%20issues%3A%20%0A">
                 <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Ask about this
               </a>
             </div>
           </section>
 
-          <!-- Local business section -->
           <section id="local" class="sr-only" aria-hidden="true">Local business services</section>
 
-          <!-- Service 5: Local -->
           <section class="service" id="svc-local" aria-labelledby="svc-local-title">
             <h2 id="svc-local-title"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Local Business Website (Visibility-first)</h2>
             <p>
               A conversion-first website for local businesses: clear offer, trust elements, local SEO structure,
               fast pages, and lead tracking (calls/forms) so you can measure visibility and inquiries.
             </p>
-
             <div class="bestFor">
               <b>Best for:</b> a new local business that needs visibility in its city and more calls, quotes, or bookings.
             </div>
-
             <div class="mini" aria-label="Topics">
               <span class="tag"><i class="fa-solid fa-map" aria-hidden="true"></i> Local SEO</span>
               <span class="tag"><i class="fa-solid fa-phone" aria-hidden="true"></i> Lead capture</span>
               <span class="tag"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Trust</span>
               <span class="tag"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i> Tracking</span>
             </div>
-
             <div class="ctaRow" style="margin-top:14px;">
-              <a class="btn"
-                 href="/contact/?preset=Local%20Business%20Website%20request%3A%0ABusiness%20name%3A%20%0ACity%2Fservice%20area%3A%20%0AService(s)%3A%20%0ACurrent%20site%20(if%20any)%3A%20%0AGoal%3A%20more%20calls%20%2F%20forms%0A">
+              <a class="btn" href="/contact/?preset=Local%20Business%20Website%20request%3A%0ABusiness%20name%3A%20%0ACity%2Fservice%20area%3A%20%0AService(s)%3A%20%0ACurrent%20site%20(if%20any)%3A%20%0AGoal%3A%20more%20calls%20%2F%20forms%0A">
                 <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this
               </a>
             </div>
           </section>
 
-          <!-- Growth / builds section -->
           <section id="growth" class="sr-only" aria-hidden="true">Affiliate and ecommerce builds</section>
 
-          <!-- Service 6: Ecommerce build -->
           <section class="service" id="svc-ecom-build" aria-labelledby="svc-ecom-build-title">
             <h2 id="svc-ecom-build-title"><i class="fa-solid fa-store" aria-hidden="true"></i> Ecommerce Store Build (WooCommerce)</h2>
             <p>
               Build or rebuild a WooCommerce store with performance and checkout reliability in mind:
               clean setup, product templates, speed fundamentals, and a measured launch plan.
             </p>
-
             <div class="bestFor">
               <b>Best for:</b> launching a new ecommerce brand or rebuilding before spending on ads.
             </div>
-
             <div class="mini" aria-label="Topics">
               <span class="tag"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout</span>
               <span class="tag"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Speed</span>
               <span class="tag"><i class="fa-solid fa-tags" aria-hidden="true"></i> Product pages</span>
               <span class="tag"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Measurement</span>
             </div>
-
             <div class="ctaRow" style="margin-top:14px;">
-              <a class="btn"
-                 href="/contact/?preset=Ecommerce%20Store%20Build%20(WooCommerce)%20request%3A%0AStore%20URL%20(if%20existing)%3A%20%0ANumber%20of%20products%3A%20%0APayment%20gateway(s)%3A%20%0AShipping%20zones%3A%20%0AGoal%3A%20launch%20%2F%20rebuild%0A">
+              <a class="btn" href="/contact/?preset=Ecommerce%20Store%20Build%20(WooCommerce)%20request%3A%0AStore%20URL%20(if%20existing)%3A%20%0ANumber%20of%20products%3A%20%0APayment%20gateway(s)%3A%20%0AShipping%20zones%3A%20%0AGoal%3A%20launch%20%2F%20rebuild%0A">
                 <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this
               </a>
             </div>
           </section>
 
-          <!-- Service 7 -->
           <section class="service" id="svc-growth" aria-labelledby="svc-growth-title">
             <h2 id="svc-growth-title"><i class="fa-solid fa-rocket" aria-hidden="true"></i> Affiliate / Dropshipping Site Setup (Performance-first)</h2>
             <p>
               A monetization-ready foundation designed for organic growth: fast templates, category structure, on-page SEO hygiene,
               analytics events, and conversion tracking for affiliate clicks or ecommerce funnels.
             </p>
-
             <div class="bestFor">
               <b>Best for:</b> Amazon Associates / affiliate content sites, or ecommerce brands that need a clean, fast base.
             </div>
-
             <div class="mini" aria-label="Topics">
               <span class="tag"><i class="fa-solid fa-link" aria-hidden="true"></i> Affiliate tracking</span>
               <span class="tag"><i class="fa-solid fa-sitemap" aria-hidden="true"></i> SEO structure</span>
               <span class="tag"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i> GA4 events</span>
               <span class="tag"><i class="fa-solid fa-bolt" aria-hidden="true"></i> CWV-first</span>
             </div>
-
             <div class="ctaRow" style="margin-top:14px;">
-              <a class="btn"
-                 href="/contact/?preset=Affiliate%20%2F%20Dropshipping%20site%20setup%20request%3A%0ANiche%3A%20%0ATarget%20country%3A%20Canada%0AMonetization%3A%20Amazon%20Associates%20%2F%20Affiliate%20%2F%20Ecommerce%0APlatform%3A%20WordPress%20%2F%20WooCommerce%20%2F%20Static%0AGoal%3A%20rank%20%2F%20track%20clicks%20%2F%20launch%0A">
+              <a class="btn" href="/contact/?preset=Affiliate%20%2F%20Dropshipping%20site%20setup%20request%3A%0ANiche%3A%20%0ATarget%20country%3A%20Canada%0AMonetization%3A%20Amazon%20Associates%20%2F%20Affiliate%20%2F%20Ecommerce%0APlatform%3A%20WordPress%20%2F%20WooCommerce%20%2F%20Static%0AGoal%3A%20rank%20%2F%20track%20clicks%20%2F%20launch%0A">
                 <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request this
               </a>
             </div>
@@ -399,7 +523,6 @@
 
         </div>
 
-        <!-- How I work -->
         <section class="work" aria-label="How I work">
           <div class="workCard">
             <h2 class="workTitle"><i class="fa-solid fa-compass" aria-hidden="true"></i> How I work (audit-to-deploy)</h2>
@@ -415,7 +538,6 @@
           </div>
         </section>
 
-        <!-- FAQ -->
         <section class="faqWrap" id="faq" aria-label="FAQ">
           <h2 class="sr-only">FAQ</h2>
 
@@ -457,7 +579,6 @@
             </p>
           </details>
         </section>
-
       </main>
 
     </div>
@@ -562,166 +683,11 @@
   </footer>
 
   <script src="/assets/js/home.js?v=steam-enca-3" defer></script>
-
   <script>
     (function(){
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
     })();
-  </script>
-
-  <!-- ✅ Structured Data kept exactly as you had it (moved to end of body is optional, but keeping in head is fine).
-       If you prefer: keep them in <head> as before. -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "@id":"https://carlleger.github.io/#person",
-    "name":"Carl Leger",
-    "jobTitle":"WooCommerce Performance Engineer & Technical SEO Consultant",
-    "url":"https://carlleger.github.io/",
-    "image":"https://carlleger.github.io/avatar.png",
-    "sameAs":[
-      "https://www.linkedin.com/in/carlleger/",
-      "https://github.com/CarlLeger",
-      "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "@id":"https://carlleger.github.io/#website",
-    "name":"Carl Leger",
-    "url":"https://carlleger.github.io/",
-    "publisher": { "@id":"https://carlleger.github.io/#person" },
-    "inLanguage":["en-CA"]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "@id":"https://carlleger.github.io/services/#webpage",
-    "url":"https://carlleger.github.io/services/",
-    "name":"WooCommerce Performance & Technical SEO Services in Canada | Carl Leger",
-    "description":"Canada-first services: WooCommerce performance audits, Core Web Vitals + TTFB fixes, checkout reliability, GA4 measurement, local business websites, and ecommerce/affiliate builds. Staging-first, rollback-ready, documented.",
-    "isPartOf": { "@id":"https://carlleger.github.io/#website" },
-    "about": { "@id":"https://carlleger.github.io/#person" },
-    "inLanguage":"en-CA",
-    "primaryImageOfPage":{
-      "@type":"ImageObject",
-      "url":"https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.jpg",
-      "width":1200,
-      "height":630
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
-    "@id":"https://carlleger.github.io/services/#breadcrumbs",
-    "itemListElement":[
-      { "@type":"ListItem", "position":1, "name":"Home", "item":"https://carlleger.github.io/" },
-      { "@type":"ListItem", "position":2, "name":"Services", "item":"https://carlleger.github.io/services/" }
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ProfessionalService",
-    "@id":"https://carlleger.github.io/services/#service",
-    "name":"Carl Leger — Services (Canada)",
-    "url":"https://carlleger.github.io/services/",
-    "provider": { "@id":"https://carlleger.github.io/#person" },
-    "areaServed":["Canada"],
-    "availableLanguage":["en-CA"],
-    "serviceType":[
-      "WooCommerce performance audit",
-      "Core Web Vitals and TTFB optimization",
-      "Checkout reliability and caching boundaries",
-      "GA4 measurement planning",
-      "Local business website creation",
-      "Ecommerce store setup",
-      "Affiliate site setup"
-    ],
-    "description":"Canada-first services for WooCommerce performance engineering and technical SEO: staging-first work, rollback-ready changes, and GA4-measured impact."
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "@id":"https://carlleger.github.io/services/#servicelist",
-    "name":"Services",
-    "itemListElement":[
-      { "@type":"ListItem", "position":1, "name":"WooCommerce Performance Audit", "url":"https://carlleger.github.io/services/performance-audit/" },
-      { "@type":"ListItem", "position":2, "name":"WooCommerce Checkout Speed Fix", "url":"https://carlleger.github.io/services/checkout-speed-fix/" },
-      { "@type":"ListItem", "position":3, "name":"WooCommerce Optimization", "url":"https://carlleger.github.io/services/woocommerce-optimization/" },
-      { "@type":"ListItem", "position":4, "name":"Core Web Vitals Sprint (Add-on)", "url":"https://carlleger.github.io/services/#svc-cwv" },
-      { "@type":"ListItem", "position":5, "name":"Local Business Website (Fast launch)", "url":"https://carlleger.github.io/services/#svc-local" },
-      { "@type":"ListItem", "position":6, "name":"Ecommerce Store Build (WooCommerce)", "url":"https://carlleger.github.io/services/#svc-ecom-build" },
-      { "@type":"ListItem", "position":7, "name":"Affiliate / Dropshipping Site Setup (Performance-first)", "url":"https://carlleger.github.io/services/#svc-growth" }
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "@id":"https://carlleger.github.io/services/#faq",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"Which service should I start with?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"If you’re unsure, start with the WooCommerce Performance Audit. It maps bottlenecks and gives a prioritized plan. If checkout is the main problem, choose Checkout Speed Fix. If you already know what needs to be done, choose Optimization."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Are fixes safe for cart, checkout, sessions, and personalization?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Yes. Work is designed to be WooCommerce-safe: correct caching boundaries, validation steps, staging-first changes when possible, and rollback-ready deployments."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Do you work with agencies or in-house dev teams?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Yes. I can deliver an actionable plan for your team to implement, or implement changes directly with clear documentation, QA notes, and measured outcomes."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Can you build a local business website focused on visibility?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Yes. Local websites include clear service positioning, trust elements, local SEO structure, fast pages, and lead tracking (calls/forms) so you can measure results."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Can you help with ecommerce or affiliate site foundations?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Yes. I build performance-first foundations with clean templates, SEO structure, and analytics so affiliate clicks or ecommerce funnels can be measured and improved over time."
-        }
-      }
-    ]
-  }
   </script>
 </body>
 </html>
