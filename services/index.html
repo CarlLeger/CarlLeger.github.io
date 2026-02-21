@@ -10,7 +10,7 @@
   <!-- META DESCRIPTION (benefit + differentiation) -->
   <meta name="description" content="Canada-first services: WooCommerce performance audits, Core Web Vitals + TTFB fixes, checkout reliability, GA4 measurement, local business websites, and ecommerce/affiliate builds. Staging-first, rollback-ready, documented." />
 
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet=-1,max-video-preview=-1" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#0b1220" />
   <meta name="color-scheme" content="dark light" />
@@ -77,420 +77,13 @@
     />
   </noscript>
 
-  <!-- CSS (same as home so header/footer look identical) -->
+  <!-- CSS (home = header/footer/system tokens) -->
   <link rel="stylesheet" href="/assets/css/home.css?v=steam-enca-3" />
-
-  <!-- Keep your existing Services page styling + small SEO/UX additions -->
-  <style>
-    :root{
-      --bg1:#0b1220;
-      --bg2:#070d17;
-      --stroke:rgba(255,255,255,.10);
-      --text:#e7ecff;
-      --muted:#a8b3d6;
-      --accent:#38bdf8;
-      --accent2:#a78bfa;
-      --good:#22c55e;
-      --warn:#fbbf24;
-      --shadow: 0 20px 60px rgba(0,0,0,.35);
-      --radius: 18px;
-    }
-    *{ box-sizing:border-box; }
-    html:focus-within { scroll-behavior: smooth; }
-    @media (prefers-reduced-motion: reduce){
-      html:focus-within { scroll-behavior: auto; }
-      *{ transition: none !important; }
-    }
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 600px at 15% 10%, rgba(56,189,248,.18), transparent 55%),
-        radial-gradient(900px 600px at 85% 20%, rgba(167,139,250,.16), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-      min-height:100vh;
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      padding-top: 78px;
-    }
-    a{ color:inherit; text-decoration:none; }
-    a:hover{ text-decoration:underline; }
-    :focus-visible{
-      outline: 3px solid rgba(56,189,248,.55);
-      outline-offset: 3px;
-      border-radius: 12px;
-    }
-
-    .skip{
-      position:absolute;
-      left:-999px;
-      top:10px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.18);
-      padding:10px 12px;
-      border-radius: 12px;
-      color: var(--text);
-      z-index: 9999;
-    }
-    .skip:focus{ left: 12px; }
-
-    .wrap{ max-width: 980px; margin: 0 auto; padding: 44px 22px 80px; }
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
-      border: 1px solid var(--stroke);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-
-    .hero{ padding: 18px 26px 12px; }
-    @media (max-width: 900px){ .hero{ padding: 16px 18px 12px; } }
-
-    .kicker{ color: rgba(168,179,214,.95); font-size: 13px; margin: 10px 0 0; }
-    .title{ font-size: 42px; line-height: 1.06; margin: 10px 0 10px; letter-spacing: -0.02em; }
-    .subtitle{ margin: 0; color: var(--muted); font-size: 16px; line-height: 1.6; max-width: 82ch; }
-
-    .ctaRow{ display:flex; gap: 12px; flex-wrap:wrap; margin-top: 16px; }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-weight: 800;
-      font-size: 14px;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.08);
-      border-color: rgba(255,255,255,.16);
-      text-decoration:none;
-      opacity: .98;
-    }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.85));
-      border: 1px solid rgba(255,255,255,.20);
-      color:#06101d;
-      font-weight: 900;
-    }
-    .btn.primary i{ color:#06101d; }
-
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      padding: 16px 26px 14px;
-    }
-    @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; padding: 16px 18px 10px; }
-      .title{ font-size: 36px; }
-    }
-
-    .service{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      border-radius: 18px;
-      padding: 16px;
-      position:relative;
-      overflow:hidden;
-    }
-    .service h2{
-      margin:0 0 8px;
-      font-size: 16px;
-      color: var(--text);
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .service h2 i{ color: var(--accent); }
-    .service p{ margin:0; color: var(--muted); font-size: 14px; line-height: 1.65; }
-
-    .bestFor{
-      margin-top: 10px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      color: rgba(231,236,255,.92);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-    .bestFor b{ color: var(--text); }
-
-    .mini{
-      margin-top: 10px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      color: rgba(168,179,214,.9);
-      font-size: 13px;
-    }
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.08);
-    }
-    .tag i{ color: var(--accent2); }
-
-    /* New: quick navigation / topical relevance (helps UX + crawling) */
-    .toc{
-      margin-top: 14px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .toc a{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      color: rgba(231,236,255,.92);
-      font-size: 13px;
-      line-height: 1.2;
-      text-decoration:none;
-    }
-    .toc a i{ color: var(--accent); }
-    .toc a:hover{
-      border-color: rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
-    }
-
-    .work{ padding: 0 26px 22px; }
-    @media (max-width:900px){ .work{ padding: 0 18px 18px; } }
-    .workCard{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      border-radius: 18px;
-      padding: 16px;
-    }
-    .workTitle{
-      margin:0 0 10px;
-      font-size: 14px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: #dbe4ff;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .workTitle i{ color: var(--accent); }
-    .workList{
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-    .workList li{ margin: 10px 0; }
-    .workNote{
-      margin: 10px 0 0;
-      color: rgba(168,179,214,.90);
-      font-size: 13px;
-    }
-
-    .faqWrap{ padding: 0 26px 26px; }
-    @media (max-width:900px){ .faqWrap{ padding: 0 18px 18px; } }
-    details{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      border-radius: 16px;
-      padding: 14px;
-      margin-top: 12px;
-    }
-    summary{
-      cursor:pointer;
-      list-style:none;
-      font-weight: 900;
-      color: var(--text);
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    summary::-webkit-details-marker{ display:none; }
-    details p{ margin: 10px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
-
-    .sr-only{
-      position:absolute;
-      width:1px;height:1px;
-      padding:0;margin:-1px;
-      overflow:hidden;clip:rect(0,0,0,0);
-      white-space:nowrap;border:0;
-    }
-  </style>
-
-  <!-- STRUCTURED DATA: Person -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "@id":"https://carlleger.github.io/#person",
-    "name":"Carl Leger",
-    "jobTitle":"WooCommerce Performance Engineer & Technical SEO Consultant",
-    "url":"https://carlleger.github.io/",
-    "image":"https://carlleger.github.io/avatar.png",
-    "sameAs":[
-      "https://www.linkedin.com/in/carlleger/",
-      "https://github.com/CarlLeger",
-      "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
-    ]
-  }
-  </script>
-
-  <!-- STRUCTURED DATA: WebSite -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "@id":"https://carlleger.github.io/#website",
-    "name":"Carl Leger",
-    "url":"https://carlleger.github.io/",
-    "publisher": { "@id":"https://carlleger.github.io/#person" },
-    "inLanguage":["en-CA"]
-  }
-  </script>
-
-  <!-- STRUCTURED DATA: WebPage -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "@id":"https://carlleger.github.io/services/#webpage",
-    "url":"https://carlleger.github.io/services/",
-    "name":"WooCommerce Performance & Technical SEO Services in Canada | Carl Leger",
-    "description":"Canada-first services: WooCommerce performance audits, Core Web Vitals + TTFB fixes, checkout reliability, GA4 measurement, local business websites, and ecommerce/affiliate builds. Staging-first, rollback-ready, documented.",
-    "isPartOf": { "@id":"https://carlleger.github.io/#website" },
-    "about": { "@id":"https://carlleger.github.io/#person" },
-    "inLanguage":"en-CA",
-    "primaryImageOfPage":{
-      "@type":"ImageObject",
-      "url":"https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.jpg",
-      "width":1200,
-      "height":630
-    }
-  }
-  </script>
-
-  <!-- STRUCTURED DATA: Breadcrumbs -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
-    "@id":"https://carlleger.github.io/services/#breadcrumbs",
-    "itemListElement":[
-      { "@type":"ListItem", "position":1, "name":"Home", "item":"https://carlleger.github.io/" },
-      { "@type":"ListItem", "position":2, "name":"Services", "item":"https://carlleger.github.io/services/" }
-    ]
-  }
-  </script>
-
-  <!-- STRUCTURED DATA: ProfessionalService -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ProfessionalService",
-    "@id":"https://carlleger.github.io/services/#service",
-    "name":"Carl Leger — Services (Canada)",
-    "url":"https://carlleger.github.io/services/",
-    "provider": { "@id":"https://carlleger.github.io/#person" },
-    "areaServed":["Canada"],
-    "availableLanguage":["en-CA"],
-    "serviceType":[
-      "WooCommerce performance audit",
-      "Core Web Vitals and TTFB optimization",
-      "Checkout reliability and caching boundaries",
-      "GA4 measurement planning",
-      "Local business website creation",
-      "Ecommerce store setup",
-      "Affiliate site setup"
-    ],
-    "description":"Canada-first services for WooCommerce performance engineering and technical SEO: staging-first work, rollback-ready changes, and GA4-measured impact."
-  }
-  </script>
-
-  <!-- STRUCTURED DATA: ItemList of Services -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ItemList",
-    "@id":"https://carlleger.github.io/services/#servicelist",
-    "name":"Services",
-    "itemListElement":[
-      { "@type":"ListItem", "position":1, "name":"WooCommerce Performance Audit", "url":"https://carlleger.github.io/services/performance-audit/" },
-      { "@type":"ListItem", "position":2, "name":"WooCommerce Checkout Speed Fix", "url":"https://carlleger.github.io/services/checkout-speed-fix/" },
-      { "@type":"ListItem", "position":3, "name":"WooCommerce Optimization", "url":"https://carlleger.github.io/services/woocommerce-optimization/" },
-      { "@type":"ListItem", "position":4, "name":"Core Web Vitals Sprint (Add-on)", "url":"https://carlleger.github.io/services/#svc-cwv" },
-      { "@type":"ListItem", "position":5, "name":"Local Business Website (Fast launch)", "url":"https://carlleger.github.io/services/#svc-local" },
-      { "@type":"ListItem", "position":6, "name":"Ecommerce Store Build (WooCommerce)", "url":"https://carlleger.github.io/services/#svc-ecom-build" },
-      { "@type":"ListItem", "position":7, "name":"Affiliate / Dropshipping Site Setup (Performance-first)", "url":"https://carlleger.github.io/services/#svc-growth" }
-    ]
-  }
-  </script>
-
-  <!-- STRUCTURED DATA: FAQ -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "@id":"https://carlleger.github.io/services/#faq",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"Which service should I start with?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"If you’re unsure, start with the WooCommerce Performance Audit. It maps bottlenecks and gives a prioritized plan. If checkout is the main problem, choose Checkout Speed Fix. If you already know what needs to be done, choose Optimization."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Are fixes safe for cart, checkout, sessions, and personalization?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Yes. Work is designed to be WooCommerce-safe: correct caching boundaries, validation steps, staging-first changes when possible, and rollback-ready deployments."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Do you work with agencies or in-house dev teams?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Yes. I can deliver an actionable plan for your team to implement, or implement changes directly with clear documentation, QA notes, and measured outcomes."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Can you build a local business website focused on visibility?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Yes. Local websites include clear service positioning, trust elements, local SEO structure, fast pages, and lead tracking (calls/forms) so you can measure results."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Can you help with ecommerce or affiliate site foundations?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Yes. I build performance-first foundations with clean templates, SEO structure, and analytics so affiliate clicks or ecommerce funnels can be measured and improved over time."
-        }
-      }
-    ]
-  }
-  </script>
+  <!-- ✅ Services page CSS (page-scoped, no conflicts) -->
+  <link rel="stylesheet" href="/assets/css/services.css?v=1" />
 </head>
 
-<body>
+<body class="page-services">
   <a class="skip" href="#main">Skip to content</a>
 
   <!-- HEADER (same as home) -->
@@ -559,7 +152,7 @@
         <!-- HERO: stronger topical relevance (Canada + WooCommerce + outcomes) -->
         <header class="hero">
           <p class="kicker">
-            <i class="fa-solid fa-circle-check" style="color: var(--good);" aria-hidden="true"></i>
+            <i class="fa-solid fa-circle-check" style="color: var(--success, #22c55e);" aria-hidden="true"></i>
             Canada-first • Staging-first • Rollback-ready • Measured in GA4
           </p>
 
@@ -583,7 +176,7 @@
             </a>
           </div>
 
-          <!-- NEW: quick topical navigation -->
+          <!-- Quick topical navigation -->
           <nav class="toc" aria-label="Service topics">
             <a href="#ecommerce"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> WooCommerce</a>
             <a href="#local"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Local business</a>
@@ -777,7 +370,7 @@
             </div>
           </section>
 
-          <!-- Service 7: Affiliate / dropshipping setup (positioned as foundation + tracking) -->
+          <!-- Service 7 -->
           <section class="service" id="svc-growth" aria-labelledby="svc-growth-title">
             <h2 id="svc-growth-title"><i class="fa-solid fa-rocket" aria-hidden="true"></i> Affiliate / Dropshipping Site Setup (Performance-first)</h2>
             <p>
@@ -975,6 +568,160 @@
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
     })();
+  </script>
+
+  <!-- ✅ Structured Data kept exactly as you had it (moved to end of body is optional, but keeping in head is fine).
+       If you prefer: keep them in <head> as before. -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "@id":"https://carlleger.github.io/#person",
+    "name":"Carl Leger",
+    "jobTitle":"WooCommerce Performance Engineer & Technical SEO Consultant",
+    "url":"https://carlleger.github.io/",
+    "image":"https://carlleger.github.io/avatar.png",
+    "sameAs":[
+      "https://www.linkedin.com/in/carlleger/",
+      "https://github.com/CarlLeger",
+      "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "@id":"https://carlleger.github.io/#website",
+    "name":"Carl Leger",
+    "url":"https://carlleger.github.io/",
+    "publisher": { "@id":"https://carlleger.github.io/#person" },
+    "inLanguage":["en-CA"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "@id":"https://carlleger.github.io/services/#webpage",
+    "url":"https://carlleger.github.io/services/",
+    "name":"WooCommerce Performance & Technical SEO Services in Canada | Carl Leger",
+    "description":"Canada-first services: WooCommerce performance audits, Core Web Vitals + TTFB fixes, checkout reliability, GA4 measurement, local business websites, and ecommerce/affiliate builds. Staging-first, rollback-ready, documented.",
+    "isPartOf": { "@id":"https://carlleger.github.io/#website" },
+    "about": { "@id":"https://carlleger.github.io/#person" },
+    "inLanguage":"en-CA",
+    "primaryImageOfPage":{
+      "@type":"ImageObject",
+      "url":"https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.jpg",
+      "width":1200,
+      "height":630
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "@id":"https://carlleger.github.io/services/#breadcrumbs",
+    "itemListElement":[
+      { "@type":"ListItem", "position":1, "name":"Home", "item":"https://carlleger.github.io/" },
+      { "@type":"ListItem", "position":2, "name":"Services", "item":"https://carlleger.github.io/services/" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "@id":"https://carlleger.github.io/services/#service",
+    "name":"Carl Leger — Services (Canada)",
+    "url":"https://carlleger.github.io/services/",
+    "provider": { "@id":"https://carlleger.github.io/#person" },
+    "areaServed":["Canada"],
+    "availableLanguage":["en-CA"],
+    "serviceType":[
+      "WooCommerce performance audit",
+      "Core Web Vitals and TTFB optimization",
+      "Checkout reliability and caching boundaries",
+      "GA4 measurement planning",
+      "Local business website creation",
+      "Ecommerce store setup",
+      "Affiliate site setup"
+    ],
+    "description":"Canada-first services for WooCommerce performance engineering and technical SEO: staging-first work, rollback-ready changes, and GA4-measured impact."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "@id":"https://carlleger.github.io/services/#servicelist",
+    "name":"Services",
+    "itemListElement":[
+      { "@type":"ListItem", "position":1, "name":"WooCommerce Performance Audit", "url":"https://carlleger.github.io/services/performance-audit/" },
+      { "@type":"ListItem", "position":2, "name":"WooCommerce Checkout Speed Fix", "url":"https://carlleger.github.io/services/checkout-speed-fix/" },
+      { "@type":"ListItem", "position":3, "name":"WooCommerce Optimization", "url":"https://carlleger.github.io/services/woocommerce-optimization/" },
+      { "@type":"ListItem", "position":4, "name":"Core Web Vitals Sprint (Add-on)", "url":"https://carlleger.github.io/services/#svc-cwv" },
+      { "@type":"ListItem", "position":5, "name":"Local Business Website (Fast launch)", "url":"https://carlleger.github.io/services/#svc-local" },
+      { "@type":"ListItem", "position":6, "name":"Ecommerce Store Build (WooCommerce)", "url":"https://carlleger.github.io/services/#svc-ecom-build" },
+      { "@type":"ListItem", "position":7, "name":"Affiliate / Dropshipping Site Setup (Performance-first)", "url":"https://carlleger.github.io/services/#svc-growth" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "@id":"https://carlleger.github.io/services/#faq",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Which service should I start with?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"If you’re unsure, start with the WooCommerce Performance Audit. It maps bottlenecks and gives a prioritized plan. If checkout is the main problem, choose Checkout Speed Fix. If you already know what needs to be done, choose Optimization."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Are fixes safe for cart, checkout, sessions, and personalization?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Work is designed to be WooCommerce-safe: correct caching boundaries, validation steps, staging-first changes when possible, and rollback-ready deployments."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Do you work with agencies or in-house dev teams?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. I can deliver an actionable plan for your team to implement, or implement changes directly with clear documentation, QA notes, and measured outcomes."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can you build a local business website focused on visibility?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Local websites include clear service positioning, trust elements, local SEO structure, fast pages, and lead tracking (calls/forms) so you can measure results."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can you help with ecommerce or affiliate site foundations?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. I build performance-first foundations with clean templates, SEO structure, and analytics so affiliate clicks or ecommerce funnels can be measured and improved over time."
+        }
+      }
+    ]
+  }
   </script>
 </body>
 </html>
