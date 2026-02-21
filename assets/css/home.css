@@ -665,9 +665,7 @@ button[type="submit"]{ grid-column:1/-1; }
   transform: translateY(-1px);
 }
 
-/* Language pills */
 .siteLocale{
-  margin-left:auto;
   display:flex;
   gap:8px;
   align-items:center;
@@ -905,9 +903,9 @@ body.nav-open .navDrawer{
 }
 
 .footerPro__inner{
-  max-width:var(--steam-max);
-  margin:0 auto;
-  padding:26px var(--gutter) 18px;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 26px var(--gutter) 18px;
 }
 
 .footerPro__top{
