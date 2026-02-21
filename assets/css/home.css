@@ -2,6 +2,7 @@
    home.css — CarlLeger.github.io
    Steam-like header + premium footer width aligned
    UPDATED: hero visual uses new /assets/images/hero/… webp
+   UPDATED: premium button glow system (CTA/nav/footer)
    ===================================== */
 
 /* ---------- Design Tokens ---------- */
@@ -43,6 +44,18 @@
 
   /* Hero image (NEW) */
   --hero-img:url("/assets/images/hero/woocommerce-performance-ga4-technical-seo-canada-1600x900.webp");
+
+  /* =====================================
+     BUTTON GLOW SYSTEM (premium)
+     ===================================== */
+  --glow-a: rgba(56,189,248,.52);  /* teal glow (stronger) */
+  --glow-b: rgba(167,139,250,.44); /* violet glow (stronger) */
+
+  --btn-stroke: rgba(255,255,255,.14);
+  --btn-stroke-hover: rgba(255,255,255,.24);
+
+  --btn-shadow: 0 14px 40px rgba(0,0,0,.35);
+  --btn-shadow-hover: 0 18px 58px rgba(0,0,0,.44);
 }
 
 /* ---------- Reset & Base ---------- */
@@ -275,32 +288,134 @@ section h2{ margin:0 0 12px; font-size:18px; }
   .ctaRow{ justify-content:center; }
 }
 
+/* =====================================
+   BUTTONS (premium glow)
+   ===================================== */
 .btn{
+  position:relative;
+  isolation:isolate;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:10px;
+
   padding:12px 16px;
   border-radius:14px;
   font-size:14px;
-  font-weight:800;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.12);
-  transition:transform .12s ease,background .12s ease, border-color .12s ease;
-}
+  font-weight:850;
+  letter-spacing:.12px;
 
-.btn:hover{
-  transform:translateY(-1px);
-  background:rgba(255,255,255,.10);
-  border-color:rgba(255,255,255,.18);
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+  border:1px solid var(--btn-stroke);
+  color:rgba(231,236,255,.95);
+
+  box-shadow: var(--btn-shadow);
+  transform: translateZ(0);
+  transition:
+    transform .14s ease,
+    box-shadow .14s ease,
+    background .14s ease,
+    border-color .14s ease,
+    filter .14s ease;
   text-decoration:none;
 }
 
+/* Soft outer glow ring */
+.btn::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:inherit;
+  background:
+    radial-gradient(140px 85px at 20% 10%, var(--glow-a), transparent 60%),
+    radial-gradient(140px 85px at 80% 10%, var(--glow-b), transparent 60%);
+  opacity:.42;
+  filter: blur(11px);
+  z-index:-2;
+  transition: opacity .14s ease, filter .14s ease;
+}
+
+/* Sheen sweep */
+.btn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,.22) 45%, transparent 70%);
+  opacity:0;
+  transform: translateX(-18%) skewX(-12deg);
+  z-index:0;
+  pointer-events:none;
+  transition: opacity .14s ease, transform .20s ease;
+}
+
+.btn:hover{
+  background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.06));
+  border-color: var(--btn-stroke-hover);
+  box-shadow: var(--btn-shadow-hover);
+  transform: translateY(-2px);
+  text-decoration:none;
+}
+
+.btn:hover::before{
+  opacity:.68;
+  filter: blur(13px);
+}
+
+.btn:hover::after{
+  opacity:.55;
+  transform: translateX(18%) skewX(-12deg);
+}
+
+.btn:active{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 38px rgba(0,0,0,.40);
+}
+
+/* Focus = crisp + luxe */
+.btn:focus-visible{
+  outline:0;
+  box-shadow:
+    0 0 0 3px rgba(56,189,248,.35),
+    0 0 0 6px rgba(167,139,250,.20),
+    var(--btn-shadow-hover);
+}
+
+.btn i, .btn svg{
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.30));
+}
+
+/* Primary CTA */
 .btn.primary{
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
   color:#06101d;
   font-weight:950;
   border:0;
+  background:
+    radial-gradient(140px 100px at 20% 10%, rgba(255,255,255,.35), transparent 55%),
+    linear-gradient(135deg, rgba(56,189,248,1), rgba(167,139,250,1));
+  box-shadow:
+    0 18px 70px rgba(0,0,0,.45),
+    0 0 0 1px rgba(255,255,255,.14) inset;
+}
+
+.btn.primary::before{
+  opacity:.82;
+  filter: blur(15px);
+}
+
+.btn.primary:hover{
+  filter: brightness(1.03) saturate(1.02);
+  box-shadow:
+    0 22px 92px rgba(0,0,0,.56),
+    0 0 0 1px rgba(255,255,255,.18) inset;
+}
+
+.btn.primary:focus-visible{
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,.20),
+    0 0 0 6px rgba(56,189,248,.35),
+    0 0 0 9px rgba(167,139,250,.22),
+    0 22px 92px rgba(0,0,0,.56);
 }
 
 .micro{
@@ -522,7 +637,7 @@ button[type="submit"]{ grid-column:1/-1; }
   text-decoration:none;
   border:1px solid transparent;
   background:transparent;
-  transition: background .12s ease, border-color .12s ease, transform .12s ease;
+  transition: background .12s ease, border-color .12s ease, transform .12s ease, box-shadow .12s ease;
 }
 
 .siteNav__link:hover{
@@ -535,13 +650,20 @@ button[type="submit"]{ grid-column:1/-1; }
 .siteNav__cta{
   margin-left:6px;
   padding:10px 12px;
-  background:rgba(56,189,248,.12);
-  border-color:rgba(56,189,248,.22);
+
+  background:
+    radial-gradient(120px 80px at 20% 10%, rgba(255,255,255,.16), transparent 55%),
+    linear-gradient(135deg, rgba(56,189,248,.22), rgba(167,139,250,.16));
+  border-color: rgba(56,189,248,.30);
+  box-shadow: 0 14px 40px rgba(0,0,0,.28);
 }
 
 .siteNav__cta:hover{
-  background:rgba(56,189,248,.16);
-  border-color:rgba(56,189,248,.28);
+  background:
+    radial-gradient(120px 80px at 20% 10%, rgba(255,255,255,.20), transparent 55%),
+    linear-gradient(135deg, rgba(56,189,248,.28), rgba(167,139,250,.20));
+  border-color: rgba(56,189,248,.40);
+  box-shadow: 0 18px 55px rgba(0,0,0,.35);
   text-decoration:none;
   transform: translateY(-1px);
 }
@@ -885,23 +1007,50 @@ button[type="submit"]{ grid-column:1/-1; }
   border:1px solid rgba(255,255,255,.12);
   color:rgba(231,236,255,.95);
   text-decoration:none;
-  transition:transform .12s ease, background .12s ease, border-color .12s ease;
+  transition:transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease, filter .12s ease;
 }
 
 .footerBtn:hover{
   transform:translateY(-1px);
   background:rgba(255,255,255,.08);
   border-color:rgba(255,255,255,.16);
+  box-shadow: 0 16px 48px rgba(0,0,0,.38);
   text-decoration:none;
 }
 
 .footerBtn--primary{
+  position:relative;
+  isolation:isolate;
   background:linear-gradient(135deg, rgba(56,189,248,.95), rgba(167,139,250,.92));
   color:#07101c;
   border:0;
+  box-shadow:
+    0 18px 72px rgba(0,0,0,.48),
+    0 0 0 1px rgba(255,255,255,.14) inset;
 }
 
-.footerBtn--primary:hover{ filter:brightness(1.02); }
+.footerBtn--primary::before{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border-radius:inherit;
+  background:
+    radial-gradient(140px 85px at 20% 10%, var(--glow-a), transparent 60%),
+    radial-gradient(140px 85px at 80% 10%, var(--glow-b), transparent 60%);
+  opacity:.72;
+  filter: blur(15px);
+  z-index:-1;
+  transition: opacity .14s ease, filter .14s ease;
+}
+
+.footerBtn--primary:hover{
+  filter:brightness(1.03) saturate(1.02);
+}
+
+.footerBtn--primary:hover::before{
+  opacity:.92;
+  filter: blur(17px);
+}
 
 /* Link columns (UPDATED: match your HTML = 2 columns) */
 .footerCols{
@@ -1056,10 +1205,6 @@ button[type="submit"]{ grid-column:1/-1; }
    FOOTER LAYOUT FIX (zone grid)
    Fix l'espace vide à droite + aligne Pages/Contact
    ===================================== */
-
-/* Desktop: 2 colonnes
-   Gauche = Brand + CTA (stack)
-   Droite = Pages + Contact (full height) */
 @media (min-width: 981px){
   .footerPro__top{
     display:grid;
@@ -1079,18 +1224,15 @@ button[type="submit"]{ grid-column:1/-1; }
     height:100%;
   }
 
-  /* Les 2 cartes (Pages / Contact) remplissent bien l'espace à droite */
   .footerCols{
     display:grid;
     grid-template-columns: 1fr 1fr;
     gap:14px;
   }
 
-  /* Optionnel: même hauteur visuelle pour les 2 cartes */
   .footerCol{ height:100%; }
 }
 
-/* Mobile/tablette: stack normal */
 @media (max-width: 980px){
   .footerPro__top{
     grid-template-columns: 1fr;
