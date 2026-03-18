@@ -3,7 +3,7 @@
 // Mobile drawer menu (A11Y + focus trap + scroll lock + inert + restore + iOS-safe)
 // Uses data-attrs: [data-nav-toggle], [data-nav-overlay], [data-nav-drawer], [data-nav-close]
 // PLUS: Back to top reliable (anchor or button) + closes drawer safely
-// UPDATED: breakpoint aligned to CSS (981px), transitionend close, pagehide cleanup
+// UPDATED: works with injected partials (header/footer)
 // =====================================================
 
 (() => {
@@ -21,12 +21,66 @@
     }
   };
 
-  onReady(() => {
+  // ---------- Global preset fill (delegated, works before/after partials) ----------
+  const initPresetFill = () => {
+    if (document.documentElement.dataset.presetFillBound === "true") return;
+    document.documentElement.dataset.presetFillBound = "true";
+
+    document.addEventListener(
+      "click",
+      (e) => {
+        const a = e.target.closest("[data-preset]");
+        if (!a) return;
+
+        const preset = a.getAttribute("data-preset") || "";
+        const msg = document.getElementById("message");
+        if (msg && preset) {
+          msg.value = preset + "\n\n" + (msg.value || "");
+          setTimeout(() => {
+            try {
+              msg.focus({ preventScroll: false });
+            } catch (_e) {}
+          }, 120);
+        }
+      },
+      { passive: true }
+    );
+  };
+
+  // ---------- Global year sync (safe to rerun) ----------
+  const syncYear = () => {
+    const years = $$("#year");
+    if (!years.length) return;
+    const y = String(new Date().getFullYear());
+    years.forEach((node) => {
+      node.textContent = y;
+    });
+  };
+
+  // ---------- Nav module ----------
+  let navApi = null;
+
+  const destroyNav = () => {
+    if (navApi && typeof navApi.destroy === "function") {
+      navApi.destroy();
+    }
+    navApi = null;
+  };
+
+  const initNav = () => {
+    destroyNav();
+
     // ---------- Elements ----------
-    const toggle   = $("[data-nav-toggle]");
-    const overlay  = $("[data-nav-overlay]");
-    const drawer   = $("[data-nav-drawer]");
+    const toggle = $("[data-nav-toggle]");
+    const overlay = $("[data-nav-overlay]");
+    const drawer = $("[data-nav-drawer]");
     const closeBtn = $("[data-nav-close]");
+    const backToTopEl = $(".footerTop, [data-back-to-top]");
+
+    if (!toggle || !overlay || !drawer) {
+      syncYear();
+      return;
+    }
 
     // ✅ Match CSS: @media (max-width: 980px) => desktop starts at 981px
     const DESKTOP_MEDIA = "(min-width: 981px)";
@@ -34,17 +88,14 @@
     // Inert background targets (keep drawer + header interactive)
     const INERT_TARGETS = ["main", "#main", ".wrap"].join(",");
 
-    // Back-to-top selector (supports class or data-attr)
-    const backToTopEl = $(".footerTop, [data-back-to-top]");
-
     // ---------- State ----------
     let lastFocus = null;
     let removeTrap = null;
     let unlockScroll = null;
     let removeInert = null;
-
-    // Prevent double-close jitter
     let isClosing = false;
+
+    const cleanups = [];
 
     const isOpen = () => document.body.classList.contains("nav-open");
 
@@ -63,9 +114,6 @@
 
         const style = window.getComputedStyle(el);
         if (style.visibility === "hidden" || style.display === "none") return false;
-
-        // If not in layout (common for hidden drawer content), ignore
-        // Note: fixed elements can have offsetParent null, allow those
         if (el.offsetParent === null && style.position !== "fixed") return false;
 
         return true;
@@ -89,9 +137,8 @@
         if (!items.length) return;
 
         const first = items[0];
-        const last  = items[items.length - 1];
+        const last = items[items.length - 1];
 
-        // If focus escapes, pull it back
         if (!container.contains(document.activeElement)) {
           e.preventDefault();
           first.focus();
@@ -116,7 +163,7 @@
       return () => container.removeEventListener("keydown", onKeyDown);
     };
 
-    // ---------- Scroll lock (no jump) ----------
+    // ---------- Scroll lock ----------
     const lockBodyScroll = () => {
       const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
 
@@ -160,10 +207,8 @@
       return () => targets.forEach((el) => set(el, false));
     };
 
-    // ---------- Setup A11Y once ----------
+    // ---------- A11Y setup ----------
     const setupA11Y = () => {
-      if (!toggle || !overlay || !drawer) return;
-
       toggle.setAttribute("aria-expanded", "false");
 
       drawer.setAttribute("role", "dialog");
@@ -174,14 +219,24 @@
       overlay.style.pointerEvents = "none";
 
       overlay.hidden = true;
-      drawer.hidden  = true;
+      drawer.hidden = true;
     };
 
-    // ---------- Close helper (transitionend + fallback) ----------
-    const hideAfterClose = () => {
-      if (!toggle || !overlay || !drawer) return;
+    // ---------- Cleanup helpers ----------
+    const restoreBackgroundState = () => {
+      removeTrap?.();
+      removeTrap = null;
 
-      // Only hide if still closed
+      unlockScroll?.();
+      unlockScroll = null;
+
+      removeInert?.();
+      removeInert = null;
+
+      applyInertToBackground(false);
+    };
+
+    const hideAfterClose = () => {
       if (isOpen()) return;
 
       drawer.hidden = true;
@@ -189,15 +244,15 @@
       overlay.style.pointerEvents = "none";
       isClosing = false;
 
-      // restore focus
-      if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus({ preventScroll: true });
-      else toggle?.focus?.({ preventScroll: true });
+      if (lastFocus && typeof lastFocus.focus === "function") {
+        lastFocus.focus({ preventScroll: true });
+      } else {
+        toggle?.focus?.({ preventScroll: true });
+      }
       lastFocus = null;
     };
 
     const closeWithTransition = () => {
-      if (!drawer) return hideAfterClose();
-
       isClosing = true;
 
       let done = false;
@@ -209,28 +264,24 @@
       };
 
       const onEnd = (e) => {
-        // only react to drawer's own transition (opacity/transform etc.)
         if (e && e.target !== drawer) return;
         finish();
       };
 
-      // If CSS has transitions, we'll catch it. If not, fallback.
       drawer.addEventListener("transitionend", onEnd);
       setTimeout(finish, 260);
     };
 
     // ---------- Nav open/close ----------
     const setNavOpen = (open) => {
-      if (!toggle || !overlay || !drawer) return;
       if (open === isOpen()) return;
       if (!open && isClosing) return;
 
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
       document.body.classList.toggle("nav-open", open);
 
-      // show/hide immediately on open
       overlay.hidden = !open;
-      drawer.hidden  = !open;
+      drawer.hidden = !open;
 
       drawer.setAttribute("aria-hidden", open ? "false" : "true");
       overlay.setAttribute("aria-hidden", open ? "false" : "true");
@@ -245,13 +296,11 @@
         removeInert?.();
         removeInert = applyInertToBackground(true);
 
-        // Start open transition
         requestAnimationFrame(() => drawer.classList.add("is-open"));
 
         removeTrap?.();
         removeTrap = trapFocus(drawer);
       } else {
-        // Start close transition
         drawer.classList.remove("is-open");
 
         removeTrap?.();
@@ -264,80 +313,11 @@
         removeInert = null;
         applyInertToBackground(false);
 
-        // Hide after transition (prevents flicker)
         closeWithTransition();
       }
     };
 
-    // ---------- Wire nav events ----------
-    if (toggle && overlay && drawer) {
-      setupA11Y();
-
-      toggle.addEventListener("click", () => setNavOpen(!isOpen()));
-      overlay.addEventListener("click", () => setNavOpen(false));
-      closeBtn?.addEventListener("click", () => setNavOpen(false));
-
-      // Close when clicking any link in drawer
-      drawer.addEventListener("click", (e) => {
-        const a = e.target.closest("a");
-        if (a) setNavOpen(false);
-      });
-
-      // ESC to close
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && isOpen()) setNavOpen(false);
-      });
-
-      // Resize to desktop closes drawer
-      window.addEventListener(
-        "resize",
-        () => {
-          if (isOpen() && window.matchMedia(DESKTOP_MEDIA).matches) setNavOpen(false);
-        },
-        { passive: true }
-      );
-
-      // Close on outside click (belt + suspenders)
-      document.addEventListener("click", (e) => {
-        if (!isOpen()) return;
-        const target = e.target;
-        if (!(target instanceof Element)) return;
-
-        const clickedInsideDrawer = drawer.contains(target);
-        const clickedToggle = toggle.contains(target);
-        if (!clickedInsideDrawer && !clickedToggle) setNavOpen(false);
-      });
-
-      // ✅ Safety cleanup: prevents inert/aria-hidden stuck state on navigation away
-      window.addEventListener("pagehide", () => {
-        try {
-          document.body.classList.remove("nav-open");
-          drawer.classList.remove("is-open");
-
-          overlay.hidden = true;
-          drawer.hidden = true;
-          overlay.style.pointerEvents = "none";
-
-          // unlock scroll if any
-          unlockScroll?.();
-          unlockScroll = null;
-
-          // remove inert/aria-hidden from targets
-          removeInert?.();
-          removeInert = null;
-
-          // normalize aria
-          toggle.setAttribute("aria-expanded", "false");
-          drawer.setAttribute("aria-hidden", "true");
-          overlay.setAttribute("aria-hidden", "true");
-
-          isClosing = false;
-          lastFocus = null;
-        } catch (_e) {}
-      });
-    }
-
-    // ---------- Back to top (reliable) ----------
+    // ---------- Back to top ----------
     const scrollToTop = () => {
       if (isOpen()) setNavOpen(false);
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -347,11 +327,115 @@
       }
     };
 
+    // ---------- Wire events ----------
+    setupA11Y();
+    syncYear();
+
+    const bind = (target, event, handler, options) => {
+      target.addEventListener(event, handler, options);
+      cleanups.push(() => target.removeEventListener(event, handler, options));
+    };
+
+    bind(toggle, "click", () => setNavOpen(!isOpen()));
+    bind(overlay, "click", () => setNavOpen(false));
+
+    if (closeBtn) {
+      bind(closeBtn, "click", () => setNavOpen(false));
+    }
+
+    bind(drawer, "click", (e) => {
+      const a = e.target.closest("a");
+      if (a) setNavOpen(false);
+    });
+
+    bind(document, "keydown", (e) => {
+      if (e.key === "Escape" && isOpen()) setNavOpen(false);
+    });
+
+    bind(
+      window,
+      "resize",
+      () => {
+        if (isOpen() && window.matchMedia(DESKTOP_MEDIA).matches) {
+          setNavOpen(false);
+        }
+      },
+      { passive: true }
+    );
+
+    bind(document, "click", (e) => {
+      if (!isOpen()) return;
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+
+      const clickedInsideDrawer = drawer.contains(target);
+      const clickedToggle = toggle.contains(target);
+      if (!clickedInsideDrawer && !clickedToggle) setNavOpen(false);
+    });
+
+    bind(window, "pagehide", () => {
+      try {
+        document.body.classList.remove("nav-open");
+        drawer.classList.remove("is-open");
+
+        overlay.hidden = true;
+        drawer.hidden = true;
+        overlay.style.pointerEvents = "none";
+
+        restoreBackgroundState();
+
+        toggle.setAttribute("aria-expanded", "false");
+        drawer.setAttribute("aria-hidden", "true");
+        overlay.setAttribute("aria-hidden", "true");
+
+        isClosing = false;
+        lastFocus = null;
+      } catch (_e) {}
+    });
+
     if (backToTopEl) {
-      backToTopEl.addEventListener("click", (e) => {
+      bind(backToTopEl, "click", (e) => {
         if (backToTopEl.tagName?.toLowerCase() === "a") e.preventDefault();
         scrollToTop();
       });
     }
-  });
+
+    navApi = {
+      destroy() {
+        try {
+          document.body.classList.remove("nav-open");
+          drawer.classList.remove("is-open");
+
+          overlay.hidden = true;
+          drawer.hidden = true;
+          overlay.style.pointerEvents = "none";
+
+          restoreBackgroundState();
+
+          toggle.setAttribute("aria-expanded", "false");
+          drawer.setAttribute("aria-hidden", "true");
+          overlay.setAttribute("aria-hidden", "true");
+
+          isClosing = false;
+          lastFocus = null;
+        } catch (_e) {}
+
+        cleanups.forEach((fn) => {
+          try {
+            fn();
+          } catch (_e) {}
+        });
+      }
+    };
+  };
+
+  // ---------- Boot ----------
+  const boot = () => {
+    initPresetFill();
+    syncYear();
+    initNav();
+  };
+
+  onReady(boot);
+  document.addEventListener("partials:loaded", boot);
 })();
