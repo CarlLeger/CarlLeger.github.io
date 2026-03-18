@@ -63,28 +63,6 @@ a{
 }
 
 /* ==========================================================================
-   3) Skip link
-   ========================================================================== */
-.skip{
-  position: absolute;
-  left: 12px;
-  top: -48px;
-  z-index: 2000;
-  padding: 10px 14px;
-  border-radius: 12px;
-  background: #ffffff;
-  color: #07111f;
-  font-weight: 800;
-  line-height: 1;
-  box-shadow: var(--shadow-sm);
-  transition: top var(--ease);
-}
-
-.skip:focus{
-  top: 12px;
-}
-
-/* ==========================================================================
    4) Header
    ========================================================================== */
 .siteHeader{
