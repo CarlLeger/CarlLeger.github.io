@@ -1,29 +1,63 @@
-<!-- /partials/header.html -->
-<header class="site-header" data-site-header>
-  <div class="site-header__inner">
-    <a class="site-brand" href="/" aria-label="Carl Leger home">
-      <span class="site-brand__mark">CL</span>
-      <span class="site-brand__text">Carl Leger</span>
+<!-- /partials/header/index.html -->
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="siteHeader" data-header id="top">
+  <div class="siteHeader__inner">
+    <a class="brandMark" href="/" aria-label="Home">
+      <img
+        src="/assets/images/brand/carl-leger-logo-horizontal-silver.png"
+        alt="Carl Leger"
+        width="1200"
+        height="400"
+        decoding="async"
+        loading="eager"
+        class="brandLogo"
+      />
     </a>
 
-    <button
-      class="site-nav-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="site-nav"
-      aria-label="Open menu"
-      data-nav-toggle>
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav class="site-nav" id="site-nav" aria-label="Primary">
-      <a href="/about/">About</a>
-      <a href="/services/">Services</a>
-      <a href="/case-studies/">Case Studies</a>
-      <a href="/resources/">Resources</a>
-      <a href="/contact/" class="site-nav__cta">Contact</a>
+    <nav class="siteNav siteNav--desktop" aria-label="Primary navigation">
+      <a class="siteNav__link" href="/services/">Services</a>
+      <a class="siteNav__link" href="/resources/">Resources</a>
+      <a class="siteNav__link" href="/about/">About</a>
+      <a class="siteNav__cta" href="/contact/">Contact</a>
     </nav>
+
+    <button
+      class="navToggle"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="mobileNav"
+      aria-expanded="false"
+      data-nav-toggle
+    >
+      <span class="navToggle__bar"></span>
+      <span class="navToggle__bar"></span>
+      <span class="navToggle__bar"></span>
+    </button>
   </div>
 </header>
+
+<div class="navOverlay" data-nav-overlay hidden></div>
+
+<aside id="mobileNav" class="navDrawer" data-nav-drawer hidden aria-label="Mobile menu">
+  <div class="navDrawer__top">
+    <div class="navDrawer__title">Menu</div>
+    <button class="navClose" type="button" aria-label="Close menu" data-nav-close>
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <nav class="navDrawer__links" aria-label="Mobile navigation">
+    <a class="navDrawer__link" href="/services/">Services</a>
+    <a class="navDrawer__link" href="/resources/">Resources</a>
+    <a class="navDrawer__link" href="/about/">About</a>
+    <a class="navDrawer__link navDrawer__link--cta" href="/contact/">Contact</a>
+  </nav>
+
+  <div class="navDrawer__meta">
+    <div class="navDrawer__hint">
+      <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+      Reply within 24h • Clear next steps • No fluff
+    </div>
+  </div>
+</aside>
