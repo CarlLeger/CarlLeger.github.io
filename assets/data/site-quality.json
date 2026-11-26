@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "status": "measured",
+  "subject": "English homepage of this website",
+  "page": "/",
+  "environment": "Local HTTP laboratory; GA4 collection locked; not production or field data",
+  "measuredAt": "2026-11-26T03:10:58.438Z",
+  "displayTimeZone": "UTC",
+  "tool": {
+    "name": "Lighthouse",
+    "version": "13.6.0",
+    "browser": "Chrome 158",
+    "formFactor": "mobile",
+    "viewportCSSPixels": {
+      "width": 412,
+      "height": 823
+    },
+    "throttling": "simulated; RTT 150 ms; throughput 1638.4 Kbps; CPU slowdown 4x; fresh browser profile"
+  },
+  "unit": "score out of 100",
+  "scores": {
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "limitations": [
+    "Single local laboratory run; no production network or real-user data",
+    "Scores are not hosting-provider benchmarks",
+    "No field INP is measured",
+    "Scores can vary between runs",
+    "SEO scores do not measure Google rankings; accessibility scores do not certify exhaustive WCAG conformance"
+  ],
+  "methodology": "https://developer.chrome.com/docs/lighthouse/overview/",
+  "additionalContext": {
+    "formFactor": "desktop",
+    "viewportCSSPixels": {
+      "width": 1440,
+      "height": 900
+    },
+    "measuredAt": "2026-11-26T03:13:59.642Z",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "throttling": "simulated; RTT 40 ms; throughput 10240 Kbps; CPU slowdown 1x; fresh browser profile"
+  }
+}

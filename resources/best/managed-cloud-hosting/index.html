@@ -1,1201 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en-CA">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Best Managed Cloud Hosting for WordPress & WooCommerce (2026)</title>
-  <meta name="description" content="Best managed cloud hosting for WordPress & WooCommerce in 2026. Practical shortlist, what to look for, and how to choose the right host for performance and stability." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://carlleger.github.io/resources/best/managed-cloud-hosting/" />
-
-  <!-- Performance hints -->
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3KXQFTWTBD', { anonymize_ip: true });
-  </script>
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Best Managed Cloud Hosting for WordPress & WooCommerce (2026)" />
-  <meta property="og:description" content="Practical shortlist + what to look for in managed cloud hosting for WooCommerce performance and stability." />
-  <meta property="og:url" content="https://carlleger.github.io/resources/best/managed-cloud-hosting/" />
-  <meta property="og:type" content="article" />
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "headline":"Best Managed Cloud Hosting for WordPress & WooCommerce (2026)",
-    "description":"Best managed cloud hosting for WordPress & WooCommerce in 2026. Practical shortlist, what to look for, and how to choose the right host for performance and stability.",
-    "author":{"@type":"Person","name":"Carl Leger"},
-    "publisher":{"@type":"Person","name":"Carl Leger"},
-    "mainEntityOfPage":"https://carlleger.github.io/resources/best/managed-cloud-hosting/"
-  }
-  </script>
-
-  <style>
-    :root{
-      --bg1:#0b1220;
-      --bg2:#070d17;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.03);
-      --stroke:rgba(255,255,255,.10);
-      --stroke2:rgba(255,255,255,.06);
-      --text:#e7ecff;
-      --muted:rgba(168,179,214,.95);
-      --accent:#6aa6ff;
-      --good:#2ee59d;
-      --warn:#ffd36e;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --radius: 18px;
-      --max: 980px;
-      --icon: 32px;
-    }
-
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      color:var(--text);
-      background:
-        radial-gradient(900px 600px at 18% 18%, rgba(106,166,255,.18), transparent 60%),
-        radial-gradient(900px 600px at 85% 20%, rgba(46,229,157,.12), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-      line-height:1.55;
-    }
-
-    a{ color:var(--accent); text-decoration:none; }
-    a:hover{ text-decoration:underline; }
-
-    .container{ max-width:var(--max); margin:0 auto; padding:28px 18px 80px; }
-
-    h1{ font-size:clamp(28px,3vw,40px); margin:14px 0 8px; }
-    h2{ font-size:18px; margin:0 0 12px; }
-    h3{ margin:0 0 8px; font-size:16px; }
-
-    .subtitle{ color:var(--muted); max-width:78ch; }
-
-    .topbar{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:8px;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.04);
-      color:rgba(231,236,255,.92);
-      font-size:12px;
-      white-space:nowrap;
-    }
-    .pill .dot{ width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.25); }
-    .pill.good{ border-color:rgba(46,229,157,.35); background:rgba(46,229,157,.10); }
-    .pill.good .dot{ background:var(--good); }
-
-    .card,.section{
-      border:1px solid var(--stroke);
-      background:linear-gradient(180deg,var(--panel),rgba(255,255,255,.03));
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:18px;
-      margin-top:18px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:16px;
-      margin-top:16px;
-    }
-    @media(max-width:900px){ .grid{grid-template-columns:1fr;} }
-
-    ul{ color:var(--muted); margin:10px 0 0 18px; }
-
-    .hero-cta{
-      border:1px solid rgba(46,229,157,.35);
-      background:rgba(46,229,157,.10);
-      border-radius:18px;
-      padding:16px;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:14px;
-      align-items:flex-start;
-      margin-top:14px;
-    }
-    .hero-cta h2{ margin:0 0 6px; font-size:16px; }
-    .hero-cta p{ margin:0; color:var(--muted); max-width:70ch; }
-    .hero-cta .hero-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    /* NEW: small helper line under hero CTA */
-    .hero-helper{
-      margin-top:10px;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(255,211,110,.28);
-      background: rgba(255,211,110,.08);
-      color: rgba(231,236,255,.90);
-      font-size:13px;
-      max-width:78ch;
-    }
-    .hero-helper b{ color: rgba(255,255,255,.96); }
-
-    .table-wrap{
-      position:relative;
-      overflow-x:auto;
-      overflow-y:visible;
-      -webkit-overflow-scrolling:touch;
-      border:1px solid var(--stroke);
-      border-radius:16px;
-      background:var(--panel2);
-      scrollbar-gutter: stable both-edges;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(106,166,255,.55) rgba(255,255,255,.06);
-    }
-    .table-wrap:after{
-      content:"";
-      position:sticky;
-      left:0;
-      right:0;
-      bottom:0;
-      display:block;
-      height:26px;
-      pointer-events:none;
-      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(7,13,23,.55));
-    }
-
-    .table-wrap::-webkit-scrollbar{ height:12px; }
-    .table-wrap::-webkit-scrollbar-track{
-      background: rgba(255,255,255,.06);
-      border-radius: 999px;
-      margin: 10px;
-    }
-    .table-wrap::-webkit-scrollbar-thumb{
-      background: rgba(106,166,255,.55);
-      border: 3px solid rgba(255,255,255,.06);
-      border-radius: 999px;
-    }
-    .table-wrap::-webkit-scrollbar-thumb:hover{
-      background: rgba(106,166,255,.75);
-    }
-
-    table{
-      width:100%;
-      min-width: 1040px;
-      border-collapse:collapse;
-      table-layout:fixed;
-    }
-
-    th,td{
-      padding:10px 10px;
-      border-bottom:1px solid var(--stroke2);
-      vertical-align:top;
-      overflow:hidden;
-    }
-    th{ background:rgba(255,255,255,.03); text-align:left; }
-
-    table th:nth-child(1), table td:nth-child(1){ width:31%; }
-    table th:nth-child(2), table td:nth-child(2){ width:17%; }
-    table th:nth-child(3), table td:nth-child(3){ width:11%; }
-    table th:nth-child(4), table td:nth-child(4){ width:11%; }
-    table th:nth-child(5), table td:nth-child(5){ width:12%; }
-    table th:nth-child(6), table td:nth-child(6){ width:10%; }
-    table th:nth-child(7), table td:nth-child(7){ width:8%; }
-
-    table td:nth-child(7){
-      overflow:visible;
-      text-align:right;
-      vertical-align:middle;
-      padding-right:12px;
-    }
-    table th:nth-child(7){ text-align:right; }
-
-    @media (max-width: 820px){
-      table td:nth-child(7), table th:nth-child(7){ text-align:left; }
-    }
-
-    tbody tr:last-child td{ border-bottom:0; }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:5px 10px;
-      border-radius:999px;
-      border:1px solid var(--stroke);
-      font-size:12px;
-      color:rgba(231,236,255,.92);
-      background:rgba(255,255,255,.03);
-      white-space:nowrap;
-    }
-    .badge.good{ border-color: rgba(46,229,157,.35); }
-    .badge.good .dot{ background: var(--good); }
-    .badge .dot{ width:8px;height:8px;border-radius:999px; background: rgba(255,255,255,.25); }
-
-    .pname{
-      display:flex;
-      align-items:flex-start;
-      gap:12px;
-      font-weight:800;
-      color:rgba(231,236,255,.96);
-      line-height:1.1;
-      min-width:0;
-    }
-
-    .picon{
-      width: var(--icon);
-      height: var(--icon);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      background:transparent;
-      flex: 0 0 auto;
-      margin-top:2px;
-      color: rgba(231,236,255,.96);
-      overflow:visible;
-    }
-    .picon svg{ width:var(--icon); height:var(--icon); display:block; }
-
-    /* Kinsta icon */
-    .picon.kinsta{
-      width: var(--icon);
-      height: var(--icon);
-      flex: 0 0 auto;
-      margin-top: 2px;
-      border-radius: 10px;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.10);
-      color: rgba(231,236,255,.96);
-    }
-    .picon.kinsta svg{
-      width: calc(var(--icon) - 8px);
-      height: calc(var(--icon) - 8px);
-      display:block;
-    }
-
-    /* Hosting.com icon */
-    .picon.hosting{ color:#96cb4c; }
-    .picon.hosting svg{ width:var(--icon); height:var(--icon); display:block; }
-
-    .pmeta{
-      min-width:0;
-      max-width:100%;
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-    .pmeta .title{
-      font-size:18px;
-      font-weight:900;
-      line-height:1.05;
-    }
-    .pmeta .title a{ color:inherit; text-decoration:none; }
-    .pmeta .title a:hover{ text-decoration:underline; }
-
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.03);
-      font-size:12px;
-      color:rgba(231,236,255,.92);
-      white-space:nowrap;
-      width:max-content;
-    }
-    .tag .mini-dot{ width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.25); }
-    .tag.top{ border-color: rgba(46,229,157,.45); background: rgba(46,229,157,.12); }
-    .tag.top .mini-dot{ background: var(--good); }
-    .tag.warn{ border-color: rgba(255,211,110,.45); background: rgba(255,211,110,.12); }
-    .tag.warn .mini-dot{ background: var(--warn); }
-
-    .micro-wrap{
-      font-size:12px;
-      color:var(--muted);
-      line-height:1.35;
-      min-width:0;
-      max-width:100%;
-    }
-    .micro-line{
-      display:flex;
-      gap:8px;
-      align-items:baseline;
-      min-width:0;
-      max-width:100%;
-    }
-    .micro-short{
-      flex:1 1 auto;
-      min-width:0;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:clip;
-    }
-    .micro-more{ display:none; margin-top:6px; }
-    .micro-wrap.expanded .micro-line{ display:none; }
-    .micro-wrap.expanded .micro-more{ display:block; }
-
-    .see-more{
-      flex:0 0 auto;
-      font-size:12px;
-      font-weight:700;
-      color:rgba(106,166,255,.92);
-      text-decoration:none;
-      cursor:pointer;
-      user-select:none;
-      white-space:nowrap;
-    }
-    .see-more:hover{ text-decoration:underline; }
-
-    .micro-actions{
-      margin-top:6px;
-      display:flex;
-      justify-content:flex-start;
-    }
-
-    .row-top{
-      background: linear-gradient(180deg, rgba(46,229,157,.10), rgba(255,255,255,.02));
-    }
-    .row-top td{ border-bottom-color: rgba(46,229,157,.18); }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid rgba(106,166,255,.35);
-      background: rgba(106,166,255,.12);
-      color: rgba(231,236,255,.96);
-      text-decoration:none;
-      white-space:nowrap;
-      font-weight:700;
-      width:100%;
-      max-width:210px;
-      min-width:170px;
-      cursor:pointer;
-    }
-    .btn:hover{ border-color: rgba(106,166,255,.70); text-decoration:none; }
-    .btn.primary{
-      border-color: rgba(46,229,157,.55);
-      background: rgba(46,229,157,.16);
-    }
-    .btn.primary:hover{ border-color: rgba(46,229,157,.85); }
-    .btn.muted{
-      border-color: rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: rgba(231,236,255,.86);
-    }
-
-    .note{
-      color:var(--muted);
-      font-size:12px;
-      margin-top:10px;
-    }
-
-    .checklist{ list-style:none; padding:0; display:grid; gap:10px; margin:0; }
-    .checklist li{
-      border:1px solid var(--stroke);
-      border-radius:14px;
-      padding:12px;
-      background:rgba(255,255,255,.03);
-      color:var(--muted);
-    }
-
-    .cta{
-      border:1px solid rgba(46,229,157,.35);
-      background:rgba(46,229,157,.10);
-      border-radius:18px;
-      padding:18px;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:14px;
-      align-items:flex-start;
-    }
-    .cta h3{ margin:0 0 6px; font-size:16px; }
-    .cta p{ margin:0; }
-    .cta a{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:14px;
-      border:1px solid rgba(46,229,157,.55);
-      background:rgba(46,229,157,.15);
-      color:#eafff6;
-      text-decoration:none;
-      white-space:nowrap;
-    }
-    .cta a:hover{ border-color: rgba(46,229,157,.85); }
-
-    /* Stars */
-    .stars{
-      display:inline-flex;
-      align-items:center;
-      gap:2px;
-      line-height:1;
-      vertical-align:middle;
-      white-space:nowrap;
-      color: var(--warn);
-    }
-    .star{
-      width:14px; height:14px;
-      display:inline-block;
-      opacity:.95;
-    }
-    .stars .star.off{ opacity:.28; }
-    .rating{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-    }
-    .rating .rnum{
-      font-size:12px;
-      color:rgba(231,236,255,.85);
-    }
-
-    .review-link{
-      display:inline-block;
-      margin-top:6px;
-      font-size:12px;
-      font-weight:800;
-      color:rgba(106,166,255,.92);
-      text-decoration:none;
-    }
-    .review-link:hover{ text-decoration:underline; }
-
-    .stars-link{
-      text-decoration:none;
-      cursor:pointer;
-    }
-    .stars-link:focus-visible{
-      outline:2px solid rgba(106,166,255,.65);
-      outline-offset:3px;
-      border-radius:10px;
-    }
-
-    footer{ text-align:center; color:var(--muted); font-size:13px; margin-top:18px; }
-  </style>
-</head>
-
-<body>
-<div class="container">
-
-  <header>
-    <div class="topbar">
-      <div>
-        <h1>Best Managed Cloud Hosting for WordPress & WooCommerce (2026)</h1>
-        <p class="subtitle">
-          If your store is outgrowing shared hosting, managed cloud hosting is often the upgrade path that fixes speed, scaling, and checkout instability.
-          This page is a practical shortlist plus what to look for.
-        </p>
-
-        <!-- CTA #1 (Top of page) -->
-        <div class="hero-cta">
-          <div>
-            <h2>Quick recommendation</h2>
-            <p>
-              If you want the best balance of performance, flexibility, and simple scaling, Cloudways is the easiest “upgrade path” for most WooCommerce sites.
-            </p>
-
-            <!-- NEW: micro CTA line (migration trigger) -->
-            <div class="hero-helper">
-              Experiencing <b>slow checkout</b>, random errors, or traffic spikes? Cloudways is often the quickest <b>safe migration</b> path for WooCommerce.
-            </div>
-          </div>
-
-          <div class="hero-actions">
-            <a class="btn primary affiliate-link"
-               data-partner="cloudways"
-               data-placement="hero_cta"
-               data-link-type="affiliate"
-               href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=hero-cta"
-               target="_blank"
-               rel="nofollow sponsored noopener">
-              Get Cloudways
-            </a>
-
-            <!-- NEW: dedicated migration CTA (same link, different intent/label) -->
-            <a class="btn primary affiliate-link"
-               data-partner="cloudways"
-               data-placement="hero_migration_cta"
-               data-link-type="affiliate"
-               href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=hero-migration"
-               target="_blank"
-               rel="nofollow sponsored noopener">
-              Free migration
-            </a>
-
-            <a class="btn muted"
-               href="#comparison"
-               data-link-type="internal"
-               data-placement="hero_jump">
-              Compare options
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="pill good" title="Shortlist updated">
-        <span class="dot"></span>
-        Shortlist: 5 solid options
-      </div>
-    </div>
-  </header>
-
-  <div class="grid">
-    <div class="card">
-      <h2>Who this is for</h2>
-      <ul>
-        <li>WooCommerce stores with inconsistent speed or spikes during promos</li>
-        <li>Sites where cart/checkout breaks after “optimizations” or traffic increases</li>
-        <li>Agencies/freelancers managing multiple WordPress installs</li>
-        <li>Teams that want more control than “managed WP only” hosts</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Rule of thumb</h2>
-      <p class="subtitle">
-        If traffic growth breaks your server before it breaks your theme, it’s time.
-        Look for <b>scaling</b>, <b>reliable backups</b>, <b>staging</b>, and support that understands WordPress + WooCommerce.
-      </p>
-    </div>
-  </div>
-
-  <div class="section" id="comparison">
-    <h2>Best Managed Cloud Hosting (quick comparison)</h2>
-
-    <div class="table-wrap" aria-label="Comparison table (scroll horizontally on small screens)">
-      <table>
-        <thead>
-          <tr>
-            <th>Provider</th>
-            <th>Best for</th>
-            <th>Tier</th>
-            <th>Woo-safe</th>
-            <th>Review</th>
-            <th>Typical price</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <!-- Cloudways -->
-          <tr class="row-top">
-            <td>
-              <div class="pname">
-                <span class="picon" aria-hidden="true" title="Cloudways">
-                  <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
-                    <path d="M171.296 275.979H18.344C11.654 275.979 6 270.407 6 263.87c0-6.56 5.653-12.107 12.344-12.107h162.364c7.034-12.345 16.943-22.892 28.838-30.775H84.38c-6.666 0-12.336-5.572-12.336-12.108 0-6.544 5.67-12.107 12.336-12.107h152.495c3.815-11.241 9.55-21.625 16.813-30.775H108.07c-6.69 0-12.344-5.539-12.344-12.107 0-6.536 5.653-12.108 12.344-12.108h172.951c16.193-9.959 35.342-15.71 55.856-15.71 51.167 0 93.828 35.767 103.42 83.208 37.98 11.004 65.7 45.488 65.7 86.328 0 49.737-41.06 90.021-91.72 90.021h-.32v.294H94.396c-6.682 0-12.328-5.522-12.328-12.099 0-6.544 5.646-12.115 12.328-12.115h104.163c-9.411-8.546-17-19.003-22.115-30.75l-19.68.007c-3.996 0-7.01-2.957-7.01-6.887v-10.138c0-3.922 3.006-6.87 7.01-6.87h13.079a88.563 88.563 0 01-.735-11.463c0-6.74.751-13.316 2.19-19.631zm-60.235 54.99H21.988c-3.995 0-6.985-2.958-6.985-6.888v-10.138c0-3.922 2.99-6.87 6.985-6.87h88.747c3.995 0 7.01 2.948 7.01 6.87v10.138c.318 3.62-3.015 6.887-6.684 6.887z" fill="#2f39bf"/>
-                  </svg>
-                </span>
-
-                <div class="pmeta">
-                  <div class="title">
-                    <a class="affiliate-link"
-                       data-partner="cloudways"
-                       data-placement="table_title"
-                       data-link-type="affiliate"
-                       href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=table-title"
-                       target="_blank" rel="nofollow sponsored noopener">Cloudways</a>
-                  </div>
-                  <div class="tag top"><span class="mini-dot"></span>#1 pick (best balance)</div>
-                  <div class="tag"><span class="mini-dot"></span>Scaling + staging</div>
-
-                  <div class="micro-wrap" data-micro>
-                    <div class="micro-line">
-                      <span class="micro-short">Managed cloud hosting with flexible providers, easy scaling, staging, and backups. Great for growing WooCommerce stores and agencies.</span>
-                      <a class="see-more" href="#" data-toggle>See more</a>
-                    </div>
-                    <div class="micro-more">
-                      Managed cloud hosting with flexible providers, easy scaling, staging, and backups. Great for growing WooCommerce stores and agencies.
-                      <div class="micro-actions">
-                        <a class="see-more" href="#" data-toggle>See less</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>Growing Woo stores</td>
-            <td><span class="badge"><span class="dot"></span>Flexible</span></td>
-            <td><span class="badge good"><span class="dot"></span>Yes</span></td>
-
-            <td>
-              <span class="rating" aria-label="Review 5 out of 5">
-                <a class="stars stars-link"
-                   href="https://carlleger.github.io/resources/best/cloudways-review/"
-                   target="_blank" rel="noopener"
-                   data-link-type="review"
-                   data-partner="cloudways"
-                   data-placement="table_review_stars"
-                   aria-label="Read the Cloudways review (opens in a new tab)">
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                </a>
-                <span class="rnum">5.0</span>
-              </span>
-
-              <a class="review-link"
-                 href="https://carlleger.github.io/resources/best/cloudways-review/"
-                 target="_blank" rel="noopener"
-                 data-link-type="review"
-                 data-partner="cloudways"
-                 data-placement="table_review_link">Read review</a>
-            </td>
-
-            <td><span class="badge"><span class="dot"></span>$11/mo+</span></td>
-            <td>
-              <a class="btn primary affiliate-link"
-                 data-partner="cloudways"
-                 data-placement="table_cta"
-                 data-link-type="affiliate"
-                 href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=table-cta"
-                 target="_blank" rel="nofollow sponsored noopener">Get Cloudways</a>
-            </td>
-          </tr>
-
-          <!-- Kinsta -->
-          <tr>
-            <td>
-              <div class="pname">
-                <span class="picon kinsta" aria-hidden="true" title="Kinsta">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kinsta">
-                    <title>Kinsta</title>
-                    <g fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M18 14v36"/>
-                      <path d="M18 32l20-18"/>
-                      <path d="M18 32l20 18"/>
-                    </g>
-                  </svg>
-                </span>
-
-                <div class="pmeta">
-                  <div class="title">
-                    <a class="affiliate-link"
-                       data-partner="kinsta"
-                       data-placement="table_title"
-                       data-link-type="affiliate"
-                       href="https://kinsta.com/?kaid=GTMETMUUOMYF"
-                       target="_blank" rel="nofollow sponsored noopener">Kinsta</a>
-                  </div>
-
-                  <div class="tag top"><span class="mini-dot"></span>Premium managed WP</div>
-                  <div class="tag"><span class="mini-dot"></span>Low-maintenance</div>
-
-                  <div class="micro-wrap" data-micro>
-                    <div class="micro-line">
-                      <span class="micro-short">
-                        Best when you want top-tier managed WordPress performance and support with minimal server decisions (less flexibility than full cloud control).
-                      </span>
-                      <a class="see-more" href="#" data-toggle>See more</a>
-                    </div>
-
-                    <div class="micro-more">
-                      Best when you want top-tier managed WordPress performance and support with minimal server decisions (less flexibility than full cloud control).
-                      <div class="micro-actions">
-                        <a class="see-more" href="#" data-toggle>See less</a>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </td>
-
-            <td>Hands-off teams</td>
-
-            <td><span class="badge"><span class="dot"></span>Premium</span></td>
-
-            <td><span class="badge good"><span class="dot"></span>Yes</span></td>
-
-            <td>
-              <span class="rating" aria-label="Review 5 out of 5">
-                <span class="stars" data-stars="5">
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                </span>
-                <span class="rnum">5.0</span>
-              </span>
-            </td>
-
-            <td><span class="badge"><span class="dot"></span>$30/mo+</span></td>
-
-            <td>
-              <a class="btn affiliate-link"
-                 data-partner="kinsta"
-                 data-placement="table_cta"
-                 data-link-type="affiliate"
-                 href="https://kinsta.com/?kaid=GTMETMUUOMYF"
-                 target="_blank" rel="nofollow sponsored noopener">Get Kinsta</a>
-            </td>
-          </tr>
-
-          <!-- WP Engine -->
-          <tr>
-            <td>
-              <div class="pname">
-                <span class="picon" aria-hidden="true" title="WP Engine">
-                  <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" aria-hidden="true" focusable="false">
-                    <path d="M86.8392157,256 L169.160784,256 L169.160784,193.756863 L149.082353,173.678431 L106.415686,173.678431 L86.8392157,193.756863 L86.8392157,256 Z M193.254902,86.8392157 L173.678431,106.415686 L173.678431,149.584314 L193.254902,169.160784 L256,169.160784 L256,86.8392157 L193.254902,86.8392157 Z M169.160784,0 L86.8392157,0 L86.8392157,62.745098 L106.415686,82.3215686 L149.082353,82.3215686 L169.160784,62.745098 L169.160784,0 Z M256,256 L256,193.756863 L236.423529,173.678431 L173.678431,173.678431 L173.678431,256 L256,256 Z M19.5764706,0 L0,19.5764706 L0,82.3215686 L82.3215686,82.3215686 L82.3215686,0 L19.5764706,0 Z M173.678431,0 L173.678431,62.745098 L193.254902,82.3215686 L256,82.3215686 L256,0 L173.678431,0 Z M128,140.047059 C121.47451,140.047059 116.454902,134.52549 116.454902,128.501961 C116.454902,121.976471 121.976471,116.956863 128,116.956863 C134.52549,116.956863 139.545098,122.478431 139.545098,128.501961 C139.545098,134.52549 134.52549,140.047059 128,140.047059 Z M82.3215686,86.8392157 L0,86.8392157 L0,169.160784 L62.2431373,169.160784 L82.3215686,149.584314 L82.3215686,86.8392157 Z M82.3215686,193.756863 L62.2431373,173.678431 L0,173.678431 L0,256 L62.2431373,256 L82.3215686,236.423529 L82.3215686,193.756863 Z" fill="#40BAC8"></path>
-                  </svg>
-                </span>
-
-                <div class="pmeta">
-                  <div class="title">
-                    <a class="affiliate-link"
-                      data-partner="wpengine"
-                      data-placement="table_title"
-                      data-link-type="affiliate"
-                      href="https://www.wqwln8trk.com/CBMM242B9/724PP615R/?source_id=managed-cloud-hosting-2026&sub1=table&sub2=title&sub3=comparison&sub4=wpengine"
-                      target="_blank"
-                      rel="nofollow sponsored noopener"
-                    >WP Engine</a>
-                  </div>
-                  <div class="tag top"><span class="mini-dot"></span>Premium managed WP</div>
-                  <div class="tag"><span class="mini-dot"></span>Strong tooling</div>
-
-                  <div class="micro-wrap" data-micro>
-                    <div class="micro-line">
-                      <span class="micro-short">Great option for teams that want a polished managed WordPress platform: solid environments, dev workflow, and support.</span>
-                      <a class="see-more" href="#" data-toggle>See more</a>
-                    </div>
-                    <div class="micro-more">
-                      Great option for teams that want a polished managed WordPress platform: solid environments, dev workflow, and support.
-                      <div class="micro-actions">
-                        <a class="see-more" href="#" data-toggle>See less</a>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </td>
-
-            <td>Agencies / brands</td>
-            <td><span class="badge"><span class="dot"></span>Premium</span></td>
-            <td><span class="badge good"><span class="dot"></span>Yes</span></td>
-
-            <td>
-              <span class="rating" aria-label="Review 5 out of 5">
-                <span class="stars" data-stars="5">
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                </span>
-                <span class="rnum">5.0</span>
-              </span>
-            </td>
-
-            <td><span class="badge"><span class="dot"></span>C$34/mo+</span></td>
-
-            <td>
-              <a class="btn affiliate-link"
-                data-partner="wpengine"
-                data-placement="table_cta"
-                data-link-type="affiliate"
-                href="https://www.wqwln8trk.com/CBMM242B9/724PP615R/?source_id=managed-cloud-hosting-2026&sub1=table&sub2=cta&sub3=comparison&sub4=wpengine"
-                target="_blank"
-                rel="nofollow sponsored noopener"
-              >Get WP Engine</a>
-            </td>
-          </tr>
-
-          <!-- SiteGround -->
-          <tr>
-            <td>
-              <div class="pname">
-                <span class="picon" aria-hidden="true" title="SiteGround">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
-                    <path fill="none" d="M0,0H150V150H0V0Z"/>
-                    <path fill="#96cb4c" fill-rule="evenodd" d="M57.49,113.35c-15.8-5.17-27.08-20.52-29.85-36.61C20.02,32.32,67.28-7.75,114.48,14.5c.56,9.97-4.07,24.17-16.79,28.44,63.1,39.83,9.15,121.44-56.97,94.6-12.06-6.15-5.62-17.4,7.27-10.88,14.4,4.97,33.12,4.97,44.91-1.54,7.7-4.05,14.29-9.92,19.2-17.1,1.76-2.67,3.28-5.49,4.55-8.42,1-2.35,4.22-12.06,1.72-13.12-.63-.26-.96,.48-1.13,1.18-1.62,6.32-4.72,12.17-9.05,17.06-5.21,6.08-11.93,10.68-19.49,13.34-9.43,3.44-20.36,3.87-35.39,.58,.99-1.07,2.98-4.06,4.14-5.28h.01ZM101.05,18.49c.25,1.45,.39,2.92,.43,4.4,.53,6.55-2.05,12.97-6.97,17.32-1.06,1.06-2.27,2.17-3.61,3.31,17.82,11.08,27.13,35.31,16.78,52.24-13.96,22.82-41.63,17.63-56.74,2.01-15.82-16.35-13.73-37.51-2.36-53.2,12.45-16.42,31.86-26.07,52.47-26.08Z"/>
-                    <path fill="#333230" fill-rule="evenodd" d="M47.34,68.58c3.39-33.87,42.35-40.57,56.83,4.56,11.68,46.39-62.21,36.3-56.83-4.56Zm31.78,22.27c30.77,1.12,16.02-30.34-4.18-37.3-20.02-6.89-31.15,37.3,4.18,37.3Z"/>
-                  </svg>
-                </span>
-
-                <div class="pmeta">
-                  <div class="title">
-                    <a class="affiliate-link"
-                       data-partner="siteground"
-                       data-placement="table_title"
-                       data-link-type="affiliate"
-                       href="https://www.siteground.com/index.htm?afcode=99f973186a9f86fde0ad63669bf6d1fa"
-                       target="_blank" rel="nofollow sponsored noopener">SiteGround</a>
-                  </div>
-                  <div class="tag"><span class="mini-dot"></span>Starter-friendly</div>
-                  <div class="tag"><span class="mini-dot"></span>Good support</div>
-
-                  <div class="micro-wrap" data-micro>
-                    <div class="micro-line">
-                      <span class="micro-short">Great entry point for smaller WP/Woo sites that want an easy managed experience before moving into heavier cloud scaling.</span>
-                      <a class="see-more" href="#" data-toggle>See more</a>
-                    </div>
-                    <div class="micro-more">
-                      Great entry point for smaller WP/Woo sites that want an easy managed experience before moving into heavier cloud scaling.
-                      <div class="micro-actions">
-                        <a class="see-more" href="#" data-toggle>See less</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>Smaller stores</td>
-            <td><span class="badge"><span class="dot"></span>Pro</span></td>
-            <td><span class="badge good"><span class="dot"></span>Usually</span></td>
-            <td>
-              <span class="rating" aria-label="Review 4 out of 5">
-                <span class="stars" data-stars="4">
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star off" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19-.62-5.46 4.67 1.64 7.03z"/></svg>
-                </span>
-                <span class="rnum">4.0</span>
-              </span>
-            </td>
-            <td><span class="badge"><span class="dot"></span>$2.99/mo*</span></td>
-            <td>
-              <a class="btn affiliate-link"
-                 data-partner="siteground"
-                 data-placement="table_cta"
-                 data-link-type="affiliate"
-                 href="https://www.siteground.com/index.htm?afcode=99f973186a9f86fde0ad63669bf6d1fa"
-                 target="_blank" rel="nofollow sponsored noopener">Get SiteGround</a>
-            </td>
-          </tr>
-
-          <!-- Hosting.com -->
-          <tr>
-            <td>
-              <div class="pname">
-                <span class="picon hosting" aria-hidden="true" title="Hosting.com">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 261 250" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet">
-                    <path style="fill:#96cb4c; stroke:none;" d="M116 177C112.764 190.593 114.261 215.075 134 211.671C142.563 210.195 149.676 204.261 156 198.714C178.665 178.833 193.955 147.549 198.561 118C199.169 114.1 199.222 109.928 198.829 106C198.564 103.345 198.093 100.5 197.136 98C189.938 79.1904 169.242 91.878 159 100C164.247 83.5896 169.299 65.385 166.561 48C164.422 34.4196 157.176 26.0466 143 27.0903C139.096 27.3777 135.516 28.5901 132 30.2616C127.029 32.6248 122.381 35.3151 118 38.6543C111.2 43.8369 104.903 49.6524 99.1698 56C70.7317 87.4849 49.4679 128.823 43.4282 171C42.6476 176.451 42.6221 182.518 43.1705 188C43.5415 191.708 44.4119 195.508 45.7106 199C46.6239 201.456 47.7988 203.826 49.5324 205.815C63.1773 221.466 86.5664 204.849 98 195C100.687 192.685 103.451 190.445 105.985 187.961C109.521 184.495 112.577 180.576 116 177z"/>
-                    <path style="fill:#96cb4c; stroke:none;" d="M218 150.533C202.066 153.988 189.525 175.909 187.301 191C185.952 200.15 187.276 214.309 200 211.609C216.195 208.172 228.16 186.086 230.674 171C232.125 162.298 230.076 147.915 218 150.533z"/>
-                  </svg>
-                </span>
-
-                <div class="pmeta">
-                  <div class="title">
-                    <a class="affiliate-link"
-                       data-partner="hostingdotcom"
-                       data-placement="table_title"
-                       data-link-type="affiliate"
-                       href="https://hosting.com/hosting/platforms/wordpress-hosting/?aid=69604ae331c5f&bid=9edb38b0"
-                       target="_blank"
-                       rel="nofollow sponsored noopener">Hosting.com</a>
-                  </div>
-                  <div class="tag"><span class="mini-dot"></span>VPS / performance</div>
-                  <div class="tag"><span class="mini-dot"></span>More control</div>
-
-                  <div class="micro-wrap" data-micro>
-                    <div class="micro-line">
-                      <span class="micro-short">Good pick if you want stronger server options (VPS/dedicated) and you’re comfortable with a more technical setup than “managed WP only”.</span>
-                      <a class="see-more" href="#" data-toggle>See more</a>
-                    </div>
-                    <div class="micro-more">
-                      Good pick if you want stronger server options (VPS/dedicated) and you’re comfortable with a more technical setup than “managed WP only”.
-                      <div class="micro-actions">
-                        <a class="see-more" href="#" data-toggle>See less</a>
-                      </div>
-                      <div class="note" style="margin-top:10px;">
-                        Prices often show an intro deal, then renew higher. Always confirm at checkout.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>Power users</td>
-            <td><span class="badge"><span class="dot"></span>Flexible</span></td>
-            <td><span class="badge"><span class="dot"></span>Depends</span></td>
-            <td>
-              <span class="rating" aria-label="Review 4 out of 5">
-                <span class="stars" data-stars="4">
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                  <svg class="star off" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.3l-6.18 3.64 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.67 1.64 7.03z"/></svg>
-                </span>
-                <span class="rnum">4.0</span>
-              </span>
-            </td>
-            <td><span class="badge"><span class="dot"></span>$1.00/mo*</span></td>
-            <td>
-              <a class="btn muted affiliate-link"
-                 data-partner="hostingdotcom"
-                 data-placement="table_cta"
-                 data-link-type="affiliate"
-                 href="https://hosting.com/hosting/platforms/wordpress-hosting/?aid=69604ae331c5f&bid=9edb38b0"
-                 target="_blank"
-                 rel="nofollow sponsored noopener">Visit Hosting.com</a>
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-
-    <!-- NEW: CTA right after comparison table (conversion hotspot) -->
-    <div class="section" style="margin-top:16px;">
-      <div class="cta">
-        <div>
-          <h3>Checkout slow or crashing during promos?</h3>
-          <p class="subtitle">
-            If your store has <b>traffic spikes</b>, <b>random errors</b>, or a <b>slow checkout</b>, Cloudways is often the quickest “safe migration” upgrade.
-            You get staging, backups, and scaling without the usual server headaches.
-          </p>
-        </div>
-        <div>
-          <a class="affiliate-link"
-             data-partner="cloudways"
-             data-placement="after_table_migration_cta"
-             data-link-type="affiliate"
-             href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=after-table-migration"
-             target="_blank"
-             rel="nofollow sponsored noopener">
-            Free migration
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA #2 (After pricing/comparison section) -->
-    <div class="section" style="margin-top:16px;">
-      <div class="cta">
-        <div>
-          <h3>Want the quickest “safe upgrade” for WooCommerce?</h3>
-          <p class="subtitle">
-            If you do not want to micromanage servers but still want real scaling, staging, and backups, Cloudways is usually the smoothest move.
-          </p>
-        </div>
-        <div>
-          <a class="affiliate-link"
-             data-partner="cloudways"
-             data-placement="after_table_cta"
-             data-link-type="affiliate"
-             href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=after-table-cta"
-             target="_blank"
-             rel="nofollow sponsored noopener">
-            Get Cloudways
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="note">
-      Note: Links may be affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.
-      Pricing varies by region, promotions, term length, and plan. Always check the provider’s checkout page for current rates and limits.
-      <br/><br/>
-      *Prices marked with an asterisk are commonly intro prices (promos) and may renew higher.
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>What to look for (WooCommerce-focused)</h2>
-    <ul class="checklist">
-      <li><b>Scaling:</b> Can you upgrade RAM/CPU quickly when campaigns hit? Do you get clear resource limits?</li>
-      <li><b>Staging + backups:</b> Staging should be simple. Backups should be automated and restorable fast.</li>
-      <li><b>Cache safety:</b> Host-level cache should not break cart/checkout. Look for controls and exclusions.</li>
-      <li><b>Support quality:</b> When a store is down, you need real troubleshooting, not copy/paste scripts.</li>
-      <li><b>Security basics:</b> SSL, firewalls/WAF options, patching guidance, and sane access controls.</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Quick FAQ</h2>
-    <ul class="checklist">
-      <li><b>Do I need managed cloud if I use a cache plugin?</b><br/>Not always. But hosting determines your baseline CPU/RAM, I/O, and stability under load. Plugins can’t fix a server that’s hitting limits.</li>
-      <li><b>Will this fix Core Web Vitals?</b><br/>It helps a lot with TTFB and stability, but CWV often needs front-end work too (images, JS, theme, fonts, third-party scripts).</li>
-
-      <!-- NEW FAQ item: migration trigger -->
-      <li><b>Do I get help migrating?</b><br/>Most good hosts offer migration help, but always confirm the exact scope (staging test, DNS plan, checkout testing, and rollback). If you’re migrating a WooCommerce store, test cart/checkout + emails before switching traffic.</li>
-
-      <li><b>What’s the biggest mistake when migrating?</b><br/>Moving without a staging test, DNS plan, and rollback. Always test cart/checkout, emails, and payments before flipping traffic.</li>
-    </ul>
-  </div>
-
-  <!-- CTA #3 (Conclusion) -->
-  <div class="section">
-    <div class="cta">
-      <div>
-        <h3>Conclusion</h3>
-        <p class="subtitle">
-          If you want flexibility and scaling without getting lost in server complexity, Cloudways is the best overall pick for most WooCommerce stores.
-          If you prefer a premium managed WordPress platform, Kinsta and WP Engine are strong choices.
-        </p>
-      </div>
-      <div>
-        <a class="affiliate-link"
-           data-partner="cloudways"
-           data-placement="conclusion_cta"
-           data-link-type="affiliate"
-           href="https://www.cloudways.com/en/?id=2063019&data1=managed-cloud-hosting-2026&data2=conclusion-cta"
-           target="_blank"
-           rel="nofollow sponsored noopener">
-          Get Cloudways
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="cta">
-      <div>
-        <h3>Need help choosing or migrating hosting?</h3>
-        <p class="subtitle">
-          I help WooCommerce stores improve stability, speed, and checkout reliability (hosting, caching, CDN, and performance debugging).
-        </p>
-      </div>
-      <div>
-        <a href="mailto:carlleger.dev@gmail.com?subject=Managed%20cloud%20hosting%20help"
-           data-link-type="contact"
-           data-placement="footer_contact">
-          Contact by email
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    © <span id="y"></span> Carl Leger · <a href="/resources/" data-link-type="internal" data-placement="footer_resources">Resources</a>
-  </footer>
-
-</div>
-
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
-
-  // Toggle "See more / See less" per row
-  document.querySelectorAll("[data-toggle]").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const wrap = btn.closest("[data-micro]");
-      const isOpen = wrap.classList.toggle("expanded");
-      wrap.querySelectorAll("[data-toggle]").forEach((t) => {
-        t.textContent = isOpen ? "See less" : "See more";
-      });
-    });
-  });
-
-  // GA4: Track affiliate / outbound / review clicks + intent labels
-  (function(){
-    function sendEvent(name, params){
-      if (typeof gtag === "function") gtag("event", name, params);
-    }
-
-    function looksLikeMigrationCTA(a){
-      const placement = (a.getAttribute("data-placement") || "").toLowerCase();
-      const text = (a.textContent || "").toLowerCase();
-      return placement.includes("migration") || text.includes("migration");
-    }
-
-    document.addEventListener("click", function(e){
-      const a = e.target.closest("a");
-      if (!a) return;
-
-      const href = a.getAttribute("href") || "";
-      const isExternal = /^https?:\/\//i.test(href) && !href.includes(location.hostname);
-
-      const partner = a.getAttribute("data-partner") || (isExternal ? "external" : "internal");
-      const placement = a.getAttribute("data-placement") || "unknown";
-      const linkType = a.getAttribute("data-link-type") || (isExternal ? "outbound" : "internal");
-
-      // Track affiliate + outbound clicks (external only)
-      if (isExternal && (linkType === "affiliate" || linkType === "outbound")){
-        sendEvent("affiliate_click", {
-          partner: partner,
-          placement: placement,
-          link_type: linkType,
-          link_url: href,
-          page: location.pathname
-        });
-
-        // Extra signal: migration intent clicks
-        if (partner === "cloudways" && looksLikeMigrationCTA(a)){
-          sendEvent("migration_cta_click", {
-            partner: partner,
-            placement: placement,
-            link_url: href,
-            page: location.pathname
-          });
-        }
-
-        // Extra signal: hosting.com clicks
-        if (partner === "hostingdotcom"){
-          sendEvent("hosting_cta_click", {
-            partner: partner,
-            placement: placement,
-            link_url: href,
-            page: location.pathname
-          });
-        }
-
-        return;
-      }
-
-      // Track review clicks (internal)
-      if (linkType === "review"){
-        sendEvent("review_click", {
-          partner: partner,
-          placement: placement,
-          link_url: href,
-          page: location.pathname
-        });
-        return;
-      }
-
-      // Track contact clicks
-      if (linkType === "contact"){
-        sendEvent("contact_click", {
-          placement: placement,
-          link_url: href,
-          page: location.pathname
-        });
-      }
-    });
-  })();
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Best Managed Cloud Hosting for WordPress &amp; WooCommerce (2026)</title>
+<meta content="Compare managed hosting for WordPress and WooCommerce: Cloudways, Kinsta, WP Engine, SiteGround and Hosting.com, with practical selection criteria." name="description"/>
+<meta content="Carl Leger" name="author"/>
+<meta content="index,follow" name="robots"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="#0b111b" name="theme-color"/>
+<link href="https://carlleger.github.io/resources/best/managed-cloud-hosting/" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="Best Managed Cloud Hosting for WordPress &amp; WooCommerce (2026)" property="og:title"/>
+<meta content="Compare managed hosting for WordPress and WooCommerce: Cloudways, Kinsta, WP Engine, SiteGround and Hosting.com, with practical selection criteria." property="og:description"/>
+<meta content="https://carlleger.github.io/resources/best/managed-cloud-hosting/" property="og:url"/>
+<meta content="Carl Leger" property="og:site_name"/>
+<meta content="en_CA" property="og:locale"/>
+<meta content="https://carlleger.github.io/assets/images/brand/social-card.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Carl Leger — Hosting, Web Performance, Technical SEO" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Best Managed Cloud Hosting for WordPress &amp; WooCommerce (2026)" name="twitter:title"/>
+<meta content="Compare managed hosting for WordPress and WooCommerce: Cloudways, Kinsta, WP Engine, SiteGround and Hosting.com, with practical selection criteria." name="twitter:description"/>
+<meta content="https://carlleger.github.io/assets/images/brand/social-card.png" name="twitter:image"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<script>document.documentElement.classList.add("js");</script>
+<link href="/assets/css/styles.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/site.js">
 </script>
+<script defer="" src="/assets/js/analytics.js">
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://carlleger.github.io/#person", "name": "Carl Leger", "url": "https://carlleger.github.io/", "image": "https://carlleger.github.io/avatar.png", "sameAs": ["https://www.linkedin.com/in/carlleger/"]}, {"@type": "WebSite", "@id": "https://carlleger.github.io/#website", "name": "Carl Leger", "url": "https://carlleger.github.io/", "publisher": {"@id": "https://carlleger.github.io/#person"}}, {"@type": "WebPage", "@id": "https://carlleger.github.io/resources/best/managed-cloud-hosting/#webpage", "url": "https://carlleger.github.io/resources/best/managed-cloud-hosting/", "name": "Best Managed Cloud Hosting for WordPress & WooCommerce", "description": "Compare managed hosting for WordPress and WooCommerce: Cloudways, Kinsta, WP Engine, SiteGround and Hosting.com, with practical selection criteria.", "inLanguage": "en-CA", "isPartOf": {"@id": "https://carlleger.github.io/#website"}, "about": {"@id": "https://carlleger.github.io/#person"}}, {"@type": "BreadcrumbList", "@id": "https://carlleger.github.io/resources/best/managed-cloud-hosting/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://carlleger.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://carlleger.github.io/resources/"}, {"@type": "ListItem", "position": 3, "name": "Best Managed Cloud Hosting for WordPress & WooCommerce", "item": "https://carlleger.github.io/resources/best/managed-cloud-hosting/"}]}, {"@type": "Article", "@id": "https://carlleger.github.io/resources/best/managed-cloud-hosting/#article", "headline": "Best Managed Cloud Hosting for WordPress & WooCommerce", "description": "Compare managed hosting for WordPress and WooCommerce: Cloudways, Kinsta, WP Engine, SiteGround and Hosting.com, with practical selection criteria.", "author": {"@id": "https://carlleger.github.io/#person"}, "publisher": {"@id": "https://carlleger.github.io/#person"}, "mainEntityOfPage": {"@id": "https://carlleger.github.io/resources/best/managed-cloud-hosting/#webpage"}, "inLanguage": "en-CA", "image": "https://carlleger.github.io/assets/images/brand/social-card.png", "dateModified": "2026-11-24"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need cloud hosting if I use a cache plugin?", "acceptedAnswer": {"@type": "Answer", "text": "Not necessarily. A cache plugin can reduce repeated work, but it cannot provide unlimited PHP or database capacity. Diagnose the constraint before upgrading."}}, {"@type": "Question", "name": "Will a new host fix Core Web Vitals?", "acceptedAnswer": {"@type": "Answer", "text": "It may address server response time or capacity. Images, scripts, fonts and layout still need application-level work. Validate laboratory and field data separately."}}, {"@type": "Question", "name": "Is migration help included?", "acceptedAnswer": {"@type": "Answer", "text": "Check the current provider terms and exact scope. A migration service does not remove the need to test checkout, synchronise live data and prepare rollback."}}, {"@type": "Question", "name": "Which host is best?", "acceptedAnswer": {"@type": "Answer", "text": "The suitable host is the one whose resources, workflow, support and full recurring cost fit the website and its operators. There is no evidence here for a universal performance winner."}}]}]}</script>
+</head>
+<body data-page-type="hosting_hub">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" data-cta-location="header" id="top">
+<div class="header-inner">
+<a class="wordmark" href="/">
+<span aria-hidden="true" class="monogram">CL</span>
+<span>Carl Leger</span>
+</a>
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Open navigation" class="menu-toggle" data-menu-toggle="" hidden type="button">Menu</button>
+<nav aria-label="Main navigation" class="site-nav" id="primary-nav">
+<a aria-current="page" href="/resources/best/managed-cloud-hosting/">Hosting</a>
+<a href="/resources/">Resources</a>
+<a href="/services/">Services</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+<a class="language-switch" href="/fr/" hreflang="fr-CA" lang="fr-CA">Français (accueil)</a>
+</nav>
+</div>
+</header>
+<main class="site-main article-shell" id="main" tabindex="-1">
+<nav aria-label="Breadcrumb" class="breadcrumbs">
+<ol>
+<li>
+<a href="/">Home</a>
+</li>
+<li>
+<a href="/resources/">Resources</a>
+</li>
+<li>
+<span aria-current="page">Best Managed Cloud Hosting for WordPress &amp; WooCommerce</span>
+</li>
+</ol>
+</nav>
+<div class="page-intro">
+<p class="eyebrow">Hosting guide</p>
+<h1>Best Managed Cloud Hosting for WordPress &amp; WooCommerce</h1>
+<p class="lead">Compare managed hosting for WordPress and WooCommerce: Cloudways, Kinsta, WP Engine, SiteGround and Hosting.com, with practical selection criteria.</p>
+<p class="byline"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M14 2H5v20h14V7Zm0 0v5h5M8 11h8M8 15h8M8 18h5"></path></svg>By Carl Leger · Documentation checked 24 November 2026</p>
+<a class="intro-jump" href="#a-shortlist-based-on-the-work-you-want-to-own">Jump to the verdict<svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"></path></svg></a></div>
+<p class="disclosure">Affiliate disclosure: I may earn a commission if you buy through a marked affiliate link, at no extra cost to you. Documentation links are ordinary, non-affiliate sources.</p>
+<div class="article-layout">
+<div class="article-body" data-cta-location="article">
+<section id="shortlist">
+<h2 id="a-shortlist-based-on-the-work-you-want-to-own">A shortlist based on the work you want to own</h2>
+<div class="verdict">
+<h3>Start with the operating model</h3>
+<p>
+<strong>Cloudways Flexible</strong> is worth shortlisting when infrastructure and resource choices matter. <strong>Kinsta and WP Engine</strong> offer WordPress-focused managed environments. <strong>SiteGround</strong> has distinct WordPress and Cloud offers. Confirm which product you are comparing before calling one a better value.</p>
+<div class="actions">
+<a class="button primary" data-cta-type="read_review" href="/resources/best/cloudways-review/">Read the Cloudways Review</a>
+<a class="button" href="#comparison">Compare the Shortlist</a>
+</div>
+</div>
+<p id="cloudways-migration-options">Before committing to a migration, <a data-cta-location="hero" data-provider="cloudways" href="https://www.cloudways.com/en/?id=2063019&amp;data1=managed-cloud-hosting-2026&amp;data2=hero-migration" rel="sponsored nofollow noopener noreferrer" target="_blank">review Cloudways options</a> and confirm eligibility, scope and any fees directly with the provider.</p>
+</section>
+<section id="comparison">
+<h2 id="managed-hosting-options-at-a-glance">Managed hosting options at a glance</h2>
+<section aria-label="Hosting shortlist: fit, questions and official provider destinations" class="table-scroll" tabindex="0">
+<table style="--data-columns:3">
+<caption>Hosting shortlist: fit, questions and official provider destinations</caption>
+<thead>
+<tr>
+<th scope="col"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M3 15h18M10 9v12"></path></svg>Provider</th>
+<th scope="col">Potential fit</th>
+<th scope="col">Before you choose</th>
+<th scope="col">Provider link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">
+<a data-cta-location="table" data-provider="cloudways" href="https://www.cloudways.com/en/?id=2063019&amp;data1=managed-cloud-hosting-2026&amp;data2=table-title" rel="sponsored nofollow noopener noreferrer" target="_blank">Cloudways</a>
+</th>
+<td>Infrastructure and resource choices within a managed platform.</td>
+<td>Review Flexible vs Autonomous, support scope and add-ons.</td>
+<td>
+<a class="button" data-cta-location="table" data-provider="cloudways" href="https://www.cloudways.com/en/?id=2063019&amp;data1=managed-cloud-hosting-2026&amp;data2=table-cta" rel="sponsored nofollow noopener noreferrer" target="_blank">Explore Cloudways</a>
+</td>
+</tr>
+<tr>
+<th scope="row">Kinsta</th>
+<td>A WordPress-focused environment and management workflow.</td>
+<td>Check billing model, dynamic PHP capacity and usage allowances.</td>
+<td>
+<a class="button" data-cta-location="table" data-provider="kinsta" href="https://kinsta.com/?kaid=GTMETMUUOMYF" rel="sponsored nofollow noopener noreferrer" target="_blank">Explore Kinsta</a>
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a data-cta-location="table" data-provider="wpengine" href="https://www.wqwln8trk.com/CBMM242B9/724PP615R/?source_id=managed-cloud-hosting-2026&amp;sub1=table&amp;sub2=title&amp;sub3=comparison&amp;sub4=wpengine" rel="sponsored nofollow noopener noreferrer" target="_blank">WP Engine</a>
+</th>
+<td>Standardised WordPress development and release workflows.</td>
+<td>Check environments, plan scope, add-ons and store requirements.</td>
+<td>
+<a class="button" data-cta-location="table" data-provider="wpengine" href="https://www.wqwln8trk.com/CBMM242B9/724PP615R/?source_id=managed-cloud-hosting-2026&amp;sub1=table&amp;sub2=cta&amp;sub3=comparison&amp;sub4=wpengine" rel="sponsored nofollow noopener noreferrer" target="_blank">Explore WP Engine</a>
+</td>
+</tr>
+<tr>
+<th scope="row">SiteGround</th>
+<td>WordPress packages or a separate managed Cloud offer.</td>
+<td>Compare the named tier, renewal terms and resource limits.</td>
+<td>
+<a class="button" data-cta-location="table" data-provider="siteground" href="https://www.siteground.com/index.htm?afcode=99f973186a9f86fde0ad63669bf6d1fa" rel="sponsored nofollow noopener noreferrer" target="_blank">Explore SiteGround</a>
+</td>
+</tr>
+<tr>
+<th scope="row">Hosting.com</th>
+<td>An additional WordPress hosting option to investigate.</td>
+<td>Confirm the exact managed product, features and renewal quote.</td>
+<td>
+<a class="button" data-cta-location="table" data-provider="hostingdotcom" href="https://hosting.com/hosting/platforms/wordpress-hosting/?aid=69604ae331c5f&amp;bid=9edb38b0" rel="sponsored nofollow noopener noreferrer" target="_blank">Explore Hosting.com</a>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<p class="table-hint"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M3 15h18M10 9v12"></path></svg>These are decision criteria, not benchmark scores or a numerical ranking. Table links are affiliate links.</p>
+<p>Planning a move? <a data-cta-location="article" data-provider="cloudways" href="https://www.cloudways.com/en/?id=2063019&amp;data1=managed-cloud-hosting-2026&amp;data2=after-table-migration" rel="sponsored nofollow noopener noreferrer" target="_blank">Check Cloudways before migrating</a>. Compare the confirmed migration terms with your own staging, backup and cutover plan.</p>
+<p>
+<a data-cta-location="article" data-provider="cloudways" href="https://www.cloudways.com/en/?id=2063019&amp;data1=managed-cloud-hosting-2026&amp;data2=after-table-cta" rel="sponsored nofollow noopener noreferrer" target="_blank">Explore Cloudways plans</a> after checking the operating requirements below.</p>
+</section>
+<section class="decision-tree" id="decision-framework"><p class="section-label">Editorial decision framework</p><h2>Which operating model fits your team?</h2><p class="decision-root"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="6" rx="1" width="7" x="2" y="3"></rect><rect height="6" rx="1" width="7" x="15" y="15"></rect><path d="M9 6h9v9M5 9v9h10"></path></svg> Start with the work you need the platform to handle.</p><ul class="decision-branches">
+<li><strong>Need infrastructure and resource choices?</strong><p>Consider Cloudways Flexible, then check configuration work, support scope and add-on costs. <a href="/resources/best/cloudways-review/">Review Flexible and Autonomous separately</a>.</p></li>
+<li><strong>Prefer a WordPress-focused management workflow?</strong><p>Compare Kinsta and WP Engine against the selected plan’s capacity, environments and usage terms. <a href="/resources/best/managed-cloud-hosting/cloudways-vs-kinsta/">Compare Kinsta</a> · <a href="/resources/best/managed-cloud-hosting/cloudways-vs-wp-engine/">Compare WP Engine</a>.</p></li>
+<li><strong>Considering SiteGround?</strong><p>Choose the WordPress or Cloud product first; then compare its renewal terms and resources. <a href="/resources/best/managed-cloud-hosting/cloudways-vs-siteground/">Compare the product tiers</a>.</p></li>
+<li><strong>Running WooCommerce?</strong><p>Apply this additional requirement to every branch: validate uncached capacity, sessions, cart, payment and recovery. <a href="/resources/woocommerce-cache-mistakes/">Use the cache safety checklist</a>.</p></li></ul><p class="method-note">A requirements-based shortlist, not a performance ranking. Verify the provider documentation linked in this guide before choosing a plan.</p></section><section id="who">
+<h2 id="who-this-guide-is-for">Who this guide is for</h2>
+<p>This shortlist is for WordPress owners, WooCommerce operators and agencies choosing a managed hosting model. A migration is useful when it addresses a known limitation: resource contention, missing workflows, unreliable recovery or support that does not fit the application.</p>
+<p>A slow checkout can also come from gateway scripts, database queries or extensions. Diagnose those problems before assuming a different host will remove them.</p>
+</section>
+<section id="cloudways">
+<h2 id="cloudways-infrastructure-choice-within-a-management-layer">Cloudways: infrastructure choice within a management layer</h2>
+<p>Flexible offers provider and resource choices, while Autonomous is a separate, more managed WordPress product with an autoscaling focus. Flexible can fit a team that wants control without operating a raw cloud server, but still expects to manage WordPress and application decisions.</p>
+<p>Check backup, CDN, security and support costs alongside the infrastructure quote. Read the <a href="/resources/best/cloudways-review/">full Cloudways review</a> before treating a promotional starting price as the total budget.</p>
+<div class="actions">
+<a class="button primary" data-cta-location="article" data-provider="cloudways" href="https://www.cloudways.com/en/?id=2063019&amp;data1=managed-cloud-hosting-2026&amp;data2=hero-cta" rel="sponsored nofollow noopener noreferrer" target="_blank">Explore Cloudways Options</a>
+</div>
+</section>
+<section id="kinsta">
+<h2 id="kinsta-examine-usage-and-dynamic-capacity">Kinsta: examine usage and dynamic capacity</h2>
+<p>Kinsta’s WordPress platform is another operating model to consider. Its pricing page offers usage-based choices; PHP threads and memory allocation matter for uncached work. Review those constraints alongside workflow and support requirements.</p>
+<p>The <a href="/resources/best/managed-cloud-hosting/cloudways-vs-kinsta/">Cloudways vs Kinsta comparison</a> explains the relevant trade-offs without assuming a universal speed winner.</p>
+</section>
+<section id="wp-engine">
+<h2 id="wp-engine-compare-the-release-workflow">WP Engine: compare the release workflow</h2>
+<p>WP Engine documents production, staging and development environments and their backup workflows. Assess how these fit the team’s review and deployment process, then verify the selected plan and add-ons.</p>
+<p>Use <a href="/resources/best/managed-cloud-hosting/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a> to compare the work handled by the platform with the work that remains yours.</p>
+</section>
+<section id="siteground">
+<h2 id="siteground-choose-the-tier-before-comparing">SiteGround: choose the tier before comparing</h2>
+<p>SiteGround WordPress hosting and SiteGround Cloud are different offers. Cloud describes dedicated resources and autoscaling; the capabilities of an entry WordPress package should not be used to describe every SiteGround product.</p>
+<p>Read <a href="/resources/best/managed-cloud-hosting/cloudways-vs-siteground/">Cloudways vs SiteGround</a> for a comparison that keeps those categories separate.</p>
+</section>
+<section id="hostingdotcom">
+<h2 id="hosting-com-check-the-named-wordpress-offer">Hosting.com: check the named WordPress offer</h2>
+<p>Hosting.com also offers managed hosting for WordPress. Confirm the actual product, management scope, resource limits and renewal quote. A general claim about VPS control does not describe every WordPress plan, and a promotion is not evidence of long-term value.</p>
+</section>
+<section id="requirements">
+<h2 id="what-to-look-for-in-managed-woocommerce-hosting">What to look for in managed WooCommerce hosting</h2>
+<ul>
+<li>
+<strong>Dynamic capacity:</strong> uncached PHP requests, database load and concurrent activity at peak periods.</li>
+<li>
+<strong>Recovery:</strong> backup frequency, retention, restore procedure and a tested rollback plan.</li>
+<li>
+<strong>Staging:</strong> a review environment and a deployment process that protects live orders.</li>
+<li>
+<strong>Cache safety:</strong> correct handling of cart, checkout, customer sessions and logged-in pages.</li>
+<li>
+<strong>Support:</strong> documented scope, response channels and the application work excluded from the service.</li>
+<li>
+<strong>Total cost:</strong> normal renewal, currency, usage, add-ons and maintenance responsibility.</li>
+</ul>
+</section>
+<section id="migration">
+<h2 id="a-migration-checklist-before-changing-dns">A migration checklist before changing DNS</h2>
+<ul>
+<li>Record the current workload and identify the constraint the move is meant to solve.</li>
+<li>Create a recoverable backup and test the site on the destination.</li>
+<li>Validate sessions, coupons, shipping, taxes, payment and order emails.</li>
+<li>Plan order and customer data synchronisation so live transactions are protected.</li>
+<li>Confirm DNS changes, monitoring, rollback and the scope of any provider migration service.</li>
+</ul>
+<p>No hosting move is automatically “safe” or guaranteed to improve conversions. Test the actual store and keep a rollback available.</p>
+</section>
+<section id="faq">
+<h2 id="managed-hosting-faq">Managed hosting FAQ</h2>
+<div class="faq">
+<details>
+<summary>Do I need cloud hosting if I use a cache plugin?</summary>
+<p>Not necessarily. A cache plugin can reduce repeated work, but it cannot provide unlimited PHP or database capacity. Diagnose the constraint before upgrading.</p>
+</details>
+<details>
+<summary>Will a new host fix Core Web Vitals?</summary>
+<p>It may address server response time or capacity. Images, scripts, fonts and layout still need application-level work. Validate laboratory and field data separately.</p>
+</details>
+<details>
+<summary>Is migration help included?</summary>
+<p>Check the current provider terms and exact scope. A migration service does not remove the need to test checkout, synchronise live data and prepare rollback.</p>
+</details>
+<details>
+<summary>Which host is best?</summary>
+<p>The suitable host is the one whose resources, workflow, support and full recurring cost fit the website and its operators. There is no evidence here for a universal performance winner.</p>
+</details>
+</div>
+</section>
+<section id="next-step">
+<h2 id="narrow-the-decision-before-buying">Narrow the decision before buying</h2>
+<p>Compare one infrastructure-led offer and one WordPress-focused offer against the same requirements. If Cloudways is on your shortlist, check its product and terms directly.</p>
+<div class="actions">
+<a class="button primary" data-cta-location="conclusion" data-provider="cloudways" href="https://www.cloudways.com/en/?id=2063019&amp;data1=managed-cloud-hosting-2026&amp;data2=conclusion-cta" rel="sponsored nofollow noopener noreferrer" target="_blank">Explore Cloudways</a>
+<a class="button" data-cta-type="explore_services" href="/services/performance-audit/">Explore Audit Services</a>
+</div>
+</section>
+<aside aria-label="Official sources" class="sources">
+<h2 id="sources-and-evaluation">Sources and evaluation</h2>
+<p class="method-note">Official documentation checked on 24 November 2026. This is a documentation-based evaluation, not a controlled hosting benchmark or a claim of firsthand testing. Confirm current plan terms before buying.</p>
+<ul>
+<li>
+<a href="https://www.cloudways.com/en/flexible-hosting.php">Cloudways Flexible: product scope</a>
+</li>
+<li>
+<a href="https://www.cloudways.com/en/autonomous.php">Cloudways Autonomous: autoscaling product</a>
+</li>
+<li>
+<a href="https://www.cloudways.com/en/pricing.php">Cloudways plans and billing options</a>
+</li>
+<li>
+<a href="https://kinsta.com/pricing/">Kinsta plans</a>
+</li>
+<li>
+<a href="https://wpengine.com/plans/">WP Engine plans</a>
+</li>
+<li>
+<a href="https://www.siteground.com/wordpress-hosting.htm">SiteGround WordPress</a>
+</li>
+<li>
+<a href="https://www.siteground.com/cloud-hosting.htm">SiteGround Cloud</a>
+</li>
+<li>
+<a href="https://hosting.com/hosting/platforms/hosting-for-wordpress/">Hosting.com managed WordPress</a>
+</li>
+</ul>
+</aside>
+<aside aria-labelledby="continue-your-research" class="related" data-cta-location="related">
+<h2 id="continue-your-research">Continue your research</h2>
+<ul>
+<li>
+<a href="/resources/best/cloudways-review/">Cloudways Review</a>
+</li>
+<li>
+<a href="/resources/best/managed-cloud-hosting/cloudways-vs-kinsta/">Cloudways vs Kinsta</a>
+</li>
+<li>
+<a href="/resources/best/managed-cloud-hosting/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a>
+</li>
+<li>
+<a href="/resources/best/managed-cloud-hosting/cloudways-vs-siteground/">Cloudways vs SiteGround</a>
+</li>
+<li>
+<a href="/resources/woocommerce-cache-mistakes/">WooCommerce cache safety</a>
+</li>
+<li>
+<a href="/resources/tools/performance-cwv/">Core Web Vitals tools</a>
+</li>
+</ul>
+</aside>
+</div>
+<nav aria-label="On this page" class="toc">
+<details open=""><summary>On this page</summary><ul>
+<li>
+<a href="#a-shortlist-based-on-the-work-you-want-to-own">A shortlist based on the work you want to own</a>
+</li>
+<li>
+<a href="#managed-hosting-options-at-a-glance">Managed hosting options at a glance</a>
+</li>
+<li>
+<a href="#who-this-guide-is-for">Who this guide is for</a>
+</li>
+<li>
+<a href="#cloudways-infrastructure-choice-within-a-management-layer">Cloudways: infrastructure choice within a management layer</a>
+</li>
+<li>
+<a href="#kinsta-examine-usage-and-dynamic-capacity">Kinsta: examine usage and dynamic capacity</a>
+</li>
+<li>
+<a href="#wp-engine-compare-the-release-workflow">WP Engine: compare the release workflow</a>
+</li>
+<li>
+<a href="#siteground-choose-the-tier-before-comparing">SiteGround: choose the tier before comparing</a>
+</li>
+<li>
+<a href="#hosting-com-check-the-named-wordpress-offer">Hosting.com: check the named WordPress offer</a>
+</li>
+<li>
+<a href="#what-to-look-for-in-managed-woocommerce-hosting">What to look for in managed WooCommerce hosting</a>
+</li>
+</ul></details>
+</nav>
+</div>
+</main>
+<footer class="site-footer" data-cta-location="footer"><div class="footer-grid"><div class="footer-brand"><a class="wordmark" href="/"><span aria-hidden="true" class="monogram">CL</span><span>Carl Leger</span></a><p>Independent thinking on hosting, web performance and technical SEO.</p><p>Canada · English &amp; French</p></div>
+<div><h2>Hosting research</h2><ul><li><a href="/resources/best/managed-cloud-hosting/">Managed Cloud Hosting</a></li><li><a href="/resources/best/cloudways-review/">Cloudways Review</a></li><li><a href="/resources/best/managed-cloud-hosting/cloudways-vs-kinsta/">Cloudways vs Kinsta</a></li><li><a href="/resources/best/managed-cloud-hosting/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a></li><li><a href="/resources/best/managed-cloud-hosting/cloudways-vs-siteground/">Cloudways vs SiteGround</a></li></ul></div>
+<div><h2>Learn &amp; improve</h2><ul><li><a href="/resources/">Technical resources</a></li><li><a href="/resources/tools/performance-cwv/">Core Web Vitals</a></li><li><a href="/resources/woocommerce-cache-mistakes/">WooCommerce cache safety</a></li><li><a href="/services/">Technical services</a></li><li><a href="/about/">About Carl</a></li></ul></div>
+<div><h2>Get in touch</h2><ul><li><a href="mailto:carlleger.dev@gmail.com">carlleger.dev@gmail.com</a></li><li><a href="https://www.linkedin.com/in/carlleger/">LinkedIn</a></li><li><a href="/fr/" hreflang="fr-CA" lang="fr-CA">Français</a></li></ul></div></div>
+<p class="footer-disclosure">Marked affiliate links may earn a commission at no extra cost to you. Recommendations consider website requirements and the limits of each offer.</p>
+<div class="footer-bottom"><span>© 2026 Carl Leger</span><a href="/about/#privacy">Privacy</a><button class="link-button" data-consent-open="" hidden type="button">Cookie preferences</button><a href="#top">Back to top</a></div></footer>
+<aside aria-labelledby="consent-heading" class="consent-panel" hidden id="consent-banner">
+<div>
+<div class="consent-heading-row"><h2 id="consent-heading">Your privacy choice</h2><button class="link-button" data-consent-open="" type="button">Preferences</button></div>
+<p>Optional analytics stay off without consent.</p>
+</div>
+<div class="actions">
+<button class="button" data-consent-accept="" type="button">Accept analytics</button>
+<button class="button" data-consent-reject="" type="button">Reject analytics</button>
+</div>
+</aside>
+<dialog aria-labelledby="privacy-title" class="privacy-dialog" id="privacy-dialog">
+<h2 id="privacy-title">Privacy preferences</h2>
+<h3>Essential storage</h3>
+<p>Your choice is stored in this browser for 180 days so the website can respect your preference.</p>
+<div class="consent-option">
+<input aria-describedby="analytics-description" id="analytics-consent" type="checkbox"/>
+<label for="analytics-consent">Allow Google Analytics</label>
+</div>
+<p id="analytics-description">Measure visits and categories of clicks, without sending affiliate URL parameters in custom events.</p>
+<p>You can withdraw consent here at any time. Withdrawal disables measurement, clears accessible cookies and reloads the page.</p>
+<p id="consent-status" role="status">
+</p>
+<div class="actions">
+<button class="button primary" data-consent-save="" type="button">Save my choice</button>
+<button class="button" data-consent-reject="" type="button">Reject / withdraw consent</button>
+<button class="button" data-consent-close="" type="button">Close</button>
+</div>
+</dialog>
 </body>
 </html>

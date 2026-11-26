@@ -1,681 +1,261 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en-CA">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Best WordPress Performance & Core Web Vitals Tools (Speed, CWV, CDN)</title>
-  <meta name="description" content="A practical selection of the best WordPress performance and Core Web Vitals tools. Caching, CDN, diagnostics, and monitoring with WooCommerce-safe recommendations." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://carlleger.github.io/resources/tools/performance-cwv/" />
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-3KXQFTWTBD');
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>WordPress Performance &amp; Core Web Vitals Tools | Carl Leger</title>
+<meta content="Choose WordPress performance tools by task: diagnose TTFB, LCP, INP and CLS, configure caching and validate WooCommerce journeys." name="description"/>
+<meta content="Carl Leger" name="author"/>
+<meta content="index,follow" name="robots"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="#0b111b" name="theme-color"/>
+<link href="https://carlleger.github.io/resources/tools/performance-cwv/" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="WordPress Performance &amp; Core Web Vitals Tools | Carl Leger" property="og:title"/>
+<meta content="Choose WordPress performance tools by task: diagnose TTFB, LCP, INP and CLS, configure caching and validate WooCommerce journeys." property="og:description"/>
+<meta content="https://carlleger.github.io/resources/tools/performance-cwv/" property="og:url"/>
+<meta content="Carl Leger" property="og:site_name"/>
+<meta content="en_CA" property="og:locale"/>
+<meta content="https://carlleger.github.io/assets/images/brand/social-card.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Carl Leger — Hosting, Web Performance, Technical SEO" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="WordPress Performance &amp; Core Web Vitals Tools | Carl Leger" name="twitter:title"/>
+<meta content="Choose WordPress performance tools by task: diagnose TTFB, LCP, INP and CLS, configure caching and validate WooCommerce journeys." name="twitter:description"/>
+<meta content="https://carlleger.github.io/assets/images/brand/social-card.png" name="twitter:image"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<script>document.documentElement.classList.add("js");</script>
+<link href="/assets/css/styles.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/site.js">
 </script>
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Best WordPress Performance & Core Web Vitals Tools" />
-  <meta property="og:description" content="Expert-picked tools to improve WordPress speed and Core Web Vitals. Focused on real-world results and WooCommerce safety." />
-  <meta property="og:url" content="https://carlleger.github.io/resources/tools/performance-cwv/" />
-  <meta property="og:type" content="article" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Structured data: Article + FAQ -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Article",
-    "@id":"https://carlleger.github.io/resources/tools/performance-cwv/#article",
-    "headline":"Best WordPress Performance & Core Web Vitals Tools",
-    "description":"A practical selection of the best WordPress performance and Core Web Vitals tools with WooCommerce-safe recommendations.",
-    "url":"https://carlleger.github.io/resources/tools/performance-cwv/",
-    "inLanguage":"en",
-    "datePublished":"2026-01-07",
-    "dateModified":"2026-01-07",
-    "author":{"@type":"Person","name":"Carl Leger"},
-    "publisher":{"@type":"Person","name":"Carl Leger"},
-    "mainEntityOfPage":{"@type":"WebPage","@id":"https://carlleger.github.io/resources/tools/performance-cwv/"}
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"Do I need both WP Rocket and FlyingPress?",
-        "acceptedAnswer":{"@type":"Answer","text":"Usually no. Pick one primary optimization/caching tool to avoid overlapping features. Use diagnostics to identify your bottleneck, then tune one stack properly."}
-      },
-      {
-        "@type":"Question",
-        "name":"Is Cloudflare safe for WooCommerce?",
-        "acceptedAnswer":{"@type":"Answer","text":"Yes if configured carefully. Do not cache HTML pages like cart, checkout, my-account, or order confirmation, and test purchase flows after any change."}
-      },
-      {
-        "@type":"Question",
-        "name":"What should I focus on first: LCP or INP?",
-        "acceptedAnswer":{"@type":"Answer","text":"Fix the biggest bottleneck first. If TTFB is high, start with caching/CDN/server. If the page feels janky or slow to respond, prioritize INP (heavy JS, third-party scripts)."}
-      }
-    ]
-  }
-  </script>
-
-  <style>
-    :root{
-      --bg1:#0b1220;
-      --bg2:#070d17;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.03);
-      --stroke:rgba(255,255,255,.10);
-      --stroke2:rgba(255,255,255,.06);
-      --text:#e7ecff;
-      --muted:rgba(168,179,214,.92);
-      --accent:#6aa6ff;
-      --good:#2ee59d;
-      --warn:#ffd36a;
-      --bad:#ff6a8a;
-      --shadow:0 18px 60px rgba(0,0,0,.45);
-      --radius:18px;
-      --max:1120px;
-      --focus:0 0 0 4px rgba(106,166,255,.22);
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      color:var(--text);
-      background:
-        radial-gradient(900px 600px at 18% 18%, rgba(106,166,255,.18), transparent 60%),
-        radial-gradient(900px 600px at 85% 20%, rgba(46,229,157,.12), transparent 55%),
-        linear-gradient(180deg,var(--bg1),var(--bg2));
-      line-height:1.65;
-    }
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
-    a:focus-visible{outline:none; box-shadow:var(--focus); border-radius:10px}
-
-    .skip{
-      position:absolute; left:-9999px; top:12px;
-      padding:10px 12px;
-      background:rgba(0,0,0,.7);
-      border:1px solid var(--stroke);
-      border-radius:12px;
-      color:var(--text);
-      z-index:999;
-    }
-    .skip:focus{left:12px}
-
-    .container{max-width:var(--max); margin:0 auto; padding:28px 18px 88px}
-
-    .section{
-      border:1px solid var(--stroke);
-      background:linear-gradient(180deg,var(--panel),rgba(255,255,255,.03));
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:20px;
-      margin-top:18px;
-    }
-
-    h1{font-size:clamp(30px,3vw,44px); margin:10px 0 10px; letter-spacing:-.02em}
-    h2{font-size:20px; margin:0 0 10px}
-    h3{font-size:16px; margin:0 0 6px; letter-spacing:-.01em}
-    p{margin:0}
-    .subtitle{color:var(--muted); max-width:90ch; margin-top:10px}
-
-    .topRow{
-      display:flex; justify-content:space-between; align-items:flex-start;
-      gap:14px; flex-wrap:wrap;
-    }
-    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
-
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid rgba(106,166,255,.35);
-      background:rgba(106,166,255,.12);
-      font-weight:750;
-      color:var(--text);
-      white-space:nowrap;
-      min-width:150px;
-      text-decoration:none;
-    }
-    .btn:hover{filter:brightness(1.08); text-decoration:none}
-    .btn:focus-visible{box-shadow:var(--focus); outline:none}
-    .btn.primary{border-color:rgba(46,229,157,.55); background:rgba(46,229,157,.16)}
-    .btn.ghost{border-color:rgba(255,255,255,.14); background:rgba(255,255,255,.04)}
-
-    .pillRow{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid var(--stroke2);
-      background:rgba(255,255,255,.02);
-      color:var(--muted);
-      font-size:12px;
-    }
-    .dot{width:8px; height:8px; border-radius:999px; background:rgba(106,166,255,.95)}
-    .dot.good{background:rgba(46,229,157,.95)}
-    .dot.warn{background:rgba(255,211,106,.95)}
-
-    .grid2{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:14px;
-      margin-top:14px;
-    }
-    @media(max-width:920px){.grid2{grid-template-columns:1fr}}
-
-    .card{
-      border:1px solid var(--stroke2);
-      background:rgba(255,255,255,.02);
-      border-radius:16px;
-      padding:14px;
-    }
-
-    .toc ul{margin:8px 0 0; padding-left:18px; color:var(--muted)}
-    .toc li{margin:6px 0}
-
-    .controls{
-      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
-      margin-top:12px;
-    }
-    .input,.select{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--stroke2);
-      color:var(--text);
-      border-radius:12px;
-      padding:10px 12px;
-      outline:none;
-      min-height:42px;
-    }
-    .input{flex:1; min-width:240px}
-    .input::placeholder{color:rgba(168,179,214,.72)}
-    .input:focus,.select:focus{box-shadow:var(--focus); border-color:rgba(106,166,255,.35)}
-
-    .hint{color:var(--muted); font-size:12px; margin-top:10px}
-
-    .tableWrap{
-      overflow:auto;
-      border:1px solid var(--stroke2);
-      border-radius:16px;
-      background:rgba(255,255,255,.02);
-      margin-top:14px;
-    }
-    table{width:100%; border-collapse:separate; border-spacing:0; min-width:1040px}
-    th,td{
-      padding:12px;
-      border-bottom:1px solid rgba(255,255,255,.06);
-      vertical-align:top;
-      text-align:left;
-      font-size:14px;
-    }
-    th{
-      position:sticky; top:0; z-index:2;
-      background:rgba(12,18,32,.9);
-      backdrop-filter:blur(8px);
-      font-size:12px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      color:rgba(168,179,214,.9);
-    }
-    tr:hover td{background:rgba(255,255,255,.015)}
-
-    .badges{display:flex; gap:6px; flex-wrap:wrap; margin-top:8px}
-    .badge{
-      display:inline-flex; align-items:center; gap:6px;
-      padding:6px 8px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.02);
-      color:var(--muted);
-      font-size:12px;
-      white-space:nowrap;
-    }
-    .badge.good{border-color:rgba(46,229,157,.35); background:rgba(46,229,157,.10); color:rgba(231,255,245,.92)}
-    .badge.warn{border-color:rgba(255,211,106,.35); background:rgba(255,211,106,.10); color:rgba(255,245,220,.92)}
-    .badge.paid{border-color:rgba(106,166,255,.35); background:rgba(106,166,255,.10); color:rgba(231,236,255,.92)}
-    .badge.free{border-color:rgba(255,255,255,.14); background:rgba(255,255,255,.03)}
-
-    .toolMeta{color:var(--muted); font-size:12px; margin-top:6px; max-width:72ch}
-
-    .callout{
-      display:flex; gap:12px; align-items:flex-start;
-      border:1px solid rgba(46,229,157,.20);
-      background:rgba(46,229,157,.08);
-      border-radius:16px;
-      padding:14px;
-      margin-top:14px;
-    }
-    .callout .icon{
-      width:34px; height:34px; flex:0 0 34px;
-      border-radius:12px;
-      display:grid; place-items:center;
-      background:rgba(46,229,157,.14);
-      border:1px solid rgba(46,229,157,.25);
-      color:rgba(231,255,245,.95);
-      font-weight:900;
-    }
-    .callout p{color:rgba(231,255,245,.90); font-size:13px}
-
-    details{
-      border:1px solid var(--stroke2);
-      background:rgba(255,255,255,.02);
-      border-radius:16px;
-      padding:12px 14px;
-    }
-    details + details{margin-top:10px}
-    summary{
-      cursor:pointer;
-      list-style:none;
-      font-weight:800;
-      outline:none;
-    }
-    summary::-webkit-details-marker{display:none}
-    summary:focus-visible{box-shadow:var(--focus); border-radius:12px}
-
-    .note{color:var(--muted); font-size:12px; margin-top:14px}
-    footer{text-align:center; color:var(--muted); font-size:13px; margin-top:22px}
-
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-    }
-  </style>
+<script defer="" src="/assets/js/analytics.js">
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://carlleger.github.io/#person", "name": "Carl Leger", "url": "https://carlleger.github.io/", "image": "https://carlleger.github.io/avatar.png", "sameAs": ["https://www.linkedin.com/in/carlleger/"]}, {"@type": "WebSite", "@id": "https://carlleger.github.io/#website", "name": "Carl Leger", "url": "https://carlleger.github.io/", "publisher": {"@id": "https://carlleger.github.io/#person"}}, {"@type": "WebPage", "@id": "https://carlleger.github.io/resources/tools/performance-cwv/#webpage", "url": "https://carlleger.github.io/resources/tools/performance-cwv/", "name": "WordPress Performance & Core Web Vitals Tools", "description": "Choose WordPress performance tools by task: diagnose TTFB, LCP, INP and CLS, configure caching and validate WooCommerce journeys.", "inLanguage": "en-CA", "isPartOf": {"@id": "https://carlleger.github.io/#website"}, "about": {"@id": "https://carlleger.github.io/#person"}}, {"@type": "BreadcrumbList", "@id": "https://carlleger.github.io/resources/tools/performance-cwv/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://carlleger.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://carlleger.github.io/resources/"}, {"@type": "ListItem", "position": 3, "name": "WordPress Performance & Core Web Vitals Tools", "item": "https://carlleger.github.io/resources/tools/performance-cwv/"}]}, {"@type": "Article", "@id": "https://carlleger.github.io/resources/tools/performance-cwv/#article", "headline": "WordPress Performance & Core Web Vitals Tools", "description": "Choose WordPress performance tools by task: diagnose TTFB, LCP, INP and CLS, configure caching and validate WooCommerce journeys.", "author": {"@id": "https://carlleger.github.io/#person"}, "publisher": {"@id": "https://carlleger.github.io/#person"}, "mainEntityOfPage": {"@id": "https://carlleger.github.io/resources/tools/performance-cwv/#webpage"}, "inLanguage": "en-CA", "image": "https://carlleger.github.io/assets/images/brand/social-card.png"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need several caching plugins?", "acceptedAnswer": {"@type": "Answer", "text": "Usually one primary caching approach is easier to reason about. Overlapping settings can make diagnosis and rollback harder."}}, {"@type": "Question", "name": "Is Cloudflare safe for WooCommerce?", "acceptedAnswer": {"@type": "Answer", "text": "It requires appropriate configuration. Do not apply indiscriminate HTML caching to sessions, carts, checkout or account pages."}}, {"@type": "Question", "name": "Should I fix LCP or INP first?", "acceptedAnswer": {"@type": "Answer", "text": "Prioritise the actual user impact and the strongest evidence. A slow server, a large image and long interaction tasks require different fixes."}}]}]}</script>
 </head>
-
-<body>
-<a class="skip" href="#tools">Skip to tools</a>
-
-<div class="container">
-
-  <!-- HERO -->
-  <header class="section" id="top">
-    <div class="topRow">
-      <div>
-        <h1>Best WordPress Performance & Core Web Vitals Tools</h1>
-        <p class="subtitle">
-          A practical list of tools I rely on to improve <strong>WordPress speed</strong> and <strong>Core Web Vitals</strong>.
-          The goal is stable real-world wins (not just lab scores) with a stack that stays safe for <strong>WooCommerce</strong>.
-        </p>
-
-        <div class="pillRow" aria-label="Highlights">
-          <span class="pill"><span class="dot good"></span>WooCommerce-safe approach</span>
-          <span class="pill"><span class="dot"></span>Targets: LCP · INP · CLS · TTFB</span>
-          <span class="pill"><span class="dot.warn dot warn"></span>Avoid plugin stacking</span>
-        </div>
-      </div>
-
-      <div class="ctaRow">
-        <a class="btn primary" href="#tools">See the tools</a>
-        <a class="btn ghost" href="#workflow">Workflow</a>
-        <a class="btn ghost" href="#woocommerce">Woo checklist</a>
-      </div>
-    </div>
-
-    <div class="grid2">
-      <div class="card toc" aria-label="Table of contents">
-        <h2 style="margin:0 0 6px;">On this page</h2>
-        <ul>
-          <li><a href="#choose">How to choose the right tools</a></li>
-          <li><a href="#tools">Tools comparison</a></li>
-          <li><a href="#workflow">Diagnose → Fix → Validate</a></li>
-          <li><a href="#woocommerce">WooCommerce safety checklist</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2 style="margin:0 0 6px;">The “best stack” rule</h2>
-        <p class="subtitle" style="margin-top:0;">
-          Pick <strong>one</strong> main optimization/caching solution, then add a CDN or monitoring only if needed.
-          Most CWV issues come from configuration and bottlenecks, not a missing plugin.
-        </p>
-
-        <div class="callout" role="note">
-          <div class="icon">✓</div>
-          <div>
-            <p style="margin:0;">
-              If you run WooCommerce, prioritize <strong>checkout stability</strong>, <strong>cache exclusions</strong>, and <strong>logged-in behavior</strong> before chasing perfect Lighthouse scores.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- CHOOSE -->
-  <section class="section" id="choose">
-    <h2>How to choose the right performance tools</h2>
-    <p class="subtitle">
-      Performance problems rarely come from one metric. CWV + server response time + third-party scripts interact.
-      Choose tools based on your bottleneck, then tune one stack properly.
-    </p>
-
-    <div class="grid2">
-      <div class="card">
-        <h3>Typical bottlenecks</h3>
-        <p class="toolMeta">
-          • High TTFB: hosting, caching strategy, CDN<br/>
-          • Bad LCP: hero image, critical CSS, render-blocking assets<br/>
-          • Bad INP: heavy JS, third-party tags, sliders, chat widgets<br/>
-          • CLS: fonts, images without dimensions, late-injected elements
-        </p>
-      </div>
-      <div class="card">
-        <h3>What I avoid</h3>
-        <p class="toolMeta">
-          • Multiple cache plugins at the same time<br/>
-          • “Optimize everything” without testing cart/checkout<br/>
-          • Aggressive delay/defer on payment or cart scripts<br/>
-          • No staging/rollback plan
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TOOLS -->
-  <section class="section" id="tools">
-    <h2>Recommended WordPress performance tools (comparison)</h2>
-    <p class="subtitle">
-      Filter by category, WooCommerce safety, or search by metric (LCP, INP, CLS, TTFB). Replace the “Get” links with your URLs.
-    </p>
-
-    <div class="controls" aria-label="Filters">
-      <input id="q" class="input" type="search" placeholder="Search: WP Rocket, CDN, INP, waterfall, LCP..." aria-label="Search tools" />
-      <select id="cat" class="select" aria-label="Filter by category">
-        <option value="all">All categories</option>
-        <option value="Caching">Caching</option>
-        <option value="CWV Optimization">CWV Optimization</option>
-        <option value="CDN / Edge">CDN / Edge</option>
-        <option value="Diagnostics">Diagnostics</option>
-        <option value="Monitoring">Monitoring</option>
-      </select>
-      <select id="woo" class="select" aria-label="Filter by WooCommerce safety">
-        <option value="all">Woo: any</option>
-        <option value="yes">Woo-safe: Yes</option>
-        <option value="caution">Woo-safe: Caution</option>
-      </select>
-      <a class="btn ghost" href="#workflow" aria-label="Jump to workflow">How to use these</a>
-    </div>
-
-    <div class="hint">
-      Tip: If you’re unsure what’s slow, start with <strong>Diagnostics</strong> tools, then choose your “Fix” tool.
-    </div>
-
-    <div class="tableWrap" role="region" aria-label="Tools comparison table">
-      <table>
-        <thead>
-          <tr>
-            <th style="width:170px;">Category</th>
-            <th>Tool</th>
-            <th style="width:230px;">Best for</th>
-            <th style="width:140px;">Woo-safe</th>
-            <th style="width:140px;">Pricing</th>
-            <th style="width:170px;">Link</th>
-          </tr>
-        </thead>
-        <tbody id="rows">
-
-          <tr data-cat="Caching" data-woo="yes" data-text="wp rocket caching cache baseline speed ttfb woocommerce exclusions">
-            <td>Caching</td>
-            <td>
-              <h3 style="margin:0;">WP Rocket</h3>
-              <div class="badges">
-                <span class="badge paid">Paid</span>
-                <span class="badge good">Woo-safe</span>
-                <span class="badge">TTFB</span>
-                <span class="badge">Baseline</span>
-              </div>
-              <p class="toolMeta">
-                A strong baseline caching plugin that delivers fast gains on most WordPress sites.
-                WooCommerce works well when exclusions are configured properly.
-              </p>
-            </td>
-            <td>Baseline caching + quick wins</td>
-            <td><span class="badge good">Yes</span></td>
-            <td>Paid</td>
-            <td><a class="btn primary" href="#" target="_blank" rel="sponsored noopener noreferrer">Get WP Rocket</a></td>
-          </tr>
-
-          <tr data-cat="CWV Optimization" data-woo="yes" data-text="flyingpress core web vitals lcp inp critical css delay js optimization scripts">
-            <td>CWV Optimization</td>
-            <td>
-              <h3 style="margin:0;">FlyingPress</h3>
-              <div class="badges">
-                <span class="badge paid">Paid</span>
-                <span class="badge good">Woo-safe</span>
-                <span class="badge">LCP</span>
-                <span class="badge">INP</span>
-              </div>
-              <p class="toolMeta">
-                Focused on improving LCP and INP through script handling, critical CSS, and smart loading strategies.
-                Ideal when CWV scores are the main issue.
-              </p>
-            </td>
-            <td>LCP/INP tuning + script control</td>
-            <td><span class="badge good">Yes</span></td>
-            <td>Paid</td>
-            <td><a class="btn" href="#" target="_blank" rel="sponsored noopener noreferrer">Get FlyingPress</a></td>
-          </tr>
-
-          <tr data-cat="CDN / Edge" data-woo="caution" data-text="cloudflare cdn edge caching waf ddos dns ttfb">
-            <td>CDN / Edge</td>
-            <td>
-              <h3 style="margin:0;">Cloudflare</h3>
-              <div class="badges">
-                <span class="badge free">Free + Paid</span>
-                <span class="badge warn">Woo caution</span>
-                <span class="badge">CDN</span>
-                <span class="badge">WAF</span>
-              </div>
-              <p class="toolMeta">
-                Global CDN + DNS + edge protection. Powerful, but be careful with HTML caching and rules around cart/checkout/account.
-              </p>
-            </td>
-            <td>CDN, DNS, edge protection</td>
-            <td><span class="badge warn">Caution</span></td>
-            <td>Free + Paid</td>
-            <td><a class="btn" href="#" target="_blank" rel="sponsored noopener noreferrer">Get Cloudflare</a></td>
-          </tr>
-
-          <tr data-cat="Diagnostics" data-woo="yes" data-text="pagespeed insights lighthouse crux chrome user experience report cwv diagnostics lcp inp cls">
-            <td>Diagnostics</td>
-            <td>
-              <h3 style="margin:0;">PageSpeed Insights</h3>
-              <div class="badges">
-                <span class="badge free">Free</span>
-                <span class="badge good">Woo-safe</span>
-                <span class="badge">LCP</span>
-                <span class="badge">INP</span>
-                <span class="badge">CLS</span>
-              </div>
-              <p class="toolMeta">
-                Combines lab metrics with field data (CrUX when available). Best used to validate improvements after changes are deployed.
-              </p>
-            </td>
-            <td>CWV diagnosis + verification</td>
-            <td><span class="badge good">Yes</span></td>
-            <td>Free</td>
-            <td><a class="btn ghost" href="#" target="_blank" rel="nofollow noopener noreferrer">Run PSI</a></td>
-          </tr>
-
-          <tr data-cat="Diagnostics" data-woo="yes" data-text="gtmetrix waterfall har third party render blocking requests timing ttfb">
-            <td>Diagnostics</td>
-            <td>
-              <h3 style="margin:0;">GTmetrix</h3>
-              <div class="badges">
-                <span class="badge free">Free + Paid</span>
-                <span class="badge good">Woo-safe</span>
-                <span class="badge">Waterfall</span>
-                <span class="badge">TTFB</span>
-              </div>
-              <p class="toolMeta">
-                Excellent for waterfall analysis to spot render-blocking files, third-party scripts, and slow requests.
-              </p>
-            </td>
-            <td>Waterfall + slow request discovery</td>
-            <td><span class="badge good">Yes</span></td>
-            <td>Free + Paid</td>
-            <td><a class="btn ghost" href="#" target="_blank" rel="nofollow noopener noreferrer">Open GTmetrix</a></td>
-          </tr>
-
-          <tr data-cat="Monitoring" data-woo="yes" data-text="google search console core web vitals report field data monitoring pages experience seo">
-            <td>Monitoring</td>
-            <td>
-              <h3 style="margin:0;">Google Search Console</h3>
-              <div class="badges">
-                <span class="badge free">Free</span>
-                <span class="badge good">Woo-safe</span>
-                <span class="badge">Field data</span>
-              </div>
-              <p class="toolMeta">
-                Tracks CWV issues at scale (templates/URLs) and helps prioritize fixes that actually impact SEO.
-              </p>
-            </td>
-            <td>Ongoing CWV monitoring & prioritization</td>
-            <td><span class="badge good">Yes</span></td>
-            <td>Free</td>
-            <td><a class="btn ghost" href="https://search.google.com/search-console" target="_blank" rel="nofollow noopener noreferrer">Open GSC</a></td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-
-    <p class="note">
-      Disclosure: Some links may be affiliate links. Purchasing through them does not increase your cost and helps support this site.
-    </p>
-  </section>
-
-  <!-- WORKFLOW -->
-  <section class="section" id="workflow">
-    <h2>Workflow: diagnose → fix → validate</h2>
-    <p class="subtitle">
-      This is the fastest way to avoid “optimization chaos” and still get measurable improvements.
-    </p>
-
-    <div class="grid2">
-      <div class="card">
-        <h3>1) Diagnose</h3>
-        <p class="toolMeta">
-          Start with PageSpeed Insights (lab + field), then use GTmetrix to find the exact scripts/files causing delays.
-        </p>
-      </div>
-      <div class="card">
-        <h3>2) Fix the biggest bottleneck</h3>
-        <p class="toolMeta">
-          High TTFB: caching/CDN/server first. Bad LCP: hero/critical CSS. Bad INP: reduce heavy JS and third-party scripts.
-        </p>
-      </div>
-      <div class="card">
-        <h3>3) Validate & test commerce flows</h3>
-        <p class="toolMeta">
-          Re-run PSI, then test add-to-cart, cart, checkout, coupons, payment, and account pages to confirm stability.
-        </p>
-      </div>
-      <div class="card">
-        <h3>4) Monitor over time</h3>
-        <p class="toolMeta">
-          Use Search Console to track CWV templates/URLs and catch regressions after theme/plugin changes.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WOO -->
-  <section class="section" id="woocommerce">
-    <h2>WooCommerce safety checklist (quick)</h2>
-    <p class="subtitle">
-      These settings prevent the most common speed-related store breakages.
-    </p>
-
-    <div class="card">
-      <p class="toolMeta" style="margin:0;">
-        • Don’t cache: <strong>cart</strong>, <strong>checkout</strong>, <strong>my-account</strong>, <strong>order-received</strong><br/>
-        • Don’t cache for logged-in users (or ensure proper variation by user/session)<br/>
-        • Exclude Woo cookies/session where your stack requires it<br/>
-        • Be cautious with JS delay/defer on checkout/payment scripts<br/>
-        • Test: add-to-cart, mini cart, coupons, checkout, payment, account pages
-      </p>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section" id="faq">
-    <h2>FAQ</h2>
-
-    <details>
-      <summary>Do I need both WP Rocket and FlyingPress?</summary>
-      <p class="toolMeta">
-        Usually no. Pick one primary optimization tool to avoid overlap and unpredictable behavior.
-        If you’re unsure, start with diagnostics, then commit to one stack.
-      </p>
-    </details>
-
-    <details>
-      <summary>Is Cloudflare safe for WooCommerce?</summary>
-      <p class="toolMeta">
-        Yes with correct configuration. The classic mistake is caching HTML pages that must remain dynamic
-        (cart/checkout/account). Always test purchase flows after changes.
-      </p>
-    </details>
-
-    <details>
-      <summary>What should I fix first: LCP or INP?</summary>
-      <p class="toolMeta">
-        Fix the biggest bottleneck first. If the server is slow (TTFB), caching/CDN/server improvements usually come first.
-        If interactions feel sluggish, prioritize INP by trimming heavy JS and third-party scripts.
-      </p>
-    </details>
-  </section>
-
-  <footer>
-    © <span id="y"></span> Carl Leger · <a href="#top">Back to top</a>
-  </footer>
-
+<body data-page-type="guide">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" data-cta-location="header" id="top">
+<div class="header-inner">
+<a class="wordmark" href="/">
+<span aria-hidden="true" class="monogram">CL</span>
+<span>Carl Leger</span>
+</a>
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Open navigation" class="menu-toggle" data-menu-toggle="" hidden type="button">Menu</button>
+<nav aria-label="Main navigation" class="site-nav" id="primary-nav">
+<a href="/resources/best/managed-cloud-hosting/">Hosting</a>
+<a href="/resources/">Resources</a>
+<a href="/services/">Services</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+<a class="language-switch" href="/fr/" hreflang="fr-CA" lang="fr-CA">Français (accueil)</a>
+</nav>
 </div>
-
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
-
-  // Simple filters (no dependencies)
-  const q = document.getElementById("q");
-  const cat = document.getElementById("cat");
-  const woo = document.getElementById("woo");
-  const rows = Array.from(document.querySelectorAll("#rows tr"));
-
-  function applyFilters(){
-    const query = (q.value || "").trim().toLowerCase();
-    const c = cat.value;
-    const w = woo.value;
-
-    rows.forEach(tr => {
-      const tCat = tr.getAttribute("data-cat");
-      const tWoo = tr.getAttribute("data-woo");
-      const tText = (tr.getAttribute("data-text") || "").toLowerCase();
-
-      const matchQuery = !query || tText.includes(query);
-      const matchCat = (c === "all") || (tCat === c);
-      const matchWoo = (w === "all") || (tWoo === w);
-
-      tr.style.display = (matchQuery && matchCat && matchWoo) ? "" : "none";
-    });
-  }
-
-  [q, cat, woo].forEach(el => el.addEventListener("input", applyFilters));
-  applyFilters();
-</script>
-
+</header>
+<main class="site-main article-shell" id="main" tabindex="-1">
+<nav aria-label="Breadcrumb" class="breadcrumbs">
+<ol>
+<li>
+<a href="/">Home</a>
+</li>
+<li>
+<a href="/resources/">Resources</a>
+</li>
+<li>
+<span aria-current="page">WordPress Performance &amp; Core Web Vitals Tools</span>
+</li>
+</ol>
+</nav>
+<div class="page-intro">
+<p class="eyebrow">Guide</p>
+<h1>WordPress Performance &amp; Core Web Vitals Tools</h1>
+<p class="lead">Choose WordPress performance tools by task: diagnose TTFB, LCP, INP and CLS, configure caching and validate WooCommerce journeys.</p>
+<p class="byline"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M14 2H5v20h14V7Zm0 0v5h5M8 11h8M8 15h8M8 18h5"></path></svg><span>Carl Leger · Independent technical guidance</span></p></div>
+<p class="disclosure">Affiliate disclosure: I may earn a commission if you buy through a marked affiliate link, at no extra cost to you. Documentation links are ordinary, non-affiliate sources.</p>
+<div class="article-body" data-cta-location="article"><section class="section" id="web-vitals"><div class="section-head"><div><p class="section-label">Educational reference</p><h2>Three signals. Three different problems.</h2></div><p>Reference thresholds, not measured results for this website.</p></div>
+<div class="vitals-grid"><article class="vital-card"><div class="vital-top"><h3>LCP</h3><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M4 18a9 9 0 1 1 16 0M7 9l1 1M16 9l1-1M12 5v2M4 13h2M18 13h2M12 14l4-4"></path><circle cx="12" cy="14" r="2"></circle><path d="M8 21h8"></path></svg></div><p class="vital-value">≤ 2.5 s</p><p class="vital-label">Main content loading · good threshold</p><div aria-hidden="true" class="threshold-bar" style="--good:50;--improve:30;--poor:20"><span></span><span></span><span></span></div><div class="threshold-legend"><span>Good<br/>0–2.5 s</span><span>Improve<br/>&gt; 2.5–4 s</span><span>Poor<br/>&gt; 4 s</span></div><p>Identify the main content element. Prioritise its resource and reduce render-blocking work.</p></article><article class="vital-card"><div class="vital-top"><h3>INP</h3><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="m5 3 14 9-7 1-3 7Z"></path></svg></div><p class="vital-value">≤ 200 ms</p><p class="vital-label">Interaction responsiveness · good threshold</p><div aria-hidden="true" class="threshold-bar" style="--good:33.333;--improve:50;--poor:16.667"><span></span><span></span><span></span></div><div class="threshold-legend"><span>Good<br/>0–200 ms</span><span>Improve<br/>&gt; 200–500 ms</span><span>Poor<br/>&gt; 500 ms</span></div><p>Reduce long JavaScript tasks and inspect the work triggered by visitor interactions.</p></article><article class="vital-card"><div class="vital-top"><h3>CLS</h3><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M10 9v12"></path></svg></div><p class="vital-value">≤ 0.1</p><p class="vital-label">Visual stability · good threshold · unitless</p><div aria-hidden="true" class="threshold-bar" style="--good:33.333;--improve:50;--poor:16.667"><span></span><span></span><span></span></div><div class="threshold-legend"><span>Good<br/>0–0.1</span><span>Improve<br/>&gt; 0.1–0.25</span><span>Poor<br/>&gt; 0.25</span></div><p>Reserve image and embed dimensions. Avoid unexpected insertions above existing content.</p></article></div><p class="reference-note">Source: <a href="https://web.dev/articles/defining-core-web-vitals-thresholds">Google / web.dev</a> · Reference checked 24 November 2026. Field assessment uses the 75th percentile of visits; no field INP is measured here. Lighthouse TBT is not an INP substitute. Each bar has its own linear scale: LCP 0–5 s, INP 0–600 ms, CLS 0–0.3; values beyond the scale remain poor.</p></section>
+<section id="choose">
+<h2 id="choose-the-tool-around-the-bottleneck">Choose the tool around the bottleneck</h2>
+<p>A useful performance stack begins with a diagnosis. Avoid installing several cache or optimisation plugins with overlapping responsibilities. Choose one main approach, validate it, then add delivery or monitoring tools where they address a demonstrated need.</p>
+<ul>
+<li>
+<strong>High TTFB:</strong> investigate origin requests, cache behaviour, PHP work and database queries.</li>
+<li>
+<strong>Slow LCP:</strong> inspect the main image or text resource, critical CSS and render-blocking requests.</li>
+<li>
+<strong>Poor INP:</strong> investigate long tasks and interaction scripts, including third parties.</li>
+<li>
+<strong>Layout shifts:</strong> reserve image and embed dimensions and review late-rendered content.</li>
+</ul>
+</section>
+<section id="tools">
+<h2 id="performance-and-core-web-vitals-tools">Performance and Core Web Vitals tools</h2>
+<section aria-label="Tools organised by their role in the investigation" class="table-scroll" tabindex="0">
+<table style="--data-columns:3">
+<caption>Tools organised by their role in the investigation</caption>
+<thead>
+<tr>
+<th scope="col"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M3 15h18M10 9v12"></path></svg>Role</th>
+<th scope="col">Tool</th>
+<th scope="col">Use it to</th>
+<th scope="col">Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Diagnostics</th>
+<td>PageSpeed Insights</td>
+<td>Investigate lab metrics and field data when available.</td>
+<td>
+<a href="https://pagespeed.web.dev/">Open PageSpeed Insights</a>
+</td>
+</tr>
+<tr>
+<th scope="row">Diagnostics</th>
+<td>GTmetrix</td>
+<td>Inspect a waterfall and the requests behind a slow load.</td>
+<td>
+<a href="https://gtmetrix.com/">Visit GTmetrix</a>
+</td>
+</tr>
+<tr>
+<th scope="row">Monitoring</th>
+<td>Google Search Console</td>
+<td>Review search visibility, indexing and available field CWV reports.</td>
+<td>
+<a href="https://search.google.com/search-console/">Open Search Console</a>
+</td>
+</tr>
+<tr>
+<th scope="row">Caching</th>
+<td>WP Rocket</td>
+<td>A paid optimisation option; validate its configuration against the application.</td>
+<td>
+<a href="https://wp-rocket.me/">Visit WP Rocket</a>
+</td>
+</tr>
+<tr>
+<th scope="row">Optimisation</th>
+<td>FlyingPress</td>
+<td>An optimisation option to evaluate against the site’s bottleneck.</td>
+<td>
+<a class="button" data-cta-location="table" data-provider="flyingpress" href="https://flyingpress.com/?ref=fffd" rel="sponsored nofollow noopener noreferrer" target="_blank">Explore FlyingPress</a>
+</td>
+</tr>
+<tr>
+<th scope="row">CDN and edge</th>
+<td>Cloudflare</td>
+<td>Evaluate caching, delivery and security features with explicit commerce exclusions.</td>
+<td>
+<a href="https://www.cloudflare.com/">Visit Cloudflare</a>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<p>Product features and licensing can change. The provider documentation should confirm the current scope before you install or purchase a tool.</p>
+</section>
+<section id="workflow">
+<h2 id="diagnose-fix-validate-monitor">Diagnose, fix, validate, monitor</h2>
+<ul>
+<li>
+<strong>Diagnose:</strong> use field data where available and a repeatable laboratory setup.</li>
+<li>
+<strong>Fix:</strong> address the largest demonstrated constraint before adding more tools.</li>
+<li>
+<strong>Validate:</strong> repeat the measurement and test the affected user journeys.</li>
+<li>
+<strong>Monitor:</strong> look for sustained results and regressions after content, plugin or template changes.</li>
+</ul>
+</section>
+<section id="woo">
+<h2 id="woocommerce-safety-checklist">WooCommerce safety checklist</h2>
+<ul>
+<li>Keep cart, checkout, account and order confirmation pages dynamic where required.</li>
+<li>Respect session cookies and logged-in behaviour.</li>
+<li>Check delayed or deferred scripts against payment and cart functions.</li>
+<li>Test add-to-cart, mini cart, coupons, shipping, payment and account pages.</li>
+<li>Use staging and a recoverable backup before making risky changes.</li>
+</ul>
+</section>
+<section id="faq">
+<h2 id="performance-tools-faq">Performance tools FAQ</h2>
+<div class="faq">
+<details>
+<summary>Do I need several caching plugins?</summary>
+<p>Usually one primary caching approach is easier to reason about. Overlapping settings can make diagnosis and rollback harder.</p>
+</details>
+<details>
+<summary>Is Cloudflare safe for WooCommerce?</summary>
+<p>It requires appropriate configuration. Do not apply indiscriminate HTML caching to sessions, carts, checkout or account pages.</p>
+</details>
+<details>
+<summary>Should I fix LCP or INP first?</summary>
+<p>Prioritise the actual user impact and the strongest evidence. A slow server, a large image and long interaction tasks require different fixes.</p>
+</details>
+</div>
+</section>
+<aside aria-labelledby="continue-your-research" class="related" data-cta-location="related">
+<h2 id="continue-your-research">Continue your research</h2>
+<ul>
+<li>
+<a href="/resources/best/cloudways-review/">Cloudways Review</a>
+</li>
+<li>
+<a href="/resources/best/managed-cloud-hosting/">Managed Cloud Hosting</a>
+</li>
+<li>
+<a href="/resources/best/managed-cloud-hosting/cloudways-vs-kinsta/">Cloudways vs Kinsta</a>
+</li>
+<li>
+<a href="/resources/best/managed-cloud-hosting/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a>
+</li>
+<li>
+<a href="/resources/best/managed-cloud-hosting/cloudways-vs-siteground/">Cloudways vs SiteGround</a>
+</li>
+<li>
+<a href="/resources/woocommerce-cache-mistakes/">WooCommerce cache safety</a>
+</li>
+</ul>
+</aside>
+</div>
+</main>
+<footer class="site-footer" data-cta-location="footer"><div class="footer-grid"><div class="footer-brand"><a class="wordmark" href="/"><span aria-hidden="true" class="monogram">CL</span><span>Carl Leger</span></a><p>Independent thinking on hosting, web performance and technical SEO.</p><p>Canada · English &amp; French</p></div>
+<div><h2>Hosting research</h2><ul><li><a href="/resources/best/managed-cloud-hosting/">Managed Cloud Hosting</a></li><li><a href="/resources/best/cloudways-review/">Cloudways Review</a></li><li><a href="/resources/best/managed-cloud-hosting/cloudways-vs-kinsta/">Cloudways vs Kinsta</a></li><li><a href="/resources/best/managed-cloud-hosting/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a></li><li><a href="/resources/best/managed-cloud-hosting/cloudways-vs-siteground/">Cloudways vs SiteGround</a></li></ul></div>
+<div><h2>Learn &amp; improve</h2><ul><li><a href="/resources/">Technical resources</a></li><li><a href="/resources/tools/performance-cwv/">Core Web Vitals</a></li><li><a href="/resources/woocommerce-cache-mistakes/">WooCommerce cache safety</a></li><li><a href="/services/">Technical services</a></li><li><a href="/about/">About Carl</a></li></ul></div>
+<div><h2>Get in touch</h2><ul><li><a href="mailto:carlleger.dev@gmail.com">carlleger.dev@gmail.com</a></li><li><a href="https://www.linkedin.com/in/carlleger/">LinkedIn</a></li><li><a href="/fr/" hreflang="fr-CA" lang="fr-CA">Français</a></li></ul></div></div>
+<p class="footer-disclosure">Marked affiliate links may earn a commission at no extra cost to you. Recommendations consider website requirements and the limits of each offer.</p>
+<div class="footer-bottom"><span>© 2026 Carl Leger</span><a href="/about/#privacy">Privacy</a><button class="link-button" data-consent-open="" hidden type="button">Cookie preferences</button><a href="#top">Back to top</a></div></footer>
+<aside aria-labelledby="consent-heading" class="consent-panel" hidden id="consent-banner">
+<div>
+<div class="consent-heading-row"><h2 id="consent-heading">Your privacy choice</h2><button class="link-button" data-consent-open="" type="button">Preferences</button></div>
+<p>Optional analytics stay off without consent.</p>
+</div>
+<div class="actions">
+<button class="button" data-consent-accept="" type="button">Accept analytics</button>
+<button class="button" data-consent-reject="" type="button">Reject analytics</button>
+</div>
+</aside>
+<dialog aria-labelledby="privacy-title" class="privacy-dialog" id="privacy-dialog">
+<h2 id="privacy-title">Privacy preferences</h2>
+<h3>Essential storage</h3>
+<p>Your choice is stored in this browser for 180 days so the website can respect your preference.</p>
+<div class="consent-option">
+<input aria-describedby="analytics-description" id="analytics-consent" type="checkbox"/>
+<label for="analytics-consent">Allow Google Analytics</label>
+</div>
+<p id="analytics-description">Measure visits and categories of clicks, without sending affiliate URL parameters in custom events.</p>
+<p>You can withdraw consent here at any time. Withdrawal disables measurement, clears accessible cookies and reloads the page.</p>
+<p id="consent-status" role="status">
+</p>
+<div class="actions">
+<button class="button primary" data-consent-save="" type="button">Save my choice</button>
+<button class="button" data-consent-reject="" type="button">Reject / withdraw consent</button>
+<button class="button" data-consent-close="" type="button">Close</button>
+</div>
+</dialog>
 </body>
 </html>

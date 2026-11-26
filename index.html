@@ -1,752 +1,245 @@
 <!DOCTYPE html>
+
 <html lang="en-CA">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- TITLE (EN-CA focus) -->
-  <title>Carl Leger — WooCommerce Performance Engineer, Technical SEO & Checkout Reliability (Canada)</title>
-
-  <!-- CORE SEO -->
-  <meta name="description" content="Canada-first WooCommerce performance engineering: Core Web Vitals, TTFB reduction, checkout reliability, product SEO, and GA4 measurement. Staging-first, rollback-ready, documented implementation." />
-  <meta name="author" content="Carl Leger" />
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet=-1,max-video-preview:-1" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta name="theme-color" content="#0b1220" />
-  <meta name="color-scheme" content="dark light" />
-  <meta name="format-detection" content="telephone=no" />
-
-  <!-- CANONICAL -->
-  <link rel="canonical" href="https://carlleger.github.io/" />
-
-  <!-- HREFLANG (EN-CA primary) -->
-  <link rel="alternate" hreflang="en-CA" href="https://carlleger.github.io/" />
-  <link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/" />
-
-  <!-- Preload critical image (CWV / likely LCP) -->
-  <link
-    rel="preload"
-    as="image"
-    href="/assets/images/hero/woocommerce-performance-ga4-technical-seo-canada-1600x900.webp"
-    fetchpriority="high"
-    type="image/webp"
-  />
-
-  <!-- OPEN GRAPH -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Carl Leger — WooCommerce Performance Engineering & Technical SEO (Canada)" />
-  <meta property="og:description" content="Checkout-safe performance + technical SEO for WooCommerce. Staging-first fixes, rollback-ready deploys, and GA4-measured impact." />
-  <meta property="og:url" content="https://carlleger.github.io/" />
-  <meta property="og:site_name" content="Carl Leger" />
-  <meta property="og:locale" content="en_CA" />
-
-  <!-- OG IMAGE (JPG primary + WEBP fallback) -->
-  <meta property="og:image" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.jpg" />
-  <meta property="og:image:secure_url" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.jpg" />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="WooCommerce performance engineering and GA4 technical SEO consultant in Canada." />
-
-  <meta property="og:image" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
-  <meta property="og:image:secure_url" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.webp" />
-  <meta property="og:image:type" content="image/webp" />
-
-  <!-- TWITTER -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Carl Leger — WooCommerce Performance Engineering (Canada)" />
-  <meta name="twitter:description" content="Core Web Vitals + checkout reliability + technical SEO for WooCommerce. Staging-first, rollback-ready, measured in GA4." />
-  <meta name="twitter:image" content="https://carlleger.github.io/assets/images/og/woocommerce-performance-ga4-technical-seo-canada-1200x630.jpg" />
-  <meta name="twitter:image:alt" content="WooCommerce performance engineering and GA4 technical SEO consultant in Canada." />
-
-  <!-- FAVICONS (root) -->
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-
-  <!-- ICONS -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-    media="print"
-    onload="this.media='all'"
-  />
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  </noscript>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/home.css?v=steam-enca-3" />
-
-  <!-- GA4 -->
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
-  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KXQFTWTBD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3KXQFTWTBD', { send_page_view: true });
-  </script>
-
-  <!-- GA4: CTA + form tracking (audit-ready params) -->
-  <script>
-    function track(eventName, params){
-      try{
-        if(typeof gtag === "function"){
-          gtag("event", eventName, params || {});
-        }
-      }catch(e){}
-    }
-
-    function getSectionLocation(el){
-      const section = el.closest("section[id]");
-      if(section && section.id) return section.id;
-
-      if(el.closest("header")) return "header";
-      if(el.closest("footer")) return "footer";
-      if(el.closest("aside"))  return "drawer";
-      return "body";
-    }
-
-    document.addEventListener("click", function(e){
-      const a = e.target.closest("a");
-      if(!a) return;
-
-      const isCta =
-        a.matches(".btn.primary, .footerBtn--primary, .siteNav__cta, .navDrawer__link--cta") ||
-        a.hasAttribute("data-preset");
-
-      if(!isCta) return;
-
-      const ctaText = (a.textContent || "").trim().replace(/\s+/g, " ").slice(0, 80);
-      const href = a.getAttribute("href") || "";
-      const location = getSectionLocation(a);
-
-      track("cta_click", {
-        cta: ctaText,
-        href: href,
-        location: location
-      });
-    }, { passive:true });
-
-    document.addEventListener("submit", function(e){
-      const form = e.target;
-      if(form && form.id === "contactForm"){
-        track("lead_submit", {
-          form: "home_contact",
-          location: "contact"
-        });
-      }
-    }, { passive:true });
-  </script>
-
-  <!-- STRUCTURED DATA: PERSON -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "@id":"https://carlleger.github.io/#person",
-    "name":"Carl Leger",
-    "jobTitle":"WooCommerce Performance Engineer & Technical SEO Consultant",
-    "url":"https://carlleger.github.io/",
-    "image":"https://carlleger.github.io/avatar.png",
-    "sameAs":[
-      "https://www.linkedin.com/in/carlleger/",
-      "https://github.com/CarlLeger",
-      "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
-    ]
-  }
-  </script>
-
-  <!-- STRUCTURED DATA: WEBSITE -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "@id":"https://carlleger.github.io/#website",
-    "name":"Carl Leger",
-    "url":"https://carlleger.github.io/",
-    "publisher": { "@id":"https://carlleger.github.io/#person" },
-    "inLanguage":["en-CA"]
-  }
-  </script>
-
-  <!-- STRUCTURED DATA: WEBPAGE -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "@id":"https://carlleger.github.io/#webpage",
-    "url":"https://carlleger.github.io/",
-    "name":"Carl Leger — WooCommerce Performance Engineer (Canada)",
-    "isPartOf":{"@id":"https://carlleger.github.io/#website"},
-    "about":{"@id":"https://carlleger.github.io/#person"},
-    "mainEntity":{"@id":"https://carlleger.github.io/#service"},
-    "inLanguage":"en-CA"
-  }
-  </script>
-
-  <!-- STRUCTURED DATA: PROFESSIONAL SERVICE -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ProfessionalService",
-    "@id":"https://carlleger.github.io/#service",
-    "name":"Carl Leger — WooCommerce Performance Engineering & Technical SEO (Canada)",
-    "url":"https://carlleger.github.io/",
-    "provider": { "@id":"https://carlleger.github.io/#person" },
-    "areaServed":["Canada"],
-    "availableLanguage":["en-CA"],
-    "serviceType":[
-      "WooCommerce performance engineering",
-      "Checkout reliability & caching boundaries",
-      "Technical SEO implementation",
-      "GA4 measurement planning"
-    ],
-    "description":"Canada-first WooCommerce performance engineering: Core Web Vitals, TTFB reduction, checkout reliability, product page SEO, and GA4 measurement. Staging-first changes with rollback plans and documented implementation that agencies can ship confidently.",
-    "knowsAbout":[
-      "WooCommerce performance",
-      "Checkout optimization",
-      "Core Web Vitals",
-      "TTFB",
-      "INP",
-      "LCP",
-      "Technical SEO",
-      "Product template optimization",
-      "GA4 measurement",
-      "Cloudflare caching",
-      "WordPress performance",
-      "Static site performance"
-    ],
-    "contactPoint":[
-      {
-        "@type":"ContactPoint",
-        "contactType":"sales",
-        "email":"carlleger.dev@gmail.com",
-        "availableLanguage":["en-CA"]
-      }
-    ],
-    "sameAs":[
-      "https://www.linkedin.com/in/carlleger/",
-      "https://github.com/CarlLeger",
-      "https://www.upwork.com/freelancers/~01ef6ecdcee90492d5"
-    ]
-  }
-  </script>
-
-  <!-- STRUCTURED DATA: FAQ -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "@id":"https://carlleger.github.io/#faq",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"What’s the fastest way to improve WooCommerce speed without breaking checkout?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Start with a checkout-safe audit focused on TTFB and Core Web Vitals, then ship staged, rollback-ready fixes. The key is correct caching boundaries for cart/checkout, and verifying changes with a measurement plan in GA4."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Do performance changes break checkout or personalization?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"They can if caching boundaries are wrong. A safe approach isolates cart/checkout, validates fragments, tests critical paths in staging, and deploys with a rollback plan."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Can you optimize product pages for SEO and conversion?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Yes. Product template work includes technical SEO fundamentals (titles/meta, internal links, structured data where relevant, image strategy) plus performance and UX improvements that support conversion."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"Do you work with agencies?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Yes. I can work white-label or as a technical partner: documented changes, clear tickets, QA notes, and staged deployments that your team can approve confidently."
-        }
-      }
-    ]
-  }
-  </script>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Independent Hosting, Web Performance &amp; Technical SEO | Carl Leger</title>
+<meta content="Hosting comparisons, WordPress and WooCommerce performance guidance, and technical SEO from independent consultant Carl Leger." name="description"/>
+<meta content="Carl Leger" name="author"/>
+<meta content="index,follow" name="robots"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="#0b111b" name="theme-color"/>
+<link href="https://carlleger.github.io/" rel="canonical"/>
+<link href="https://carlleger.github.io/" hreflang="en-CA" rel="alternate"/>
+<link href="https://carlleger.github.io/fr/" hreflang="fr-CA" rel="alternate"/>
+<link href="https://carlleger.github.io/" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="Independent Hosting, Web Performance &amp; Technical SEO | Carl Leger" property="og:title"/>
+<meta content="Hosting comparisons, WordPress and WooCommerce performance guidance, and technical SEO from independent consultant Carl Leger." property="og:description"/>
+<meta content="https://carlleger.github.io/" property="og:url"/>
+<meta content="Carl Leger" property="og:site_name"/>
+<meta content="en_CA" property="og:locale"/>
+<meta content="https://carlleger.github.io/assets/images/brand/social-card.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Carl Leger — Hosting, Web Performance, Technical SEO" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Independent Hosting, Web Performance &amp; Technical SEO | Carl Leger" name="twitter:title"/>
+<meta content="Hosting comparisons, WordPress and WooCommerce performance guidance, and technical SEO from independent consultant Carl Leger." name="twitter:description"/>
+<meta content="https://carlleger.github.io/assets/images/brand/social-card.png" name="twitter:image"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<script>document.documentElement.classList.add("js");</script>
+<link href="/assets/css/styles.css" rel="stylesheet"/>
+<script defer="" src="/assets/js/site.js">
+</script>
+<script defer="" src="/assets/js/analytics.js">
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://carlleger.github.io/#person", "name": "Carl Leger", "url": "https://carlleger.github.io/", "image": "https://carlleger.github.io/avatar.png", "sameAs": ["https://www.linkedin.com/in/carlleger/"]}, {"@type": "WebSite", "@id": "https://carlleger.github.io/#website", "name": "Carl Leger", "url": "https://carlleger.github.io/", "publisher": {"@id": "https://carlleger.github.io/#person"}}, {"@type": "WebPage", "@id": "https://carlleger.github.io/#webpage", "url": "https://carlleger.github.io/", "name": "Independent Hosting, Web Performance & Technical SEO", "description": "Hosting comparisons, WordPress and WooCommerce performance guidance, and technical SEO from independent consultant Carl Leger.", "inLanguage": "en-CA", "isPartOf": {"@id": "https://carlleger.github.io/#website"}, "about": {"@id": "https://carlleger.github.io/#person"}}]}</script>
 </head>
-
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-
-  <!-- FULL-WIDTH HEADER -->
-  <header class="siteHeader" data-header id="top">
-    <div class="siteHeader__inner">
-      <a class="brandMark" href="/" aria-label="Home">
-        <img
-          src="/assets/images/brand/carl-leger-logo-horizontal-silver.png"
-          alt="Carl Leger"
-          width="1200"
-          height="400"
-          decoding="async"
-          loading="eager"
-          class="brandLogo"
-        />
-      </a>
-
-      <!-- ✅ MENU DESKTOP = PAGES -->
-      <nav class="siteNav siteNav--desktop" aria-label="Primary navigation">
-        <a class="siteNav__link" href="/services/">Services</a>
-        <a class="siteNav__link" href="/resources/">Resources</a>
-        <a class="siteNav__link" href="/about/">About</a>
-        <a class="siteNav__cta" href="/contact/">Contact</a>
-      </nav>
-
-      <button class="navToggle" type="button"
-              aria-label="Open menu"
-              aria-controls="mobileNav"
-              aria-expanded="false"
-              data-nav-toggle>
-        <span class="navToggle__bar"></span>
-        <span class="navToggle__bar"></span>
-        <span class="navToggle__bar"></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Mobile overlay + drawer -->
-  <div class="navOverlay" data-nav-overlay hidden></div>
-
-  <aside id="mobileNav" class="navDrawer" data-nav-drawer hidden aria-label="Mobile menu">
-    <div class="navDrawer__top">
-      <div class="navDrawer__title">Menu</div>
-      <button class="navClose" type="button" aria-label="Close menu" data-nav-close>
-        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-      </button>
-    </div>
-
-    <!-- ✅ MENU MOBILE = PAGES -->
-    <nav class="navDrawer__links" aria-label="Mobile navigation">
-      <a class="navDrawer__link" href="/services/">Services</a>
-      <a class="navDrawer__link" href="/resources/">Resources</a>
-      <a class="navDrawer__link" href="/about/">About</a>
-      <a class="navDrawer__link navDrawer__link--cta" href="/contact/">Contact</a>
-    </nav>
-
-    <div class="navDrawer__meta">
-      <div class="navDrawer__hint">
-        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-        Reply within 24h • Clear next steps • No fluff
-      </div>
-    </div>
-  </aside>
-
-  <!-- CENTER CONTENT -->
-  <div class="wrap">
-    <div class="card">
-
-      <main id="main">
-        <!-- HERO -->
-        <section class="hero" aria-label="Intro">
-          <div class="heroGrid">
-            <div class="heroContent">
-              <h1 class="title">Carl Leger</h1>
-
-              <p class="subtitle">
-                WooCommerce performance engineering + technical SEO, built for <strong>checkout safety</strong> and <strong>measurable results</strong> in Canada.
-              </p>
-
-              <p class="leadline">
-                I help revenue-focused stores reduce Core Web Vitals friction, cut server + front-end bottlenecks,
-                and stabilize checkout with staging-first deployments, rollback plans, and GA4 measurement that proves what changed.
-              </p>
-
-              <div class="heroProof" aria-label="Trust points">
-                <span class="proofPill"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Checkout-safe boundaries</span>
-                <span class="proofPill"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Staging + rollback</span>
-                <span class="proofPill"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> GA4-verified impact</span>
-                <span class="proofPill"><i class="fa-solid fa-bolt" aria-hidden="true"></i> CWV + TTFB focus</span>
-              </div>
-
-              <div class="ctaRow" aria-label="Primary actions">
-                <!-- ✅ CTA vers page Contact -->
-                <a class="btn primary" href="/contact/" data-preset="Performance audit (recommended): CWV + TTFB + checkout risks + GA4 measurement plan">
-                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
-                </a>
-                <!-- ✅ CTA vers page Services -->
-                <a class="btn" href="/services/">
-                  <i class="fa-solid fa-layer-group" aria-hidden="true"></i> See services
-                </a>
-              </div>
-
-              <p class="micro">
-                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-                I reply within 24 hours with a short plan and next steps.
-              </p>
-            </div>
-
-            <aside class="heroCard" aria-label="What you get">
-              <div class="heroCard__title">What you get (audit)</div>
-              <ul class="heroCard__list">
-                <li><i class="fa-solid fa-check" aria-hidden="true"></i> CWV + TTFB baseline + bottleneck map</li>
-                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Checkout risk checklist (cache boundaries)</li>
-                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Prioritized plan (quick wins → big wins)</li>
-                <li><i class="fa-solid fa-check" aria-hidden="true"></i> Measurement plan (GA4 events + KPIs)</li>
-              </ul>
-              <div class="heroCard__meta">
-                <span class="metaPill"><i class="fa-solid fa-clock" aria-hidden="true"></i> Typical: 3–7 days</span>
-                <span class="metaPill"><i class="fa-solid fa-map-pin" aria-hidden="true"></i> Canada-first</span>
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        <!-- SERVICES -->
-        <section class="services" id="services" aria-label="Services">
-          <h2>Services</h2>
-          <p class="servicesIntro">
-            Pick the fastest path: start with an audit, then ship fixes safely. Every change is documented, measured, and checkout-aware.
-          </p>
-
-          <div class="servicesGrid">
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Performance Audit (Best start)</h3>
-              <p>TTFB + Core Web Vitals baseline, bottlenecks, script payload review, and a prioritized roadmap that protects checkout.</p>
-            </article>
-
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Checkout Reliability</h3>
-              <p>Checkout-safe caching boundaries, fragment strategy, conflict isolation, and staged rollouts with rollback-ready deployment.</p>
-            </article>
-
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-tags" aria-hidden="true"></i> Product Page SEO + Speed</h3>
-              <p>Template performance + technical SEO: internal links, structured data where relevant, image strategy, and conversion-aware UX fixes.</p>
-            </article>
-
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-chart-simple" aria-hidden="true"></i> GA4 Measurement Setup</h3>
-              <p>Clean event plan and QA: add_to_cart, begin_checkout, purchase funnel drop-offs, and impact validation post-deploy.</p>
-            </article>
-          </div>
-
-          <div class="servicesNote">
-            If you want “no surprises” in production: audit first, then staged implementation.
-          </div>
-        </section>
-
-        <!-- AGENCY MODE -->
-        <section class="services" id="agency" aria-label="Agency partnership">
-          <h2>For agencies: ship faster without checkout risk</h2>
-          <p class="servicesIntro">
-            If you’re an agency, you don’t need vibes. You need a technical partner who delivers clean, reviewable work your team can ship confidently.
-          </p>
-
-          <div class="servicesGrid">
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-ticket" aria-hidden="true"></i> Clean tickets + PR-ready changes</h3>
-              <p>Every fix comes with a short summary, what changed, why it changed, and how to validate it. No mystery edits.</p>
-            </article>
-
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Checkout boundaries, explicitly defined</h3>
-              <p>Cart/checkout remain dynamic. Everything else gets faster. No accidental caching of sessions, fragments, or personalization.</p>
-            </article>
-
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> QA notes that your PMs love</h3>
-              <p>Staging checklist, critical paths, and “what to test” steps. Your team knows exactly what success looks like.</p>
-            </article>
-
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Measured outcomes</h3>
-              <p>GA4 measurement plan and post-deploy validation so your client sees impact in a way that’s hard to argue with.</p>
-            </article>
-          </div>
-
-          <div class="servicesNote">
-            If you want a white-label “performance engineer” who makes your agency look unstoppable: use the contact form and tell me your stack.
-          </div>
-        </section>
-
-        <!-- PROCESS -->
-        <section class="process" id="process" aria-label="Process">
-          <h2>How I work</h2>
-          <p class="servicesIntro">
-            A production-safe system: baseline → bottlenecks → staging fixes → measured deploy.
-          </p>
-
-          <div class="servicesGrid">
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i> 1) Audit & measurement</h3>
-              <p>Baseline CWV/TTFB, identify bottlenecks, verify tracking, and isolate checkout risks.</p>
-            </article>
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-list-check" aria-hidden="true"></i> 2) Prioritized plan</h3>
-              <p>Quick wins + high-impact fixes, ordered for safe rollouts and measurable results.</p>
-            </article>
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-code-branch" aria-hidden="true"></i> 3) Staging implementation</h3>
-              <p>Apply fixes in staging, validate checkout, confirm caching boundaries, and prep rollback.</p>
-            </article>
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-rocket" aria-hidden="true"></i> 4) Production deploy</h3>
-              <p>Ship changes safely, monitor impact, and iterate with confidence.</p>
-            </article>
-          </div>
-        </section>
-
-        <!-- CASE STUDIES -->
-        <section class="caseStudies" id="case-studies" aria-label="Case studies">
-          <h2>Case studies</h2>
-          <p class="servicesIntro">
-            Practical examples of performance + SEO structure + measurement work (no fluff).
-          </p>
-
-          <div class="servicesGrid">
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> HomeEspressoLab</h3>
-              <p>SEO-first content site built for Canada-focused intent with performance-friendly templates and tracking-ready structure.</p>
-              <p class="micro">Deliverables: fast page templates, CWV-friendly assets, measurement scaffolding.</p>
-              <p>
-                <a class="btn" href="https://github.com/CarlLeger" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github" aria-hidden="true"></i> View work
-                </a>
-              </p>
-            </article>
-
-            <article class="serviceCard">
-              <h3><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> WooCommerce audit-to-deploy workflow</h3>
-              <p>Repeatable process: baseline → bottlenecks → staged fixes → safe production rollout with measurement validation.</p>
-              <p class="micro">Focus: TTFB, CWV, scripts, DB hotspots, checkout reliability.</p>
-              <p>
-                <a class="btn" href="/contact/" data-preset="Agency partnership: show me examples (anonymized) for WooCommerce performance + checkout-safe caching">
-                  <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Ask for examples
-                </a>
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <!-- FAQ -->
-        <section class="faq" id="faq" aria-label="FAQ">
-          <h2>FAQ</h2>
-
-          <div class="servicesGrid">
-            <article class="serviceCard">
-              <h3>What do you fix most often?</h3>
-              <p>High TTFB, poor CWV, slow cart/checkout, heavy scripts, plugin conflicts, and underperforming product templates.</p>
-            </article>
-            <article class="serviceCard">
-              <h3>Can you help with SEO + conversion?</h3>
-              <p>Yes. Technical SEO + UX + speed improvements that support rankings and revenue, validated with GA4.</p>
-            </article>
-            <article class="serviceCard">
-              <h3>Do you work with agencies?</h3>
-              <p>Yes. White-label or direct. Documented changes, clear QA notes, staging proof, and rollout safety.</p>
-            </article>
-            <article class="serviceCard">
-              <h3>How fast do you reply?</h3>
-              <p>Within 24 hours. If it’s not a fit, I’ll tell you quickly (no endless loops).</p>
-            </article>
-          </div>
-        </section>
-
-        <!-- CONTACT (tu le gardes sur la home si tu veux) -->
-        <section class="contact" id="contact" aria-label="Contact form">
-          <h2>Request an audit</h2>
-          <p class="contactIntro">
-            Tell me what’s slowing your store down. I’ll reply within 24 hours with clear next steps.
-          </p>
-
-          <form id="contactForm" action="https://formspree.io/f/mwvlenpe" method="POST" novalidate>
-            <div class="field">
-              <label class="sr-only" for="name">Name</label>
-              <input id="name" type="text" name="name" placeholder="Your name" autocomplete="name" required minlength="2" />
-            </div>
-
-            <div class="field">
-              <label class="sr-only" for="email">Email</label>
-              <input id="email" type="email" name="email" placeholder="you@company.com" autocomplete="email" required />
-            </div>
-
-            <div class="field full">
-              <label class="sr-only" for="site">Website URL</label>
-              <input id="site" type="url" name="website" placeholder="https://example.com" inputmode="url" required />
-            </div>
-
-            <div class="field">
-              <label class="sr-only" for="platform">Platform</label>
-              <select id="platform" name="platform" required>
-                <option value="" selected disabled>Platform</option>
-                <option>WooCommerce</option>
-                <option>Shopify</option>
-                <option>WordPress (not WooCommerce)</option>
-                <option>GitHub Pages (static)</option>
-                <option>Other</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label class="sr-only" for="budget">Budget range</label>
-              <select id="budget" name="budget" required>
-                <option value="" selected disabled>Budget range</option>
-                <option>Under $1,000</option>
-                <option>$1,000–$3,000</option>
-                <option>$3,000–$7,500</option>
-                <option>$7,500+</option>
-              </select>
-            </div>
-
-            <div class="field full">
-              <label class="sr-only" for="message">What’s the main issue?</label>
-              <textarea id="message" name="message" placeholder="Slow checkout, poor CWV, high TTFB, tracking issues, need a safe rollout plan, etc." required minlength="20"></textarea>
-            </div>
-
-            <input type="hidden" name="_subject" value="New lead — CarlLeger.github.io (Home)" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="source" value="Home" />
-            <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-            <button type="submit" class="btn primary">
-              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send request
-            </button>
-
-            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
-          </form>
-        </section>
-      </main>
-
-    </div>
-  </div>
-
-  <!-- FOOTER PRO (PREMIUM) -->
-  <footer class="footerPro" aria-label="Footer">
-    <div class="footerPro__inner">
-
-      <div class="footerPro__top">
-        <div class="footerBrand">
-          <img
-            class="footerBrand__avatar"
-            src="/avatar.png"
-            alt="Carl Leger"
-            width="64"
-            height="64"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="footerBrand__meta">
-            <div class="footerBrand__name">Carl Leger</div>
-            <div class="footerBrand__tag">WooCommerce • Performance • Technical SEO (Canada)</div>
-
-            <div class="footerBadges" aria-label="Trust points">
-              <span class="footerBadge"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Checkout-safe</span>
-              <span class="footerBadge"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> GA4-measured</span>
-              <span class="footerBadge"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Staging + rollback</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="footerCta">
-          <div class="footerCta__title">Ready to speed up your store?</div>
-          <div class="footerCta__note">Clear plan, production-safe changes, measurable impact.</div>
-
-          <div class="footerCta__row">
-            <a class="footerBtn footerBtn--primary" href="/contact/" data-preset="Performance audit request: please send next steps + required access (staging / GA4 / hosting)">
-              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Request an audit
-            </a>
-            <a class="footerBtn" href="/services/">
-              <i class="fa-solid fa-layer-group" aria-hidden="true"></i> Services
-            </a>
-          </div>
-        </div>
-
-        <div class="footerCols" aria-label="Footer navigation">
-          <div class="footerCol">
-            <div class="footerCol__title">Pages</div>
-            <a class="footerLink" href="/services/">Services</a>
-            <a class="footerLink" href="/resources/">Resources</a>
-            <a class="footerLink" href="/about/">About</a>
-            <a class="footerLink" href="/contact/">Contact</a>
-          </div>
-
-          <div class="footerCol">
-            <div class="footerCol__title">Contact</div>
-            <a class="footerLink" href="mailto:carlleger.dev@gmail.com">
-              <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email
-            </a>
-            <a class="footerLink" href="https://www.linkedin.com/in/carlleger/" target="_blank" rel="noopener">
-              <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
-            </a>
-            <a class="footerLink" href="https://github.com/CarlLeger" target="_blank" rel="noopener">
-              <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
-            </a>
-            <a class="footerLink" href="https://www.upwork.com/freelancers/~01ef6ecdcee90492d5" target="_blank" rel="noopener">
-              <i class="fa-solid fa-briefcase" aria-hidden="true"></i> Upwork
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="footerPro__bottom">
-        <div class="footerBottom__left">
-          <a class="footerMarkPro" href="/" aria-label="Home">
-            <img
-              src="/assets/images/brand/carl-leger-monogram-cl-silver.png"
-              alt="CL"
-              width="1024"
-              height="1024"
-              loading="lazy"
-              decoding="async"
-              class="footerMarkPro__img"
-            />
-          </a>
-
-          <div class="footerCopyPro">
-            © <span id="year"></span> Carl Leger • Canada-first
-          </div>
-        </div>
-
-        <div class="footerBottom__right">
-          <a class="footerTop" href="#top">
-            Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </footer>
-
-  <script src="/assets/js/home.js?v=steam-enca-3" defer></script>
-
-  <!-- Tiny enhancements: year + preset-to-message -->
-  <script>
-    (function(){
-      // Year
-      var y = document.getElementById("year");
-      if (y) y.textContent = new Date().getFullYear();
-
-      // Preset fill for message (click CTA with data-preset)
-      document.addEventListener("click", function(e){
-        var a = e.target.closest("[data-preset]");
-        if(!a) return;
-
-        var preset = a.getAttribute("data-preset") || "";
-        var msg = document.getElementById("message");
-        if(msg && preset){
-          msg.value = preset + "\n\n" + (msg.value || "");
-          setTimeout(function(){ try{ msg.focus({preventScroll:false}); }catch(_e){} }, 120);
-        }
-      }, { passive:true });
-    })();
-  </script>
+<body data-page-type="home">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" data-cta-location="header" id="top">
+<div class="header-inner">
+<a class="wordmark" href="/">
+<span aria-hidden="true" class="monogram">CL</span>
+<span>Carl Leger</span>
+</a>
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Open navigation" class="menu-toggle" data-menu-toggle="" hidden type="button">Menu</button>
+<nav aria-label="Main navigation" class="site-nav" id="primary-nav">
+<a href="/resources/best/managed-cloud-hosting/">Hosting</a>
+<a href="/resources/">Resources</a>
+<a href="/services/">Services</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+<a class="language-switch" href="/fr/" hreflang="fr-CA" lang="fr-CA">Français</a>
+</nav>
+</div>
+</header>
+<main class="site-main home-main" id="main" tabindex="-1">
+<div class="article-body" data-cta-location="article">
+<div class="hero-grid blueprint" data-cta-location="hero">
+<div>
+<p class="eyebrow">Infrastructure · Performance · Technical SEO</p>
+<h1>Better hosting.<br/>Smarter SEO.<br/><span>Stronger performance.</span></h1>
+<p class="lead">Independent hosting analysis and practical technical guidance to choose the right infrastructure and improve the experience your website delivers.</p>
+<div class="actions">
+<a class="button primary" data-cta-type="explore_hosting" href="/resources/best/managed-cloud-hosting/">Compare hosting<svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"></path></svg></a>
+<a class="button" data-cta-type="explore_resources" href="/resources/">Explore technical resources</a>
+</div>
+<div class="hero-topics">
+<span><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M7 18a5 5 0 1 1 .8-9.9A6.5 6.5 0 0 1 20 11a3.5 3.5 0 0 1-1.5 7Z"></path></svg>Managed cloud hosting</span>
+<span><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M2 3h3l3 12h11l3-9H6M9 19h.01M18 19h.01"></path><circle cx="9" cy="19" r="1.3"></circle><circle cx="18" cy="19" r="1.3"></circle></svg>WordPress &amp; WooCommerce</span>
+<span><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5M8 10.5h5M10.5 8v5"></path></svg>Technical SEO</span>
+</div>
+</div>
+<aside aria-label="Professional profile" class="profile-card">
+<div class="profile-top"><img alt="Carl Leger" class="portrait" fetchpriority="high" height="256" src="/assets/images/brand/avatar-256.webp" width="256"/>
+<div><p class="profile-label">Independent consultant</p><p class="profile-name">Carl Leger</p><p class="profile-role">Technical consultant &amp; editor</p></div></div>
+<p class="profile-detail"><strong>Technical SEO &amp; web performance</strong>Hosting, WordPress &amp; WooCommerce.<br/>Canada · English &amp; French</p>
+<div class="profile-links"><a href="/about/"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M14 2H5v20h14V7Zm0 0v5h5M8 11h8M8 15h8M8 18h5"></path></svg>My approach</a><a href="https://www.linkedin.com/in/carlleger/">LinkedIn <svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"></path></svg></a></div>
+<p class="profile-foot"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m7 12 3 3 7-7"></path></svg><a href="#engineering-quality">This website’s quality · local measurements</a></p></aside>
+</div><section class="quality-section" data-quality-dashboard="" id="engineering-quality">
+<div class="quality-heading"><h2>Engineering quality, documented.</h2><p>This website · local laboratory · GA4 collection locked</p></div>
+<div class="metric-grid"><div class="metric-card" data-metric="performance"><div class="score-ring" style="--score:100"><svg aria-hidden="true" focusable="false" viewbox="0 0 40 40"><circle class="track" cx="20" cy="20" pathlength="100" r="16"></circle><circle class="value" cx="20" cy="20" pathlength="100" r="16"></circle></svg><span class="score-number">100</span></div><div><span class="metric-label">Performance</span><span class="metric-unit">Score out of 100</span></div></div><div class="metric-card" data-metric="accessibility"><div class="score-ring" style="--score:100"><svg aria-hidden="true" focusable="false" viewbox="0 0 40 40"><circle class="track" cx="20" cy="20" pathlength="100" r="16"></circle><circle class="value" cx="20" cy="20" pathlength="100" r="16"></circle></svg><span class="score-number">100</span></div><div><span class="metric-label">Accessibility</span><span class="metric-unit">Score out of 100</span></div></div><div class="metric-card" data-metric="best-practices"><div class="score-ring" style="--score:100"><svg aria-hidden="true" focusable="false" viewbox="0 0 40 40"><circle class="track" cx="20" cy="20" pathlength="100" r="16"></circle><circle class="value" cx="20" cy="20" pathlength="100" r="16"></circle></svg><span class="score-number">100</span></div><div><span class="metric-label">Best Practices</span><span class="metric-unit">Score out of 100</span></div></div><div class="metric-card" data-metric="seo"><div class="score-ring" style="--score:100"><svg aria-hidden="true" focusable="false" viewbox="0 0 40 40"><circle class="track" cx="20" cy="20" pathlength="100" r="16"></circle><circle class="value" cx="20" cy="20" pathlength="100" r="16"></circle></svg><span class="score-number">100</span></div><div><span class="metric-label">SEO</span><span class="metric-unit">Score out of 100</span></div></div></div><p class="measurement-context" data-quality-context="">English homepage (/) · Lighthouse 13.6.0 · Emulated mobile 412 × 823 · 26 November 2026, 03:10 UTC.</p>
+<details class="quality-details"><summary>Measurement method &amp; scope</summary><p data-quality-method="">One local laboratory run in a fresh Chrome 158 profile. Simulated network: 150 ms RTT, 1638.4 Kbps throughput; CPU slowdown 4×. GA4 collection locked. Scores are out of 100 and may vary. No production or real-user measurements.</p><p class="audit-limits">Automated audits cover selected checks. The SEO score does not measure Google rankings; the accessibility score does not certify full WCAG conformance.</p><p>These results do not represent real-user traffic or hosting-provider performance. <a href="/assets/data/site-quality.json">Measurement source (JSON)</a> · <a href="https://developer.chrome.com/docs/lighthouse/overview/">About Lighthouse</a>.</p><div class="quality-comparison"><h3>Results by testing protocol</h3><section aria-label="Results by testing protocol" class="table-scroll" tabindex="0"><table style="--data-columns:4"><caption>Same English homepage, two emulated protocols; settings differ.</caption><thead><tr><th scope="col">Context and UTC date</th><th scope="col">Performance</th><th scope="col">Accessibility</th><th scope="col">Best Practices</th><th scope="col">SEO</th></tr></thead><tbody><tr><th scope="row">Mobile 412 × 823<br/><time datetime="2026-11-26T03:10:58.438Z">2026-11-26 03:10:58</time></th><td>100/100</td><td>100/100</td><td>100/100</td><td>100/100</td></tr><tr><th scope="row">Desktop 1440 × 900<br/><time datetime="2026-11-26T03:13:59.642Z">2026-11-26 03:13:59</time></th><td>100/100</td><td>100/100</td><td>100/100</td><td>100/100</td></tr></tbody></table></section><p>Desktop: 40 ms RTT, 10240 Kbps throughput, CPU 1×. Mobile: protocol described above. No hosting ranking or real-user conclusion is implied.</p></div></details></section>
+<section class="section" data-cta-location="article" id="hosting">
+<div class="section-head">
+<div>
+<p class="section-label">Hosting decisions</p>
+<h2 id="start-with-the-trade-offs">Start with the trade-offs.</h2>
+</div>
+<p>Compare operating models, real constraints and the work your website needs.</p>
+</div>
+<div class="editorial-grid">
+<article class="editorial-item">
+<p class="item-type"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M3 15h18M10 9v12"></path></svg>Comparison</p>
+<h3>
+<a href="/resources/best/managed-cloud-hosting/cloudways-vs-kinsta/">Cloudways vs Kinsta</a>
+</h3>
+<p>Cloud infrastructure choices or a WordPress-focused platform? Compare costs, PHP capacity and everyday management.</p>
+<a href="/resources/best/managed-cloud-hosting/cloudways-vs-kinsta/">Read the guide</a>
+</article>
+<article class="editorial-item">
+<p class="item-type"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M3 15h18M10 9v12"></path></svg>Comparison</p>
+<h3>
+<a href="/resources/best/managed-cloud-hosting/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a>
+</h3>
+<p>Understand server flexibility, development environments and the scope of managed support.</p>
+<a href="/resources/best/managed-cloud-hosting/cloudways-vs-wp-engine/">Read the guide</a>
+</article>
+<article class="editorial-item">
+<p class="item-type"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M3 15h18M10 9v12"></path></svg>Comparison</p>
+<h3>
+<a href="/resources/best/managed-cloud-hosting/cloudways-vs-siteground/">Cloudways vs SiteGround</a>
+</h3>
+<p>Compare the right product tiers, from a smaller WordPress site to managed cloud resources.</p>
+<a href="/resources/best/managed-cloud-hosting/cloudways-vs-siteground/">Read the guide</a>
+</article>
+<article class="editorial-item">
+<p class="item-type"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M3 15h18M10 9v12"></path></svg>Review</p>
+<h3>
+<a href="/resources/best/cloudways-review/">Cloudways Review</a>
+</h3>
+<p>A closer look at Flexible and Autonomous, WooCommerce requirements and the costs to check.</p>
+<a href="/resources/best/cloudways-review/">Read the guide</a>
+</article>
+</div>
+</section><section class="section" id="expertise"><div class="section-head"><div><p class="section-label">Technical expertise</p><h2>Think across the whole system.</h2></div><p>Connected decisions, from infrastructure to the visitor’s experience.</p></div><div class="bento-grid"><article class="expertise-card"><div class="icon-tile"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M7 18a5 5 0 1 1 .8-9.9A6.5 6.5 0 0 1 20 11a3.5 3.5 0 0 1-1.5 7Z"></path></svg></div><h3>Managed Cloud Hosting</h3><p>Compare the platform model, the complete cost and the work your team will own.</p><a href="/resources/best/managed-cloud-hosting/">Compare hosting</a></article><article class="expertise-card"><div class="icon-tile"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="7" rx="2" width="18" x="3" y="3"></rect><rect height="7" rx="2" width="18" x="3" y="14"></rect><path d="M7 6.5h.01M7 17.5h.01M12 6.5h5M12 17.5h5"></path></svg></div><h3>WordPress Infrastructure</h3><p>Connect server capacity, PHP requests and safe caching rules.</p><a href="/resources/best/cloudways-review/">Read the Cloudways review</a></article><article class="expertise-card"><div class="icon-tile"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M2 3h3l3 12h11l3-9H6M9 19h.01M18 19h.01"></path><circle cx="9" cy="19" r="1.3"></circle><circle cx="18" cy="19" r="1.3"></circle></svg></div><h3>WooCommerce Optimization</h3><p>Protect sessions and payment flows while addressing the actual bottleneck.</p><a href="/services/woocommerce-optimization/">Explore store optimisation</a></article><article class="expertise-card"><div class="icon-tile"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5M8 10.5h5M10.5 8v5"></path></svg></div><h3>Technical SEO</h3><p>Indexability, canonical URLs, internal links and clear page structure help useful content get found.</p><a href="/resources/best-seo-tools/">Explore SEO tools</a></article><article class="expertise-card"><div class="icon-tile"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M4 18a9 9 0 1 1 16 0M7 9l1 1M16 9l1-1M12 5v2M4 13h2M18 13h2M12 14l4-4"></path><circle cx="12" cy="14" r="2"></circle><path d="M8 21h8"></path></svg></div><h3>Core Web Vitals</h3><p>Distinguish laboratory evidence from real-user loading, interaction and stability data.</p><a href="/resources/tools/performance-cwv/">Understand the metrics</a></article><article class="expertise-card"><div class="icon-tile"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M4 3v17h17M8 16v-5M13 16V7M18 16V4"></path></svg></div><h3>Analytics &amp; Measurement</h3><p>Define useful interactions, obtain consent and validate what each event really means.</p><a href="/about/#privacy">Read the measurement approach</a></article></div></section><section class="section" id="web-vitals"><div class="section-head"><div><p class="section-label">Educational reference</p><h2>Three signals. Three different problems.</h2></div><p>Reference thresholds, not measured results for this website.</p></div>
+<div class="vitals-grid"><article class="vital-card"><div class="vital-top"><h3>LCP</h3><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M4 18a9 9 0 1 1 16 0M7 9l1 1M16 9l1-1M12 5v2M4 13h2M18 13h2M12 14l4-4"></path><circle cx="12" cy="14" r="2"></circle><path d="M8 21h8"></path></svg></div><p class="vital-value">≤ 2.5 s</p><p class="vital-label">Main content loading · good threshold</p><div aria-hidden="true" class="threshold-bar" style="--good:50;--improve:30;--poor:20"><span></span><span></span><span></span></div><div class="threshold-legend"><span>Good<br/>0–2.5 s</span><span>Improve<br/>&gt; 2.5–4 s</span><span>Poor<br/>&gt; 4 s</span></div><p>Identify the main content element. Prioritise its resource and reduce render-blocking work.</p></article><article class="vital-card"><div class="vital-top"><h3>INP</h3><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="m5 3 14 9-7 1-3 7Z"></path></svg></div><p class="vital-value">≤ 200 ms</p><p class="vital-label">Interaction responsiveness · good threshold</p><div aria-hidden="true" class="threshold-bar" style="--good:33.333;--improve:50;--poor:16.667"><span></span><span></span><span></span></div><div class="threshold-legend"><span>Good<br/>0–200 ms</span><span>Improve<br/>&gt; 200–500 ms</span><span>Poor<br/>&gt; 500 ms</span></div><p>Reduce long JavaScript tasks and inspect the work triggered by visitor interactions.</p></article><article class="vital-card"><div class="vital-top"><h3>CLS</h3><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M10 9v12"></path></svg></div><p class="vital-value">≤ 0.1</p><p class="vital-label">Visual stability · good threshold · unitless</p><div aria-hidden="true" class="threshold-bar" style="--good:33.333;--improve:50;--poor:16.667"><span></span><span></span><span></span></div><div class="threshold-legend"><span>Good<br/>0–0.1</span><span>Improve<br/>&gt; 0.1–0.25</span><span>Poor<br/>&gt; 0.25</span></div><p>Reserve image and embed dimensions. Avoid unexpected insertions above existing content.</p></article></div><p class="reference-note">Source: <a href="https://web.dev/articles/defining-core-web-vitals-thresholds">Google / web.dev</a> · Reference checked 24 November 2026. Field assessment uses the 75th percentile of visits; no field INP is measured here. Lighthouse TBT is not an INP substitute. Each bar has its own linear scale: LCP 0–5 s, INP 0–600 ms, CLS 0–0.3; values beyond the scale remain poor.</p></section><section class="section" id="infrastructure"><div class="section-head"><div><p class="section-label">Understand the infrastructure</p><h2>Follow the request. Find the constraint.</h2></div><p>Caching helps eligible requests. Orders and sessions need their own rules.</p></div><figure class="architecture blueprint"><div class="figure-top"><span>Web architecture · educational model</span><span>Simplified request path</span></div><ol class="architecture-flow"><li><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="M2 9h20M6 6.5h.01M9 6.5h.01"></path></svg><strong>Browser</strong><span>Render &amp; interact</span><svg aria-hidden="true" class="icon connector" focusable="false" viewbox="0 0 32 12"><path d="M1 6h28m-5-4 5 4-5 4"></path></svg></li><li><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 6.5h14M5 17.5h14"></path></svg><strong>CDN / cache</strong><span>Eligible content</span><svg aria-hidden="true" class="icon connector" focusable="false" viewbox="0 0 32 12"><path d="M1 6h28m-5-4 5 4-5 4"></path></svg></li><li><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="m8 6-6 6 6 6M16 6l6 6-6 6M14 3l-4 18"></path></svg><strong>Application</strong><span>WordPress / PHP</span><svg aria-hidden="true" class="icon connector" focusable="false" viewbox="0 0 32 12"><path d="M1 6h28m-5-4 5 4-5 4"></path></svg></li><li><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"></path></svg><strong>Data</strong><span>Database + object cache</span></li></ol><div class="architecture-sub"><span><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="m12 3 10 5-10 5L2 8Zm-9 9 9 5 9-5M3 17l9 5 9-5"></path></svg>Cache eligible pages</span><span><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M2 3h3l3 12h11l3-9H6M9 19h.01M18 19h.01"></path><circle cx="9" cy="19" r="1.3"></circle><circle cx="18" cy="19" r="1.3"></circle></svg>Keep cart &amp; checkout dynamic</span><span><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M12 3 4 6v6c0 4 4 7 8 9 4-2 8-5 8-9V6Z"></path><path d="m8 12 3 3 5-6"></path></svg>Respect customer sessions</span></div><figcaption><strong>How to read it:</strong> the browser requests a resource. An eligible CDN cache hit can respond before the application; otherwise the application processes the request and accesses data as needed. The actual route depends on configuration. This is not a verified architecture of a particular provider.</figcaption></figure></section>
+<section class="section" id="performance">
+<div class="section-head">
+<div>
+<p class="section-label">Practical resources</p>
+<h2 id="hosting-is-the-starting-point">Hosting is the starting point.</h2>
+</div>
+<p>Useful performance work also considers the application, cache rules and the visitor’s experience.</p>
+</div>
+<div class="two-col">
+<div>
+<h3>Protect the shopping experience.</h3>
+<p>A fast cached product page does not guarantee a responsive cart or checkout. Identify the slow requests, keep sessions dynamic and validate payments after changes.</p>
+<a href="/resources/woocommerce-cache-mistakes/">Read the WooCommerce cache safety guide</a>
+</div>
+<div>
+<h3>Measure the right bottleneck.</h3>
+<p>Use LCP, INP, CLS and TTFB to guide investigation. Distinguish a laboratory test from real-user data before drawing conclusions.</p>
+<a href="/resources/tools/performance-cwv/">Explore performance and Core Web Vitals tools</a>
+</div>
+</div>
+<section class="education-note" id="technical-seo">
+<div class="section-head">
+<div>
+<p class="section-label">Technical SEO</p>
+<h2 id="make-useful-content-easy-to-find">Make useful content easy to find.</h2>
+</div>
+</div>
+<p class="lead">Indexability, canonical URLs, internal links and a clear page structure give search engines and readers a coherent route through a website.</p>
+<div class="actions">
+<a class="button" data-cta-type="explore_resources" href="/resources/best-seo-tools/">Explore Technical SEO Tools</a>
+<a class="button" data-cta-type="explore_services" href="/services/performance-audit/">View Audit Scope</a>
+</div>
+</section></section>
+<section class="section" id="methodology">
+<div class="section-head">
+<div>
+<p class="section-label">Editorial standards</p>
+<h2 id="explain-the-choice-show-the-limits">Explain the choice. Show the limits.</h2>
+</div>
+</div>
+<div class="two-col">
+<div>
+<h3>A transparent basis for comparison</h3>
+<p>Hosting guides draw on official provider documentation and distinguish product features from editorial judgement. Each commercial guide links to its sources and identifies the type of website it may suit.</p>
+<p>Plans, usage limits, add-ons and renewal terms matter more than a headline promotion.</p>
+</div>
+<div>
+<h3>No invented proof</h3>
+<p>These comparisons do not present a controlled head-to-head benchmark. No star rating, guaranteed ranking or sales result substitutes for evidence.</p>
+<p>Marked affiliate links may earn a commission. The appropriate choice depends on the website’s requirements and operating budget.</p>
+</div>
+</div>
+<div class="evidence-key"><span><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M14 2H5v20h14V7Zm0 0v5h5M8 11h8M8 15h8M8 18h5"></path></svg>Documented facts</span><span><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5M8 10.5h5M10.5 8v5"></path></svg>Editorial analysis</span><span><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M4 18a9 9 0 1 1 16 0M7 9l1 1M16 9l1-1M12 5v2M4 13h2M18 13h2M12 14l4-4"></path><circle cx="12" cy="14" r="2"></circle><path d="M8 21h8"></path></svg>Contextual measurements</span><span><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M12 5v16M12 5C9 2 5 2 2 3v16c3-1 7-1 10 2 3-3 7-3 10-2V3c-3-1-7-1-10 2Z"></path></svg>Educational references</span></div></section>
+<section class="section" id="services">
+<div class="section-head">
+<div>
+<p class="section-label">Technical services</p>
+<h2 id="a-practical-plan-for-your-website">A practical plan for your website.</h2>
+</div>
+<p>Performance audits, WooCommerce optimisation and technical SEO, with staging and validation built into the approach.</p>
+</div>
+<div class="actions">
+<a class="button primary" data-cta-type="explore_services" href="/services/">Explore Technical Services</a>
+<a class="button" data-cta-type="contact_page" href="/contact/">Discuss Your Website</a>
+</div>
+</section>
+<section class="contact-band">
+<div>
+<h2 id="need-a-second-technical-opinion">Need a second technical opinion?</h2>
+<p>Share your platform, hosting setup and the problem you want to solve. We can discuss a practical next step.</p>
+</div>
+<div class="actions">
+<a class="button primary" href="mailto:carlleger.dev@gmail.com">Email Carl</a>
+<a class="button" href="https://www.linkedin.com/in/carlleger/">LinkedIn</a>
+</div>
+</section>
+</div>
+</main>
+<footer class="site-footer" data-cta-location="footer"><div class="footer-grid"><div class="footer-brand"><a class="wordmark" href="/"><span aria-hidden="true" class="monogram">CL</span><span>Carl Leger</span></a><p>Independent thinking on hosting, web performance and technical SEO.</p><p>Canada · English &amp; French</p></div>
+<div><h2>Hosting research</h2><ul><li><a href="/resources/best/managed-cloud-hosting/">Managed Cloud Hosting</a></li><li><a href="/resources/best/cloudways-review/">Cloudways Review</a></li><li><a href="/resources/best/managed-cloud-hosting/cloudways-vs-kinsta/">Cloudways vs Kinsta</a></li><li><a href="/resources/best/managed-cloud-hosting/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a></li><li><a href="/resources/best/managed-cloud-hosting/cloudways-vs-siteground/">Cloudways vs SiteGround</a></li></ul></div>
+<div><h2>Learn &amp; improve</h2><ul><li><a href="/resources/">Technical resources</a></li><li><a href="/resources/tools/performance-cwv/">Core Web Vitals</a></li><li><a href="/resources/woocommerce-cache-mistakes/">WooCommerce cache safety</a></li><li><a href="/services/">Technical services</a></li><li><a href="/about/">About Carl</a></li></ul></div>
+<div><h2>Get in touch</h2><ul><li><a href="mailto:carlleger.dev@gmail.com">carlleger.dev@gmail.com</a></li><li><a href="https://www.linkedin.com/in/carlleger/">LinkedIn</a></li><li><a href="/fr/" hreflang="fr-CA" lang="fr-CA">Français</a></li></ul></div></div>
+<p class="footer-disclosure">Marked affiliate links may earn a commission at no extra cost to you. Recommendations consider website requirements and the limits of each offer.</p>
+<div class="footer-bottom"><span>© 2026 Carl Leger</span><a href="/about/#privacy">Privacy</a><button class="link-button" data-consent-open="" hidden type="button">Cookie preferences</button><a href="#top">Back to top</a></div></footer>
+<aside aria-labelledby="consent-heading" class="consent-panel" hidden id="consent-banner">
+<div>
+<div class="consent-heading-row"><h2 id="consent-heading">Your privacy choice</h2><button class="link-button" data-consent-open="" type="button">Preferences</button></div>
+<p>Optional analytics stay off without consent.</p>
+</div>
+<div class="actions">
+<button class="button" data-consent-accept="" type="button">Accept analytics</button>
+<button class="button" data-consent-reject="" type="button">Reject analytics</button>
+</div>
+</aside>
+<dialog aria-labelledby="privacy-title" class="privacy-dialog" id="privacy-dialog">
+<h2 id="privacy-title">Privacy preferences</h2>
+<h3>Essential storage</h3>
+<p>Your choice is stored in this browser for 180 days so the website can respect your preference.</p>
+<div class="consent-option">
+<input aria-describedby="analytics-description" id="analytics-consent" type="checkbox"/>
+<label for="analytics-consent">Allow Google Analytics</label>
+</div>
+<p id="analytics-description">Measure visits and categories of clicks, without sending affiliate URL parameters in custom events.</p>
+<p>You can withdraw consent here at any time. Withdrawal disables measurement, clears accessible cookies and reloads the page.</p>
+<p id="consent-status" role="status">
+</p>
+<div class="actions">
+<button class="button primary" data-consent-save="" type="button">Save my choice</button>
+<button class="button" data-consent-reject="" type="button">Reject / withdraw consent</button>
+<button class="button" data-consent-close="" type="button">Close</button>
+</div>
+</dialog>
 </body>
 </html>
