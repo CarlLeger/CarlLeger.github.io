@@ -1,0 +1,52 @@
+# Private QA and release artifacts. Public website assets remain versioned.
+/.private/
+/private-qa/
+/qa-artifacts/
+/qa-reports/
+/screenshots/
+/captures-privees/
+/backups/
+/gate[0-9]*/
+/test-results/
+/playwright-report/
+/lighthouse-reports/
+analytics-exports/
+ga4-exports/
+
+# Private documents copied accidentally into the repository root.
+/Rapport-*.html
+/Rapport-*.png
+/Actions-restantes-*.html
+/Actions-restantes-*.png
+/Protocole-post-deploiement.html
+/Protocole-post-deploiement-*.png
+/GA4-configuration-obligatoire.html
+/Certification-*.json
+/admin-progress.json
+/*-qa.json
+/*-baseline.json
+
+# Raw browser traces, reports, exports and archives.
+*.har
+*.har.gz
+*.lhr.json
+*.lhr.html
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.patch
+*.diff
+*.log
+
+# Local credentials and agent configuration are not website content.
+/.env
+/.env.*
+!/.env.example
+/.aws/
+/.codex/
