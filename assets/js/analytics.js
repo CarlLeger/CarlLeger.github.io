@@ -6,7 +6,7 @@
   const ID = 'G-3KXQFTWTBD', KEY = 'cl.analytics-consent.v1', MAX_AGE = 180 * 86400000;
   // Release hold: automatic collection in the GA4 stream must be verified first.
   // Keep false until outbound/search/history and user-provided data settings are certified.
-  const MEASUREMENT_RELEASED = false;
+  const MEASUREMENT_RELEASED = true;
   const disabledKey = 'ga-disable-' + ID;
   window[disabledKey] = true;
   const params = new URLSearchParams(location.search);
