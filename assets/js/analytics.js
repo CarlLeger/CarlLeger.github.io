@@ -123,6 +123,8 @@
     if (!event.isTrusted || event.defaultPrevented || !production || choice !== true || !initialized || window[disabledKey]) return;
     const a = event.target instanceof Element ? event.target.closest('a[href]') : null;
     if (!a) return;
+    // Changing language is navigation, including on comparison pages.
+    if (a.hasAttribute('data-language-link') || a.closest('[data-language-selector]')) return;
     let url; try { url = new URL(a.href, location.href); } catch (_) { return; }
     const where = placement(a), provider = a.dataset.provider;
     let name, values;

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Erreurs de cache WooCommerce et configuration sûre | Carl Leger</title>
+<meta content="Comprenez les problèmes de cache WooCommerce, les exclusions de pages dynamiques et les sessions, avec une liste de vérification du panier et de la commande." name="description"/>
+<meta content="Carl Leger" name="author"/>
+<meta content="index,follow" name="robots"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="#0b111b" name="theme-color"/>
+<link href="https://carlleger.github.io/fr/ressources/erreurs-cache-woocommerce/" rel="canonical"/>
+<link rel="alternate" hreflang="en-CA" href="https://carlleger.github.io/resources/woocommerce-cache-mistakes/"/>
+<link rel="alternate" hreflang="fr-CA" href="https://carlleger.github.io/fr/ressources/erreurs-cache-woocommerce/"/>
+<link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/resources/woocommerce-cache-mistakes/"/>
+<meta content="article" property="og:type"/>
+<meta content="Erreurs de cache WooCommerce et configuration sûre | Carl Leger" property="og:title"/>
+<meta content="Comprenez les problèmes de cache WooCommerce, les exclusions de pages dynamiques et les sessions, avec une liste de vérification du panier et de la commande." property="og:description"/>
+<meta content="https://carlleger.github.io/fr/ressources/erreurs-cache-woocommerce/" property="og:url"/>
+<meta content="Carl Leger" property="og:site_name"/>
+<meta content="fr_CA" property="og:locale"/>
+<meta content="en_CA" property="og:locale:alternate"/>
+<meta content="https://carlleger.github.io/assets/images/brand/social-card.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Carl Leger — Hébergement, performance Web et SEO technique" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Erreurs de cache WooCommerce et configuration sûre | Carl Leger" name="twitter:title"/>
+<meta content="Comprenez les problèmes de cache WooCommerce, les exclusions de pages dynamiques et les sessions, avec une liste de vérification du panier et de la commande." name="twitter:description"/>
+<meta content="https://carlleger.github.io/assets/images/brand/social-card.png" name="twitter:image"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<script>document.documentElement.classList.add("js");</script>
+<link href="/assets/css/styles.css" rel="stylesheet"/>
+<script defer src="/assets/js/language.js"></script>
+<script defer="" src="/assets/js/site.js">
+</script>
+<script defer="" src="/assets/js/analytics.js">
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://carlleger.github.io/#person","name":"Carl Leger","url":"https://carlleger.github.io/fr/","image":"https://carlleger.github.io/avatar.png","sameAs":["https://www.linkedin.com/in/carlleger/"]},{"@type":"WebSite","@id":"https://carlleger.github.io/#website","name":"Carl Leger","url":"https://carlleger.github.io/fr/","publisher":{"@id":"https://carlleger.github.io/#person"},"inLanguage":["en-CA","fr-CA"]},{"@type":"WebPage","@id":"https://carlleger.github.io/fr/ressources/erreurs-cache-woocommerce/#webpage","url":"https://carlleger.github.io/fr/ressources/erreurs-cache-woocommerce/","name":"Erreurs de cache WooCommerce et correctifs","description":"Comprenez les problèmes de cache WooCommerce, les exclusions de pages dynamiques et les sessions, avec une liste de vérification du panier et de la commande.","inLanguage":"fr-CA","isPartOf":{"@id":"https://carlleger.github.io/#website"},"about":{"@id":"https://carlleger.github.io/#person"}},{"@type":"BreadcrumbList","@id":"https://carlleger.github.io/fr/ressources/erreurs-cache-woocommerce/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://carlleger.github.io/fr/"},{"@type":"ListItem","position":2,"name":"Ressources","item":"https://carlleger.github.io/fr/ressources/"},{"@type":"ListItem","position":3,"name":"Erreurs de cache WooCommerce et correctifs","item":"https://carlleger.github.io/fr/ressources/erreurs-cache-woocommerce/"}]},{"@type":"Article","@id":"https://carlleger.github.io/fr/ressources/erreurs-cache-woocommerce/#article","headline":"Erreurs de cache WooCommerce et correctifs","description":"Comprenez les problèmes de cache WooCommerce, les exclusions de pages dynamiques et les sessions, avec une liste de vérification du panier et de la commande.","author":{"@id":"https://carlleger.github.io/#person"},"publisher":{"@id":"https://carlleger.github.io/#person"},"mainEntityOfPage":{"@id":"https://carlleger.github.io/fr/ressources/erreurs-cache-woocommerce/#webpage"},"inLanguage":"fr-CA","image":"https://carlleger.github.io/assets/images/brand/social-card.png"}]}</script>
+</head>
+<body data-page-type="guide">
+<a class="skip" href="/fr/#main">Aller au contenu</a>
+<header class="site-header" data-cta-location="header" id="top">
+<div class="header-inner">
+<a class="wordmark" href="/fr/">
+<span aria-hidden="true" class="monogram">CL</span>
+<span>Carl Leger</span>
+</a>
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Ouvrir le menu" class="menu-toggle" data-menu-toggle="" hidden type="button">Menu</button>
+<nav aria-label="Navigation principale" class="site-nav" id="primary-nav">
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/">Hébergement</a>
+<a href="/fr/ressources/">Ressources</a>
+<a href="/fr/services/">Services</a>
+<a href="/fr/a-propos/">À propos</a>
+<a href="/fr/contact/">Contact</a>
+<details class="language-selector" data-language-selector data-language-anchors="{&quot;top&quot;:&quot;top&quot;,&quot;primary-nav&quot;:&quot;primary-nav&quot;,&quot;main&quot;:&quot;main&quot;,&quot;request-lifecycle&quot;:&quot;request-lifecycle&quot;,&quot;symptoms&quot;:&quot;symptoms&quot;,&quot;what-usually-breaks&quot;:&quot;what-usually-breaks&quot;,&quot;rule&quot;:&quot;rule&quot;,&quot;the-rule-behind-the-exclusions&quot;:&quot;the-rule-behind-the-exclusions&quot;,&quot;plugins&quot;:&quot;plugins&quot;,&quot;caching-and-optimisation-options&quot;:&quot;caching-and-optimisation-options&quot;,&quot;checklist&quot;:&quot;checklist&quot;,&quot;woocommerce-cache-checklist&quot;:&quot;woocommerce-cache-checklist&quot;,&quot;next-step&quot;:&quot;next-step&quot;,&quot;when-to-investigate-further&quot;:&quot;when-to-investigate-further&quot;,&quot;continue-your-research&quot;:&quot;continue-your-research&quot;,&quot;consent-banner&quot;:&quot;consent-banner&quot;,&quot;consent-heading&quot;:&quot;consent-heading&quot;,&quot;privacy-dialog&quot;:&quot;privacy-dialog&quot;,&quot;privacy-title&quot;:&quot;privacy-title&quot;,&quot;analytics-consent&quot;:&quot;analytics-consent&quot;,&quot;analytics-description&quot;:&quot;analytics-description&quot;,&quot;consent-status&quot;:&quot;consent-status&quot;}"><summary aria-controls="language-options" aria-label="Langue : Français. Choisir une langue"><svg aria-hidden="true" focusable="false" class="language-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg><span>Français</span><svg aria-hidden="true" focusable="false" class="language-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m3 4.5 3 3 3-3"/></svg></summary><ul id="language-options" class="language-options" aria-label="Langues disponibles"><li><a data-language-link href="/resources/woocommerce-cache-mistakes/" lang="en-CA" hreflang="en-CA"><span>English</span></a></li><li><a data-language-link href="/fr/ressources/erreurs-cache-woocommerce/" lang="fr-CA" hreflang="fr-CA" aria-current="true"><span>Français</span><svg aria-hidden="true" focusable="false" class="language-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 8 3 3 7-7"/></svg></a></li></ul></details>
+</nav>
+</div>
+</header>
+<main class="site-main article-shell" id="main" tabindex="-1">
+<nav aria-label="Fil d’Ariane" class="breadcrumbs">
+<ol>
+<li>
+<a href="/fr/">Accueil</a>
+</li>
+<li>
+<a href="/fr/ressources/">Ressources</a>
+</li>
+<li>
+<span aria-current="page">Erreurs de cache WooCommerce et correctifs</span>
+</li>
+</ol>
+</nav>
+<div class="page-intro">
+<p class="eyebrow">Guide</p>
+<h1>Erreurs de cache WooCommerce et correctifs</h1>
+<p class="lead">Comprenez les problèmes de cache WooCommerce, les exclusions de pages dynamiques et les sessions, avec une liste de vérification du panier et de la commande.</p>
+<p class="byline"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M14 2H5v20h14V7Zm0 0v5h5M8 11h8M8 15h8M8 18h5"></path></svg><span>Carl Leger · Conseils techniques indépendants</span></p></div>
+<p class="disclosure">Divulgation d’affiliation : un achat par un lien affilié signalé peut me rapporter une commission, sans frais supplémentaires pour vous. Les liens de documentation sont des sources ordinaires, non affiliées.</p>
+<div class="article-body" data-cta-location="article"><section id="request-lifecycle"><h2>Où une requête peut être mise en cache</h2><figure class="architecture blueprint"><div class="figure-top"><span>Architecture Web · modèle pédagogique</span><span>Parcours simplifié d’une requête</span></div><ol class="architecture-flow"><li><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="M2 9h20M6 6.5h.01M9 6.5h.01"></path></svg><strong>Navigateur</strong><span>Rendu et interaction</span><svg aria-hidden="true" class="icon connector" focusable="false" viewbox="0 0 32 12"><path d="M1 6h28m-5-4 5 4-5 4"></path></svg></li><li><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 6.5h14M5 17.5h14"></path></svg><strong>CDN et cache</strong><span>Contenu admissible</span><svg aria-hidden="true" class="icon connector" focusable="false" viewbox="0 0 32 12"><path d="M1 6h28m-5-4 5 4-5 4"></path></svg></li><li><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="m8 6-6 6 6 6M16 6l6 6-6 6M14 3l-4 18"></path></svg><strong>Application</strong><span>WordPress / PHP</span><svg aria-hidden="true" class="icon connector" focusable="false" viewbox="0 0 32 12"><path d="M1 6h28m-5-4 5 4-5 4"></path></svg></li><li><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"></path></svg><strong>Données</strong><span>Base de données et cache objet</span></li></ol><div class="architecture-sub"><span><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="m12 3 10 5-10 5L2 8Zm-9 9 9 5 9-5M3 17l9 5 9-5"></path></svg>Mettre en cache les pages admissibles</span><span><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M2 3h3l3 12h11l3-9H6M9 19h.01M18 19h.01"></path><circle cx="9" cy="19" r="1.3"></circle><circle cx="18" cy="19" r="1.3"></circle></svg>Garder le panier et la commande dynamiques</span><span><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M12 3 4 6v6c0 4 4 7 8 9 4-2 8-5 8-9V6Z"></path><path d="m8 12 3 3 5-6"></path></svg>Respecter les sessions des clients</span></div><figcaption><strong>Comment lire ce schéma :</strong> le navigateur demande une ressource. Une réponse admissible déjà en cache au CDN peut être servie avant l’application; sinon, l’application traite la requête et consulte les données au besoin. Le parcours dépend de la configuration. Ce schéma n’est pas l’architecture vérifiée d’un fournisseur particulier.</figcaption></figure></section>
+<section id="symptoms">
+<h2 id="what-usually-breaks">Les problèmes courants</h2>
+<ul>
+<li>Le panier ne s’actualise pas ou affiche des totaux périmés.</li>
+<li>La commande se réinitialise ou l’envoi du paiement échoue.</li>
+<li>Les visiteurs connectés reçoivent du contenu en cache inapproprié.</li>
+<li>Les prix dynamiques, les frais de livraison ou les devises sont périmés.</li>
+<li>Les pages de compte affichent un état incorrect.</li>
+</ul>
+</section>
+<section id="rule">
+<h2 id="the-rule-behind-the-exclusions">Le principe derrière les exclusions</h2>
+<div class="verdict">
+<p>Si la réponse dépend de l’identité, de la session, du panier ou de la commande du client, un cache de page partagé ne doit pas la servir sans distinction. Le bon fonctionnement peut nécessiter de contourner le cache ou d’appliquer une stratégie de variation soigneusement conçue.</p>
+</div>
+<p>Les exclusions d’URL ne sont qu’une partie de la configuration. Examinez les témoins, les en-têtes et le comportement réel du cache de l’hébergeur, du CDN et de l’application.</p>
+</section>
+<section id="plugins">
+<h2 id="caching-and-optimisation-options">Options de cache et d’optimisation</h2>
+<section aria-label="Évaluer l’outil, puis valider la boutique" class="table-scroll" tabindex="0">
+<table style="--data-columns:3">
+<caption>Évaluer l’outil, puis valider la boutique</caption>
+<thead>
+<tr>
+<th scope="col"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M3 15h18M10 9v12"></path></svg>Outil</th>
+<th scope="col">Rôle possible</th>
+<th scope="col">Points à confirmer</th>
+<th scope="col">Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">WP Rocket</th>
+<td>Une option de cache et d’optimisation pour WordPress.</td>
+<td>Fonctions actuelles, compatibilité de l’hébergement et configuration WooCommerce.</td>
+<td>
+<a href="https://wp-rocket.me/">Visiter WP Rocket</a>
+</td>
+</tr>
+<tr>
+<th scope="row">FlyingPress</th>
+<td>Une option d’optimisation de l’interface et du cache.</td>
+<td>Réglages actuels, chevauchement avec d’autres outils et comportement des pages dynamiques.</td>
+<td>
+<a class="button" data-cta-location="table" data-provider="flyingpress" href="https://flyingpress.com/?ref=fffd" rel="sponsored nofollow noopener noreferrer" target="_blank">Découvrir FlyingPress</a>
+</td>
+</tr>
+<tr>
+<th scope="row">LiteSpeed Cache</th>
+<td>Une extension d’optimisation avec intégration du cache serveur sur une infrastructure compatible.</td>
+<td>Les exigences serveur des fonctions de cache que vous comptez utiliser.</td>
+<td>
+<a href="https://wordpress.org/plugins/litespeed-cache/">Lire la documentation de l’extension</a>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<p>Aucune note étoilée ni aucun prix non vérifié n’est attribué. Vérifiez directement les licences et les fonctions incluses.</p>
+</section>
+<section id="checklist">
+<h2 id="woocommerce-cache-checklist">Liste de vérification du cache WooCommerce</h2>
+<ul>
+<li>Exclure le panier, la commande, le compte et la confirmation de commande lorsque des réponses dynamiques sont nécessaires.</li>
+<li>Respecter les témoins de session et de panier; vérifier le fonctionnement en connexion.</li>
+<li>Vérifier ensemble les règles de cache en périphérie et à l’origine.</li>
+<li>Valider les scripts de paiement avant d’activer les réglages de retard ou de chargement différé.</li>
+<li>Tester les parcours commerciaux après chaque changement, avec des paiements de test appropriés en préproduction.</li>
+<li>Conserver un plan de retour arrière et comparer la même charge avant et après.</li>
+</ul>
+</section>
+<section id="next-step">
+<h2 id="when-to-investigate-further">Quand approfondir le diagnostic</h2>
+<p>Si la boutique fonctionne encore mal malgré l’exclusion du cache, examinez les conflits applicatifs, les requêtes de base de données et les appels aux intégrations. Le <a href="/fr/services/correction-lenteur-commande/">service de diagnostic de commande</a> couvre ce travail de diagnostic ciblé.</p>
+</section>
+<aside aria-labelledby="continue-your-research" class="related" data-cta-location="related">
+<h2 id="continue-your-research">Poursuivre vos recherches</h2>
+<ul>
+<li>
+<a href="/fr/ressources/meilleurs/avis-cloudways/">Avis Cloudways</a>
+</li>
+<li>
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/">Hébergement cloud géré</a>
+</li>
+<li>
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-kinsta/">Cloudways vs Kinsta</a>
+</li>
+<li>
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a>
+</li>
+<li>
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-siteground/">Cloudways vs SiteGround</a>
+</li>
+<li>
+<a href="/fr/ressources/outils/performance-cwv/">Outils Core Web Vitals</a>
+</li>
+</ul>
+</aside>
+</div>
+</main>
+<footer class="site-footer" data-cta-location="footer"><div class="footer-grid"><div class="footer-brand"><a class="wordmark" href="/fr/"><span aria-hidden="true" class="monogram">CL</span><span>Carl Leger</span></a><p>Un regard indépendant sur l’hébergement, la performance Web et le SEO technique.</p><p>Canada · Français et anglais</p></div>
+<div><h2>Hébergement</h2><ul><li><a href="/fr/ressources/meilleurs/hebergement-cloud-gere/">Hébergement cloud</a></li><li><a href="/fr/ressources/meilleurs/avis-cloudways/">Avis Cloudways</a></li><li><a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-kinsta/">Cloudways vs Kinsta</a></li><li><a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a></li><li><a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-siteground/">Cloudways vs SiteGround</a></li></ul></div>
+<div><h2>Apprendre et agir</h2><ul><li><a href="/fr/ressources/">Ressources</a></li><li><a href="/fr/ressources/outils/performance-cwv/">Core Web Vitals</a></li><li><a href="/fr/ressources/erreurs-cache-woocommerce/">Cache WooCommerce</a></li><li><a href="/fr/services/">Services techniques</a></li><li><a href="/fr/a-propos/">À propos</a></li></ul></div>
+<div><h2>Échanger</h2><ul><li><a href="mailto:carlleger.dev@gmail.com">carlleger.dev@gmail.com</a></li><li><a href="https://www.linkedin.com/in/carlleger/">LinkedIn</a></li><li><a data-language-link href="/resources/woocommerce-cache-mistakes/" hreflang="en-CA" lang="en-CA">English</a></li></ul></div></div>
+<p class="footer-disclosure">Certains liens signalés sont affiliés : un achat peut générer une commission, sans frais supplémentaires pour vous. Les recommandations tiennent compte des besoins du site et des limites de chaque offre.</p>
+<div class="footer-bottom"><span>© 2026 Carl Leger</span><a href="/fr/a-propos/#privacy">Confidentialité</a><button class="link-button" data-consent-open="" hidden type="button">Préférences des témoins</button><a href="/fr/#top">Haut de page</a></div></footer>
+<aside aria-labelledby="consent-heading" class="consent-panel" hidden id="consent-banner">
+<div>
+<div class="consent-heading-row"><h2 id="consent-heading">Votre choix de confidentialité</h2><button class="link-button" data-consent-open="" type="button">Préférences</button></div>
+<p>Mesure facultative désactivée sans accord.</p>
+</div>
+<div class="actions">
+<button class="button" data-consent-accept="" type="button">Accepter</button>
+<button class="button" data-consent-reject="" type="button">Refuser</button>
+</div>
+</aside>
+<dialog aria-labelledby="privacy-title" class="privacy-dialog" id="privacy-dialog">
+<h2 id="privacy-title">Préférences de confidentialité</h2>
+<h3>Stockage essentiel</h3>
+<p>Votre choix explicite de langue est conservé dans ce navigateur pendant un maximum de 180 jours, séparément du consentement à la mesure. Il ne déclenche aucune redirection et ne remplace jamais la langue de l’URL ouverte.</p>
+<p>Votre choix est enregistré dans ce navigateur pour respecter votre préférence pendant 180 jours.</p>
+<div class="consent-option">
+<input aria-describedby="analytics-description" id="analytics-consent" type="checkbox"/>
+<label for="analytics-consent">Autoriser Google Analytics</label>
+</div>
+<p id="analytics-description">Mesurer les visites et les catégories de clics, sans transmettre les paramètres des liens affiliés dans les événements personnalisés.</p>
+<p>Vous pouvez retirer votre accord ici à tout moment. Le retrait désactive la mesure, efface les cookies accessibles et recharge la page.</p>
+<p id="consent-status" role="status">
+</p>
+<div class="actions">
+<button class="button primary" data-consent-save="" type="button">Enregistrer mon choix</button>
+<button class="button" data-consent-reject="" type="button">Refuser / retirer mon accord</button>
+<button class="button" data-consent-close="" type="button">Fermer</button>
+</div>
+</dialog>
+</body>
+</html>
