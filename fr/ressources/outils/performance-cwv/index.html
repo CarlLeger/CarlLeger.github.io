@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Performance WordPress et outils Core Web Vitals | Carl Leger</title>
+<meta content="Choisissez les outils de performance WordPress selon la tâche : diagnostiquer TTFB, LCP, INP et CLS, configurer le cache et valider les parcours WooCommerce." name="description"/>
+<meta content="Carl Leger" name="author"/>
+<meta content="index,follow" name="robots"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="#0b111b" name="theme-color"/>
+<link href="https://carlleger.github.io/fr/ressources/outils/performance-cwv/" rel="canonical"/>
+<link rel="alternate" hreflang="en-CA" href="https://carlleger.github.io/resources/tools/performance-cwv/"/>
+<link rel="alternate" hreflang="fr-CA" href="https://carlleger.github.io/fr/ressources/outils/performance-cwv/"/>
+<link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/resources/tools/performance-cwv/"/>
+<meta content="article" property="og:type"/>
+<meta content="Performance WordPress et outils Core Web Vitals | Carl Leger" property="og:title"/>
+<meta content="Choisissez les outils de performance WordPress selon la tâche : diagnostiquer TTFB, LCP, INP et CLS, configurer le cache et valider les parcours WooCommerce." property="og:description"/>
+<meta content="https://carlleger.github.io/fr/ressources/outils/performance-cwv/" property="og:url"/>
+<meta content="Carl Leger" property="og:site_name"/>
+<meta content="fr_CA" property="og:locale"/>
+<meta content="en_CA" property="og:locale:alternate"/>
+<meta content="https://carlleger.github.io/assets/images/brand/social-card.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Carl Leger — Hébergement, performance Web et SEO technique" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Performance WordPress et outils Core Web Vitals | Carl Leger" name="twitter:title"/>
+<meta content="Choisissez les outils de performance WordPress selon la tâche : diagnostiquer TTFB, LCP, INP et CLS, configurer le cache et valider les parcours WooCommerce." name="twitter:description"/>
+<meta content="https://carlleger.github.io/assets/images/brand/social-card.png" name="twitter:image"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<script>document.documentElement.classList.add("js");</script>
+<link href="/assets/css/styles.css" rel="stylesheet"/>
+<script defer src="/assets/js/language.js"></script>
+<script defer="" src="/assets/js/site.js">
+</script>
+<script defer="" src="/assets/js/analytics.js">
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://carlleger.github.io/#person","name":"Carl Leger","url":"https://carlleger.github.io/fr/","image":"https://carlleger.github.io/avatar.png","sameAs":["https://www.linkedin.com/in/carlleger/"]},{"@type":"WebSite","@id":"https://carlleger.github.io/#website","name":"Carl Leger","url":"https://carlleger.github.io/fr/","publisher":{"@id":"https://carlleger.github.io/#person"},"inLanguage":["en-CA","fr-CA"]},{"@type":"WebPage","@id":"https://carlleger.github.io/fr/ressources/outils/performance-cwv/#webpage","url":"https://carlleger.github.io/fr/ressources/outils/performance-cwv/","name":"Outils de performance WordPress et Core Web Vitals","description":"Choisissez les outils de performance WordPress selon la tâche : diagnostiquer TTFB, LCP, INP et CLS, configurer le cache et valider les parcours WooCommerce.","inLanguage":"fr-CA","isPartOf":{"@id":"https://carlleger.github.io/#website"},"about":{"@id":"https://carlleger.github.io/#person"}},{"@type":"BreadcrumbList","@id":"https://carlleger.github.io/fr/ressources/outils/performance-cwv/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://carlleger.github.io/fr/"},{"@type":"ListItem","position":2,"name":"Ressources","item":"https://carlleger.github.io/fr/ressources/"},{"@type":"ListItem","position":3,"name":"Outils de performance WordPress et Core Web Vitals","item":"https://carlleger.github.io/fr/ressources/outils/performance-cwv/"}]},{"@type":"Article","@id":"https://carlleger.github.io/fr/ressources/outils/performance-cwv/#article","headline":"Outils de performance WordPress et Core Web Vitals","description":"Choisissez les outils de performance WordPress selon la tâche : diagnostiquer TTFB, LCP, INP et CLS, configurer le cache et valider les parcours WooCommerce.","author":{"@id":"https://carlleger.github.io/#person"},"publisher":{"@id":"https://carlleger.github.io/#person"},"mainEntityOfPage":{"@id":"https://carlleger.github.io/fr/ressources/outils/performance-cwv/#webpage"},"inLanguage":"fr-CA","image":"https://carlleger.github.io/assets/images/brand/social-card.png"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Faut-il plusieurs extensions de cache?","acceptedAnswer":{"@type":"Answer","text":"Une approche principale de cache est généralement plus facile à comprendre. Des réglages qui se chevauchent compliquent le diagnostic et le retour arrière."}},{"@type":"Question","name":"Cloudflare est-il sûr pour WooCommerce?","acceptedAnswer":{"@type":"Answer","text":"Il exige une configuration appropriée. N’appliquez pas un cache HTML sans distinction aux sessions, paniers, commandes ou comptes."}},{"@type":"Question","name":"Faut-il corriger le LCP ou l’INP en premier?","acceptedAnswer":{"@type":"Answer","text":"Priorisez l’effet réel sur les utilisateurs et les preuves les plus solides. Un serveur lent, une grande image et des tâches d’interaction longues exigent des correctifs différents."}}],"inLanguage":"fr-CA"}]}</script>
+</head>
+<body data-page-type="guide">
+<a class="skip" href="/fr/#main">Aller au contenu</a>
+<header class="site-header" data-cta-location="header" id="top">
+<div class="header-inner">
+<a class="wordmark" href="/fr/">
+<span aria-hidden="true" class="monogram">CL</span>
+<span>Carl Leger</span>
+</a>
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Ouvrir le menu" class="menu-toggle" data-menu-toggle="" hidden type="button">Menu</button>
+<nav aria-label="Navigation principale" class="site-nav" id="primary-nav">
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/">Hébergement</a>
+<a href="/fr/ressources/">Ressources</a>
+<a href="/fr/services/">Services</a>
+<a href="/fr/a-propos/">À propos</a>
+<a href="/fr/contact/">Contact</a>
+<details class="language-selector" data-language-selector data-language-anchors="{&quot;top&quot;:&quot;top&quot;,&quot;primary-nav&quot;:&quot;primary-nav&quot;,&quot;main&quot;:&quot;main&quot;,&quot;web-vitals&quot;:&quot;web-vitals&quot;,&quot;choose&quot;:&quot;choose&quot;,&quot;choose-the-tool-around-the-bottleneck&quot;:&quot;choose-the-tool-around-the-bottleneck&quot;,&quot;tools&quot;:&quot;tools&quot;,&quot;performance-and-core-web-vitals-tools&quot;:&quot;performance-and-core-web-vitals-tools&quot;,&quot;workflow&quot;:&quot;workflow&quot;,&quot;diagnose-fix-validate-monitor&quot;:&quot;diagnose-fix-validate-monitor&quot;,&quot;woo&quot;:&quot;woo&quot;,&quot;woocommerce-safety-checklist&quot;:&quot;woocommerce-safety-checklist&quot;,&quot;faq&quot;:&quot;faq&quot;,&quot;performance-tools-faq&quot;:&quot;performance-tools-faq&quot;,&quot;continue-your-research&quot;:&quot;continue-your-research&quot;,&quot;consent-banner&quot;:&quot;consent-banner&quot;,&quot;consent-heading&quot;:&quot;consent-heading&quot;,&quot;privacy-dialog&quot;:&quot;privacy-dialog&quot;,&quot;privacy-title&quot;:&quot;privacy-title&quot;,&quot;analytics-consent&quot;:&quot;analytics-consent&quot;,&quot;analytics-description&quot;:&quot;analytics-description&quot;,&quot;consent-status&quot;:&quot;consent-status&quot;}"><summary aria-controls="language-options" aria-label="Langue : Français. Choisir une langue"><svg aria-hidden="true" focusable="false" class="language-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg><span>Français</span><svg aria-hidden="true" focusable="false" class="language-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m3 4.5 3 3 3-3"/></svg></summary><ul id="language-options" class="language-options" aria-label="Langues disponibles"><li><a data-language-link href="/resources/tools/performance-cwv/" lang="en-CA" hreflang="en-CA"><span>English</span></a></li><li><a data-language-link href="/fr/ressources/outils/performance-cwv/" lang="fr-CA" hreflang="fr-CA" aria-current="true"><span>Français</span><svg aria-hidden="true" focusable="false" class="language-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 8 3 3 7-7"/></svg></a></li></ul></details>
+</nav>
+</div>
+</header>
+<main class="site-main article-shell" id="main" tabindex="-1">
+<nav aria-label="Fil d’Ariane" class="breadcrumbs">
+<ol>
+<li>
+<a href="/fr/">Accueil</a>
+</li>
+<li>
+<a href="/fr/ressources/">Ressources</a>
+</li>
+<li>
+<span aria-current="page">Outils de performance WordPress et Core Web Vitals</span>
+</li>
+</ol>
+</nav>
+<div class="page-intro">
+<p class="eyebrow">Guide</p>
+<h1>Outils de performance WordPress et Core Web Vitals</h1>
+<p class="lead">Choisissez les outils de performance WordPress selon la tâche : diagnostiquer TTFB, LCP, INP et CLS, configurer le cache et valider les parcours WooCommerce.</p>
+<p class="byline"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M14 2H5v20h14V7Zm0 0v5h5M8 11h8M8 15h8M8 18h5"></path></svg><span>Carl Leger · Conseils techniques indépendants</span></p></div>
+<p class="disclosure">Divulgation d’affiliation : un achat par un lien affilié signalé peut me rapporter une commission, sans frais supplémentaires pour vous. Les liens de documentation sont des sources ordinaires, non affiliées.</p>
+<div class="article-body" data-cta-location="article"><section class="section" id="web-vitals"><div class="section-head"><div><p class="section-label">Repères pédagogiques</p><h2>Trois signaux. Trois problèmes différents.</h2></div><p>Seuils de référence, et non résultats mesurés pour ce site.</p></div>
+<div class="vitals-grid"><article class="vital-card"><div class="vital-top"><h3>LCP</h3><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M4 18a9 9 0 1 1 16 0M7 9l1 1M16 9l1-1M12 5v2M4 13h2M18 13h2M12 14l4-4"></path><circle cx="12" cy="14" r="2"></circle><path d="M8 21h8"></path></svg></div><p class="vital-value">≤ 2,5 s</p><p class="vital-label">Chargement du contenu principal · seuil satisfaisant</p><div aria-hidden="true" class="threshold-bar" style="--good:50;--improve:30;--poor:20"><span></span><span></span><span></span></div><div class="threshold-legend"><span>Bon<br/>0–2,5 s</span><span>À améliorer<br/>&gt; 2,5–4 s</span><span>Faible<br/>&gt; 4 s</span></div><p>Repérez le contenu principal. Priorisez sa ressource et réduisez le travail qui bloque le rendu.</p></article><article class="vital-card"><div class="vital-top"><h3>INP</h3><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="m5 3 14 9-7 1-3 7Z"></path></svg></div><p class="vital-value">≤ 200 ms</p><p class="vital-label">Réactivité aux interactions · seuil satisfaisant</p><div aria-hidden="true" class="threshold-bar" style="--good:33.333;--improve:50;--poor:16.667"><span></span><span></span><span></span></div><div class="threshold-legend"><span>Bon<br/>0–200 ms</span><span>À améliorer<br/>&gt; 200–500 ms</span><span>Faible<br/>&gt; 500 ms</span></div><p>Réduisez les longues tâches JavaScript et examinez le travail déclenché par les interactions.</p></article><article class="vital-card"><div class="vital-top"><h3>CLS</h3><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M10 9v12"></path></svg></div><p class="vital-value">≤ 0,1</p><p class="vital-label">Stabilité visuelle · seuil satisfaisant · sans unité</p><div aria-hidden="true" class="threshold-bar" style="--good:33.333;--improve:50;--poor:16.667"><span></span><span></span><span></span></div><div class="threshold-legend"><span>Bon<br/>0–0,1</span><span>À améliorer<br/>&gt; 0,1–0,25</span><span>Faible<br/>&gt; 0,25</span></div><p>Réservez les dimensions des images et des contenus intégrés. Évitez les insertions imprévues au-dessus du contenu.</p></article></div><p class="reference-note">Source : <a href="https://web.dev/articles/defining-core-web-vitals-thresholds">Google / web.dev</a> · Référence vérifiée le 24 novembre 2026. L’évaluation réelle utilise le 75e centile des visites; aucun INP réel n’est mesuré ici. Le TBT de Lighthouse ne remplace pas l’INP. Chaque barre utilise sa propre échelle linéaire : LCP 0–5 s, INP 0–600 ms, CLS 0–0,3; les valeurs supérieures restent faibles.</p></section>
+<section id="choose">
+<h2 id="choose-the-tool-around-the-bottleneck">Choisir l’outil selon le goulot d’étranglement</h2>
+<p>Un ensemble d’outils de performance utile commence par un diagnostic. Évitez les extensions de cache ou d’optimisation aux responsabilités qui se chevauchent. Choisissez une approche principale, validez-la, puis ajoutez des outils de diffusion ou de surveillance pour des besoins démontrés.</p>
+<ul>
+<li>
+<strong>TTFB élevé :</strong> examiner les requêtes à l’origine, le cache, le PHP et les requêtes de base de données.</li>
+<li>
+<strong>LCP lent :</strong> examiner la ressource principale (image ou texte), le CSS critique et les requêtes bloquantes.</li>
+<li>
+<strong>INP faible :</strong> examiner les tâches longues et les scripts d’interaction, y compris les tiers.</li>
+<li>
+<strong>Décalages de mise en page :</strong> réserver les dimensions des images et des contenus intégrés, et examiner le contenu rendu tardivement.</li>
+</ul>
+</section>
+<section id="tools">
+<h2 id="performance-and-core-web-vitals-tools">Outils de performance et Core Web Vitals</h2>
+<section aria-label="Outils organisés selon leur rôle dans le diagnostic" class="table-scroll" tabindex="0">
+<table style="--data-columns:3">
+<caption>Outils organisés selon leur rôle dans le diagnostic</caption>
+<thead>
+<tr>
+<th scope="col"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="3"></rect><path d="M3 9h18M3 15h18M10 9v12"></path></svg>Rôle</th>
+<th scope="col">Outil</th>
+<th scope="col">Utilité</th>
+<th scope="col">Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Diagnostic</th>
+<td>PageSpeed Insights</td>
+<td>Examiner les mesures de laboratoire et les données réelles disponibles.</td>
+<td>
+<a href="https://pagespeed.web.dev/">Ouvrir PageSpeed Insights</a>
+</td>
+</tr>
+<tr>
+<th scope="row">Diagnostic</th>
+<td>GTmetrix</td>
+<td>Examiner la chronologie réseau et les requêtes à l’origine d’un chargement lent.</td>
+<td>
+<a href="https://gtmetrix.com/">Visiter GTmetrix</a>
+</td>
+</tr>
+<tr>
+<th scope="row">Surveillance</th>
+<td>Google Search Console</td>
+<td>Examiner la visibilité en recherche, l’indexation et les rapports CWV réels disponibles.</td>
+<td>
+<a href="https://search.google.com/search-console/">Ouvrir Search Console</a>
+</td>
+</tr>
+<tr>
+<th scope="row">Cache</th>
+<td>WP Rocket</td>
+<td>Une option payante d’optimisation; valider sa configuration selon l’application.</td>
+<td>
+<a href="https://wp-rocket.me/">Visiter WP Rocket</a>
+</td>
+</tr>
+<tr>
+<th scope="row">Optimisation</th>
+<td>FlyingPress</td>
+<td>Une option d’optimisation à évaluer selon le goulot d’étranglement.</td>
+<td>
+<a class="button" data-cta-location="table" data-provider="flyingpress" href="https://flyingpress.com/?ref=fffd" rel="sponsored nofollow noopener noreferrer" target="_blank">Découvrir FlyingPress</a>
+</td>
+</tr>
+<tr>
+<th scope="row">CDN et périphérie</th>
+<td>Cloudflare</td>
+<td>Évaluer le cache, la diffusion et la sécurité avec des exclusions commerciales explicites.</td>
+<td>
+<a href="https://www.cloudflare.com/">Visiter Cloudflare</a>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<p>Les fonctions et les licences peuvent changer. Confirmez la portée actuelle dans la documentation avant d’installer ou d’acheter un outil.</p>
+</section>
+<section id="workflow">
+<h2 id="diagnose-fix-validate-monitor">Diagnostiquer, corriger, valider, surveiller</h2>
+<ul>
+<li>
+<strong>Diagnostiquer :</strong> utiliser les données réelles disponibles et un protocole de laboratoire reproductible.</li>
+<li>
+<strong>Corriger :</strong> traiter la principale contrainte démontrée avant d’ajouter des outils.</li>
+<li>
+<strong>Valider :</strong> répéter la mesure et tester les parcours touchés.</li>
+<li>
+<strong>Surveiller :</strong> repérer les résultats durables et les régressions après les changements de contenu, d’extension ou de gabarit.</li>
+</ul>
+</section>
+<section id="woo">
+<h2 id="woocommerce-safety-checklist">Vérifications de sécurité WooCommerce</h2>
+<ul>
+<li>Garder dynamiques le panier, la commande, le compte et la confirmation lorsque nécessaire.</li>
+<li>Respecter les témoins de session et le fonctionnement en connexion.</li>
+<li>Vérifier les scripts retardés ou différés avec le paiement et le panier.</li>
+<li>Tester l’ajout au panier, le mini-panier, les coupons, la livraison, le paiement et les pages de compte.</li>
+<li>Utiliser la préproduction et une sauvegarde récupérable avant les changements risqués.</li>
+</ul>
+</section>
+<section id="faq">
+<h2 id="performance-tools-faq">FAQ sur les outils de performance</h2>
+<div class="faq">
+<details>
+<summary>Faut-il plusieurs extensions de cache?</summary>
+<p>Une approche principale de cache est généralement plus facile à comprendre. Des réglages qui se chevauchent compliquent le diagnostic et le retour arrière.</p>
+</details>
+<details>
+<summary>Cloudflare est-il sûr pour WooCommerce?</summary>
+<p>Il exige une configuration appropriée. N’appliquez pas un cache HTML sans distinction aux sessions, paniers, commandes ou comptes.</p>
+</details>
+<details>
+<summary>Faut-il corriger le LCP ou l’INP en premier?</summary>
+<p>Priorisez l’effet réel sur les utilisateurs et les preuves les plus solides. Un serveur lent, une grande image et des tâches d’interaction longues exigent des correctifs différents.</p>
+</details>
+</div>
+</section>
+<aside aria-labelledby="continue-your-research" class="related" data-cta-location="related">
+<h2 id="continue-your-research">Poursuivre vos recherches</h2>
+<ul>
+<li>
+<a href="/fr/ressources/meilleurs/avis-cloudways/">Avis Cloudways</a>
+</li>
+<li>
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/">Hébergement cloud géré</a>
+</li>
+<li>
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-kinsta/">Cloudways vs Kinsta</a>
+</li>
+<li>
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a>
+</li>
+<li>
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-siteground/">Cloudways vs SiteGround</a>
+</li>
+<li>
+<a href="/fr/ressources/erreurs-cache-woocommerce/">Cache WooCommerce sécurisé</a>
+</li>
+</ul>
+</aside>
+</div>
+</main>
+<footer class="site-footer" data-cta-location="footer"><div class="footer-grid"><div class="footer-brand"><a class="wordmark" href="/fr/"><span aria-hidden="true" class="monogram">CL</span><span>Carl Leger</span></a><p>Un regard indépendant sur l’hébergement, la performance Web et le SEO technique.</p><p>Canada · Français et anglais</p></div>
+<div><h2>Hébergement</h2><ul><li><a href="/fr/ressources/meilleurs/hebergement-cloud-gere/">Hébergement cloud</a></li><li><a href="/fr/ressources/meilleurs/avis-cloudways/">Avis Cloudways</a></li><li><a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-kinsta/">Cloudways vs Kinsta</a></li><li><a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a></li><li><a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-siteground/">Cloudways vs SiteGround</a></li></ul></div>
+<div><h2>Apprendre et agir</h2><ul><li><a href="/fr/ressources/">Ressources</a></li><li><a href="/fr/ressources/outils/performance-cwv/">Core Web Vitals</a></li><li><a href="/fr/ressources/erreurs-cache-woocommerce/">Cache WooCommerce</a></li><li><a href="/fr/services/">Services techniques</a></li><li><a href="/fr/a-propos/">À propos</a></li></ul></div>
+<div><h2>Échanger</h2><ul><li><a href="mailto:carlleger.dev@gmail.com">carlleger.dev@gmail.com</a></li><li><a href="https://www.linkedin.com/in/carlleger/">LinkedIn</a></li><li><a data-language-link href="/resources/tools/performance-cwv/" hreflang="en-CA" lang="en-CA">English</a></li></ul></div></div>
+<p class="footer-disclosure">Certains liens signalés sont affiliés : un achat peut générer une commission, sans frais supplémentaires pour vous. Les recommandations tiennent compte des besoins du site et des limites de chaque offre.</p>
+<div class="footer-bottom"><span>© 2026 Carl Leger</span><a href="/fr/a-propos/#privacy">Confidentialité</a><button class="link-button" data-consent-open="" hidden type="button">Préférences des témoins</button><a href="/fr/#top">Haut de page</a></div></footer>
+<aside aria-labelledby="consent-heading" class="consent-panel" hidden id="consent-banner">
+<div>
+<div class="consent-heading-row"><h2 id="consent-heading">Votre choix de confidentialité</h2><button class="link-button" data-consent-open="" type="button">Préférences</button></div>
+<p>Mesure facultative désactivée sans accord.</p>
+</div>
+<div class="actions">
+<button class="button" data-consent-accept="" type="button">Accepter</button>
+<button class="button" data-consent-reject="" type="button">Refuser</button>
+</div>
+</aside>
+<dialog aria-labelledby="privacy-title" class="privacy-dialog" id="privacy-dialog">
+<h2 id="privacy-title">Préférences de confidentialité</h2>
+<h3>Stockage essentiel</h3>
+<p>Votre choix explicite de langue est conservé dans ce navigateur pendant un maximum de 180 jours, séparément du consentement à la mesure. Il ne déclenche aucune redirection et ne remplace jamais la langue de l’URL ouverte.</p>
+<p>Votre choix est enregistré dans ce navigateur pour respecter votre préférence pendant 180 jours.</p>
+<div class="consent-option">
+<input aria-describedby="analytics-description" id="analytics-consent" type="checkbox"/>
+<label for="analytics-consent">Autoriser Google Analytics</label>
+</div>
+<p id="analytics-description">Mesurer les visites et les catégories de clics, sans transmettre les paramètres des liens affiliés dans les événements personnalisés.</p>
+<p>Vous pouvez retirer votre accord ici à tout moment. Le retrait désactive la mesure, efface les cookies accessibles et recharge la page.</p>
+<p id="consent-status" role="status">
+</p>
+<div class="actions">
+<button class="button primary" data-consent-save="" type="button">Enregistrer mon choix</button>
+<button class="button" data-consent-reject="" type="button">Refuser / retirer mon accord</button>
+<button class="button" data-consent-close="" type="button">Fermer</button>
+</div>
+</dialog>
+</body>
+</html>

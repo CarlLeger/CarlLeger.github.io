@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Audit de performance WooCommerce | Core Web Vitals et TTFB</title>
+<meta content="Audit de performance adapté à WooCommerce : Core Web Vitals, TTFB, risques de commande et plan de mise en œuvre priorisé." name="description"/>
+<meta content="Carl Leger" name="author"/>
+<meta content="index,follow" name="robots"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="#0b111b" name="theme-color"/>
+<link href="https://carlleger.github.io/fr/services/audit-performance/" rel="canonical"/>
+<link rel="alternate" hreflang="en-CA" href="https://carlleger.github.io/services/performance-audit/"/>
+<link rel="alternate" hreflang="fr-CA" href="https://carlleger.github.io/fr/services/audit-performance/"/>
+<link rel="alternate" hreflang="x-default" href="https://carlleger.github.io/services/performance-audit/"/>
+<meta content="website" property="og:type"/>
+<meta content="Audit de performance WooCommerce | Core Web Vitals et TTFB" property="og:title"/>
+<meta content="Audit de performance adapté à WooCommerce : Core Web Vitals, TTFB, risques de commande et plan de mise en œuvre priorisé." property="og:description"/>
+<meta content="https://carlleger.github.io/fr/services/audit-performance/" property="og:url"/>
+<meta content="Carl Leger" property="og:site_name"/>
+<meta content="fr_CA" property="og:locale"/>
+<meta content="en_CA" property="og:locale:alternate"/>
+<meta content="https://carlleger.github.io/assets/images/brand/social-card.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Carl Leger — Hébergement, performance Web et SEO technique" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Audit de performance WooCommerce | Core Web Vitals et TTFB" name="twitter:title"/>
+<meta content="Audit de performance adapté à WooCommerce : Core Web Vitals, TTFB, risques de commande et plan de mise en œuvre priorisé." name="twitter:description"/>
+<meta content="https://carlleger.github.io/assets/images/brand/social-card.png" name="twitter:image"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<script>document.documentElement.classList.add("js");</script>
+<link href="/assets/css/styles.css" rel="stylesheet"/>
+<script defer src="/assets/js/language.js"></script>
+<script defer="" src="/assets/js/site.js">
+</script>
+<script defer="" src="/assets/js/analytics.js">
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://carlleger.github.io/#person","name":"Carl Leger","url":"https://carlleger.github.io/fr/","image":"https://carlleger.github.io/avatar.png","sameAs":["https://www.linkedin.com/in/carlleger/"]},{"@type":"WebSite","@id":"https://carlleger.github.io/#website","name":"Carl Leger","url":"https://carlleger.github.io/fr/","publisher":{"@id":"https://carlleger.github.io/#person"},"inLanguage":["en-CA","fr-CA"]},{"@type":"WebPage","@id":"https://carlleger.github.io/fr/services/audit-performance/#webpage","url":"https://carlleger.github.io/fr/services/audit-performance/","name":"Audit de performance WooCommerce","description":"Audit de performance adapté à WooCommerce : Core Web Vitals, TTFB, risques de commande et plan de mise en œuvre priorisé.","inLanguage":"fr-CA","isPartOf":{"@id":"https://carlleger.github.io/#website"},"about":{"@id":"https://carlleger.github.io/#person"}},{"@type":"BreadcrumbList","@id":"https://carlleger.github.io/fr/services/audit-performance/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://carlleger.github.io/fr/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://carlleger.github.io/fr/services/"},{"@type":"ListItem","position":3,"name":"Audit de performance WooCommerce","item":"https://carlleger.github.io/fr/services/audit-performance/"}]},{"@type":"Service","name":"Audit de performance WooCommerce","description":"Audit de performance adapté à WooCommerce : Core Web Vitals, TTFB, risques de commande et plan de mise en œuvre priorisé.","provider":{"@id":"https://carlleger.github.io/#person"},"areaServed":"Canada","url":"https://carlleger.github.io/fr/services/audit-performance/"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Mettez-vous aussi en œuvre les correctifs?","acceptedAnswer":{"@type":"Answer","text":"La mise en œuvre peut suivre l’audit. La portée dépend des constats et des accès disponibles; l’audit peut aussi être remis à votre équipe actuelle."}},{"@type":"Question","name":"Un audit garantit-il une commande plus rapide?","acceptedAnswer":{"@type":"Answer","text":"Aucun gain précis n’est promis avant de comprendre la cause. Le livrable est un plan fondé sur les preuves, avec des étapes de validation concrètes."}},{"@type":"Question","name":"Par où commencer si seule la commande est lente?","acceptedAnswer":{"@type":"Answer","text":"Consultez le service de lenteur à la commande pour un diagnostic plus ciblé."}}],"inLanguage":"fr-CA"}]}</script>
+</head>
+<body data-page-type="service">
+<a class="skip" href="/fr/#main">Aller au contenu</a>
+<header class="site-header" data-cta-location="header" id="top">
+<div class="header-inner">
+<a class="wordmark" href="/fr/">
+<span aria-hidden="true" class="monogram">CL</span>
+<span>Carl Leger</span>
+</a>
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Ouvrir le menu" class="menu-toggle" data-menu-toggle="" hidden type="button">Menu</button>
+<nav aria-label="Navigation principale" class="site-nav" id="primary-nav">
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/">Hébergement</a>
+<a href="/fr/ressources/">Ressources</a>
+<a href="/fr/services/">Services</a>
+<a href="/fr/a-propos/">À propos</a>
+<a href="/fr/contact/">Contact</a>
+<details class="language-selector" data-language-selector data-language-anchors="{&quot;top&quot;:&quot;top&quot;,&quot;primary-nav&quot;:&quot;primary-nav&quot;,&quot;main&quot;:&quot;main&quot;,&quot;scope&quot;:&quot;scope&quot;,&quot;what-i-analyse&quot;:&quot;what-i-analyse&quot;,&quot;deliverables&quot;:&quot;deliverables&quot;,&quot;what-you-receive&quot;:&quot;what-you-receive&quot;,&quot;process&quot;:&quot;process&quot;,&quot;how-the-audit-works&quot;:&quot;how-the-audit-works&quot;,&quot;faq&quot;:&quot;faq&quot;,&quot;audit-questions&quot;:&quot;audit-questions&quot;,&quot;next-step&quot;:&quot;next-step&quot;,&quot;discuss-the-scope&quot;:&quot;discuss-the-scope&quot;,&quot;continue-your-research&quot;:&quot;continue-your-research&quot;,&quot;consent-banner&quot;:&quot;consent-banner&quot;,&quot;consent-heading&quot;:&quot;consent-heading&quot;,&quot;privacy-dialog&quot;:&quot;privacy-dialog&quot;,&quot;privacy-title&quot;:&quot;privacy-title&quot;,&quot;analytics-consent&quot;:&quot;analytics-consent&quot;,&quot;analytics-description&quot;:&quot;analytics-description&quot;,&quot;consent-status&quot;:&quot;consent-status&quot;}"><summary aria-controls="language-options" aria-label="Langue : Français. Choisir une langue"><svg aria-hidden="true" focusable="false" class="language-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg><span>Français</span><svg aria-hidden="true" focusable="false" class="language-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m3 4.5 3 3 3-3"/></svg></summary><ul id="language-options" class="language-options" aria-label="Langues disponibles"><li><a data-language-link href="/services/performance-audit/" lang="en-CA" hreflang="en-CA"><span>English</span></a></li><li><a data-language-link href="/fr/services/audit-performance/" lang="fr-CA" hreflang="fr-CA" aria-current="true"><span>Français</span><svg aria-hidden="true" focusable="false" class="language-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 8 3 3 7-7"/></svg></a></li></ul></details>
+</nav>
+</div>
+</header>
+<main class="site-main article-shell" id="main" tabindex="-1">
+<nav aria-label="Fil d’Ariane" class="breadcrumbs">
+<ol>
+<li>
+<a href="/fr/">Accueil</a>
+</li>
+<li>
+<a href="/fr/services/">Services</a>
+</li>
+<li>
+<span aria-current="page">Audit de performance WooCommerce</span>
+</li>
+</ol>
+</nav>
+<div class="page-intro">
+<p class="eyebrow">Services techniques</p>
+<h1>Audit de performance WooCommerce</h1>
+<p class="lead">Audit de performance adapté à WooCommerce : Core Web Vitals, TTFB, risques de commande et plan de mise en œuvre priorisé.</p>
+<p class="byline"><svg aria-hidden="true" class="icon" focusable="false" viewbox="0 0 24 24"><path d="M14 2H5v20h14V7Zm0 0v5h5M8 11h8M8 15h8M8 18h5"></path></svg><span>Carl Leger · Conseils techniques indépendants</span></p></div>
+<div class="article-body" data-cta-location="article">
+<p>Partez des faits derrière les pages lentes ou la commande peu fiable. L’audit repère les goulots probables et distingue les contraintes d’infrastructure des problèmes applicatifs et d’interface.</p>
+<section id="scope">
+<h2 id="what-i-analyse">Ce que j’analyse</h2>
+<ul>
+<li>
+<strong>Core Web Vitals :</strong> LCP, INP et CLS, en distinguant les données réelles des diagnostics de laboratoire.</li>
+<li>
+<strong>Réponse du serveur :</strong> TTFB, cache, exécution PHP, requêtes coûteuses et contraintes d’infrastructure.</li>
+<li>
+<strong>Parcours WooCommerce :</strong> Panier, commande, sessions, fonctionnement en connexion et scripts de paiement.</li>
+<li>
+<strong>Ressources de l’interface :</strong> Images, polices, ressources bloquantes, longues tâches JavaScript et balises tierces.</li>
+<li>
+<strong>SEO technique :</strong> Liens explorables, indexabilité, cohérence canonique et structure des gabarits.</li>
+<li>
+<strong>Mesure :</strong> Événements pertinents et validation de la configuration de mesure, dans le respect du consentement.</li>
+</ul>
+</section>
+<section id="deliverables">
+<h2 id="what-you-receive">Ce que vous recevez</h2>
+<ul>
+<li>Un état de référence et une carte des goulots expliquant les points à examiner.</li>
+<li>Un plan d’action priorisé distinguant les gains rapides des travaux à plus grande portée.</li>
+<li>Des étapes de validation pour les changements proposés, y compris les risques de commande.</li>
+<li>Une approche de préproduction et de retour arrière si la mise en œuvre est pertinente.</li>
+<li>Des prochaines étapes pour votre équipe de développement, ou à discuter pour la mise en œuvre.</li>
+</ul>
+</section>
+<section id="process">
+<h2 id="how-the-audit-works">Déroulement de l’audit</h2>
+<ul>
+<li>
+<strong>Décrire le problème :</strong> transmettre par courriel professionnel l’URL, la plateforme et le parcours touché.</li>
+<li>
+<strong>Examiner les faits :</strong> examiner les mesures et les comportements techniques pertinents. La préproduction est privilégiée pour les tests intrusifs.</li>
+<li>
+<strong>Prioriser :</strong> adapter le travail proposé à l’effet attendu, aux risques et aux preuves disponibles.</li>
+</ul>
+</section>
+<section id="faq">
+<h2 id="audit-questions">Questions sur l’audit</h2>
+<div class="faq">
+<details>
+<summary>Mettez-vous aussi en œuvre les correctifs?</summary>
+<p>La mise en œuvre peut suivre l’audit. La portée dépend des constats et des accès disponibles; l’audit peut aussi être remis à votre équipe actuelle.</p>
+</details>
+<details>
+<summary>Un audit garantit-il une commande plus rapide?</summary>
+<p>Aucun gain précis n’est promis avant de comprendre la cause. Le livrable est un plan fondé sur les preuves, avec des étapes de validation concrètes.</p>
+</details>
+<details>
+<summary>Par où commencer si seule la commande est lente?</summary>
+<p>Consultez le <a href="/fr/services/correction-lenteur-commande/">service de lenteur à la commande</a> pour un diagnostic plus ciblé.</p>
+</details>
+</div>
+</section>
+<section id="next-step">
+<h2 id="discuss-the-scope">Discuter de la portée</h2>
+<div class="actions">
+<a class="button primary" href="mailto:carlleger.dev@gmail.com">Écrire à Carl</a>
+<a class="button" href="https://www.linkedin.com/in/carlleger/">LinkedIn</a>
+</div>
+</section>
+<aside aria-labelledby="continue-your-research" class="related" data-cta-location="related">
+<h2 id="continue-your-research">Poursuivre vos recherches</h2>
+<ul>
+<li>
+<a href="/fr/ressources/meilleurs/avis-cloudways/">Avis Cloudways</a>
+</li>
+<li>
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/">Hébergement cloud géré</a>
+</li>
+<li>
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-kinsta/">Cloudways vs Kinsta</a>
+</li>
+<li>
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a>
+</li>
+<li>
+<a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-siteground/">Cloudways vs SiteGround</a>
+</li>
+<li>
+<a href="/fr/ressources/erreurs-cache-woocommerce/">Cache WooCommerce sécurisé</a>
+</li>
+<li>
+<a href="/fr/ressources/outils/performance-cwv/">Outils Core Web Vitals</a>
+</li>
+</ul>
+</aside>
+</div>
+</main>
+<footer class="site-footer" data-cta-location="footer"><div class="footer-grid"><div class="footer-brand"><a class="wordmark" href="/fr/"><span aria-hidden="true" class="monogram">CL</span><span>Carl Leger</span></a><p>Un regard indépendant sur l’hébergement, la performance Web et le SEO technique.</p><p>Canada · Français et anglais</p></div>
+<div><h2>Hébergement</h2><ul><li><a href="/fr/ressources/meilleurs/hebergement-cloud-gere/">Hébergement cloud</a></li><li><a href="/fr/ressources/meilleurs/avis-cloudways/">Avis Cloudways</a></li><li><a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-kinsta/">Cloudways vs Kinsta</a></li><li><a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-wp-engine/">Cloudways vs WP Engine</a></li><li><a href="/fr/ressources/meilleurs/hebergement-cloud-gere/cloudways-vs-siteground/">Cloudways vs SiteGround</a></li></ul></div>
+<div><h2>Apprendre et agir</h2><ul><li><a href="/fr/ressources/">Ressources</a></li><li><a href="/fr/ressources/outils/performance-cwv/">Core Web Vitals</a></li><li><a href="/fr/ressources/erreurs-cache-woocommerce/">Cache WooCommerce</a></li><li><a href="/fr/services/">Services techniques</a></li><li><a href="/fr/a-propos/">À propos</a></li></ul></div>
+<div><h2>Échanger</h2><ul><li><a href="mailto:carlleger.dev@gmail.com">carlleger.dev@gmail.com</a></li><li><a href="https://www.linkedin.com/in/carlleger/">LinkedIn</a></li><li><a data-language-link href="/services/performance-audit/" hreflang="en-CA" lang="en-CA">English</a></li></ul></div></div>
+<p class="footer-disclosure">Certains liens signalés sont affiliés : un achat peut générer une commission, sans frais supplémentaires pour vous. Les recommandations tiennent compte des besoins du site et des limites de chaque offre.</p>
+<div class="footer-bottom"><span>© 2026 Carl Leger</span><a href="/fr/a-propos/#privacy">Confidentialité</a><button class="link-button" data-consent-open="" hidden type="button">Préférences des témoins</button><a href="/fr/#top">Haut de page</a></div></footer>
+<aside aria-labelledby="consent-heading" class="consent-panel" hidden id="consent-banner">
+<div>
+<div class="consent-heading-row"><h2 id="consent-heading">Votre choix de confidentialité</h2><button class="link-button" data-consent-open="" type="button">Préférences</button></div>
+<p>Mesure facultative désactivée sans accord.</p>
+</div>
+<div class="actions">
+<button class="button" data-consent-accept="" type="button">Accepter</button>
+<button class="button" data-consent-reject="" type="button">Refuser</button>
+</div>
+</aside>
+<dialog aria-labelledby="privacy-title" class="privacy-dialog" id="privacy-dialog">
+<h2 id="privacy-title">Préférences de confidentialité</h2>
+<h3>Stockage essentiel</h3>
+<p>Votre choix explicite de langue est conservé dans ce navigateur pendant un maximum de 180 jours, séparément du consentement à la mesure. Il ne déclenche aucune redirection et ne remplace jamais la langue de l’URL ouverte.</p>
+<p>Votre choix est enregistré dans ce navigateur pour respecter votre préférence pendant 180 jours.</p>
+<div class="consent-option">
+<input aria-describedby="analytics-description" id="analytics-consent" type="checkbox"/>
+<label for="analytics-consent">Autoriser Google Analytics</label>
+</div>
+<p id="analytics-description">Mesurer les visites et les catégories de clics, sans transmettre les paramètres des liens affiliés dans les événements personnalisés.</p>
+<p>Vous pouvez retirer votre accord ici à tout moment. Le retrait désactive la mesure, efface les cookies accessibles et recharge la page.</p>
+<p id="consent-status" role="status">
+</p>
+<div class="actions">
+<button class="button primary" data-consent-save="" type="button">Enregistrer mon choix</button>
+<button class="button" data-consent-reject="" type="button">Refuser / retirer mon accord</button>
+<button class="button" data-consent-close="" type="button">Fermer</button>
+</div>
+</dialog>
+</body>
+</html>
